@@ -7,10 +7,10 @@ cache:
 pages:
   stage: deploy
   script:
-    - npm install
-    - npm run build
+    - npm ci || npm install
+    - CI=false npm run build  # CI=false to ignore warnings
     - rm -rf public
-    - mv build public
+    - cp -r build public
   artifacts:
     paths:
       - public
