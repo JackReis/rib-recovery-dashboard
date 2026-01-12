@@ -1,0 +1,235 @@
+{
+  "providers": [
+    {
+      "id": "melissa-sherfield",
+      "name": "Melissa Sherfield",
+      "credentials": "Licensed Counselor",
+      "specialty": "Mental Health Counseling",
+      "system": "mental-health",
+      "contact": {
+        "organization": "LFS Behavioral Health",
+        "email": "info@lfscounseling.com",
+        "phone": "(580) 123-4567"
+      },
+      "status": "active",
+      "frequency": "weekly",
+      "lastVisit": "2026-01-08",
+      "nextAppointment": "2026-01-15T12:00:00",
+      "notes": "Great session! Christian counselor, husband has ADHD/PTSD. Homework: reflection on being good husband/father",
+      "insurance": "Accepted"
+    },
+    {
+      "id": "ryan-dpt",
+      "name": "Ryan",
+      "credentials": "DPT",
+      "specialty": "Physical Therapy - Sports Medicine",
+      "system": "musculoskeletal",
+      "contact": {
+        "organization": "Physical Therapy Central",
+        "address": "2015 W Broadway St., Unit 3A, Ardmore, OK 73401",
+        "phone": "(580) 453-4455",
+        "fax": "(580) 453-4456",
+        "website": "ptcentral.org"
+      },
+      "status": "research",
+      "frequency": "twice-weekly",
+      "lastVisit": null,
+      "nextAppointment": null,
+      "notes": "Highly recommended for shoulder/rib rehab. Sports specialist, 5-star reviews. Free screening available.",
+      "insurance": "Handles insurance claims, payment plans available"
+    },
+    {
+      "id": "sheri-hall-dpt",
+      "name": "Sheri Hall",
+      "credentials": "DPT",
+      "specialty": "Physical Therapy - Shoulder Rehabilitation",
+      "system": "musculoskeletal",
+      "contact": {
+        "organization": "Ardmore Physical Therapy Clinic",
+        "address": "29 N Commerce St, Ardmore, OK 73401",
+        "phone": "(580) 223-1925",
+        "email": "shall@ardmorept.com",
+        "website": "ardmorept.com"
+      },
+      "status": "research",
+      "frequency": "twice-weekly",
+      "lastVisit": null,
+      "nextAppointment": null,
+      "notes": "45+ years experience, owner since 1989. Specializes in shoulder rehab, dry needling, laser therapy.",
+      "insurance": "Medicare/Medicaid certified, most private insurance"
+    },
+    {
+      "id": "chang-orthodontics",
+      "name": "Dr. Chang",
+      "credentials": "DDS, Orthodontist",
+      "specialty": "Orthodontics",
+      "system": "dental",
+      "contact": {
+        "organization": "Chang Orthodontics",
+        "address": "Belmont, CA",
+        "phone": "(650) 555-0123"
+      },
+      "status": "remote",
+      "frequency": "quarterly",
+      "lastVisit": null,
+      "nextAppointment": null,
+      "notes": "Remote care continuation from California. Check-ins via photos/video.",
+      "insurance": "Private pay"
+    },
+    {
+      "id": "eye-doctor-pending",
+      "name": "Eye Doctor (To Be Established)",
+      "credentials": "OD/MD",
+      "specialty": "Optometry/Ophthalmology",
+      "system": "sensory",
+      "contact": {
+        "organization": "TBD - Ardmore Area",
+        "phone": null
+      },
+      "status": "pending",
+      "frequency": "annual",
+      "lastVisit": null,
+      "nextAppointment": null,
+      "notes": "Need to schedule initial appointment. Transfer records from California.",
+      "insurance": "Check coverage"
+    },
+    {
+      "id": "sleep-specialist-pending",
+      "name": "Sleep Specialist (To Be Established)",
+      "credentials": "MD",
+      "specialty": "Sleep Medicine",
+      "system": "sleep",
+      "contact": {
+        "organization": "TBD - Oklahoma",
+        "phone": null
+      },
+      "status": "pending",
+      "frequency": "quarterly",
+      "lastVisit": null,
+      "nextAppointment": null,
+      "notes": "Need to schedule. Transfer sleep study records. CPAP supplies coordination.",
+      "insurance": "Check coverage"
+    },
+    {
+      "id": "dentist-pending",
+      "name": "Dentist (To Be Established)",
+      "credentials": "DDS",
+      "specialty": "General Dentistry",
+      "system": "dental",
+      "contact": {
+        "organization": "TBD - Ardmore Area",
+        "phone": null
+      },
+      "status": "pending",
+      "frequency": "biannual",
+      "lastVisit": null,
+      "nextAppointment": null,
+      "notes": "Need to establish care for routine cleanings and checkups.",
+      "insurance": "Check coverage"
+    },
+    {
+      "id": "dr-adam-savage",
+      "name": "Dr. Adam Savage",
+      "credentials": "MD",
+      "specialty": "Pain Management",
+      "system": "musculoskeletal",
+      "contact": {
+        "organization": "Southern Oklahoma Pain Management",
+        "phone": "(580) 221-2022"
+      },
+      "status": "research",
+      "frequency": "monthly",
+      "lastVisit": null,
+      "nextAppointment": null,
+      "notes": "Fellowship-trained, 15+ years experience. For future if conservative measures insufficient.",
+      "insurance": "Medicare and 20+ major insurers"
+    },
+    {
+      "id": "dr-lauren-southward",
+      "name": "Dr. Lauren Brooks Southward",
+      "credentials": "MD",
+      "specialty": "Primary Care - Direct Primary Care",
+      "system": "primary-care",
+      "contact": {
+        "organization": "Ultimate Direct Primary Care",
+        "phone": "(580) 555-0100"
+      },
+      "status": "research",
+      "frequency": "quarterly",
+      "lastVisit": null,
+      "nextAppointment": null,
+      "notes": "24+ years experience, same-day appointments, telemedicine available. Direct primary care model.",
+      "insurance": "Membership model"
+    }
+  ],
+  "systems": [
+    {
+      "id": "musculoskeletal",
+      "name": "Musculoskeletal",
+      "color": "purple",
+      "icon": "Activity"
+    },
+    {
+      "id": "mental-health",
+      "name": "Mental Health",
+      "color": "teal",
+      "icon": "Brain"
+    },
+    {
+      "id": "sensory",
+      "name": "Sensory",
+      "color": "orange",
+      "icon": "Eye"
+    },
+    {
+      "id": "dental",
+      "name": "Dental",
+      "color": "blue",
+      "icon": "Smile"
+    },
+    {
+      "id": "sleep",
+      "name": "Sleep",
+      "color": "indigo",
+      "icon": "Moon"
+    },
+    {
+      "id": "primary-care",
+      "name": "Primary Care",
+      "color": "green",
+      "icon": "Heart"
+    }
+  ],
+  "frequencies": [
+    {
+      "id": "weekly",
+      "name": "Weekly",
+      "sortOrder": 1
+    },
+    {
+      "id": "twice-weekly",
+      "name": "Twice Weekly",
+      "sortOrder": 2
+    },
+    {
+      "id": "monthly",
+      "name": "Monthly",
+      "sortOrder": 3
+    },
+    {
+      "id": "quarterly",
+      "name": "Quarterly",
+      "sortOrder": 4
+    },
+    {
+      "id": "biannual",
+      "name": "Every 6 Months",
+      "sortOrder": 5
+    },
+    {
+      "id": "annual",
+      "name": "Annual",
+      "sortOrder": 6
+    }
+  ]
+}
