@@ -1,6 +1,6 @@
 # Rib Recovery Dashboard
 
-An interactive recovery dashboard for tracking and managing rehabilitation from Hansen procedure (bilateral rib reconstruction). Currently 14-15 months post-op, approximately 50% through the 2-year healing window.
+An interactive recovery dashboard for tracking and managing rehabilitation from Hansen procedure (bilateral rib reconstruction). Currently 15 months post-op (January 2026), in "The Instability Gap" phase with extended 24+ month recovery timeline.
 
 ## 🎯 Purpose
 
@@ -14,11 +14,16 @@ This dashboard was created to:
 
 ## 🏥 Medical Context
 
-- **Procedure:** Hansen technique (ribs 8-10 sutured to rib 7)
-- **Date:** October 2024
-- **Current Status:** Plates in degradation phase (hydrolysis)
-- **Timeline:** ~50% through 2-year recovery window
-- **Complications:** Right foot Jones fracture affects kinetic chain
+- **Procedure:** Hansen technique (bilateral 9th/10th costal margin reconstruction)
+- **Date:** October 11, 2024
+- **Current Status:** "The Instability Gap" - Hansen plates failing (creating "gravel-like debris") but biological fusion incomplete
+- **Dr. Hansen's 2025 CT Review:** "Repair sites look good" - surgical sites healing well
+- **Timeline:** 15 months into extended 24+ month recovery window (potentially longer)
+- **Current Focus:** Shaping costal margin muscle tone and aligning ribs/musculature before scar tissue 'sets'
+- **Key Recovery Metric:** Pectoral muscle engagement ability - extreme difficulty indicates overall dysfunction
+- **Complications:**
+  - Chest/shoulder tightness from compensatory guarding for rib instability
+  - Right foot Jones fracture affects kinetic chain to left ribs
 
 ## ✨ Features
 
@@ -121,6 +126,11 @@ For rib slips - DO NOT push the rib back:
 Currently tracks:
 - Pain levels (0-10 scale)
 - Instability events (slips/clicks)
+- **Pectoral engagement ability (0-10 scale) - KEY RECOVERY METRIC**
+  - 0 = Cannot engage at all
+  - 5 = Some engagement with compensation
+  - 10 = Normal engagement without guarding
+- Chest/shoulder tightness levels
 - Morning protocol adherence
 - Exercise completion
 - Daily progress history
@@ -170,4 +180,4 @@ MIT License - See LICENSE file for details
 
 ---
 
-Last Updated: January 7, 2026
+Last Updated: January 13, 2026
