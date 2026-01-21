@@ -25,8 +25,8 @@ import {
 const KNOWLEDGE_INDEX = [
   {
     category: "Pathology",
-    title: "Bioabsorbable Plate Failure",
-    content: "The Hansen Repair plates (PLLA/PLGA) are degrading via hydrolysis. This 'premature' failure creates a loss of stiffness, turning the plates into 'gravel-like' debris. This causes instability (clicking/slipping) before the biological fusion is complete."
+    title: "Bioabsorbable Plate Failure (PLLA/PLGA - NOT Titanium)",
+    content: "The Hansen Repair plates are PLLA/PLGA polymer (Poly-L-Lactic Acid or Poly(Lactic-co-Glycolic Acid)) - NOT titanium. They degrade via hydrolysis over 18-24 months. This creates 'gravel-like' debris and instability before biological fusion completes. Hydration (80oz/day) controls degradation rate."
   },
   {
     category: "Pathology",
@@ -57,6 +57,26 @@ const KNOWLEDGE_INDEX = [
     category: "Ergonomics",
     title: "Canine Kinetics",
     content: "Dog walking is a risk. USE A WAIST BELT LEASH. This moves force from the unstable shoulder/ribs to the stable pelvis (center of gravity)."
+  },
+  {
+    category: "Science",
+    title: "Collagen Synthesis Requirements",
+    content: "Vitamin C is the rate-limiting cofactor for collagen cross-linking. Morning dosing optimizes synthesis when collagen production peaks. Buffered Vitamin C (sodium ascorbate, pH ~7.0) preferred over ascorbic acid (pH ~2.5) to avoid adding to acidic microenvironment from PLLA degradation."
+  },
+  {
+    category: "Science",
+    title: "Bucket-Handle Mechanics (Altered)",
+    content: "Normal: Lower ribs (7-10) elevate laterally ~30% during inspiration. Post-Hansen: Motion restricted 10-20% by sutures. Result: Increased upper rib (pump-handle) mechanics causing accessory muscle overuse. Timeline: 50-70% range at months 12-18, 80-90% by month 24."
+  },
+  {
+    category: "Timeline",
+    title: "Recovery Phases (24-Month Window)",
+    content: "Months 0-6: Protection (0-30% range). Months 6-12: Early Mobilization (30-50% range). Months 12-18: CURRENT Remodeling Phase (50-70% range). Months 18-24: Integration (80-90% range). Post-24: Full biological fusion expected."
+  },
+  {
+    category: "Metrics",
+    title: "Pectoral Engagement Score",
+    content: "THE KEY recovery indicator. 0 = Cannot engage at all. 5 = Some engagement with compensation. 10 = Normal engagement without guarding. Track daily. Goal: Score >6 for 7 consecutive days before progression."
   }
 ];
 
@@ -96,29 +116,96 @@ const MORNING_ROUTINE = [
 const REHAB_PHASE_1 = [
   {
     id: "e1",
-    name: "Supine Hook-Lying Breathing",
-    sets: "3 sets x 5 mins",
-    cue: "Expand back ribs into floor. No front flaring."
+    name: "Transverse Abdominis Activation",
+    sets: "3 sets x 10 reps (5s hold)",
+    cue: "Draw belly button to spine without breath-holding. Keep ribs heavy - no flare."
   },
   {
     id: "e2",
-    name: "Femur Arcs (Heel Slides)",
-    sets: "3 sets x 12 reps",
-    cue: "Move hip without dragging the ribs. 'Glass of water on ribs'."
+    name: "Modified Crocodile Breathing",
+    sets: "3-5 minutes daily",
+    cue: "Prone with towel under RIGHT foot. Inhale into posterior ribs, exhale with right foot dorsiflexion."
   },
   {
     id: "e3",
-    name: "Serratus Wall Slides",
-    sets: "3 sets x 10 reps",
-    cue: "Forearms on wall. Slide up. Keep ribs knit down."
+    name: "Heel Slides with Breathing",
+    sets: "10 reps per leg",
+    cue: "Inhale: slide heel away. Exhale: slide back. Keep low back neutral."
   },
   {
     id: "e4",
-    name: "Isometric Pallof Press",
-    sets: "3 sets x 30 sec",
-    cue: "Kneeling. Band from side. 'Be a statue'."
+    name: "Quadratus Lumborum Release",
+    sets: "2 minutes per side",
+    cue: "Side-lying foam roll from left hip to ribs. Stop at 3-4/10 stretch. AVOID L1-L2 pressure."
+  },
+  {
+    id: "e5",
+    name: "Standing Weight Shift",
+    sets: "5 seconds each side x 10",
+    cue: "Shift 70/30 initially. Progress to 90/10 when stable. Isolate hip from rib movement."
+  },
+  {
+    id: "e6",
+    name: "Wall Angels (Modified)",
+    sets: "2 sets x 8-10 reps",
+    cue: "Arms at 90° goal. Slide up/down maintaining contact. Stop before compensation."
+  },
+  {
+    id: "e7",
+    name: "Wall Sits",
+    sets: "3-5 reps x 10-30 seconds",
+    cue: "Back flat against wall. 45° knee bend max. No spinal loading."
+  },
+  {
+    id: "e8",
+    name: "Clamshells",
+    sets: "2 sets x 15 reps each side",
+    cue: "Side-lying, knees bent 90°. Lift top knee without rotating pelvis."
+  },
+  {
+    id: "e9",
+    name: "Mini Glute Bridges",
+    sets: "2 sets x 10 reps",
+    cue: "Minimal range (2-3 inches). No back arch. Hold 3 seconds."
+  },
+  {
+    id: "e10",
+    name: "Wood Chops (ADVANCED - Only if cleared)",
+    sets: "2 sets x 10 each direction",
+    cue: "3-5 lb band only. Limit rotation to 45°. REQUIRES pectoral engagement >7."
   }
 ];
+
+const ABSOLUTE_CONTRAINDICATIONS = [
+  "Spinal rotation/twisting",
+  "Overhead pressing movements",
+  "Back extensions",
+  "Sit-ups or crunches",
+  "High-impact activities (running, jumping)",
+  "Breath-holding during exertion"
+];
+
+const RED_FLAGS = [
+  { symptom: "Sharp, electrical, or shooting pain", action: "STOP IMMEDIATELY" },
+  { symptom: "Feeling of rib 'slipping out'", action: "STOP & Use Decompression Reset" },
+  { symptom: "Breathlessness beyond normal exertion", action: "STOP & Rest" },
+  { symptom: "Numbness/tingling in chest/back", action: "STOP & Seek Medical Attention" },
+  { symptom: "Clicking/popping sensations in ribs", action: "STOP & Document Location" }
+];
+
+const SUPPLEMENT_PROTOCOL = {
+  morning: [
+    "15g Collagen powder (FORTIGEL® or FORTIBONE® preferred)",
+    "500mg Vitamin C (buffered/sodium ascorbate preferred)",
+    "20oz water minimum"
+  ],
+  evening: [
+    "500mg Vitamin C (second dose)",
+    "400mg Magnesium (glycinate preferred)",
+    "Optional: 10g additional collagen if tolerated"
+  ],
+  daily: "Minimum 80oz water throughout day (controls PLLA/PLGA degradation rate)"
+};
 
 // --- COMPONENTS ---
 
