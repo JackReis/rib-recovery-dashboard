@@ -230,30 +230,93 @@ const THUMB_MCP_PROTOCOL = {
 
 const ARDMORE_PROVIDERS = [
   {
-    name: "Excel Therapy",
-    address: "2002 12th Street NW, Ardmore",
-    phone: "(580) 319-2630",
-    specialties: ["ASTYM Certified", "Coracoid work", "Fascial release"],
-    providers: ["Amy Thompson, PT"],
-    best_for: "IASTM techniques, insertional tendinopathy"
+    category: "Physical Therapy Specialists",
+    providers: [
+      {
+        name: "Excel Therapy",
+        address: "2002 12th Street NW, Suite A (Surgeon's Plaza)",
+        phone: "(580) 319-2630",
+        specialties: ["ASTYM Certified", "Coracoid work", "Fascial release", "Insertional tendinopathy"],
+        providers: ["Amy Thompson, PT (ASTYM Certified Provider)"],
+        best_for: "IASTM techniques (framing & sweeping), SICK scapula primary intervention",
+        capabilities: "Only clinic in Ardmore with ASTYM certification - proprietary high-level form of IASTM with specific rigid tools required for chronic capsular fibrosis",
+        insurance: "Most commercial plans accepted"
+      },
+      {
+        name: "Physical Therapy Central",
+        address: "2015 W Broadway St, Unit 3A",
+        phone: "(580) 453-4455",
+        specialties: ["Sports Certified Specialist", "Move2Perform screening", "Dry needling", "Manual therapy"],
+        providers: ["Ryan Fraley, PT, DPT, SCS (Sports Certified Specialist)"],
+        best_for: "High-level strengthening (Phase 2/3), Return-to-throw programs, ART protocols",
+        capabilities: "Functional movement screening, dry needling for trigger points, integrated rehabilitation for serratus punches and plyometrics",
+        insurance: "Most commercial plans, verify with office"
+      },
+      {
+        name: "Odyssey Health Care",
+        address: "1 South Washington St",
+        phone: "(580) 223-7201",
+        specialties: ["Hand therapy", "OT expertise", "Splint management", "Fine motor rehabilitation"],
+        providers: ["Ted Phalen, OT (30+ years experience)"],
+        best_for: "Thumb MCP protocol, intrinsic muscle isolation, Protected Mobilization weaning schedule",
+        capabilities: "Occupational therapy mindset for fine motor and ADLs, custom splinting if Push brace fails",
+        insurance: "Medicare/Medicaid certified, most commercial plans"
+      }
+    ]
   },
   {
-    name: "Physical Therapy Central",
-    address: "2015 W Broadway St, Unit 3A",
-    phone: "(580) 453-4455",
-    specialties: ["Sports orthopedics", "Manual therapy", "Active integration"],
-    providers: ["Ryan Fraley, PT, DPT"],
-    best_for: "Pec minor fanning, ART protocols"
+    category: "Primary Care Coordination",
+    providers: [
+      {
+        name: "Ultimate Direct Primary Care",
+        address: "1111 Walnut Drive",
+        phone: "(580) 226-0543",
+        specialties: ["DPC model", "Wellness medicine", "Extended visits", "X-ray ordering"],
+        providers: ["Dr. Lauren Southward, MD"],
+        best_for: "Initial diagnosis, referral coordination, ongoing management",
+        capabilities: "Membership-based ($125/month), unlimited visits, longer appointment times for complex rehab discussion",
+        insurance: "Membership model - no insurance billing, but can provide superbills"
+      },
+      {
+        name: "Good Shepherd Community Clinic",
+        address: "1104 Walnut Drive",
+        phone: "(580) 223-8833",
+        specialties: ["FQHC safety net", "Sliding scale available", "Established PT networks"],
+        providers: ["Dr. Michael Carnahan (Medical Director)", "Dr. Lance Mwangi, MD"],
+        best_for: "Safety net option, established referral networks, comprehensive primary care",
+        capabilities: "Federally Qualified Health Center, accepts commercial insurance and Medicaid/SoonerCare, sliding scale for uninsured",
+        insurance: "BCBS, Aetna, United, Medicaid/SoonerCare, sliding scale available"
+      }
+    ]
   },
   {
-    name: "Odyssey Health Care",
-    address: "1 South Washington St",
-    phone: "(580) 223-7201",
-    specialties: ["Hand therapy", "OT expertise", "Splint management"],
-    providers: ["Ted Phalen, OT"],
-    best_for: "Thumb MCP protocol, intrinsic muscle work"
+    category: "Behavioral Health Support",
+    providers: [
+      {
+        name: "Oklahoma Integrated Care",
+        address: "1013 15th Ave NW",
+        phone: "(580) 319-5200",
+        specialties: ["Psychiatric management", "Chronic pain counseling", "Kinesiophobia treatment"],
+        providers: ["Tasha Preston, PMHNP", "Melissa Sherfield, LPC"],
+        best_for: "Central sensitization management, sleep/mood issues from chronic pain",
+        capabilities: "Medication management for pain-related depression/anxiety, counseling for fear of movement",
+        insurance: "Most commercial plans, Medicare, Medicaid"
+      }
+    ]
   }
 ];
+
+const OKLAHOMA_DIRECT_ACCESS = {
+  title: "Oklahoma Direct Access Law",
+  description: "Patients can receive PT evaluation and treatment for up to 30 days without physician referral",
+  details: [
+    "Schedule immediate evaluation while waiting for physician appointment",
+    "Start acute phase protocols (pain control, bracing) immediately",
+    "Most commercial insurance honors direct access",
+    "Medicare/Medicaid/Tricare may still require referral for payment"
+  ],
+  strategic_advantage: "Immediate access to Amy Thompson (Excel) or Ted Phalen (Odyssey) for acute injuries"
+};
 
 // --- COMPONENT ---
 
@@ -525,43 +588,85 @@ export default function ClinicalProtocols() {
 
       {/* Providers Tab */}
       {activeTab === 'providers' && (
-        <div className="space-y-4">
-          {ARDMORE_PROVIDERS.map((provider, idx) => (
-            <Card key={idx} className="p-4">
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <h3 className="font-bold text-slate-900 text-lg">{provider.name}</h3>
-                  <div className="mt-2 space-y-1 text-sm">
-                    <p className="flex items-center text-slate-600">
-                      <MapPin size={14} className="mr-2 flex-shrink-0" />
-                      {provider.address}
-                    </p>
-                    <p className="flex items-center text-slate-600">
-                      <Phone size={14} className="mr-2 flex-shrink-0" />
-                      {provider.phone}
-                    </p>
-                  </div>
-                  <div className="mt-3">
-                    <p className="text-sm font-medium text-slate-700">Providers:</p>
-                    <p className="text-sm text-slate-600">{provider.providers.join(", ")}</p>
-                  </div>
-                  <div className="mt-2">
-                    <p className="text-sm font-medium text-slate-700">Specialties:</p>
-                    <div className="flex flex-wrap gap-2 mt-1">
-                      {provider.specialties.map((spec, sIdx) => (
-                        <span key={sIdx} className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">
-                          {spec}
-                        </span>
-                      ))}
+        <div className="space-y-6">
+          {/* Direct Access Info */}
+          <Card className="p-4 bg-blue-50 border-blue-200">
+            <h3 className="font-bold text-blue-900 mb-2 flex items-center">
+              <AlertCircle className="mr-2" size={18} />
+              {OKLAHOMA_DIRECT_ACCESS.title}
+            </h3>
+            <p className="text-sm text-blue-800 mb-3">{OKLAHOMA_DIRECT_ACCESS.description}</p>
+            <ul className="space-y-1 text-sm text-blue-700">
+              {OKLAHOMA_DIRECT_ACCESS.details.map((detail, idx) => (
+                <li key={idx} className="flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-3 text-xs font-medium text-blue-900">
+              {OKLAHOMA_DIRECT_ACCESS.strategic_advantage}
+            </p>
+          </Card>
+
+          {/* Provider Categories */}
+          {ARDMORE_PROVIDERS.map((category, catIdx) => (
+            <div key={catIdx}>
+              <h3 className="text-lg font-bold text-slate-900 mb-3 border-b border-slate-200 pb-2">
+                {category.category}
+              </h3>
+              <div className="space-y-4">
+                {category.providers.map((provider, idx) => (
+                  <Card key={idx} className="p-4">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <h4 className="font-bold text-slate-900 text-lg">{provider.name}</h4>
+                        <div className="mt-2 space-y-1 text-sm">
+                          <p className="flex items-center text-slate-600">
+                            <MapPin size={14} className="mr-2 flex-shrink-0" />
+                            {provider.address}
+                          </p>
+                          <p className="flex items-center text-slate-600">
+                            <Phone size={14} className="mr-2 flex-shrink-0" />
+                            {provider.phone}
+                          </p>
+                        </div>
+                        <div className="mt-3">
+                          <p className="text-sm font-medium text-slate-700">Staff:</p>
+                          <p className="text-sm text-slate-600">{provider.providers.join(", ")}</p>
+                        </div>
+                        <div className="mt-2">
+                          <p className="text-sm font-medium text-slate-700">Specialties:</p>
+                          <div className="flex flex-wrap gap-2 mt-1">
+                            {provider.specialties.map((spec, sIdx) => (
+                              <span key={sIdx} className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">
+                                {spec}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="mt-3 p-2 bg-green-50 rounded">
+                          <p className="text-sm font-medium text-green-800">Best for:</p>
+                          <p className="text-sm text-green-700">{provider.best_for}</p>
+                        </div>
+                        {provider.capabilities && (
+                          <div className="mt-2 p-2 bg-slate-50 rounded">
+                            <p className="text-sm font-medium text-slate-700">Capabilities:</p>
+                            <p className="text-xs text-slate-600 mt-1">{provider.capabilities}</p>
+                          </div>
+                        )}
+                        {provider.insurance && (
+                          <div className="mt-2">
+                            <p className="text-sm font-medium text-slate-700">Insurance:</p>
+                            <p className="text-xs text-slate-600">{provider.insurance}</p>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  <div className="mt-3 p-2 bg-green-50 rounded">
-                    <p className="text-sm font-medium text-green-800">Best for:</p>
-                    <p className="text-sm text-green-700">{provider.best_for}</p>
-                  </div>
-                </div>
+                  </Card>
+                ))}
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       )}
@@ -603,6 +708,32 @@ export default function ClinicalProtocols() {
             <p className="text-xs font-medium text-blue-600">
               {ex.sets || ex.duration}
             </p>
+          </Card>
+        ))
+      ))}
+
+      {/* Provider Quick Cards */}
+      {ARDMORE_PROVIDERS.map((category) => (
+        category.providers.map((provider, idx) => (
+          <Card key={`provider_${category.category}_${idx}`} className="p-4 border-2 border-green-200">
+            <div className="mb-2">
+              <h4 className="font-bold text-slate-900">{provider.name}</h4>
+              <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                {category.category.split(' ')[0]}
+              </span>
+            </div>
+            <div className="text-xs space-y-1">
+              <p className="text-slate-600 flex items-center">
+                <Phone size={12} className="mr-1" />
+                {provider.phone}
+              </p>
+              <p className="font-medium text-blue-600 mt-2">
+                {provider.providers[0].split('(')[0].trim()}
+              </p>
+              <p className="text-slate-500 mt-1">
+                {provider.best_for.split(',')[0]}
+              </p>
+            </div>
           </Card>
         ))
       ))}
