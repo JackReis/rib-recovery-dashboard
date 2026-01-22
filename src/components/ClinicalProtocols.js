@@ -373,10 +373,33 @@ export default function ClinicalProtocols() {
                       <h5 className="text-sm font-semibold">Stroke Details:</h5>
                       {tech.strokes.map((stroke, sIdx) => (
                         <div key={sIdx} className="bg-white rounded p-2 text-sm">
-                          <span className="font-medium">{stroke.facet || stroke.phase}:</span>
-                          <span className="ml-2 text-slate-600">
-                            {stroke.vector || stroke.description}
-                          </span>
+                          {(stroke.facet || stroke.phase) && (
+                            <>
+                              <span className="font-medium">{stroke.facet || stroke.phase}:</span>
+                              <span className="ml-2 text-slate-600">
+                                {stroke.vector || stroke.description}
+                              </span>
+                            </>
+                          )}
+                          {stroke.direction && (
+                            <>
+                              <div><span className="font-medium">Direction:</span> <span className="text-slate-600">{stroke.direction}</span></div>
+                              <div><span className="font-medium">Location:</span> <span className="text-slate-600">{stroke.location}</span></div>
+                              <div><span className="font-medium">Intensity:</span> <span className="text-slate-600">{stroke.intensity}</span></div>
+                            </>
+                          )}
+                          {stroke.distance && (
+                            <div className="mt-1 text-xs text-slate-500">Distance: {stroke.distance}</div>
+                          )}
+                          {stroke.goal && (
+                            <div className="mt-1 text-xs italic text-blue-600">Goal: {stroke.goal}</div>
+                          )}
+                          {stroke.pressure && (
+                            <div className="mt-1 text-xs text-slate-500">Pressure: {stroke.pressure}</div>
+                          )}
+                          {stroke.integration && (
+                            <div className="mt-1 text-xs text-green-600">Integration: {stroke.integration}</div>
+                          )}
                         </div>
                       ))}
                     </div>
