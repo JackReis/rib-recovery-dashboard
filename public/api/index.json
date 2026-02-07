@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "api_name": "Wellness Analytics API",
+    "version": "1.0",
+    "description": "Unified wellness analytics API for native mobile app integration and Shortcuts.app automation",
+    "base_url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/api",
+    "generated_at": "2026-02-05T00:00:00Z",
+    "maintained_by": "Jack Reis"
+  },
+  "endpoints": [
+    {
+      "path": "/api/wellness.json",
+      "name": "Unified Wellness Dashboard",
+      "description": "Combined view of all wellness metrics in a single endpoint",
+      "methods": ["GET"],
+      "response_format": "JSON",
+      "update_frequency": "daily",
+      "mobile_friendly": true
+    },
+    {
+      "path": "/api/meal-adherence.json",
+      "name": "Meal Adherence Tracking",
+      "description": "Meal planning adherence, nutrition targets, and grocery tracking",
+      "methods": ["GET"],
+      "response_format": "JSON",
+      "update_frequency": "daily",
+      "data_points": [
+        "adherence_rate",
+        "weekly_stats",
+        "nutrition_targets",
+        "recent_meals",
+        "grocery_tracking"
+      ]
+    },
+    {
+      "path": "/api/recovery-progress.json",
+      "name": "Post-Surgical Recovery Progress",
+      "description": "Rib surgery recovery tracking, supplement adherence, and PERMA-V wellness scores",
+      "methods": ["GET"],
+      "response_format": "JSON",
+      "update_frequency": "daily",
+      "data_points": [
+        "surgery_info",
+        "recovery_metrics",
+        "supplement_adherence",
+        "daily_tracking",
+        "perma_v_wellness",
+        "recovery_timeline"
+      ]
+    },
+    {
+      "path": "/api/appointments.json",
+      "name": "Healthcare Appointments",
+      "description": "Scheduled appointments, providers to schedule, and medication tracking",
+      "methods": ["GET"],
+      "response_format": "JSON",
+      "update_frequency": "as_needed",
+      "data_points": [
+        "upcoming_appointments",
+        "to_schedule",
+        "current_medications",
+        "provider_network",
+        "insurance_info"
+      ]
+    },
+    {
+      "path": "/api/mcp-health.json",
+      "name": "MCP System Health",
+      "description": "MCP service uptime monitoring, system health, and performance metrics",
+      "methods": ["GET"],
+      "response_format": "JSON",
+      "update_frequency": "real_time",
+      "data_points": [
+        "system_status",
+        "services",
+        "uptime_history",
+        "git_status",
+        "performance_metrics",
+        "alerts"
+      ]
+    }
+  ],
+  "integration_guides": {
+    "shortcuts_app": {
+      "description": "Use these endpoints with iOS/macOS Shortcuts app for quick wellness checks",
+      "example_shortcuts": [
+        {
+          "name": "Morning Wellness Check",
+          "url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/api/wellness.json",
+          "actions": [
+            "Get contents of URL",
+            "Get dictionary value for 'summary'",
+            "Show notification with results"
+          ]
+        },
+        {
+          "name": "Log Meal Completion",
+          "description": "Quick log that you completed today's meal plan",
+          "future_endpoint": "POST /api/meal-adherence/log"
+        },
+        {
+          "name": "Next Appointment Alert",
+          "url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/api/appointments.json",
+          "actions": [
+            "Get contents of URL",
+            "Get dictionary value for 'upcoming_appointments'",
+            "Get first item",
+            "Show alert with appointment details"
+          ]
+        }
+      ]
+    },
+    "native_mobile_app": {
+      "description": "JSON endpoints ready for native iOS/Android app consumption",
+      "features": [
+        "CORS enabled for cross-origin requests",
+        "Consistent JSON schema across all endpoints",
+        "Timestamped data for caching strategies",
+        "Shortcuts integration fields included"
+      ],
+      "recommended_update_strategy": "Poll endpoints every 30-60 minutes for fresh data"
+    },
+    "curl_examples": {
+      "get_wellness_summary": "curl https://rib-recovery-dashboard-61b9d4.gitlab.io/api/wellness.json",
+      "get_next_appointment": "curl https://rib-recovery-dashboard-61b9d4.gitlab.io/api/appointments.json | jq '.upcoming_appointments[0]'",
+      "get_mcp_status": "curl https://rib-recovery-dashboard-61b9d4.gitlab.io/api/mcp-health.json | jq '.system_status'"
+    }
+  },
+  "access": {
+    "authentication": "none",
+    "rate_limiting": "none",
+    "cors": "enabled",
+    "https": true,
+    "availability": "24/7 via GitLab Pages"
+  },
+  "roadmap": {
+    "future_endpoints": [
+      {
+        "path": "/api/meal-adherence/log",
+        "method": "POST",
+        "description": "Log meal completion with rating",
+        "status": "planned"
+      },
+      {
+        "path": "/api/recovery-progress/supplements",
+        "method": "POST",
+        "description": "Log supplement intake",
+        "status": "planned"
+      },
+      {
+        "path": "/api/appointments/add",
+        "method": "POST",
+        "description": "Add new appointment",
+        "status": "planned"
+      }
+    ],
+    "future_features": [
+      "Webhook support for real-time updates",
+      "Historical data export (CSV/JSON)",
+      "Custom date range queries",
+      "GraphQL endpoint for flexible queries"
+    ]
+  },
+  "static_html_dashboards": {
+    "description": "Static HTML dashboards remain accessible for browser-based viewing",
+    "dashboards": [
+      {
+        "name": "Health Metrics Dashboard",
+        "url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/health-dashboard/",
+        "description": "Interactive Chart.js visualizations of health metrics"
+      },
+      {
+        "name": "Meal Planner",
+        "url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/meal-planner/",
+        "description": "Ardmore meal planning with Sweetgreen recreations"
+      },
+      {
+        "name": "Wellness Reports",
+        "url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/wellness-reports/",
+        "description": "Generated wellness reports and analytics"
+      }
+    ]
+  }
+}

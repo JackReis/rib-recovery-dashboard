@@ -1,0 +1,12 @@
+{
+  "source": "breathing_coordinator_localStorage",
+  "note": "Session data stored in localStorage key: ribRecoverySessionsMulti. Use wellness-client.js to access.",
+  "recent_sessions": [],
+  "total_sessions": 0,
+  "milestones": [],
+  "trends": {
+    "pain_trend": "stable",
+    "mobility_trend": "stable",
+    "engagement_trend": "stable"
+  }
+}

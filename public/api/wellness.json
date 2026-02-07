@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "endpoint": "wellness",
+    "description": "Unified wellness dashboard - all health metrics in one endpoint",
+    "generated_at": "2026-02-05T00:00:00Z",
+    "version": "1.0",
+    "timezone": "America/Chicago"
+  },
+  "summary": {
+    "overall_wellness_score": 7.5,
+    "overall_wellness_status": "flourishing",
+    "recovery_progress": 66,
+    "meal_adherence": 85,
+    "supplement_adherence": 92,
+    "mcp_uptime": 91.0,
+    "next_appointment_days": 18,
+    "last_updated": "2026-02-05T00:00:00Z"
+  },
+  "quick_stats": {
+    "rib_recovery": {
+      "progress_percentage": 66,
+      "days_post_op": 482,
+      "months_post_op": 15.8,
+      "status": "progressing_well",
+      "trend": "improving"
+    },
+    "nutrition": {
+      "meal_adherence": 85,
+      "meals_this_week": 16,
+      "meals_planned": 20,
+      "adherence_trend": "stable"
+    },
+    "supplements": {
+      "adherence_rate": 92,
+      "today_complete": 2,
+      "today_pending": 4,
+      "streak_days": 12
+    },
+    "appointments": {
+      "next_appointment": {
+        "provider": "Jahannah Jamelarin",
+        "date": "2026-02-23",
+        "days_until": 18,
+        "specialty": "Psychiatry"
+      },
+      "to_schedule_count": 2
+    },
+    "system_health": {
+      "mcp_uptime": 91.0,
+      "services_up": 2,
+      "services_down": 1,
+      "status": "healthy"
+    }
+  },
+  "today": {
+    "date": "2026-02-05",
+    "day_of_week": "Wednesday",
+    "supplements": {
+      "collagen_morning": true,
+      "collagen_evening": false,
+      "vitamin_c_morning": true,
+      "vitamin_c_evening": false,
+      "magnesium_evening": false,
+      "hydration_oz": 52,
+      "hydration_target": 80
+    },
+    "meals": {
+      "breakfast": "completed",
+      "lunch": "planned",
+      "dinner": "planned"
+    },
+    "wellness_checkin": {
+      "pain_level": 2,
+      "pain_scale": "0-10",
+      "mobility_score": 7,
+      "mobility_scale": "0-10",
+      "energy_level": 7,
+      "mood": "positive"
+    }
+  },
+  "this_week": {
+    "week_number": 5,
+    "year": 2026,
+    "focus": "Harvest Bowls & Sheet Pans",
+    "meal_plan_theme": "Paleo & Vegan Hybrid",
+    "meals_completed": 16,
+    "meals_planned": 20,
+    "adherence": 80,
+    "shopping_trip": {
+      "completed": true,
+      "date": "2026-02-02",
+      "cost": 68.45,
+      "store": "Aldi Ardmore"
+    }
+  },
+  "perma_v_wellness": {
+    "overall_score": 7.5,
+    "status": "flourishing",
+    "dimensions": {
+      "positive_emotion": 7.5,
+      "engagement": 8.0,
+      "relationships": 8.5,
+      "meaning": 7.0,
+      "accomplishment": 6.5,
+      "vitality": 7.2
+    },
+    "trend": "improving",
+    "vs_last_week": 0.3
+  },
+  "recovery_milestones": {
+    "surgery_date": "2024-10-11",
+    "procedure": "Bilateral 9th/10th Costal Margin Reconstruction",
+    "current_progress": 66,
+    "next_milestone": {
+      "target": 75,
+      "estimated_date": "2026-05-11",
+      "description": "18 months post-op"
+    }
+  },
+  "medications": {
+    "adhd": [
+      {
+        "name": "Vyvanse",
+        "dosage": "70mg",
+        "frequency": "daily morning",
+        "status": "active"
+      },
+      {
+        "name": "Strattera",
+        "dosage": "80mg",
+        "frequency": "daily evening",
+        "status": "active"
+      }
+    ],
+    "mental_health": [
+      {
+        "name": "Lexapro",
+        "dosage": "10mg",
+        "frequency": "daily morning",
+        "status": "active"
+      }
+    ]
+  },
+  "alerts": [
+    {
+      "type": "supplement",
+      "priority": "medium",
+      "message": "Remember evening supplements: Collagen, Vitamin C, Magnesium",
+      "time": "20:00"
+    },
+    {
+      "type": "appointment",
+      "priority": "low",
+      "message": "Psychiatry appointment with Jahannah Jamelarin in 18 days",
+      "date": "2026-02-23"
+    },
+    {
+      "type": "action",
+      "priority": "high",
+      "message": "Schedule Physical Therapy evaluation at Mercy Hospital",
+      "action_required": true
+    }
+  ],
+  "shortcuts_quick_actions": [
+    {
+      "name": "Log Supplements",
+      "description": "Mark supplements as taken for today",
+      "endpoint": "/api/recovery-progress/supplements",
+      "method": "POST"
+    },
+    {
+      "name": "Log Meal",
+      "description": "Mark meal as completed",
+      "endpoint": "/api/meal-adherence/log",
+      "method": "POST"
+    },
+    {
+      "name": "Wellness Check-In",
+      "description": "Log pain level, mood, and energy",
+      "endpoint": "/api/wellness/checkin",
+      "method": "POST"
+    },
+    {
+      "name": "Next Appointment",
+      "description": "Get next scheduled appointment details",
+      "endpoint": "/api/appointments/next",
+      "method": "GET"
+    }
+  ],
+  "data_sources": {
+    "meal_data": "/api/meal-adherence.json",
+    "recovery_data": "/api/recovery-progress.json",
+    "appointments_data": "/api/appointments.json",
+    "mcp_health_data": "/api/mcp-health.json"
+  }
+}

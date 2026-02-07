@@ -1,0 +1,47 @@
+{
+  "updated_at": "2026-02-06T22:57:45.494728",
+  "source": "Healthcare-Scheduling-Guide-January-2026.md",
+  "appointments": [
+    {
+      "provider": "Tasha Preston, PMHNP-B",
+      "specialty": "ADHD/Psychiatry",
+      "date": "Jan 22, 2026",
+      "time": "2:00 PM CST",
+      "location": "Oklahoma Integrated Care",
+      "address": "1013 15th Ave NW, Ardmore, OK 73401",
+      "status": "urgent",
+      "priority": "high"
+    },
+    {
+      "specialty": "Eye Care",
+      "provider": "Ardmore Premier Eyecare",
+      "phone": "(580) 223-8585",
+      "status": "to_schedule",
+      "priority": "high"
+    },
+    {
+      "specialty": "Sleep Medicine / CPAP Management",
+      "provider": "Mercy Sleep Center",
+      "phone": "(580) 223-5400",
+      "status": "to_schedule",
+      "priority": "high"
+    },
+    {
+      "specialty": "Physical Therapy",
+      "provider": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "status": "to_schedule",
+      "priority": "high"
+    },
+    {
+      "specialty": "Primary Care",
+      "provider": "Dr. Lauren Southward",
+      "phone": "(580) 226-0543",
+      "status": "to_schedule",
+      "priority": "medium"
+    }
+  ],
+  "urgent_count": 1,
+  "to_schedule_count": 4,
+  "total_count": 5
+}

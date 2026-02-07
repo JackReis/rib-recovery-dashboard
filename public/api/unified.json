@@ -1,0 +1,137 @@
+{
+  "generated_at": "2026-02-06T22:57:45.496679",
+  "version": "1.0.0",
+  "meal_adherence": {
+    "source": "localStorage",
+    "note": "Meal adherence tracked client-side in meal-planner. Use wellness-client.js to access localStorage data.",
+    "last_sync": null,
+    "checked_items_count": 0,
+    "checked_items": []
+  },
+  "recovery_progress": {
+    "source": "breathing_coordinator_localStorage",
+    "note": "Session data stored in localStorage key: ribRecoverySessionsMulti. Use wellness-client.js to access.",
+    "recent_sessions": [],
+    "total_sessions": 0,
+    "milestones": [],
+    "trends": {
+      "pain_trend": "stable",
+      "mobility_trend": "stable",
+      "engagement_trend": "stable"
+    }
+  },
+  "appointments": {
+    "updated_at": "2026-02-06T22:57:45.494728",
+    "source": "Healthcare-Scheduling-Guide-January-2026.md",
+    "appointments": [
+      {
+        "provider": "Tasha Preston, PMHNP-B",
+        "specialty": "ADHD/Psychiatry",
+        "date": "Jan 22, 2026",
+        "time": "2:00 PM CST",
+        "location": "Oklahoma Integrated Care",
+        "address": "1013 15th Ave NW, Ardmore, OK 73401",
+        "status": "urgent",
+        "priority": "high"
+      },
+      {
+        "specialty": "Eye Care",
+        "provider": "Ardmore Premier Eyecare",
+        "phone": "(580) 223-8585",
+        "status": "to_schedule",
+        "priority": "high"
+      },
+      {
+        "specialty": "Sleep Medicine / CPAP Management",
+        "provider": "Mercy Sleep Center",
+        "phone": "(580) 223-5400",
+        "status": "to_schedule",
+        "priority": "high"
+      },
+      {
+        "specialty": "Physical Therapy",
+        "provider": "Physical Therapy Central",
+        "phone": "(580) 247-1320",
+        "status": "to_schedule",
+        "priority": "high"
+      },
+      {
+        "specialty": "Primary Care",
+        "provider": "Dr. Lauren Southward",
+        "phone": "(580) 226-0543",
+        "status": "to_schedule",
+        "priority": "medium"
+      }
+    ],
+    "urgent_count": 1,
+    "to_schedule_count": 4,
+    "total_count": 5
+  },
+  "mcp_health": {
+    "timestamp": "2026-01-31T23:00:31.779564",
+    "source": "coordination_monitor.py",
+    "services": {
+      "up": 2,
+      "down": 1,
+      "total": 3,
+      "percentage": 66.7,
+      "details": {
+        "coordination": {
+          "status": "up",
+          "pid": "19088",
+          "checked": "2026-01-31T23:00:31.634050"
+        },
+        "tonkotsu": {
+          "status": "up",
+          "pid": "19091",
+          "checked": "2026-01-31T23:00:31.666182"
+        },
+        "vault_organizer": {
+          "status": "down",
+          "pid": null,
+          "checked": "2026-01-31T23:00:31.691572"
+        }
+      }
+    },
+    "git_status": {
+      "clean": false,
+      "branch": "main",
+      "uncommitted_changes": true
+    },
+    "zombies": {
+      "count": 0,
+      "list": []
+    },
+    "overall_health": "degraded"
+  },
+  "supplement_tracking": {
+    "updated_at": "2026-02-06T22:57:45.495108",
+    "sources": [
+      "rrt_script"
+    ],
+    "rib_recovery": {
+      "date": "2026-01-28",
+      "water_intake": {
+        "glasses": 0,
+        "target": 10,
+        "percentage": 0.0
+      },
+      "supplements": {
+        "collagen": {
+          "morning": false,
+          "evening": false
+        },
+        "vitamin_c": {
+          "morning": false,
+          "evening": false
+        },
+        "magnesium": {
+          "taken": false
+        }
+      },
+      "compliance_score": 0.0
+    }
+  },
+  "shortcuts_compatible": true,
+  "mobile_app_ready": true
+}

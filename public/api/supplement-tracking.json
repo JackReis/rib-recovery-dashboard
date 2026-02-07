@@ -1,0 +1,28 @@
+{
+  "updated_at": "2026-02-06T22:57:45.495108",
+  "sources": [
+    "rrt_script"
+  ],
+  "rib_recovery": {
+    "date": "2026-01-28",
+    "water_intake": {
+      "glasses": 0,
+      "target": 10,
+      "percentage": 0.0
+    },
+    "supplements": {
+      "collagen": {
+        "morning": false,
+        "evening": false
+      },
+      "vitamin_c": {
+        "morning": false,
+        "evening": false
+      },
+      "magnesium": {
+        "taken": false
+      }
+    },
+    "compliance_score": 0.0
+  }
+}
