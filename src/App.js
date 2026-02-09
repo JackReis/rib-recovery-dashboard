@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import RecoveryDashboard from './RecoveryDashboard';
 import HealthcareDashboard from './HealthcareDashboard';
-import { Activity, Users, Menu, X } from 'lucide-react';
+import WellnessAnalytics from './WellnessAnalytics';
+import { Activity, Users, BarChart2, Menu, X } from 'lucide-react';
 import './App.css';
 
 function App() {
@@ -53,6 +54,17 @@ function App() {
               <Users className="inline w-4 h-4 mr-2" />
               All Providers
             </button>
+            <button
+              onClick={() => setActiveView('analytics')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                activeView === 'analytics'
+                  ? 'bg-blue-100 text-blue-700'
+                  : 'text-slate-600 hover:bg-slate-100'
+              }`}
+            >
+              <BarChart2 className="inline w-4 h-4 mr-2" />
+              Wellness Analytics
+            </button>
           </div>
         </div>
 
@@ -87,13 +99,29 @@ function App() {
               <Users className="inline w-4 h-4 mr-2" />
               All Providers
             </button>
+            <button
+              onClick={() => {
+                setActiveView('analytics');
+                setMobileMenuOpen(false);
+              }}
+              className={`w-full text-left px-4 py-2 rounded-lg font-medium ${
+                activeView === 'analytics'
+                  ? 'bg-blue-100 text-blue-700'
+                  : 'text-slate-600'
+              }`}
+            >
+              <BarChart2 className="inline w-4 h-4 mr-2" />
+              Wellness Analytics
+            </button>
           </div>
         )}
       </div>
 
       {/* Main Content */}
       <div className="App">
-        {activeView === 'recovery' ? <RecoveryDashboard /> : <HealthcareDashboard />}
+        {activeView === 'recovery' && <RecoveryDashboard />}
+        {activeView === 'healthcare' && <HealthcareDashboard />}
+        {activeView === 'analytics' && <WellnessAnalytics />}
       </div>
     </div>
   );

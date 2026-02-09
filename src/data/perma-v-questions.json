@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "scale": { "min": 1, "max": 10 },
+  "dimensions": [
+    {
+      "key": "positive_emotion",
+      "label": "Positive Emotion",
+      "icon": "Smile",
+      "color": "#f59e0b",
+      "questions": [
+        "How often did you feel joyful or content today?",
+        "How satisfied are you with your life right now?"
+      ]
+    },
+    {
+      "key": "engagement",
+      "label": "Engagement",
+      "icon": "Zap",
+      "color": "#8b5cf6",
+      "questions": [
+        "How absorbed were you in activities you enjoy?",
+        "Did you experience a state of flow or deep focus?"
+      ]
+    },
+    {
+      "key": "relationships",
+      "label": "Relationships",
+      "icon": "Heart",
+      "color": "#ef4444",
+      "questions": [
+        "How connected do you feel to people who matter to you?",
+        "Did you have meaningful social interactions today?"
+      ]
+    },
+    {
+      "key": "meaning",
+      "label": "Meaning",
+      "icon": "Compass",
+      "color": "#3b82f6",
+      "questions": [
+        "How much purpose or direction did you feel today?",
+        "Are your daily activities aligned with your values?"
+      ]
+    },
+    {
+      "key": "accomplishment",
+      "label": "Accomplishment",
+      "icon": "Trophy",
+      "color": "#10b981",
+      "questions": [
+        "Did you make progress toward a goal today?",
+        "How productive did you feel?"
+      ]
+    },
+    {
+      "key": "vitality",
+      "label": "Vitality",
+      "icon": "Activity",
+      "color": "#06b6d4",
+      "questions": [
+        "How would you rate your physical energy level?",
+        "How well did you sleep last night?"
+      ]
+    }
+  ]
+}
