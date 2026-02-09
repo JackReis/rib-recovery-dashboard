@@ -316,14 +316,17 @@ export default function RecoveryDashboard({ onNavigate }) {
                     const supplementsDone = t ? [
                       t.collagen?.morning, t.collagen?.evening,
                       t.vitamin_c?.morning, t.vitamin_c?.evening,
-                      t.magnesium?.taken
+                      t.magnesium?.taken,
+                      t.stasis?.taken,
+                      t.mitopure?.taken,
+                      t.fish_oil?.taken
                     ].filter(Boolean).length : 0;
-                    const supplementsPct = t ? (supplementsDone / 5) * 100 : 0;
+                    const supplementsPct = t ? (supplementsDone / 8) * 100 : 0;
                     return (
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="font-medium flex items-center"><Pill size={14} className="mr-1.5 text-emerald-500" />Supplements</span>
-                          <span>{t ? `${supplementsDone}/5` : '—'}</span>
+                          <span>{t ? `${supplementsDone}/8` : '—'}</span>
                         </div>
                         <ProgressBar value={supplementsPct} max={100} color="bg-emerald-500" />
                         {t && (
@@ -333,6 +336,9 @@ export default function RecoveryDashboard({ onNavigate }) {
                             <span className={`text-xs px-1.5 py-0.5 rounded ${t.vitamin_c?.morning ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Vit C AM</span>
                             <span className={`text-xs px-1.5 py-0.5 rounded ${t.vitamin_c?.evening ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Vit C PM</span>
                             <span className={`text-xs px-1.5 py-0.5 rounded ${t.magnesium?.taken ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Magnesium</span>
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.stasis?.taken ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Stasis</span>
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.mitopure?.taken ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Mitopure</span>
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.fish_oil?.taken ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Fish Oil</span>
                           </div>
                         )}
                       </div>

@@ -18,5 +18,17 @@
   "magnesium": {
     "taken": false,
     "target": "400mg before bed"
+  },
+  "stasis": {
+    "taken": false,
+    "target": "Daily — stimulant complement (contains turmeric/curcumin)"
+  },
+  "mitopure": {
+    "taken": false,
+    "target": "Daily — Timeline Mitopure gummies"
+  },
+  "fish_oil": {
+    "taken": false,
+    "target": "Daily — omega-3 anti-inflammatory"
   }
 }
