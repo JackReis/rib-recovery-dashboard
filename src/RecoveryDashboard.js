@@ -329,9 +329,12 @@ export default function RecoveryDashboard({ onNavigate }) {
                       t.magnesium?.taken,
                       t.stasis?.taken,
                       t.mitopure?.taken,
-                      t.fish_oil?.taken
+                      t.fish_oil?.taken,
+                      t.mct_oil?.taken,
+                      t.creatine?.taken,
+                      t.bone_restore?.taken
                     ].filter(Boolean).length : 0;
-                    const supplementsPct = t ? (supplementsDone / 8) * 100 : 0;
+                    const supplementsPct = t ? (supplementsDone / 11) * 100 : 0;
                     return (
                       <div>
                         <div className="flex justify-between text-sm mb-1">
@@ -346,7 +349,10 @@ export default function RecoveryDashboard({ onNavigate }) {
                             `  --magnesium           400mg before bed\n` +
                             `  --stasis              Stimulant complement (turmeric)\n` +
                             `  --mitopure            Timeline gummies\n` +
-                            `  --fish-oil            Omega-3\n\n` +
+                            `  --fish-oil            Omega-3\n` +
+                            `  --mct-oil             MCT oil\n` +
+                            `  --creatine            Creatine\n` +
+                            `  --bone-restore        Sparkle Wellness Bone Restore\n\n` +
                             `Usage:\n` +
                             `  python3 claude/scripts/rib-recovery-tracker.py --collagen-morning`
                           )} className="font-medium flex items-center hover:text-emerald-600 transition-colors cursor-pointer">

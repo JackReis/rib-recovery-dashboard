@@ -1,17 +1,17 @@
 {
   "date": "2026-02-09",
   "water": {
-    "glasses": 0,
+    "glasses": 3,
     "target": 10,
-    "last_drink": null
+    "last_drink": "2026-02-09T13:17:25.882931"
   },
   "collagen": {
-    "morning": false,
+    "morning": true,
     "evening": false,
     "target": "15g morning (+ optional 10g evening)"
   },
   "vitamin_c": {
-    "morning": false,
+    "morning": true,
     "evening": false,
     "target": "500mg morning, 500mg evening"
   },
@@ -21,14 +21,26 @@
   },
   "stasis": {
     "taken": false,
-    "target": "Daily — stimulant complement (contains turmeric/curcumin)"
+    "target": "Daily \u2014 stimulant complement (contains turmeric/curcumin)"
   },
   "mitopure": {
     "taken": false,
-    "target": "Daily — Timeline Mitopure gummies"
+    "target": "Daily \u2014 Timeline Mitopure gummies"
   },
   "fish_oil": {
     "taken": false,
-    "target": "Daily — omega-3 anti-inflammatory"
+    "target": "Daily \u2014 omega-3 anti-inflammatory"
+  },
+  "mct_oil": {
+    "taken": true,
+    "target": "Daily \u2014 MCT oil"
+  },
+  "creatine": {
+    "taken": true,
+    "target": "Daily \u2014 creatine"
+  },
+  "bone_restore": {
+    "taken": true,
+    "target": "Daily \u2014 Sparkle Wellness Bone Restore"
   }
 }
