@@ -310,6 +310,16 @@ export default function RecoveryDashboard({ onNavigate }) {
               <Card className="p-6">
                 <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Daily Adherence</h3>
                 <div className="space-y-3">
+                  {/* Morning Protocol — from checkboxes */}
+                  <div>
+                    <div className="flex justify-between text-sm mb-1">
+                      <button onClick={() => setActiveTab("morning")} className="font-medium flex items-center hover:text-orange-600 transition-colors">
+                        <Coffee size={14} className="mr-1.5 text-orange-500" />Morning Protocol
+                      </button>
+                      <span>{Math.round(morningProgress)}%</span>
+                    </div>
+                    <ProgressBar value={morningProgress} max={100} color="bg-orange-500" />
+                  </div>
                   {/* Supplements — from CLI tracker */}
                   {(() => {
                     const t = trackerData;
@@ -326,21 +336,9 @@ export default function RecoveryDashboard({ onNavigate }) {
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="font-medium flex items-center"><Pill size={14} className="mr-1.5 text-emerald-500" />Supplements</span>
-                          <span>{t ? `${supplementsDone}/8` : '—'}</span>
+                          <span>{t ? `${Math.round(supplementsPct)}%` : '—'}</span>
                         </div>
                         <ProgressBar value={supplementsPct} max={100} color="bg-emerald-500" />
-                        {t && (
-                          <div className="flex flex-wrap gap-1.5 mt-1.5">
-                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.collagen?.morning ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Collagen AM</span>
-                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.collagen?.evening ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Collagen PM</span>
-                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.vitamin_c?.morning ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Vit C AM</span>
-                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.vitamin_c?.evening ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Vit C PM</span>
-                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.magnesium?.taken ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Magnesium</span>
-                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.stasis?.taken ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Stasis</span>
-                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.mitopure?.taken ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Mitopure</span>
-                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.fish_oil?.taken ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Fish Oil</span>
-                          </div>
-                        )}
                       </div>
                     );
                   })()}
@@ -354,23 +352,25 @@ export default function RecoveryDashboard({ onNavigate }) {
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="font-medium flex items-center"><Droplets size={14} className="mr-1.5 text-blue-500" />Hydration</span>
-                          <span>{t ? `${glasses * 8}oz / ${target * 8}oz` : '—'}</span>
+                          <span>{t ? `${Math.round(Math.min(hydrationPct, 100))}%` : '—'}</span>
                         </div>
                         <ProgressBar value={Math.min(hydrationPct, 100)} max={100} color="bg-blue-500" />
                       </div>
                     );
                   })()}
-                  {/* Exercises — from checkboxes */}
+                  {/* Rehab Exercises — from checkboxes */}
                   <div>
                     <div className="flex justify-between text-sm mb-1">
-                      <span className="font-medium flex items-center"><Activity size={14} className="mr-1.5 text-indigo-500" />Exercises</span>
+                      <button onClick={() => setActiveTab("plan")} className="font-medium flex items-center hover:text-indigo-600 transition-colors">
+                        <Activity size={14} className="mr-1.5 text-indigo-500" />Rehab Exercises
+                      </button>
                       <span>{Math.round(rehabProgress)}%</span>
                     </div>
                     <ProgressBar value={rehabProgress} max={100} color="bg-indigo-500" />
                   </div>
                   {!trackerData && (
                     <p className="text-xs text-slate-400 italic mt-1">
-                      Run <code className="bg-slate-100 px-1 rounded">rib-recovery-tracker.py</code> to populate supplements &amp; hydration
+                      Use <code className="bg-slate-100 px-1 rounded">rib-recovery-tracker.py</code> for supplement &amp; hydration tracking
                     </p>
                   )}
                 </div>
