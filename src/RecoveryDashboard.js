@@ -335,7 +335,23 @@ export default function RecoveryDashboard({ onNavigate }) {
                     return (
                       <div>
                         <div className="flex justify-between text-sm mb-1">
-                          <span className="font-medium flex items-center"><Pill size={14} className="mr-1.5 text-emerald-500" />Supplements</span>
+                          <button onClick={() => alert(
+                            `SUPPLEMENT TRACKER (CLI)\n\n` +
+                            `Data: ~/Documents/=notes/claude/.rib-recovery-status.json\n\n` +
+                            `Commands:\n` +
+                            `  --collagen-morning    15g collagen\n` +
+                            `  --collagen-evening    10g collagen (optional)\n` +
+                            `  --vitamin-c-morning   500mg Vit C\n` +
+                            `  --vitamin-c-evening   500mg Vit C\n` +
+                            `  --magnesium           400mg before bed\n` +
+                            `  --stasis              Stimulant complement (turmeric)\n` +
+                            `  --mitopure            Timeline gummies\n` +
+                            `  --fish-oil            Omega-3\n\n` +
+                            `Usage:\n` +
+                            `  python3 claude/scripts/rib-recovery-tracker.py --collagen-morning`
+                          )} className="font-medium flex items-center hover:text-emerald-600 transition-colors cursor-pointer">
+                            <Pill size={14} className="mr-1.5 text-emerald-500" />Supplements
+                          </button>
                           <span>{t ? `${Math.round(supplementsPct)}%` : '—'}</span>
                         </div>
                         <ProgressBar value={supplementsPct} max={100} color="bg-emerald-500" />
@@ -351,7 +367,16 @@ export default function RecoveryDashboard({ onNavigate }) {
                     return (
                       <div>
                         <div className="flex justify-between text-sm mb-1">
-                          <span className="font-medium flex items-center"><Droplets size={14} className="mr-1.5 text-blue-500" />Hydration</span>
+                          <button onClick={() => alert(
+                            `HYDRATION TRACKER (CLI)\n\n` +
+                            `Target: 80oz/day (10 × 8oz glasses)\n` +
+                            `Data: ~/Documents/=notes/claude/.rib-recovery-status.json\n\n` +
+                            `Command:\n` +
+                            `  python3 claude/scripts/rib-recovery-tracker.py --water\n\n` +
+                            `Each call logs one 8oz glass.`
+                          )} className="font-medium flex items-center hover:text-blue-600 transition-colors cursor-pointer">
+                            <Droplets size={14} className="mr-1.5 text-blue-500" />Hydration
+                          </button>
                           <span>{t ? `${Math.round(Math.min(hydrationPct, 100))}%` : '—'}</span>
                         </div>
                         <ProgressBar value={Math.min(hydrationPct, 100)} max={100} color="bg-blue-500" />
