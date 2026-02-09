@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import RecoveryDashboard from './RecoveryDashboard';
 import HealthcareDashboard from './HealthcareDashboard';
 import WellnessAnalytics from './WellnessAnalytics';
-import { Activity, Users, BarChart2, Menu, X } from 'lucide-react';
+import PTSessionPlan from './PTSessionPlan';
+import { Activity, Users, BarChart2, ClipboardList, Menu, X } from 'lucide-react';
 import './App.css';
 
 function App() {
@@ -65,6 +66,17 @@ function App() {
               <BarChart2 className="inline w-4 h-4 mr-2" />
               Wellness Analytics
             </button>
+            <button
+              onClick={() => setActiveView('pt-session')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                activeView === 'pt-session'
+                  ? 'bg-blue-100 text-blue-700'
+                  : 'text-slate-600 hover:bg-slate-100'
+              }`}
+            >
+              <ClipboardList className="inline w-4 h-4 mr-2" />
+              PT Session
+            </button>
           </div>
         </div>
 
@@ -113,15 +125,30 @@ function App() {
               <BarChart2 className="inline w-4 h-4 mr-2" />
               Wellness Analytics
             </button>
+            <button
+              onClick={() => {
+                setActiveView('pt-session');
+                setMobileMenuOpen(false);
+              }}
+              className={`w-full text-left px-4 py-2 rounded-lg font-medium ${
+                activeView === 'pt-session'
+                  ? 'bg-blue-100 text-blue-700'
+                  : 'text-slate-600'
+              }`}
+            >
+              <ClipboardList className="inline w-4 h-4 mr-2" />
+              PT Session
+            </button>
           </div>
         )}
       </div>
 
       {/* Main Content */}
       <div className="App">
-        {activeView === 'recovery' && <RecoveryDashboard />}
+        {activeView === 'recovery' && <RecoveryDashboard onNavigate={setActiveView} />}
         {activeView === 'healthcare' && <HealthcareDashboard />}
         {activeView === 'analytics' && <WellnessAnalytics />}
+        {activeView === 'pt-session' && <PTSessionPlan />}
       </div>
     </div>
   );

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "2026-02-09",
+    "date": "February 9, 2026",
+    "time": "5:00 PM",
+    "status": "upcoming",
+    "provider": {
+      "name": "Ryan",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
+    },
+    "context": [
+      "Month 16 of 24 post-Hansen bilateral rib reconstruction (Oct 11, 2024)",
+      "Hansen technique: Ribs 8-10 sutured to rib 7, reconstructing costal margin bilaterally",
+      "Dr. Hansen Jan 2025 CT: \"Repair sites look good\"",
+      "Critical collagen remodeling window: months 12-18 (we're IN IT)",
+      "Bioabsorbable PLLA/PLGA plates degrading via hydrolysis — biological fusion still forming",
+      "Hardware status: Plates degrading (\"gravel-like\" debris) — expected, but instability gap persists until biological fusion completes"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "Pectoral engagement severely limited (~2-3/10)",
+        "detail": "Key recovery indicator; muscles guarding/spasming to protect unstable ribs",
+        "severity": "critical"
+      },
+      {
+        "priority": 2,
+        "title": "SICK scapula (left)",
+        "detail": "Scapular malposition, inferior medial border prominence, coracoid pain, dyskinesis; documented labral tear + rotator cuff impingement",
+        "severity": "high"
+      },
+      {
+        "priority": 3,
+        "title": "Compensatory guarding patterns",
+        "detail": "16 months of protection locking up movement; risk of becoming permanent",
+        "severity": "high"
+      },
+      {
+        "priority": 4,
+        "title": "Kinetic chain dysfunction",
+        "detail": "Right foot Jones fracture (5th met with screw) → Spiral Line fascial pathway → left ribs",
+        "severity": "moderate"
+      }
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45°, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold 5s", "sets": "10 reps x 3 sets" },
+      { "name": "Modified crocodile breathing", "detail": "Prone, towel under R foot, inhale 4ct into posterior ribs, exhale with R foot dorsiflexion", "sets": "3-5 min daily" },
+      { "name": "QL release", "detail": "Side-lying, foam roll L hip to ribs, pause at tender spots 30s, add contralateral arm reach", "sets": "2 min/side" },
+      { "name": "Wall angels", "detail": "Back against wall, arms at 90°, slide up/down maintaining contact, stop before compensation", "sets": "8-10 reps x 2 sets" },
+      { "name": "Standing wood chops (light band)", "detail": "3-5 lb, feet wide, R foot forward, chop high-R to low-L, rotation limited to 45°", "sets": "10 reps each direction x 2 sets" }
+    ],
+    "questions": [
+      "Pectoral engagement at ~2-3/10 — is this rib guarding, SICK scapula, or both?",
+      "Should we prioritize rib stabilization before aggressive shoulder PT, or parallel?",
+      "Would IASTM/ART be helpful before standard strengthening? (15+ months of adhesions — pec minor, conjoint tendon, clavipectoral fascia all likely fibrotic)",
+      "Spiral Line: right foot → left rib connection — should we address foot biomechanics?",
+      "Do you see classic SICK scapula presentation or secondary rib compensation?",
+      "Realistic pectoral engagement targets by month 18?",
+      "Home exercise program — continue Phase 1 or modify?"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP IMMEDIATELY" },
+      { "symptom": "Rib \"slipping out\" sensation", "action": "STOP & Use Decompression Reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP & Rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP & Seek Medical Attention" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP & Document" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
+    "careTeam": [
+      { "role": "PT", "name": "Ryan, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320" },
+      { "role": "Acupuncture", "name": "Established", "note": "Last: Feb 6 — need to schedule next" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "note": "Weekly" },
+      { "role": "Psychiatry", "name": "Tasha Preston / Jahannah Jamelarin", "note": "Feb 23, 9:20 AM" }
+    ],
+    "notes": ""
+  }
+]

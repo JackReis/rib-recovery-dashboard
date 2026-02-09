@@ -242,7 +242,7 @@ const TabButton = ({ active, label, icon: Icon, onClick }) => (
 
 // --- MAIN APP COMPONENT ---
 
-export default function RecoveryDashboard() {
+export default function RecoveryDashboard({ onNavigate }) {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -320,6 +320,26 @@ export default function RecoveryDashboard() {
                 </p>
               </Card>
             </div>
+
+            {/* PT Session Banner */}
+            <button
+              onClick={() => onNavigate && onNavigate('pt-session')}
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl p-5 shadow-lg hover:shadow-xl transition-all text-left group"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 bg-white/20 rounded-lg">
+                    <Stethoscope size={24} />
+                  </div>
+                  <div>
+                    <p className="text-blue-200 text-xs font-medium uppercase tracking-wider">Today's Appointment</p>
+                    <p className="text-xl font-bold mt-0.5">PT with Ryan, DPT — 5:00 PM</p>
+                    <p className="text-blue-200 text-sm mt-1">Physical Therapy Central • Pectoral engagement, SICK scapula, guarding patterns</p>
+                  </div>
+                </div>
+                <ChevronRight size={24} className="text-blue-300 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </button>
 
             {/* Quick Actions */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
