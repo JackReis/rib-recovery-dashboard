@@ -1,0 +1,22 @@
+{
+  "date": "2026-02-09",
+  "water": {
+    "glasses": 0,
+    "target": 10,
+    "last_drink": null
+  },
+  "collagen": {
+    "morning": false,
+    "evening": false,
+    "target": "15g morning (+ optional 10g evening)"
+  },
+  "vitamin_c": {
+    "morning": false,
+    "evening": false,
+    "target": "500mg morning, 500mg evening"
+  },
+  "magnesium": {
+    "taken": false,
+    "target": "400mg before bed"
+  }
+}

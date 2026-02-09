@@ -19,7 +19,9 @@ import {
   X,
   Save,
   BarChart2,
-  Stethoscope
+  Stethoscope,
+  Droplets,
+  Pill
 } from 'lucide-react';
 
 // --- DATA: EXTRACTED FROM UPLOADED REPORTS ---
@@ -253,6 +255,21 @@ export default function RecoveryDashboard({ onNavigate }) {
   const [rehabChecks, setRehabChecks] = useState({});
   const [history, setHistory] = useState([]);
 
+  // CLI Tracker Data (from rib-recovery-tracker.py)
+  const [trackerData, setTrackerData] = useState(null);
+
+  useEffect(() => {
+    const fetchTracker = () => {
+      fetch('/api/tracker-status.json')
+        .then(res => res.ok ? res.json() : null)
+        .then(data => { if (data) setTrackerData(data); })
+        .catch(() => {});
+    };
+    fetchTracker();
+    const interval = setInterval(fetchTracker, 30000);
+    return () => clearInterval(interval);
+  }, []);
+
   // Calculate Progress
   const morningProgress = (Object.keys(morningChecks).filter(k => morningChecks[k]).length / MORNING_ROUTINE.length) * 100;
   const rehabProgress = (Object.keys(rehabChecks).filter(k => rehabChecks[k]).length / REHAB_PHASE_1.length) * 100;
@@ -292,21 +309,64 @@ export default function RecoveryDashboard({ onNavigate }) {
 
               <Card className="p-6">
                 <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Daily Adherence</h3>
-                <div className="space-y-4">
+                <div className="space-y-3">
+                  {/* Supplements — from CLI tracker */}
+                  {(() => {
+                    const t = trackerData;
+                    const supplementsDone = t ? [
+                      t.collagen?.morning, t.collagen?.evening,
+                      t.vitamin_c?.morning, t.vitamin_c?.evening,
+                      t.magnesium?.taken
+                    ].filter(Boolean).length : 0;
+                    const supplementsPct = t ? (supplementsDone / 5) * 100 : 0;
+                    return (
+                      <div>
+                        <div className="flex justify-between text-sm mb-1">
+                          <span className="font-medium flex items-center"><Pill size={14} className="mr-1.5 text-emerald-500" />Supplements</span>
+                          <span>{t ? `${supplementsDone}/5` : '—'}</span>
+                        </div>
+                        <ProgressBar value={supplementsPct} max={100} color="bg-emerald-500" />
+                        {t && (
+                          <div className="flex flex-wrap gap-1.5 mt-1.5">
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.collagen?.morning ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Collagen AM</span>
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.collagen?.evening ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Collagen PM</span>
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.vitamin_c?.morning ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Vit C AM</span>
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.vitamin_c?.evening ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Vit C PM</span>
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${t.magnesium?.taken ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-400'}`}>Magnesium</span>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })()}
+                  {/* Hydration — from CLI tracker */}
+                  {(() => {
+                    const t = trackerData;
+                    const glasses = t?.water?.glasses || 0;
+                    const target = t?.water?.target || 10;
+                    const hydrationPct = (glasses / target) * 100;
+                    return (
+                      <div>
+                        <div className="flex justify-between text-sm mb-1">
+                          <span className="font-medium flex items-center"><Droplets size={14} className="mr-1.5 text-blue-500" />Hydration</span>
+                          <span>{t ? `${glasses * 8}oz / ${target * 8}oz` : '—'}</span>
+                        </div>
+                        <ProgressBar value={Math.min(hydrationPct, 100)} max={100} color="bg-blue-500" />
+                      </div>
+                    );
+                  })()}
+                  {/* Exercises — from checkboxes */}
                   <div>
                     <div className="flex justify-between text-sm mb-1">
-                      <span className="font-medium">Morning Protocol</span>
-                      <span>{Math.round(morningProgress)}%</span>
-                    </div>
-                    <ProgressBar value={morningProgress} max={100} color="bg-emerald-500" />
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="font-medium">Rehab Exercises</span>
+                      <span className="font-medium flex items-center"><Activity size={14} className="mr-1.5 text-indigo-500" />Exercises</span>
                       <span>{Math.round(rehabProgress)}%</span>
                     </div>
                     <ProgressBar value={rehabProgress} max={100} color="bg-indigo-500" />
                   </div>
+                  {!trackerData && (
+                    <p className="text-xs text-slate-400 italic mt-1">
+                      Run <code className="bg-slate-100 px-1 rounded">rib-recovery-tracker.py</code> to populate supplements &amp; hydration
+                    </p>
+                  )}
                 </div>
               </Card>
 
