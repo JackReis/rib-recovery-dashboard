@@ -42,6 +42,16 @@ export default function PermaVCheckin({ onScoresUpdate }) {
   const latest = getLatestScores(history);
   const dimensions = permaVConfig.dimensions;
 
+  const initResponses = () => {
+    const defaults = {};
+    dimensions.forEach(dim => {
+      dim.questions.forEach((_, qi) => {
+        defaults[`${dim.key}_${qi}`] = 5;
+      });
+    });
+    return defaults;
+  };
+
   useEffect(() => {
     if (onScoresUpdate && latest) {
       onScoresUpdate(latest);
@@ -207,7 +217,7 @@ export default function PermaVCheckin({ onScoresUpdate }) {
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-slate-900">PERMA-V Wellness</h3>
         <button
-          onClick={() => setIsCheckinOpen(true)}
+          onClick={() => { setResponses(initResponses()); setIsCheckinOpen(true); }}
           className="px-3 py-1.5 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700"
         >
           New Check-in
