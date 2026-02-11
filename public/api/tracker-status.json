@@ -1,9 +1,9 @@
 {
   "date": "2026-02-09",
   "water": {
-    "glasses": 3,
+    "glasses": 4,
     "target": 10,
-    "last_drink": "2026-02-09T13:17:25.882931"
+    "last_drink": "2026-02-09T16:16:30.836968"
   },
   "collagen": {
     "morning": true,
