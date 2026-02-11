@@ -334,6 +334,191 @@ const SystemNode = ({ label, role, color, x, y }) => (
   </div>
 );
 
+const Sparkline = ({ data, width = 80, height = 24 }) => {
+  if (!data || data.length === 0) return null;
+  
+  const max = Math.max(...data);
+  const min = Math.min(...data);
+  const range = max - min || 1;
+  
+  const points = data.map((value, i) => {
+    const x = (i / (data.length - 1)) * width;
+    const y = height - ((value - min) / range) * height;
+    return `${x},${y}`;
+  }).join(' ');
+  
+  return (
+    <svg width={width} height={height} style={{ display: 'block' }}>
+      <polyline
+        points={points}
+        fill="none"
+        stroke={C.accent5}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+const SleepQualityCard = ({ cpapData }) => {
+  if (!cpapData || !cpapData.nights || cpapData.nights.length === 0) {
+    return (
+      <Card title="Sleep Quality" icon="😴" accent={C.accent5}>
+        <div style={{ fontSize: 12, color: C.textMuted }}>No data available</div>
+      </Card>
+    );
+  }
+
+  const lastNight = cpapData.nights[0];
+  const last7Nights = cpapData.nights.slice(0, 7);
+  const last30Nights = cpapData.nights.slice(0, 30);
+  
+  const usageHours = lastNight.usage_hours;
+  const ahi = lastNight.ahi;
+  
+  const getUsageColor = (hours) => {
+    if (hours >= 6) return C.done;
+    if (hours >= 4) return C.accent1;
+    return C.accent3;
+  };
+  
+  const getAHIColor = (value) => {
+    if (value < 5) return C.done;
+    if (value < 15) return C.accent1;
+    return C.accent3;
+  };
+  
+  const complianceNights = last30Nights.filter(n => n.usage_hours >= 4).length;
+  const compliancePercentage = Math.round((complianceNights / last30Nights.length) * 100);
+  
+  const usageSparklineData = last7Nights.map(n => n.usage_hours).reverse();
+  
+  return (
+    <Card title="Sleep Quality" icon="😴" accent={C.accent5}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <div>
+            <div style={{ fontSize: 11, color: C.textMuted, marginBottom: 4 }}>
+              Last Night Usage
+            </div>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+              <span style={{ 
+                fontSize: 24, 
+                fontWeight: 800, 
+                color: getUsageColor(usageHours)
+              }}>
+                {usageHours.toFixed(1)}
+              </span>
+              <span style={{ fontSize: 12, color: C.textMuted }}>hours</span>
+            </div>
+          </div>
+          
+          <div>
+            <div style={{ fontSize: 11, color: C.textMuted, marginBottom: 4 }}>
+              Last Night AHI
+            </div>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+              <span style={{ 
+                fontSize: 24, 
+                fontWeight: 800, 
+                color: getAHIColor(ahi)
+              }}>
+                {ahi.toFixed(1)}
+              </span>
+              <span style={{ fontSize: 12, color: C.textMuted }}>events/hr</span>
+            </div>
+          </div>
+        </div>
+        
+        <div style={{
+          padding: "10px 12px",
+          background: C.surface,
+          borderRadius: 8,
+        }}>
+          <div style={{ 
+            display: "flex", 
+            justifyContent: "space-between", 
+            alignItems: "center",
+            marginBottom: 6
+          }}>
+            <span style={{ fontSize: 12, color: C.text }}>
+              30-Day Compliance
+            </span>
+            <span style={{ 
+              fontSize: 14, 
+              fontWeight: 700, 
+              color: compliancePercentage >= 70 ? C.done : C.accent1
+            }}>
+              {compliancePercentage}%
+            </span>
+          </div>
+          <div style={{
+            height: 4,
+            background: C.bg,
+            borderRadius: 2,
+            overflow: "hidden",
+          }}>
+            <div style={{
+              height: "100%",
+              width: `${compliancePercentage}%`,
+              background: compliancePercentage >= 70 ? C.done : C.accent1,
+              borderRadius: 2,
+              transition: "width 0.6s ease",
+            }} />
+          </div>
+          <div style={{ fontSize: 10, color: C.textDim, marginTop: 4 }}>
+            {complianceNights} of {last30Nights.length} nights ≥4 hours
+          </div>
+        </div>
+        
+        <div style={{
+          padding: "10px 12px",
+          background: C.surface,
+          borderRadius: 8,
+        }}>
+          <div style={{ 
+            display: "flex", 
+            justifyContent: "space-between", 
+            alignItems: "center",
+            marginBottom: 6
+          }}>
+            <span style={{ fontSize: 12, color: C.text }}>
+              7-Day Usage Trend
+            </span>
+          </div>
+          <Sparkline data={usageSparklineData} width={100} height={24} />
+          <div style={{ 
+            fontSize: 10, 
+            color: C.textDim, 
+            marginTop: 4,
+            display: "flex",
+            justifyContent: "space-between"
+          }}>
+            <span>7 days ago</span>
+            <span>Last night</span>
+          </div>
+        </div>
+        
+        <div style={{
+          fontSize: 10,
+          color: C.textMuted,
+          padding: "6px 8px",
+          background: `${C.accent5}10`,
+          borderRadius: 6,
+          borderLeft: `2px solid ${C.accent5}`,
+        }}>
+          <strong>Thresholds:</strong> Usage: <span style={{color: C.done}}>≥6h</span>{' '}
+          <span style={{color: C.accent1}}>4-6h</span>{' '}
+          <span style={{color: C.accent3}}>&lt;4h</span> • AHI: <span style={{color: C.done}}>&lt;5</span>{' '}
+          <span style={{color: C.accent1}}>5-15</span>{' '}
+          <span style={{color: C.accent3}}>≥15</span>
+        </div>
+      </div>
+    </Card>
+  );
+};
+
 const OverviewTab = () => (
   <div
     style={{
@@ -1006,9 +1191,19 @@ const SystemsTab = () => (
   </div>
 );
 
-const RecoveryTab = () => (
-  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-    <Card title="Rib Recovery Timeline" icon="🫁" accent={C.accent3} span={2}>
+const RecoveryTab = () => {
+  const [cpapData, setCpapData] = React.useState(null);
+  
+  React.useEffect(() => {
+    fetch('/api/cpap-sleep.json')
+      .then(res => res.json())
+      .then(data => setCpapData(data))
+      .catch(err => console.error('Failed to load CPAP data:', err));
+  }, []);
+  
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+      <Card title="Rib Recovery Timeline" icon="🫁" accent={C.accent3} span={2}>
       <div style={{ padding: "10px 0" }}>
         <div
           style={{
@@ -1194,8 +1389,11 @@ const RecoveryTab = () => (
         Psychiatry: Feb 23 — Jahannah Jamelarin, Good Shepherd, 9:20 AM
       </div>
     </Card>
+
+    <SleepQualityCard cpapData={cpapData} />
   </div>
-);
+  );
+};
 
 function LifeDashboard() {
   const [activeTab, setActiveTab] = useState(0);
