@@ -17,7 +17,7 @@
   <script type="text/babel" data-type="module">
     const { useState } = React;
 
-const TABS = ["Overview", "This Week", "Energy", "Systems", "Recovery"];
+const TABS = ["Overview", "This Week", "Energy", "Systems", "Recovery", "Sleep"];
 
 const C = {
   bg: "#1a1a2e",
@@ -1395,6 +1395,386 @@ const RecoveryTab = () => {
   );
 };
 
+const SleepTab = () => {
+  const [cpapData, setCpapData] = React.useState(null);
+  
+  React.useEffect(() => {
+    fetch('/api/cpap-sleep.json')
+      .then(res => res.json())
+      .then(data => setCpapData(data))
+      .catch(err => console.error('Failed to load CPAP data:', err));
+  }, []);
+  
+  if (!cpapData || !cpapData.nights || cpapData.nights.length === 0) {
+    return (
+      <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 14 }}>
+        <Card title="Sleep Data" icon="😴" accent={C.accent5}>
+          <div style={{ fontSize: 12, color: C.textMuted, textAlign: 'center', padding: '20px' }}>
+            Loading sleep data...
+          </div>
+        </Card>
+      </div>
+    );
+  }
+  
+  const last30Nights = cpapData.nights.slice(0, 30);
+  
+  const avgUsage = last30Nights.reduce((sum, n) => sum + n.usage_hours, 0) / last30Nights.length;
+  const avgAHI = last30Nights.reduce((sum, n) => sum + n.ahi, 0) / last30Nights.length;
+  const avgLeak = last30Nights.reduce((sum, n) => sum + n.avg_leak, 0) / last30Nights.length;
+  const complianceNights = last30Nights.filter(n => n.usage_hours >= 4).length;
+  const compliancePercentage = Math.round((complianceNights / last30Nights.length) * 100);
+  
+  const getUsageColor = (hours) => {
+    if (hours >= 6) return C.done;
+    if (hours >= 4) return C.accent1;
+    return C.accent3;
+  };
+  
+  const getAHIColor = (value) => {
+    if (value < 5) return C.done;
+    if (value < 15) return C.accent1;
+    return C.accent3;
+  };
+  
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }}>
+        <Card title="Avg Usage" icon="⏱️" accent={C.accent5}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+            <span style={{ 
+              fontSize: 32, 
+              fontWeight: 800, 
+              color: getUsageColor(avgUsage)
+            }}>
+              {avgUsage.toFixed(1)}
+            </span>
+            <span style={{ fontSize: 13, color: C.textMuted }}>hours/night</span>
+          </div>
+          <div style={{ fontSize: 10, color: C.textDim, marginTop: 6 }}>
+            Last 30 nights
+          </div>
+        </Card>
+        
+        <Card title="Avg AHI" icon="📊" accent={C.accent5}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+            <span style={{ 
+              fontSize: 32, 
+              fontWeight: 800, 
+              color: getAHIColor(avgAHI)
+            }}>
+              {avgAHI.toFixed(1)}
+            </span>
+            <span style={{ fontSize: 13, color: C.textMuted }}>events/hr</span>
+          </div>
+          <div style={{ fontSize: 10, color: C.textDim, marginTop: 6 }}>
+            Last 30 nights
+          </div>
+        </Card>
+        
+        <Card title="Compliance" icon="✓" accent={C.accent5}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+            <span style={{ 
+              fontSize: 32, 
+              fontWeight: 800, 
+              color: compliancePercentage >= 70 ? C.done : C.accent1
+            }}>
+              {compliancePercentage}%
+            </span>
+            <span style={{ fontSize: 13, color: C.textMuted }}>≥4h nights</span>
+          </div>
+          <div style={{ fontSize: 10, color: C.textDim, marginTop: 6 }}>
+            {complianceNights} of {last30Nights.length} nights
+          </div>
+        </Card>
+        
+        <Card title="Avg Leak" icon="💨" accent={C.accent5}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+            <span style={{ 
+              fontSize: 32, 
+              fontWeight: 800, 
+              color: avgLeak < 0.4 ? C.done : C.accent1
+            }}>
+              {avgLeak.toFixed(1)}
+            </span>
+            <span style={{ fontSize: 13, color: C.textMuted }}>L/min</span>
+          </div>
+          <div style={{ fontSize: 10, color: C.textDim, marginTop: 6 }}>
+            Last 30 nights
+          </div>
+        </Card>
+      </div>
+      
+      <Card title="30-Day Usage Hours" icon="📈" accent={C.accent5} span={2}>
+        <div style={{ position: 'relative', height: 200, padding: '10px 0' }}>
+          <svg width="100%" height="200" viewBox="0 0 760 200">
+            {last30Nights.slice().reverse().map((night, i) => {
+              const barHeight = (night.usage_hours / 12) * 150;
+              const x = i * 25 + 10;
+              const y = 170 - barHeight;
+              const color = getUsageColor(night.usage_hours);
+              
+              return (
+                <g key={i}>
+                  <rect
+                    x={x}
+                    y={y}
+                    width={20}
+                    height={barHeight}
+                    fill={color}
+                    rx={2}
+                  />
+                  {i % 5 === 0 && (
+                    <text
+                      x={x + 10}
+                      y={190}
+                      textAnchor="middle"
+                      fill={C.textDim}
+                      fontSize="9"
+                      fontFamily="inherit"
+                    >
+                      {new Date(night.date).getDate()}
+                    </text>
+                  )}
+                </g>
+              );
+            })}
+            <line x1="0" y1="170" x2="760" y2="170" stroke={C.border} strokeWidth="1" />
+            <line x1="0" y1="95" x2="760" y2="95" stroke={C.border} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+            <text x="0" y="100" fill={C.textDim} fontSize="10" fontFamily="inherit">6h</text>
+            <line x1="0" y1="120" x2="760" y2="120" stroke={C.border} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+            <text x="0" y="125" fill={C.textDim} fontSize="10" fontFamily="inherit">4h</text>
+          </svg>
+        </div>
+        <div style={{ 
+          display: 'flex', 
+          gap: 16, 
+          marginTop: 10, 
+          justifyContent: 'center',
+          fontSize: 11
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 12, height: 12, background: C.done, borderRadius: 2 }} />
+            <span style={{ color: C.textMuted }}>≥6 hours</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 12, height: 12, background: C.accent1, borderRadius: 2 }} />
+            <span style={{ color: C.textMuted }}>4-6 hours</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 12, height: 12, background: C.accent3, borderRadius: 2 }} />
+            <span style={{ color: C.textMuted }}>&lt;4 hours</span>
+          </div>
+        </div>
+      </Card>
+      
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+        <Card title="30-Day AHI Trend" icon="📉" accent={C.accent2}>
+          <div style={{ position: 'relative', height: 160, padding: '10px 0' }}>
+            <svg width="100%" height="160" viewBox="0 0 360 160">
+              {last30Nights.slice().reverse().map((night, i) => {
+                if (i === 0) return null;
+                const prevNight = last30Nights.slice().reverse()[i - 1];
+                const x1 = (i - 1) * 12 + 5;
+                const y1 = 140 - (prevNight.ahi / 20) * 120;
+                const x2 = i * 12 + 5;
+                const y2 = 140 - (night.ahi / 20) * 120;
+                
+                return (
+                  <line
+                    key={i}
+                    x1={x1}
+                    y1={y1}
+                    x2={x2}
+                    y2={y2}
+                    stroke={C.accent2}
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                );
+              })}
+              {last30Nights.slice().reverse().map((night, i) => {
+                const x = i * 12 + 5;
+                const y = 140 - (night.ahi / 20) * 120;
+                const color = getAHIColor(night.ahi);
+                
+                return (
+                  <circle
+                    key={i}
+                    cx={x}
+                    cy={y}
+                    r={3}
+                    fill={color}
+                  />
+                );
+              })}
+              <line x1="0" y1="140" x2="360" y2="140" stroke={C.border} strokeWidth="1" />
+              <line x1="0" y1="110" x2="360" y2="110" stroke={C.border} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+              <text x="0" y="115" fill={C.textDim} fontSize="10" fontFamily="inherit">5</text>
+              <line x1="0" y1="20" x2="360" y2="20" stroke={C.border} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+              <text x="0" y="25" fill={C.textDim} fontSize="10" fontFamily="inherit">15</text>
+            </svg>
+          </div>
+          <div style={{ fontSize: 10, color: C.textMuted, textAlign: 'center', marginTop: 4 }}>
+            Lower is better • Target: &lt;5 events/hr
+          </div>
+        </Card>
+        
+        <Card title="30-Day Leak Rate" icon="💨" accent={C.accent4}>
+          <div style={{ position: 'relative', height: 160, padding: '10px 0' }}>
+            <svg width="100%" height="160" viewBox="0 0 360 160">
+              {last30Nights.slice().reverse().map((night, i) => {
+                if (i === 0) return null;
+                const prevNight = last30Nights.slice().reverse()[i - 1];
+                const x1 = (i - 1) * 12 + 5;
+                const y1 = 140 - (prevNight.avg_leak / 1.0) * 120;
+                const x2 = i * 12 + 5;
+                const y2 = 140 - (night.avg_leak / 1.0) * 120;
+                
+                return (
+                  <line
+                    key={i}
+                    x1={x1}
+                    y1={y1}
+                    x2={x2}
+                    y2={y2}
+                    stroke={C.accent4}
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                );
+              })}
+              {last30Nights.slice().reverse().map((night, i) => {
+                const x = i * 12 + 5;
+                const y = 140 - (night.avg_leak / 1.0) * 120;
+                const color = night.avg_leak < 0.4 ? C.done : C.accent1;
+                
+                return (
+                  <circle
+                    key={i}
+                    cx={x}
+                    cy={y}
+                    r={3}
+                    fill={color}
+                  />
+                );
+              })}
+              <line x1="0" y1="140" x2="360" y2="140" stroke={C.border} strokeWidth="1" />
+              <line x1="0" y1="92" x2="360" y2="92" stroke={C.border} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+              <text x="0" y="97" fill={C.textDim} fontSize="10" fontFamily="inherit">0.4</text>
+            </svg>
+          </div>
+          <div style={{ fontSize: 10, color: C.textMuted, textAlign: 'center', marginTop: 4 }}>
+            Target: &lt;0.4 L/min (24 L/min)
+          </div>
+        </Card>
+      </div>
+      
+      <Card title="Recent Nights" icon="🌙" accent={C.accent5} span={2}>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ 
+            width: '100%', 
+            fontSize: 11, 
+            borderCollapse: 'collapse'
+          }}>
+            <thead>
+              <tr style={{ 
+                borderBottom: `2px solid ${C.border}`,
+                color: C.textMuted,
+                fontWeight: 600
+              }}>
+                <th style={{ padding: '8px 10px', textAlign: 'left' }}>Date</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Usage</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>AHI</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Leak</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Pressure</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Mask Events</th>
+              </tr>
+            </thead>
+            <tbody>
+              {last30Nights.slice(0, 10).map((night, i) => {
+                const date = new Date(night.date);
+                const formattedDate = `${date.getMonth() + 1}/${date.getDate()}`;
+                
+                return (
+                  <tr 
+                    key={i}
+                    style={{ 
+                      borderBottom: `1px solid ${C.border}`,
+                      opacity: i === 0 ? 1 : 0.8
+                    }}
+                  >
+                    <td style={{ 
+                      padding: '10px', 
+                      color: C.text,
+                      fontWeight: i === 0 ? 600 : 400
+                    }}>
+                      {formattedDate}
+                      {i === 0 && <span style={{ 
+                        marginLeft: 6, 
+                        fontSize: 10, 
+                        color: C.accent5 
+                      }}>Latest</span>}
+                    </td>
+                    <td style={{ 
+                      padding: '10px', 
+                      textAlign: 'right',
+                      color: getUsageColor(night.usage_hours),
+                      fontWeight: 600
+                    }}>
+                      {night.usage_hours.toFixed(1)}h
+                    </td>
+                    <td style={{ 
+                      padding: '10px', 
+                      textAlign: 'right',
+                      color: getAHIColor(night.ahi),
+                      fontWeight: 600
+                    }}>
+                      {night.ahi.toFixed(1)}
+                    </td>
+                    <td style={{ 
+                      padding: '10px', 
+                      textAlign: 'right',
+                      color: night.avg_leak < 0.4 ? C.done : C.accent1
+                    }}>
+                      {night.avg_leak.toFixed(1)}
+                    </td>
+                    <td style={{ 
+                      padding: '10px', 
+                      textAlign: 'right',
+                      color: C.textMuted
+                    }}>
+                      {night.avg_pressure.toFixed(1)}
+                    </td>
+                    <td style={{ 
+                      padding: '10px', 
+                      textAlign: 'right',
+                      color: night.mask_events > 6 ? C.accent3 : C.textMuted
+                    }}>
+                      {night.mask_events}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div style={{
+          marginTop: 12,
+          fontSize: 10,
+          color: C.textMuted,
+          padding: "8px 10px",
+          background: `${C.accent5}10`,
+          borderRadius: 6,
+          borderLeft: `2px solid ${C.accent5}`,
+        }}>
+          <strong>Device:</strong> {cpapData.device} • <strong>Data Updated:</strong> {cpapData.last_updated} • <strong>Total Nights:</strong> {cpapData.data_range.total_nights}
+        </div>
+      </Card>
+    </div>
+  );
+};
+
 function LifeDashboard() {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -1404,6 +1784,7 @@ function LifeDashboard() {
     <EnergyTab />,
     <SystemsTab />,
     <RecoveryTab />,
+    <SleepTab />,
   ];
 
   return (
