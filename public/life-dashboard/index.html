@@ -361,11 +361,19 @@ const Sparkline = ({ data, width = 80, height = 24 }) => {
   );
 };
 
-const SleepQualityCard = ({ cpapData }) => {
-  if (!cpapData || !cpapData.nights || cpapData.nights.length === 0) {
+const SleepQualityCard = ({ cpapData, loading, error }) => {
+  if (loading || !cpapData) {
     return (
       <Card title="Sleep Quality" icon="😴" accent={C.accent5}>
-        <div style={{ fontSize: 12, color: C.textMuted }}>No data available</div>
+        <div style={{ fontSize: 12, color: C.textMuted }}>Loading sleep data...</div>
+      </Card>
+    );
+  }
+  
+  if (error || !cpapData.nights || cpapData.nights.length === 0) {
+    return (
+      <Card title="Sleep Quality" icon="😴" accent={C.accent5}>
+        <div style={{ fontSize: 12, color: C.textMuted }}>Loading sleep data...</div>
       </Card>
     );
   }
@@ -1197,12 +1205,28 @@ const SystemsTab = () => (
 
 const RecoveryTab = () => {
   const [cpapData, setCpapData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
   
   React.useEffect(() => {
+    setLoading(true);
+    setError(false);
     fetch('/api/cpap-sleep.json')
-      .then(res => res.json())
-      .then(data => setCpapData(data))
-      .catch(err => console.error('Failed to load CPAP data:', err));
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => {
+        setCpapData(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load CPAP data:', err);
+        setError(true);
+        setLoading(false);
+      });
   }, []);
   
   return (
@@ -1394,22 +1418,38 @@ const RecoveryTab = () => {
       </div>
     </Card>
 
-    <SleepQualityCard cpapData={cpapData} />
+    <SleepQualityCard cpapData={cpapData} loading={loading} error={error} />
   </div>
   );
 };
 
 const SleepTab = () => {
   const [cpapData, setCpapData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
   
   React.useEffect(() => {
+    setLoading(true);
+    setError(false);
     fetch('/api/cpap-sleep.json')
-      .then(res => res.json())
-      .then(data => setCpapData(data))
-      .catch(err => console.error('Failed to load CPAP data:', err));
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => {
+        setCpapData(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load CPAP data:', err);
+        setError(true);
+        setLoading(false);
+      });
   }, []);
   
-  if (!cpapData || !cpapData.nights || cpapData.nights.length === 0) {
+  if (loading || !cpapData || error || !cpapData.nights || cpapData.nights.length === 0) {
     return (
       <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 14 }}>
         <Card title="Sleep Data" icon="😴" accent={C.accent5}>
