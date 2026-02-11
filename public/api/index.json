@@ -78,6 +78,23 @@
         "performance_metrics",
         "alerts"
       ]
+    },
+    {
+      "path": "/api/cpap-sleep.json",
+      "name": "CPAP Sleep Tracking",
+      "description": "CPAP therapy metrics, sleep quality data, and compliance tracking",
+      "methods": ["GET"],
+      "response_format": "JSON",
+      "update_frequency": "weekly (manual SD card sync)",
+      "data_points": [
+        "usage_hours",
+        "ahi",
+        "mask_events",
+        "avg_leak",
+        "pressure",
+        "compliance_rate",
+        "7_day_averages"
+      ]
     }
   ],
   "integration_guides": {
