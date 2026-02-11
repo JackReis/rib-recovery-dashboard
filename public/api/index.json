@@ -86,6 +86,7 @@
       "methods": ["GET"],
       "response_format": "JSON",
       "update_frequency": "weekly (manual SD card sync)",
+      "mobile_friendly": true,
       "data_points": [
         "usage_hours",
         "ahi",

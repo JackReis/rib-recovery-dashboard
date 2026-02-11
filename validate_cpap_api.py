@@ -7,13 +7,12 @@ Verifies structure, fields, data count, and date range
 import json
 import sys
 from datetime import datetime
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 from urllib.error import URLError
 
 API_URL = "https://rib-recovery-dashboard-61b9d4.gitlab.io/api/cpap-sleep.json"
-EXPECTED_NIGHTS = 436
-EXPECTED_START_DATE = "2024-11-20"
-EXPECTED_END_DATE = "2026-02-10"
+# Note: Night counts and dates will vary as data is updated
+MIN_EXPECTED_NIGHTS = 400  # Flexible minimum instead of exact count
 
 REQUIRED_FIELDS = [
     "usage_hours",
@@ -30,7 +29,8 @@ def validate_api():
     # 1. Check accessibility
     print("1. Checking endpoint accessibility...")
     try:
-        response = urlopen(API_URL, timeout=10)
+        req = Request(API_URL, headers={'User-Agent': 'CPAP-API-Validator/1.0'})
+        response = urlopen(req, timeout=10)
         data = json.loads(response.read().decode('utf-8'))
         print("   ✓ Endpoint is accessible")
     except URLError as e:
@@ -101,44 +101,49 @@ def validate_api():
     # 3. Validate number of nights
     print(f"\n5. Validating data count...")
     actual_nights = len(data["nights"])
-    if actual_nights == EXPECTED_NIGHTS:
-        print(f"   ✓ Correct number of nights: {actual_nights}")
+    if actual_nights >= MIN_EXPECTED_NIGHTS:
+        print(f"   ✓ Sufficient number of nights: {actual_nights} (minimum: {MIN_EXPECTED_NIGHTS})")
     else:
-        print(f"   ✗ Expected {EXPECTED_NIGHTS} nights, found {actual_nights}")
+        print(f"   ✗ Expected at least {MIN_EXPECTED_NIGHTS} nights, found {actual_nights}")
         return False
     
     # 4. Validate date range
     print(f"\n6. Validating date range...")
     
-    # Check data_range metadata
-    if data["data_range"]["start"] != EXPECTED_START_DATE:
-        print(f"   ✗ Start date mismatch: expected {EXPECTED_START_DATE}, found {data['data_range']['start']}")
-        return False
-    print(f"   ✓ Start date correct: {EXPECTED_START_DATE}")
+    # Check data_range metadata exists and is consistent
+    start_date = data["data_range"]["start"]
+    end_date = data["data_range"]["end"]
+    total_nights = data["data_range"]["total_nights"]
     
-    if data["data_range"]["end"] != EXPECTED_END_DATE:
-        print(f"   ✗ End date mismatch: expected {EXPECTED_END_DATE}, found {data['data_range']['end']}")
-        return False
-    print(f"   ✓ End date correct: {EXPECTED_END_DATE}")
+    print(f"   ✓ Data range: {start_date} to {end_date}")
     
-    if data["data_range"]["total_nights"] != EXPECTED_NIGHTS:
-        print(f"   ✗ Total nights mismatch: expected {EXPECTED_NIGHTS}, found {data['data_range']['total_nights']}")
+    if total_nights != actual_nights:
+        print(f"   ✗ Total nights mismatch: metadata says {total_nights}, actual array has {actual_nights}")
         return False
-    print(f"   ✓ Total nights correct: {EXPECTED_NIGHTS}")
+    print(f"   ✓ Total nights consistent: {total_nights}")
     
-    # Verify actual first and last entries
+    # Verify actual first and last entries match metadata
     first_entry_date = data["nights"][-1]["date"]  # nights are in reverse chronological order
     last_entry_date = data["nights"][0]["date"]
     
-    if first_entry_date != EXPECTED_START_DATE:
-        print(f"   ✗ First entry date mismatch: expected {EXPECTED_START_DATE}, found {first_entry_date}")
+    if first_entry_date != start_date:
+        print(f"   ✗ First entry date mismatch: metadata says {start_date}, array has {first_entry_date}")
         return False
-    print(f"   ✓ First entry date verified: {first_entry_date}")
+    print(f"   ✓ First entry date consistent: {first_entry_date}")
     
-    if last_entry_date != EXPECTED_END_DATE:
-        print(f"   ✗ Last entry date mismatch: expected {EXPECTED_END_DATE}, found {last_entry_date}")
+    if last_entry_date != end_date:
+        print(f"   ✗ Last entry date mismatch: metadata says {end_date}, array has {last_entry_date}")
         return False
-    print(f"   ✓ Last entry date verified: {last_entry_date}")
+    print(f"   ✓ Last entry date consistent: {last_entry_date}")
+    
+    # Validate date format
+    try:
+        datetime.strptime(start_date, "%Y-%m-%d")
+        datetime.strptime(end_date, "%Y-%m-%d")
+        print(f"   ✓ Date formats are valid (YYYY-MM-DD)")
+    except ValueError as e:
+        print(f"   ✗ Invalid date format: {e}")
+        return False
     
     print("\n" + "="*60)
     print("✓ ALL VALIDATIONS PASSED")

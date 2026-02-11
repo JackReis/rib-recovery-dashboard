@@ -342,7 +342,7 @@ const Sparkline = ({ data, width = 80, height = 24 }) => {
   const range = max - min || 1;
   
   const points = data.map((value, i) => {
-    const x = (i / (data.length - 1)) * width;
+    const x = data.length > 1 ? (i / (data.length - 1)) * width : width / 2;
     const y = height - ((value - min) / range) * height;
     return `${x},${y}`;
   }).join(' ');
@@ -374,8 +374,8 @@ const SleepQualityCard = ({ cpapData }) => {
   const last7Nights = cpapData.nights.slice(0, 7);
   const last30Nights = cpapData.nights.slice(0, 30);
   
-  const usageHours = lastNight.usage_hours;
-  const ahi = lastNight.ahi;
+  const usageHours = lastNight?.usage_hours ?? 0;
+  const ahi = lastNight?.ahi ?? 0;
   
   const getUsageColor = (hours) => {
     if (hours >= 6) return C.done;
@@ -389,10 +389,14 @@ const SleepQualityCard = ({ cpapData }) => {
     return C.accent3;
   };
   
-  const complianceNights = last30Nights.filter(n => n.usage_hours >= 4).length;
-  const compliancePercentage = Math.round((complianceNights / last30Nights.length) * 100);
+  const complianceNights = last30Nights.filter(n => n?.usage_hours >= 4).length;
+  const compliancePercentage = last30Nights.length > 0 
+    ? Math.round((complianceNights / last30Nights.length) * 100)
+    : 0;
   
-  const usageSparklineData = last7Nights.map(n => n.usage_hours).reverse();
+  const usageSparklineData = last7Nights
+    .map(n => n?.usage_hours ?? 0)
+    .reverse();
   
   return (
     <Card title="Sleep Quality" icon="😴" accent={C.accent5}>
