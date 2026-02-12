@@ -40,6 +40,7 @@
       "next_appointment": {
         "provider": "Ryan (PT)",
         "date": "2026-02-13",
+        "time": "4:00 PM",
         "days_until": 1,
         "specialty": "Physical Therapy"
       },
