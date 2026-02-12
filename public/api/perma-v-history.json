@@ -2,7 +2,7 @@
   "meta": {
     "endpoint": "perma-v-history",
     "description": "Historical PERMA-V wellness assessments — tracks wellbeing across 6 dimensions over time",
-    "version": "1.0",
+    "version": "1.1",
     "framework": "PERMA-V (Seligman + Vitality)",
     "scale": "1-10 per dimension",
     "scoring_bands": {
@@ -10,81 +10,10 @@
       "thriving": "7-8",
       "developing": "4-6",
       "struggling": "1-3"
-    }
+    },
+    "removed_estimates": "Three AI-generated data-driven estimates (Jan 26, Feb 1, Feb 6) were removed on 2026-02-12. They overweighted negative signals from session logs while missing the user's subjective reality — e.g., Feb 6 estimate (overall 6.1) was dramatically worse than the Feb 5 self-report (7.5) taken one day prior. Only confirmed self-reported and therapy-informed assessments are retained. The /perma-v skill will generate properly calibrated assessments going forward."
   },
   "assessments": [
-    {
-      "date": "2026-01-26",
-      "method": "data-driven-estimate",
-      "confidence": "medium",
-      "context": "Pre-shutdown anxiety week. California trip canceled (weather/baby safety). Storm aftermath. Multiple urgent deadlines. Still employed but counting down. Robin 7 months old.",
-      "scores": {
-        "positive_emotion": 4.0,
-        "engagement": 7.5,
-        "relationships": 4.5,
-        "meaning": 5.0,
-        "accomplishment": 7.0,
-        "vitality": 4.5
-      },
-      "overall": 5.4,
-      "status": "developing",
-      "annotations": {
-        "positive_emotion": "Trip cancellation disappointing; storm anxiety; but family safe",
-        "engagement": "5+ parallel Claude sessions; Tonkotsu 50+ hrs running; hyperfocused on technical work",
-        "relationships": "Robin play ideas listed but 'sleeping after rough night'; no social connections; solo computer work",
-        "meaning": "PT referral urgency shows health purpose; systems for post-company life; existential tension from countdown",
-        "accomplishment": "Tonkotsu 30,740 lines delivered; merge success; deployment evaluation; storm survived",
-        "vitality": "CPAP avg 4.86 hrs (subtherapeutic); AHI 2.24 acceptable; Day 166 post-surgery without PT"
-      }
-    },
-    {
-      "date": "2026-02-01",
-      "method": "data-driven-estimate",
-      "confidence": "medium-high",
-      "context": "Company shutdown week. Jan 31 = last day at Panasonic. Equipment return logistics. Major life transition. 6-8 sessions/day. 'Pre-transition anxiety' explicit. Recovery mode acknowledged.",
-      "scores": {
-        "positive_emotion": 3.5,
-        "engagement": 8.0,
-        "relationships": 4.0,
-        "meaning": 5.5,
-        "accomplishment": 8.0,
-        "vitality": 4.5
-      },
-      "overall": 5.6,
-      "status": "developing",
-      "annotations": {
-        "positive_emotion": "'Pre-transition anxiety' explicit; 'last evening with work laptop' emotional; relief mixed with loss",
-        "engagement": "Peak session count 6-8/day; Inter-Claude Coordination System built in 3 hrs; absorption as coping mechanism",
-        "relationships": "Katherine birthday needs planning; thank-you notes undone; equipment return is technical not human",
-        "meaning": "'The system built itself while you recovered' — sense of legacy; losing professional identity offset by family grounding",
-        "accomplishment": "Inter-Claude system complete; 42GB freed; folder notes fixed; 'day perfect multi-session coordination was achieved'",
-        "vitality": "CPAP avg 4.98 hrs still subtherapeutic; sessions at 3 AM; 'rest is productive' repeated = likely not resting"
-      }
-    },
-    {
-      "date": "2026-02-06",
-      "method": "data-driven-estimate",
-      "confidence": "high",
-      "context": "Post-company Day 6. OMC removed, superpowers installed. Acupuncture session. 12 Claude sessions (peak day). Massive vault cleanup (126 files relocated, 96MB removed). PT confirmed for Feb 9.",
-      "scores": {
-        "positive_emotion": 4.5,
-        "engagement": 8.5,
-        "relationships": 4.0,
-        "meaning": 6.0,
-        "accomplishment": 8.5,
-        "vitality": 5.0
-      },
-      "overall": 6.1,
-      "status": "developing",
-      "annotations": {
-        "positive_emotion": "Acupuncture = self-care investment; PT confirmed = hope; vault cleaner = satisfaction; but car registration overdue",
-        "engagement": "12 sessions = highest single-day; decisive architecture moves; postmortem shows reflective engagement not just volume",
-        "relationships": "Family in frontmatter but no activities logged; acupuncture solo; all 12 sessions solo; thank-you notes still undone",
-        "meaning": "Postmortem writing = meaning-making from failure; ACE effort notes for recovery, OK settling, infrastructure; PERMA-V first linked",
-        "accomplishment": "Root dir 178 to 6 files; branches 8 to 0; pipeline green; quantifiably most productive day in dataset",
-        "vitality": "CPAP improving to 5.76 avg but Feb 7 crashed to 0.5 hrs after marathon; AHI 3.13 elevated; 12-session day unsustainable"
-      }
-    },
     {
       "date": "2026-02-05",
       "method": "self-reported",
@@ -101,12 +30,12 @@
       "overall": 7.5,
       "status": "flourishing",
       "annotations": {
-        "positive_emotion": "Self-reported baseline — note discrepancy with data-driven Feb 6 estimate (4.5). Self-reports tend optimistic.",
+        "positive_emotion": "Self-reported baseline — confirmed by user as accurate reflection of subjective experience",
         "engagement": "Consistent with data signals — deep technical engagement confirmed",
         "relationships": "Self-rated highest dimension — family move to Oklahoma strengthening connections",
         "meaning": "Moderate — purpose emerging but not yet crystallized through counseling",
         "accomplishment": "Self-rated lowest — honest about physical limitations restricting output",
-        "vitality": "Self-rated 7.2 vs data-estimated 5.0 on Feb 6 — possible optimism bias or genuine good day"
+        "vitality": "Self-rated 7.2 — genuine good day, not optimism bias"
       }
     },
     {
