@@ -153,7 +153,7 @@ const Card = ({ title, icon, children, accent, span }) => (
       border: `1px solid ${C.border}`,
       gridColumn: span ? `span ${span}` : undefined,
       position: "relative",
-      overflow: "hidden",
+      overflow: "visible",
     }}
   >
     {accent && (
@@ -1851,9 +1851,12 @@ const SleepTab = () => {
 };
 
 const PermaVRadar = ({ dimensions, size = 260 }) => {
-  const cx = size / 2;
-  const cy = size / 2;
-  const maxR = size * 0.38;
+  const pad = 36;
+  const inner = size;
+  const full = size + pad * 2;
+  const cx = pad + inner / 2;
+  const cy = pad + inner / 2;
+  const maxR = inner * 0.34;
   const n = dimensions.length;
   const angleStep = (2 * Math.PI) / n;
   const startAngle = -Math.PI / 2;
@@ -1867,7 +1870,7 @@ const PermaVRadar = ({ dimensions, size = 260 }) => {
   const gridLevels = [2, 4, 6, 8, 10];
 
   return (
-    <svg width={size} height={size} viewBox={"0 0 " + size + " " + size}>
+    <svg width={full} height={full} viewBox={"0 0 " + full + " " + full}>
       {gridLevels.map((level) => {
         const pts = Array.from({ length: n }, (_, i) => {
           const p = pointAt(i, level);

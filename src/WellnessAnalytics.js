@@ -136,6 +136,8 @@ export default function WellnessAnalytics() {
   const [permaVScores, setPermaVScores] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const [permaVHistory, setPermaVHistory] = useState(null);
+
   useEffect(() => {
     async function loadData() {
       try {
@@ -144,7 +146,8 @@ export default function WellnessAnalytics() {
           { url: '/api/supplement-tracking.json', setter: setSupplementData },
           { url: '/api/meal-adherence.json', setter: setMealData },
           { url: '/api/recovery-progress.json', setter: setRecoveryData },
-          { url: '/api/appointments.json', setter: setAppointmentData }
+          { url: '/api/appointments.json', setter: setAppointmentData },
+          { url: '/api/perma-v-history.json', setter: setPermaVHistory }
         ];
         await Promise.all(files.map(async ({ url, setter }) => {
           try {
@@ -304,26 +307,168 @@ export default function WellnessAnalytics() {
       )}
 
       {activeTab === 'permaV' && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <PermaVCheckin onScoresUpdate={handlePermaVUpdate} />
-          <div className="space-y-4">
+        <div className="space-y-6">
+          {/* Latest Assessment from API */}
+          {permaV.dimensions && (
             <div className="bg-white rounded-xl border border-slate-200 p-6">
-              <h3 className="text-sm font-semibold text-slate-700 mb-4">Wellness Score History</h3>
-              <WeeklyWellnessScoreChart wellnessData={wellnessData} permaVHistory={permaVHistory} />
-            </div>
-            {permaV.dimensions && (
-              <div className="bg-white rounded-xl border border-slate-200 p-6">
-                <h3 className="text-sm font-semibold text-slate-700 mb-3">Baseline Scores (from API)</h3>
-                <div className="grid grid-cols-3 gap-3">
-                  {Object.entries(permaV.dimensions).map(([key, val]) => (
-                    <div key={key} className="text-center p-2 bg-slate-50 rounded-lg">
-                      <div className="text-lg font-bold text-blue-600">{val}</div>
-                      <div className="text-xs text-slate-500 capitalize">{key.replace(/_/g, ' ')}</div>
-                    </div>
-                  ))}
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900">Current Assessment</h3>
+                  <p className="text-xs text-slate-500">
+                    {permaV.last_assessed || 'Feb 12, 2026'} &bull; {permaV.status || 'thriving'}
+                    {permaV.assessment_context && (
+                      <span className="ml-2 text-blue-500">{permaV.assessment_context}</span>
+                    )}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <div className="text-3xl font-bold text-blue-600">{permaV.overall_score}</div>
+                  <div className="text-xs text-slate-500">
+                    {permaV.vs_last_week !== undefined && (
+                      <span className={permaV.vs_last_week >= 0 ? 'text-green-600' : 'text-red-500'}>
+                        {permaV.vs_last_week >= 0 ? '+' : ''}{permaV.vs_last_week} vs last week
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
-            )}
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+                {(() => {
+                  const latestAssessment = permaVHistory?.assessments?.find(a => a.date === '2026-02-12');
+                  const prevAssessment = permaVHistory?.assessments?.find(a => a.date === '2026-02-05');
+                  const dimColors = {
+                    positive_emotion: '#f59e0b',
+                    engagement: '#8b5cf6',
+                    relationships: '#ef4444',
+                    meaning: '#3b82f6',
+                    accomplishment: '#10b981',
+                    vitality: '#06b6d4'
+                  };
+                  const dimLabels = {
+                    positive_emotion: 'P',
+                    engagement: 'E',
+                    relationships: 'R',
+                    meaning: 'M',
+                    accomplishment: 'A',
+                    vitality: 'V'
+                  };
+                  return Object.entries(permaV.dimensions).map(([key, val]) => {
+                    const prev = prevAssessment?.scores?.[key];
+                    const delta = prev !== undefined ? val - prev : null;
+                    const annotation = latestAssessment?.annotations?.[key];
+                    const color = dimColors[key] || '#6366f1';
+                    return (
+                      <div key={key} className="relative group p-4 rounded-xl border border-slate-100 hover:shadow-md transition-shadow" style={{ borderLeftWidth: 3, borderLeftColor: color }}>
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-lg font-bold" style={{ color }}>{dimLabels[key]}</span>
+                            <span className="text-sm text-slate-600 capitalize">{key.replace(/_/g, ' ')}</span>
+                          </div>
+                        </div>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-2xl font-bold text-slate-900">{val}</span>
+                          <span className="text-sm text-slate-400">/10</span>
+                          {delta !== null && delta !== 0 && (
+                            <span className={`text-sm font-semibold ${delta > 0 ? 'text-green-600' : 'text-red-500'}`}>
+                              {delta > 0 ? '+' : ''}{delta.toFixed(1)}
+                            </span>
+                          )}
+                        </div>
+                        <div className="w-full bg-slate-100 rounded-full h-1.5 mt-2">
+                          <div className="h-1.5 rounded-full transition-all" style={{ width: `${val * 10}%`, backgroundColor: color }} />
+                        </div>
+                        {annotation && (
+                          <div className="hidden group-hover:block absolute z-50 bottom-full left-0 right-0 mb-2 p-3 bg-slate-900 text-white text-xs rounded-lg shadow-xl" style={{ minWidth: 220 }}>
+                            {annotation}
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900" />
+                          </div>
+                        )}
+                      </div>
+                    );
+                  });
+                })()}
+              </div>
+            </div>
+          )}
+
+          {/* Therapy Context */}
+          {(() => {
+            const latestAssessment = permaVHistory?.assessments?.find(a => a.therapy_notes);
+            if (!latestAssessment?.therapy_notes) return null;
+            const tn = latestAssessment.therapy_notes;
+            return (
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 p-6">
+                <h3 className="text-sm font-semibold text-blue-900 mb-3 flex items-center gap-2">
+                  <Activity className="w-4 h-4" />
+                  Therapy Session Insights ({latestAssessment.date})
+                </h3>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-xs text-blue-700 uppercase tracking-wide mb-2">Key Themes</p>
+                    <div className="space-y-2">
+                      {tn.key_themes.map((theme, i) => (
+                        <div key={i} className="text-sm text-slate-700 pl-3 border-l-2 border-blue-300">{theme}</div>
+                      ))}
+                    </div>
+                  </div>
+                  {tn.homework && (
+                    <div className="flex items-center justify-center">
+                      <div className="text-center p-4 bg-white rounded-xl border border-blue-200 shadow-sm">
+                        <p className="text-xs text-blue-600 uppercase tracking-wide mb-2">Counselor Homework</p>
+                        <p className="text-lg font-semibold text-slate-900 italic">"{tn.homework}"</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* Assessment History */}
+          {permaVHistory?.assessments && (
+            <div className="bg-white rounded-xl border border-slate-200 p-6">
+              <h3 className="text-sm font-semibold text-slate-700 mb-4">Assessment History</h3>
+              <div className="space-y-3">
+                {permaVHistory.assessments.slice().sort((a, b) => b.date.localeCompare(a.date)).map((assessment, i) => (
+                  <div key={i} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className={`text-2xl font-bold ${assessment.overall >= 7 ? 'text-green-600' : assessment.overall >= 5 ? 'text-amber-600' : 'text-red-500'}`}>
+                        {assessment.overall}
+                      </div>
+                      <div>
+                        <div className="text-sm font-medium text-slate-900">{assessment.date}</div>
+                        <div className="text-xs text-slate-500 max-w-md truncate">{assessment.context}</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className={`text-xs px-2 py-1 rounded-full font-medium ${
+                        assessment.method === 'therapy-informed' ? 'bg-blue-100 text-blue-700' :
+                        assessment.method === 'self-reported' ? 'bg-purple-100 text-purple-700' :
+                        'bg-slate-200 text-slate-600'
+                      }`}>
+                        {assessment.method}
+                      </span>
+                      <span className={`text-xs px-2 py-1 rounded-full ${
+                        assessment.status === 'flourishing' ? 'bg-green-100 text-green-700' :
+                        assessment.status === 'thriving' ? 'bg-blue-100 text-blue-700' :
+                        'bg-amber-100 text-amber-700'
+                      }`}>
+                        {assessment.status}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Interactive Check-in + Chart */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <PermaVCheckin onScoresUpdate={handlePermaVUpdate} />
+            <div className="bg-white rounded-xl border border-slate-200 p-6">
+              <h3 className="text-sm font-semibold text-slate-700 mb-4">Wellness Score Trend</h3>
+              <WeeklyWellnessScoreChart wellnessData={wellnessData} permaVHistory={permaVHistory} />
+            </div>
           </div>
         </div>
       )}
