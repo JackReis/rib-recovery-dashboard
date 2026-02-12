@@ -17,7 +17,7 @@
   <script type="text/babel" data-type="module">
     const { useState } = React;
 
-const TABS = ["Overview", "This Week", "Energy", "Systems", "Recovery", "Sleep"];
+const TABS = ["Overview", "This Week", "Energy", "Systems", "Recovery", "Sleep", "Wellbeing"];
 
 const C = {
   bg: "#1a1a2e",
@@ -34,6 +34,37 @@ const C = {
   done: "#4ade80",
   border: "#2a2f4a",
   surface: "#0f1529",
+};
+
+const PERMA_V = {
+  dimensions: [
+    { key: "positive_emotion", label: "Positive Emotion", short: "P", color: "#f59e0b", score: 7.0, prev: 7.5, annotation: "Down 0.5 -- honest reckoning with pain/frustration, but actively reframing. Counselor homework: 'Where are the blessings in the ashes?'" },
+    { key: "engagement", label: "Engagement", short: "E", color: "#8b5cf6", score: 8.0, prev: 8.0, annotation: "Stable -- deep tech engagement continues. Therapy itself is engaging. Session count normalizing to sustainable 3/day." },
+    { key: "relationships", label: "Relationships", short: "R", color: "#ef4444", score: 8.5, prev: 8.5, annotation: "Stable at 8.5 -- Robin motivating recovery. Katherine supported. Counselor connection. Community outreach starting." },
+    { key: "meaning", label: "Meaning", short: "M", color: "#3b82f6", score: 8.0, prev: 7.0, annotation: "Up 1.0 -- biggest shift. Purpose in helping others with similar injuries. Spiritual growth through adversity. God's refinement process." },
+    { key: "accomplishment", label: "Accomplishment", short: "A", color: "#10b981", score: 6.5, prev: 6.5, annotation: "Stable -- 'only thing done is therapy' but NotebookLM SSOT closed, feedback doc written, calendar integrated." },
+    { key: "vitality", label: "Vitality", short: "V", color: "#06b6d4", score: 6.5, prev: 7.2, annotation: "Down 0.7 -- therapy surfaced honest picture: diaphragm damage, driving/shopping difficulty, pain/positioning issues." },
+  ],
+  overall: 7.4,
+  prevOverall: 7.5,
+  status: "Thriving",
+  date: "Feb 12, 2026",
+  prevDate: "Feb 5, 2026",
+  history: [
+    { date: "Jan 26", overall: 5.4, method: "data-driven" },
+    { date: "Feb 1", overall: 5.6, method: "data-driven" },
+    { date: "Feb 5", overall: 7.5, method: "self-reported" },
+    { date: "Feb 6", overall: 6.1, method: "data-driven" },
+    { date: "Feb 12", overall: 7.4, method: "therapy-informed" },
+  ],
+  therapyThemes: [
+    "Spiritual growth through adversity",
+    "Finding purpose helping others with similar injuries",
+    "Honest reckoning with physical limitations",
+    "Self-reliance to help-seeking shift",
+    "Positive reframing: calm vs. sympathetic overdrive",
+  ],
+  homework: "Where are the blessings in the ashes?",
 };
 
 const StatusBadge = ({ status, children }) => {
@@ -206,7 +237,7 @@ const EnergyRing = ({ segments, size = 180 }) => {
           fontWeight="bold"
           fontFamily="inherit"
         >
-          Feb 10
+          Feb 12
         </text>
         <text
           x={size / 2}
@@ -1323,7 +1354,7 @@ const RecoveryTab = () => {
             color: C.textMuted,
           }}
         >
-          67% through recovery • Currently in critical remodeling window
+          67% through recovery (489 days) • Currently in critical remodeling window
         </div>
       </div>
     </Card>
@@ -1819,6 +1850,290 @@ const SleepTab = () => {
   );
 };
 
+const PermaVRadar = ({ dimensions, size = 260 }) => {
+  const cx = size / 2;
+  const cy = size / 2;
+  const maxR = size * 0.38;
+  const n = dimensions.length;
+  const angleStep = (2 * Math.PI) / n;
+  const startAngle = -Math.PI / 2;
+
+  const pointAt = (i, value) => {
+    const angle = startAngle + i * angleStep;
+    const r = (value / 10) * maxR;
+    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
+  };
+
+  const gridLevels = [2, 4, 6, 8, 10];
+
+  return (
+    <svg width={size} height={size} viewBox={"0 0 " + size + " " + size}>
+      {gridLevels.map((level) => {
+        const pts = Array.from({ length: n }, (_, i) => {
+          const p = pointAt(i, level);
+          return p.x + "," + p.y;
+        }).join(" ");
+        return (
+          <polygon
+            key={level}
+            points={pts}
+            fill="none"
+            stroke={C.border}
+            strokeWidth={level === 10 ? 1.5 : 0.5}
+            opacity={level === 10 ? 0.6 : 0.3}
+          />
+        );
+      })}
+      {dimensions.map((_, i) => {
+        const p = pointAt(i, 10);
+        return (
+          <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke={C.border} strokeWidth={0.5} opacity={0.3} />
+        );
+      })}
+      <polygon
+        points={dimensions.map((d, i) => { const p = pointAt(i, d.prev); return p.x + "," + p.y; }).join(" ")}
+        fill="none"
+        stroke={C.textDim}
+        strokeWidth={1.5}
+        strokeDasharray="4 3"
+        opacity={0.5}
+      />
+      <polygon
+        points={dimensions.map((d, i) => { const p = pointAt(i, d.score); return p.x + "," + p.y; }).join(" ")}
+        fill={"rgba(72, 191, 227, 0.12)"}
+        stroke={C.accent5}
+        strokeWidth={2}
+      />
+      {dimensions.map((d, i) => {
+        const p = pointAt(i, d.score);
+        return (
+          <circle key={"dot-" + i} cx={p.x} cy={p.y} r={4} fill={d.color} stroke={C.bg} strokeWidth={2} />
+        );
+      })}
+      {dimensions.map((d, i) => {
+        const labelR = maxR + 22;
+        const angle = startAngle + i * angleStep;
+        const lx = cx + labelR * Math.cos(angle);
+        const ly = cy + labelR * Math.sin(angle);
+        const delta = d.score - d.prev;
+        const arrow = delta > 0 ? " +" + delta.toFixed(1) : delta < 0 ? " " + delta.toFixed(1) : "";
+        return (
+          <g key={"label-" + i}>
+            <text x={lx} y={ly - 6} textAnchor="middle" fill={d.color} fontSize={13} fontWeight={700} fontFamily="inherit">
+              {d.short}
+            </text>
+            <text x={lx} y={ly + 8} textAnchor="middle" fill={C.text} fontSize={12} fontWeight={600} fontFamily="inherit">
+              {d.score}
+            </text>
+            {arrow && (
+              <text x={lx} y={ly + 20} textAnchor="middle" fill={delta > 0 ? C.done : C.accent3} fontSize={10} fontFamily="inherit">
+                {arrow}
+              </text>
+            )}
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+const Tooltip = ({ text, children }) => {
+  const [show, setShow] = React.useState(false);
+  return (
+    <div
+      style={{ position: "relative", display: "inline-block", cursor: "help" }}
+      onMouseEnter={() => setShow(true)}
+      onMouseLeave={() => setShow(false)}
+    >
+      {children}
+      {show && (
+        <div style={{
+          position: "absolute",
+          bottom: "calc(100% + 8px)",
+          left: "50%",
+          transform: "translateX(-50%)",
+          background: "#0f1529",
+          border: "1px solid " + C.border,
+          borderRadius: 10,
+          padding: "10px 14px",
+          fontSize: 11,
+          color: C.textMuted,
+          lineHeight: 1.5,
+          width: 240,
+          zIndex: 100,
+          boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
+          pointerEvents: "none",
+        }}>
+          {text}
+          <div style={{
+            position: "absolute",
+            bottom: -6,
+            left: "50%",
+            transform: "translateX(-50%) rotate(45deg)",
+            width: 10,
+            height: 10,
+            background: "#0f1529",
+            borderRight: "1px solid " + C.border,
+            borderBottom: "1px solid " + C.border,
+          }} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+const WellbeingTab = () => (
+  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+    <Card title="PERMA-V Wellness" icon="&#x2728;" accent={C.accent5} span={2}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 30, flexWrap: "wrap", padding: "10px 0" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <PermaVRadar dimensions={PERMA_V.dimensions} size={280} />
+          <div style={{ display: "flex", gap: 16, marginTop: 8, fontSize: 10, color: C.textMuted }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              <div style={{ width: 16, height: 2, background: C.accent5 }} />
+              <span>Feb 12 (current)</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              <div style={{ width: 16, height: 0, borderTop: "2px dashed " + C.textDim }} />
+              <span>Feb 5 (previous)</span>
+            </div>
+          </div>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+          <div style={{ fontSize: 11, color: C.textMuted, textTransform: "uppercase", letterSpacing: "0.1em" }}>Overall Score</div>
+          <div style={{ fontSize: 52, fontWeight: 800, color: C.accent5, lineHeight: 1 }}>{PERMA_V.overall}</div>
+          <StatusBadge status="active">{PERMA_V.status}</StatusBadge>
+          <div style={{ fontSize: 12, color: PERMA_V.overall < PERMA_V.prevOverall ? C.accent3 : C.done, marginTop: 4 }}>
+            {PERMA_V.overall < PERMA_V.prevOverall ? "" : "+"}{(PERMA_V.overall - PERMA_V.prevOverall).toFixed(1)} vs. {PERMA_V.prevDate}
+          </div>
+          <div style={{ width: 100, marginTop: 8 }}>
+            <Sparkline data={PERMA_V.history.map(h => h.overall)} width={100} height={30} />
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: C.textDim, marginTop: 2 }}>
+              <span>Jan 26</span>
+              <span>Feb 12</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Card>
+
+    <Card title="Dimension Details" icon="&#x1f4ca;" accent={C.accent4} span={2}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+        {PERMA_V.dimensions.map((d) => {
+          const delta = d.score - d.prev;
+          return (
+            <Tooltip key={d.key} text={d.annotation}>
+              <div style={{
+                padding: "14px 16px",
+                background: C.surface,
+                borderRadius: 12,
+                borderLeft: "3px solid " + d.color,
+                transition: "background 0.2s",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <span style={{ fontSize: 16, fontWeight: 800, color: d.color }}>{d.short}</span>
+                    <span style={{ fontSize: 12, color: C.textMuted }}>{d.label}</span>
+                  </div>
+                </div>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+                  <span style={{ fontSize: 24, fontWeight: 800, color: C.text }}>{d.score}</span>
+                  <span style={{ fontSize: 11, color: C.textDim }}>/10</span>
+                  {delta !== 0 && (
+                    <span style={{ fontSize: 12, fontWeight: 600, color: delta > 0 ? C.done : C.accent3 }}>
+                      {delta > 0 ? "+" : ""}{delta.toFixed(1)}
+                    </span>
+                  )}
+                </div>
+                <div style={{
+                  height: 4,
+                  background: C.bg,
+                  borderRadius: 2,
+                  marginTop: 8,
+                  overflow: "hidden",
+                }}>
+                  <div style={{
+                    height: "100%",
+                    width: (d.score / 10 * 100) + "%",
+                    background: "linear-gradient(90deg, " + d.color + ", " + d.color + "88)",
+                    borderRadius: 2,
+                    transition: "width 0.6s ease",
+                  }} />
+                </div>
+                <div style={{ fontSize: 10, color: C.textDim, marginTop: 6, fontStyle: "italic" }}>
+                  Hover for context
+                </div>
+              </div>
+            </Tooltip>
+          );
+        })}
+      </div>
+    </Card>
+
+    <Card title="Therapy Session Context" icon="&#x1f4dd;" accent={C.accent2}>
+      <div style={{ fontSize: 12, color: C.textMuted, lineHeight: 1.7 }}>
+        <div style={{ marginBottom: 10 }}>
+          <span style={{ fontSize: 11, color: C.textDim, textTransform: "uppercase", letterSpacing: "0.05em" }}>Key Themes</span>
+        </div>
+        {PERMA_V.therapyThemes.map((theme, i) => (
+          <div key={i} style={{
+            padding: "6px 10px",
+            background: C.surface,
+            borderRadius: 6,
+            marginBottom: 6,
+            borderLeft: "2px solid " + C.accent2,
+          }}>
+            {theme}
+          </div>
+        ))}
+      </div>
+    </Card>
+
+    <Card title="Counselor Homework" icon="&#x1f3af;" accent={C.accent1}>
+      <div style={{
+        padding: "20px",
+        background: "linear-gradient(135deg, " + C.accent1 + "15, " + C.accent2 + "10)",
+        borderRadius: 12,
+        textAlign: "center",
+      }}>
+        <div style={{ fontSize: 14, color: C.accent1, fontWeight: 700, fontStyle: "italic", lineHeight: 1.6 }}>
+          "{PERMA_V.homework}"
+        </div>
+        <div style={{ fontSize: 11, color: C.textMuted, marginTop: 8 }}>
+          Focusing on optimistic vs. pessimistic perspective
+        </div>
+      </div>
+      <div style={{ marginTop: 16 }}>
+        <div style={{ fontSize: 11, color: C.textDim, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>Assessment History</div>
+        {PERMA_V.history.map((h, i) => (
+          <div key={i} style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "6px 10px",
+            borderBottom: "1px solid " + C.border,
+            fontSize: 12,
+          }}>
+            <span style={{ color: C.text }}>{h.date}</span>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ color: h.overall >= 7 ? C.done : C.accent1, fontWeight: 600 }}>{h.overall}</span>
+              <span style={{
+                fontSize: 9,
+                padding: "2px 6px",
+                borderRadius: 4,
+                background: h.method === "therapy-informed" ? C.accent2 + "20" : h.method === "self-reported" ? C.accent4 + "20" : C.textDim + "20",
+                color: h.method === "therapy-informed" ? C.accent2 : h.method === "self-reported" ? C.accent4 : C.textMuted,
+              }}>
+                {h.method}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Card>
+  </div>
+);
+
 function LifeDashboard() {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -1829,6 +2144,7 @@ function LifeDashboard() {
     <SystemsTab />,
     <RecoveryTab />,
     <SleepTab />,
+    <WellbeingTab />,
   ];
 
   return (
@@ -1870,7 +2186,7 @@ function LifeDashboard() {
             Life Dashboard
           </h1>
           <span style={{ fontSize: 12, color: C.textDim }}>
-            Feb 10, 2026 • Ardmore, OK
+            Feb 12, 2026 • Ardmore, OK
           </span>
         </div>
         <p

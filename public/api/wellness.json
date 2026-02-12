@@ -2,25 +2,25 @@
   "meta": {
     "endpoint": "wellness",
     "description": "Unified wellness dashboard - all health metrics in one endpoint",
-    "generated_at": "2026-02-05T00:00:00Z",
-    "version": "1.0",
+    "generated_at": "2026-02-12T00:00:00Z",
+    "version": "1.1",
     "timezone": "America/Chicago"
   },
   "summary": {
-    "overall_wellness_score": 7.5,
-    "overall_wellness_status": "flourishing",
-    "recovery_progress": 66,
+    "overall_wellness_score": 7.4,
+    "overall_wellness_status": "thriving",
+    "recovery_progress": 67,
     "meal_adherence": 85,
     "supplement_adherence": 92,
     "mcp_uptime": 91.0,
-    "next_appointment_days": 18,
-    "last_updated": "2026-02-05T00:00:00Z"
+    "next_appointment_days": 1,
+    "last_updated": "2026-02-12T00:00:00Z"
   },
   "quick_stats": {
     "rib_recovery": {
-      "progress_percentage": 66,
-      "days_post_op": 482,
-      "months_post_op": 15.8,
+      "progress_percentage": 67,
+      "days_post_op": 489,
+      "months_post_op": 16.1,
       "status": "progressing_well",
       "trend": "improving"
     },
@@ -38,10 +38,10 @@
     },
     "appointments": {
       "next_appointment": {
-        "provider": "Jahannah Jamelarin",
-        "date": "2026-02-23",
-        "days_until": 18,
-        "specialty": "Psychiatry"
+        "provider": "Ryan (PT)",
+        "date": "2026-02-13",
+        "days_until": 1,
+        "specialty": "Physical Therapy"
       },
       "to_schedule_count": 2
     },
@@ -53,8 +53,8 @@
     }
   },
   "today": {
-    "date": "2026-02-05",
-    "day_of_week": "Wednesday",
+    "date": "2026-02-12",
+    "day_of_week": "Thursday",
     "supplements": {
       "collagen_morning": true,
       "collagen_evening": false,
@@ -94,23 +94,25 @@
     }
   },
   "perma_v_wellness": {
-    "overall_score": 7.5,
-    "status": "flourishing",
+    "overall_score": 7.4,
+    "status": "thriving",
     "dimensions": {
-      "positive_emotion": 7.5,
+      "positive_emotion": 7.0,
       "engagement": 8.0,
       "relationships": 8.5,
-      "meaning": 7.0,
+      "meaning": 8.0,
       "accomplishment": 6.5,
-      "vitality": 7.2
+      "vitality": 6.5
     },
-    "trend": "improving",
-    "vs_last_week": 0.3
+    "trend": "mixed",
+    "vs_last_week": -0.1,
+    "last_assessed": "2026-02-12",
+    "assessment_context": "Therapy-informed: meaning +1.0 (purpose in helping others), vitality -0.7 (honest physical assessment), positive emotion -0.5 (reframing in progress)"
   },
   "recovery_milestones": {
     "surgery_date": "2024-10-11",
     "procedure": "Bilateral 9th/10th Costal Margin Reconstruction",
-    "current_progress": 66,
+    "current_progress": 67,
     "next_milestone": {
       "target": 75,
       "estimated_date": "2026-05-11",
@@ -151,14 +153,14 @@
     {
       "type": "appointment",
       "priority": "low",
-      "message": "Psychiatry appointment with Jahannah Jamelarin in 18 days",
-      "date": "2026-02-23"
+      "message": "PT with Ryan tomorrow (Feb 13)",
+      "date": "2026-02-13"
     },
     {
-      "type": "action",
-      "priority": "high",
-      "message": "Schedule Physical Therapy evaluation at Mercy Hospital",
-      "action_required": true
+      "type": "appointment",
+      "priority": "low",
+      "message": "Psychiatry with Jahannah Jamelarin Feb 23 (11 days)",
+      "date": "2026-02-23"
     }
   ],
   "shortcuts_quick_actions": [
