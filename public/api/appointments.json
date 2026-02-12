@@ -39,6 +39,13 @@
       "notes": "Last session: Feb 6. Need to schedule next."
     },
     {
+      "specialty": "Dentist",
+      "provider": "TBD — find in Ardmore",
+      "status": "to_schedule",
+      "priority": "medium",
+      "notes": "Cleaning/checkup. Need to find a provider."
+    },
+    {
       "specialty": "Eye Care",
       "provider": "Ardmore Premier Eyecare",
       "phone": "(580) 223-8585",
@@ -55,6 +62,6 @@
   ],
   "upcoming_count": 2,
   "recurring_count": 1,
-  "to_schedule_count": 3,
-  "total_count": 6
+  "to_schedule_count": 4,
+  "total_count": 7
 }
