@@ -1,9 +1,107 @@
 [
   {
+    "id": "2026-02-13",
+    "date": "February 13, 2026",
+    "time": "TBD",
+    "status": "upcoming",
+    "provider": {
+      "name": "Ryan",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
+    },
+    "context": [
+      "Month 16 of 24 post-Hansen bilateral rib reconstruction (Oct 11, 2024)",
+      "Hansen technique: Ribs 8-10 sutured to rib 7, reconstructing costal margin bilaterally",
+      "Dr. Hansen Jan 2025 CT: \"Repair sites look good\"",
+      "Critical collagen remodeling window: months 12-18 (we're IN IT)",
+      "Bioabsorbable PLLA/PLGA plates degrading via hydrolysis — biological fusion still forming",
+      "Hardware status: Plates degrading (\"gravel-like\" debris) — expected, but instability gap persists until biological fusion completes"
+    ],
+    "sinceLastSession": [
+      "Started balloon breathing exercises (PRI 12\" latex balloons)",
+      "Counseling session (Feb 12) surfaced honest physical assessment: diaphragm damage affecting breathing, driving/shopping difficulty from pain",
+      "CPAP usage ongoing — sleep quality improving but still subtherapeutic some nights",
+      "PERMA-V Vitality dropped from 7.2 to 6.5 (honest reckoning with physical limitations)",
+      "Ordered Nord bench pro for home exercise support"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "Pectoral engagement severely limited (~2-3/10)",
+        "detail": "Key recovery indicator; muscles guarding/spasming to protect unstable ribs",
+        "severity": "critical"
+      },
+      {
+        "priority": 2,
+        "title": "SICK scapula (left)",
+        "detail": "Scapular malposition, inferior medial border prominence, coracoid pain, dyskinesis; documented labral tear + rotator cuff impingement",
+        "severity": "high"
+      },
+      {
+        "priority": 3,
+        "title": "Diaphragm dysfunction / breathing",
+        "detail": "Therapy surfaced honest picture: diaphragm damage from rib injury affecting breathing capacity, driving, daily activities",
+        "severity": "high"
+      },
+      {
+        "priority": 4,
+        "title": "Compensatory guarding patterns",
+        "detail": "16 months of protection locking up movement; risk of becoming permanent",
+        "severity": "high"
+      }
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45°, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Balloon breathing", "detail": "Exhale training + rotational stability. Ball compression while blowing balloon and reaching. Targets abdominals and intercostals.", "sets": "Daily, reps TBD" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super band or thera band. Press movements with isometric eccentric control — NOT active twisting.", "sets": "Per Ryan's Rx" },
+      { "name": "Modified dead hangs", "detail": "With scapular and balloon control for shoulder stability.", "sets": "Per Ryan's Rx" },
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold 5s", "sets": "10 reps x 3 sets" },
+      { "name": "Modified crocodile breathing", "detail": "Prone, towel under R foot, inhale 4ct into posterior ribs, exhale with R foot dorsiflexion", "sets": "3-5 min daily" },
+      { "name": "Wall angels", "detail": "Back against wall, arms at 90°, slide up/down maintaining contact, stop before compensation", "sets": "8-10 reps x 2 sets" }
+    ],
+    "questions": [
+      "Balloon protocol check-in — Am I doing the exhale + reach + ball compression correctly? Any form corrections?",
+      "Reusable breathing trainers — Expand-A-Lung, POWERbreathe ($20-40). Can these substitute for or supplement the balloon protocol?",
+      "Diaphragm damage — Counselor and I discussed the extent of breathing impact. What's your assessment of diaphragm function? Is there a specific test?",
+      "Home exercise frequency — How many times/day for balloon work? Anti-rotation band work?",
+      "Progress markers — What should I look for to know exercises are working? What's realistic for 2-week, 1-month improvement?",
+      "Pain during driving/grocery — Positioning causes pain. Any car ergonomic adjustments or pre-activity prep?",
+      "Cost comparison — Still weighing $115 here vs $95 self-pay alternative. Your thoughts on continuity of care vs cost savings?"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP IMMEDIATELY" },
+      { "symptom": "Rib \"slipping out\" sensation", "action": "STOP & Use Decompression Reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP & Rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP & Seek Medical Attention" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP & Document" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
+    "careTeam": [
+      { "role": "PT", "name": "Ryan, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320" },
+      { "role": "Acupuncture", "name": "Established", "note": "Last: Feb 6 — need to schedule next" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "note": "Thursdays at noon" },
+      { "role": "Psychiatry", "name": "Jahannah Jamelarin", "note": "Feb 23, 9:20 AM — Good Shepherd" }
+    ],
+    "notes": ""
+  },
+  {
     "id": "2026-02-09",
     "date": "February 9, 2026",
     "time": "5:00 PM",
-    "status": "upcoming",
+    "status": "completed",
     "provider": {
       "name": "Ryan",
       "credentials": "DPT",
@@ -73,6 +171,20 @@
       "Realistic pectoral engagement targets by month 18?",
       "Home exercise program — continue Phase 1 or modify?"
     ],
+    "findings": [
+      "Diaphragmatic breathing dysfunction from long-term compensation patterns",
+      "Muscles trained into abnormal patterns during recovery period",
+      "Three-dimensional bracing compromised — muscles need proper positioning for lung/diaphragm volume expansion",
+      "Shoulder blade winging due to lengthened serratus anterior",
+      "Rib cage misalignment affecting shoulder control",
+      "Fascial connections between shoulder blade, pec, and ribs contributing to dysfunction",
+      "Floating ribs (possibly 12th rib) anchoring compensatory patterns"
+    ],
+    "prescribed": [
+      "Balloon work for exhale training + rotational stability (ball compression while blowing balloon and reaching)",
+      "Anti-rotation exercises using resistance bands (modified walk-outs, press movements, isometric eccentric control)",
+      "Modified dead hangs with scapular and balloon control for shoulder stability"
+    ],
     "redFlags": [
       { "symptom": "Sharp/electrical/shooting pain", "action": "STOP IMMEDIATELY" },
       { "symptom": "Rib \"slipping out\" sensation", "action": "STOP & Use Decompression Reset" },
@@ -84,8 +196,8 @@
     "careTeam": [
       { "role": "PT", "name": "Ryan, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320" },
       { "role": "Acupuncture", "name": "Established", "note": "Last: Feb 6 — need to schedule next" },
-      { "role": "Counseling", "name": "Melissa Sherfield", "note": "Weekly" },
-      { "role": "Psychiatry", "name": "Tasha Preston / Jahannah Jamelarin", "note": "Feb 23, 9:20 AM" }
+      { "role": "Counseling", "name": "Melissa Sherfield", "note": "Thursdays at noon" },
+      { "role": "Psychiatry", "name": "Jahannah Jamelarin", "note": "Feb 23, 9:20 AM — Good Shepherd" }
     ],
     "notes": ""
   }

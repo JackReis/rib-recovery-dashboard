@@ -1,47 +1,60 @@
 {
-  "updated_at": "2026-02-06T22:57:45.494728",
-  "source": "Healthcare-Scheduling-Guide-January-2026.md",
+  "updated_at": "2026-02-12T21:00:00.000000",
+  "source": "vault-daily-notes",
   "appointments": [
     {
-      "provider": "Tasha Preston, PMHNP-B",
-      "specialty": "ADHD/Psychiatry",
-      "date": "Jan 22, 2026",
-      "time": "2:00 PM CST",
-      "location": "Oklahoma Integrated Care",
-      "address": "1013 15th Ave NW, Ardmore, OK 73401",
-      "status": "urgent",
+      "provider": "Ryan, DPT",
+      "specialty": "Physical Therapy",
+      "organization": "Physical Therapy Central",
+      "date": "Feb 13, 2026",
+      "time": "TBD",
+      "location": "Physical Therapy Central",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401",
+      "phone": "(580) 247-1320",
+      "status": "scheduled",
+      "priority": "high",
+      "notes": "Session 2. Questions: balloon form, breathing trainers, diaphragm assessment"
+    },
+    {
+      "provider": "Jahannah Jamelarin",
+      "specialty": "Psychiatry",
+      "organization": "Good Shepherd",
+      "date": "Feb 23, 2026",
+      "time": "9:20 AM",
+      "status": "scheduled",
       "priority": "high"
+    },
+    {
+      "provider": "Melissa Sherfield",
+      "specialty": "Counseling",
+      "date": "Weekly (Thursdays at noon)",
+      "status": "recurring",
+      "priority": "medium"
+    },
+    {
+      "specialty": "Acupuncture",
+      "provider": "Established provider",
+      "status": "to_schedule",
+      "priority": "medium",
+      "notes": "Last session: Feb 6. Need to schedule next."
     },
     {
       "specialty": "Eye Care",
       "provider": "Ardmore Premier Eyecare",
       "phone": "(580) 223-8585",
       "status": "to_schedule",
-      "priority": "high"
+      "priority": "medium"
     },
     {
       "specialty": "Sleep Medicine / CPAP Management",
       "provider": "Mercy Sleep Center",
       "phone": "(580) 223-5400",
       "status": "to_schedule",
-      "priority": "high"
-    },
-    {
-      "specialty": "Physical Therapy",
-      "provider": "Physical Therapy Central",
-      "phone": "(580) 247-1320",
-      "status": "to_schedule",
-      "priority": "high"
-    },
-    {
-      "specialty": "Primary Care",
-      "provider": "Dr. Lauren Southward",
-      "phone": "(580) 226-0543",
-      "status": "to_schedule",
       "priority": "medium"
     }
   ],
-  "urgent_count": 1,
-  "to_schedule_count": 4,
-  "total_count": 5
+  "upcoming_count": 2,
+  "recurring_count": 1,
+  "to_schedule_count": 3,
+  "total_count": 6
 }

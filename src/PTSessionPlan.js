@@ -11,7 +11,9 @@ import {
   Activity,
   Save,
   Clock,
-  CheckCircle
+  CheckCircle,
+  ClipboardList,
+  TrendingUp
 } from 'lucide-react';
 import sessionsData from './data/pt-sessions.json';
 
@@ -175,6 +177,49 @@ export default function PTSessionPlan() {
           ))}
         </ul>
       </Section>
+
+      {/* Since Last Session (upcoming sessions only) */}
+      {s.sinceLastSession && s.sinceLastSession.length > 0 && (
+        <Section title="Since Last Session" icon={TrendingUp} defaultOpen={true} color="green">
+          <ul className="space-y-2">
+            {s.sinceLastSession.map((item, i) => (
+              <li key={i} className="flex items-start text-sm text-slate-700">
+                <span className="text-green-500 mr-2 mt-0.5 shrink-0">&#10003;</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+
+      {/* Session Findings (completed sessions only) */}
+      {s.findings && s.findings.length > 0 && (
+        <Section title="Session Findings" icon={ClipboardList} defaultOpen={true} color="green">
+          <ul className="space-y-2">
+            {s.findings.map((item, i) => (
+              <li key={i} className="flex items-start text-sm text-slate-700">
+                <ChevronRight size={14} className="mt-1 mr-2 text-green-400 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          {s.prescribed && s.prescribed.length > 0 && (
+            <div className="mt-4 pt-4 border-t border-green-100">
+              <h4 className="font-semibold text-green-800 mb-2">Prescribed Exercises</h4>
+              <ul className="space-y-2">
+                {s.prescribed.map((item, i) => (
+                  <li key={i} className="flex items-start text-sm text-slate-700">
+                    <span className="bg-green-100 text-green-700 font-bold w-5 h-5 rounded-full flex items-center justify-center text-xs shrink-0 mr-2 mt-0.5">
+                      {i + 1}
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </Section>
+      )}
 
       {/* Primary Concerns */}
       <Section title="Primary Concerns (Priority Order)" icon={Target} defaultOpen={true} color="red">
