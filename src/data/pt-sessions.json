@@ -2,8 +2,8 @@
   {
     "id": "2026-02-13",
     "date": "February 13, 2026",
-    "time": "4:00 PM",
-    "status": "upcoming",
+    "time": "4:30 PM",
+    "status": "completed",
     "provider": {
       "name": "Ryan",
       "credentials": "DPT",
@@ -24,7 +24,7 @@
       "Counseling session (Feb 12) surfaced honest physical assessment: diaphragm damage affecting breathing, driving/shopping difficulty from pain",
       "CPAP usage ongoing — sleep quality improving but still subtherapeutic some nights",
       "PERMA-V Vitality dropped from 7.2 to 6.5 (honest reckoning with physical limitations)",
-      "Ordered Nord bench pro for home exercise support"
+      "Ordered NordBench Pro for home exercise support"
     ],
     "concerns": [
       {
@@ -35,20 +35,20 @@
       },
       {
         "priority": 2,
-        "title": "SICK scapula (left)",
-        "detail": "Scapular malposition, inferior medial border prominence, coracoid pain, dyskinesis; documented labral tear + rotator cuff impingement",
+        "title": "SICK scapula (left) — winging pattern",
+        "detail": "Primary treatment focus this session. Serratus and subscap connection issues affecting shoulder blade positioning.",
         "severity": "high"
       },
       {
         "priority": 3,
-        "title": "Diaphragm dysfunction / breathing",
-        "detail": "Therapy surfaced honest picture: diaphragm damage from rib injury affecting breathing capacity, driving, daily activities",
+        "title": "Upper trap dominance (6:1 vs 2:1 target)",
+        "detail": "Upper trap holds tension and is overly dominant. Lower trap (medial border to thoracic spine) weakened.",
         "severity": "high"
       },
       {
         "priority": 4,
-        "title": "Compensatory guarding patterns",
-        "detail": "16 months of protection locking up movement; risk of becoming permanent",
+        "title": "Pec minor aggravation from compensation",
+        "detail": "Jack defaults to shoulder extension when asked for core flexion — creates protraction and winging instead of proper ab engagement",
         "severity": "high"
       }
     ],
@@ -65,8 +65,12 @@
       "restrictions": "No spinal rotation >45°, no overhead reaching, no heavy lifting"
     },
     "exercises": [
-      { "name": "Balloon breathing", "detail": "Exhale training + rotational stability. Ball compression while blowing balloon and reaching. Targets abdominals and intercostals.", "sets": "Daily, reps TBD" },
-      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super band or thera band. Press movements with isometric eccentric control — NOT active twisting.", "sets": "Per Ryan's Rx" },
+      { "name": "Serratus activation", "detail": "Prone position, wrists ahead of elbows. Focus on shoulder blade engagement.", "sets": "15 reps or to burn" },
+      { "name": "Core/rotation work", "detail": "Squeeze ball, contract core, rotate toward foot. Ab compression NOT shoulder extension. Exhale on effort.", "sets": "Per Ryan's Rx" },
+      { "name": "Scap strengthening (dead hang)", "detail": "Dead hang position, maintain shoulder blade engagement. Progress to alternating leg marches.", "sets": "Per Ryan's Rx" },
+      { "name": "Scap-ups", "detail": "Continue from home program. Avoid compensation patterns.", "sets": "Daily" },
+      { "name": "Balloon breathing", "detail": "Exhale training + rotational stability. Ball compression while blowing balloon and reaching.", "sets": "Daily" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super band or thera band. Isometric eccentric control — NOT active twisting.", "sets": "Per Ryan's Rx" },
       { "name": "Modified dead hangs", "detail": "With scapular and balloon control for shoulder stability.", "sets": "Per Ryan's Rx" },
       { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold 5s", "sets": "10 reps x 3 sets" },
       { "name": "Modified crocodile breathing", "detail": "Prone, towel under R foot, inhale 4ct into posterior ribs, exhale with R foot dorsiflexion", "sets": "3-5 min daily" },
@@ -80,6 +84,21 @@
       "Progress markers — What should I look for to know exercises are working? What's realistic for 2-week, 1-month improvement?",
       "Pain during driving/grocery — Positioning causes pain. Any car ergonomic adjustments or pre-activity prep?",
       "Cost comparison — Still weighing $115 here vs $95 self-pay alternative. Your thoughts on continuity of care vs cost savings?"
+    ],
+    "findings": [
+      "Shoulder blade winging — primary treatment focus, addressed with acupuncture needling + exercises",
+      "Joint quality 'trashy' — grindy, clunky movement patterns abnormal for age",
+      "Upper trap dominance: 6:1 ratio vs lower trap (target is 2:1)",
+      "Serratus and subscap connection issues affecting shoulder blade positioning",
+      "Pec minor aggravated from extension/reaching compensation — Jack defaults to shoulder extension instead of core flexion",
+      "Previous labral tear contributed to compensatory shoulder patterns — compromised joint position",
+      "Sleep apnea causing rib tightness, affecting treatment area"
+    ],
+    "prescribed": [
+      "Serratus activation — prone, wrists ahead of elbows, 15 reps or to burn",
+      "Core/rotation — squeeze ball, contract core, rotate toward foot. Ab compression NOT shoulder extension. Exhale on effort.",
+      "Scap strengthening — dead hang position, maintain shoulder blade engagement. Progress to alternating leg marches.",
+      "Continue scap-ups, avoid compensation patterns"
     ],
     "redFlags": [
       { "symptom": "Sharp/electrical/shooting pain", "action": "STOP IMMEDIATELY" },
@@ -95,7 +114,7 @@
       { "role": "Counseling", "name": "Melissa Sherfield", "note": "Thursdays at noon" },
       { "role": "Psychiatry", "name": "Jahannah Jamelarin", "note": "Feb 23, 9:20 AM — Good Shepherd" }
     ],
-    "notes": ""
+    "notes": "Treatment: acupuncture needling for blood flow to shoulder blade region. Key correction: Jack compensates with shoulder extension instead of core flexion — must retrain ab engagement."
   },
   {
     "id": "2026-02-09",
