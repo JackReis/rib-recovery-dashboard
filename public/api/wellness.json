@@ -2,7 +2,7 @@
   "meta": {
     "endpoint": "wellness",
     "description": "Unified wellness dashboard - all health metrics in one endpoint",
-    "generated_at": "2026-02-12T00:00:00Z",
+    "generated_at": "2026-02-15T00:00:00Z",
     "version": "1.1",
     "timezone": "America/Chicago"
   },
@@ -13,14 +13,14 @@
     "meal_adherence": 85,
     "supplement_adherence": 92,
     "mcp_uptime": 91.0,
-    "next_appointment_days": 1,
-    "last_updated": "2026-02-12T00:00:00Z"
+    "next_appointment_days": 8,
+    "last_updated": "2026-02-15T00:00:00Z"
   },
   "quick_stats": {
     "rib_recovery": {
       "progress_percentage": 67,
-      "days_post_op": 489,
-      "months_post_op": 16.1,
+      "days_post_op": 492,
+      "months_post_op": 16.2,
       "status": "progressing_well",
       "trend": "improving"
     },
@@ -38,11 +38,11 @@
     },
     "appointments": {
       "next_appointment": {
-        "provider": "Ryan (PT)",
-        "date": "2026-02-13",
-        "time": "4:00 PM",
-        "days_until": 1,
-        "specialty": "Physical Therapy"
+        "provider": "Jahannah Jamelarin",
+        "date": "2026-02-23",
+        "time": "9:20 AM",
+        "days_until": 8,
+        "specialty": "Psychiatry"
       },
       "to_schedule_count": 2
     },
@@ -54,19 +54,19 @@
     }
   },
   "today": {
-    "date": "2026-02-12",
-    "day_of_week": "Thursday",
+    "date": "2026-02-15",
+    "day_of_week": "Sunday",
     "supplements": {
-      "collagen_morning": true,
+      "collagen_morning": false,
       "collagen_evening": false,
-      "vitamin_c_morning": true,
+      "vitamin_c_morning": false,
       "vitamin_c_evening": false,
       "magnesium_evening": false,
-      "hydration_oz": 52,
+      "hydration_oz": 0,
       "hydration_target": 80
     },
     "meals": {
-      "breakfast": "completed",
+      "breakfast": "planned",
       "lunch": "planned",
       "dinner": "planned"
     },
@@ -80,7 +80,7 @@
     }
   },
   "this_week": {
-    "week_number": 5,
+    "week_number": 7,
     "year": 2026,
     "focus": "Harvest Bowls & Sheet Pans",
     "meal_plan_theme": "Paleo & Vegan Hybrid",
@@ -154,14 +154,13 @@
     {
       "type": "appointment",
       "priority": "low",
-      "message": "PT with Ryan tomorrow (Feb 13)",
-      "date": "2026-02-13"
+      "message": "Psychiatry with Jahannah Jamelarin Feb 23 (8 days)",
+      "date": "2026-02-23"
     },
     {
-      "type": "appointment",
-      "priority": "low",
-      "message": "Psychiatry with Jahannah Jamelarin Feb 23 (11 days)",
-      "date": "2026-02-23"
+      "type": "recovery",
+      "priority": "medium",
+      "message": "PT Session 2 complete — practice new exercises (serratus, core/rotation, scap dead hangs)"
     }
   ],
   "shortcuts_quick_actions": [

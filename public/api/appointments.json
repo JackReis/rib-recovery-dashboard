@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-12T21:00:00.000000",
+  "updated_at": "2026-02-15T00:00:00.000000",
   "source": "vault-daily-notes",
   "appointments": [
     {
@@ -7,13 +7,13 @@
       "specialty": "Physical Therapy",
       "organization": "Physical Therapy Central",
       "date": "Feb 13, 2026",
-      "time": "4:00 PM",
+      "time": "4:30 PM",
       "location": "Physical Therapy Central",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401",
       "phone": "(580) 247-1320",
-      "status": "scheduled",
+      "status": "completed",
       "priority": "high",
-      "notes": "Session 2. Questions: balloon form, breathing trainers, diaphragm assessment"
+      "notes": "Session 2 complete. Findings: shoulder blade winging, 6:1 trap ratio, serratus/subscap issues. New exercises prescribed."
     },
     {
       "provider": "Jahannah Jamelarin",
@@ -60,7 +60,7 @@
       "priority": "medium"
     }
   ],
-  "upcoming_count": 2,
+  "upcoming_count": 1,
   "recurring_count": 1,
   "to_schedule_count": 4,
   "total_count": 7
