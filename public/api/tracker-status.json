@@ -1,46 +1,45 @@
 {
-  "date": "2026-02-09",
+  "date": "2026-02-15",
   "water": {
-    "glasses": 4,
+    "glasses": 0,
     "target": 10,
-    "last_drink": "2026-02-09T16:16:30.836968"
+    "target_oz": 80,
+    "last_drink": null,
+    "note": "Not tracking consistently. 80oz+ daily required per PT protocol."
   },
   "collagen": {
-    "morning": true,
+    "morning": false,
     "evening": false,
-    "target": "15g morning (+ optional 10g evening)"
+    "target": "CollaGEN (FORTIGEL) 5g morning"
   },
   "vitamin_c": {
-    "morning": true,
+    "morning": false,
     "evening": false,
-    "target": "500mg morning, 500mg evening"
+    "target": "Sodium Ascorbate 500mg morning, 500mg evening"
   },
   "magnesium": {
     "taken": false,
-    "target": "400mg before bed"
+    "target": "Magnesium Glycinate 400mg before bed"
   },
-  "stasis": {
+  "bone_mineral_boost": {
     "taken": false,
-    "target": "Daily \u2014 stimulant complement (contains turmeric/curcumin)"
-  },
-  "mitopure": {
-    "taken": false,
-    "target": "Daily \u2014 Timeline Mitopure gummies"
-  },
-  "fish_oil": {
-    "taken": false,
-    "target": "Daily \u2014 omega-3 anti-inflammatory"
-  },
-  "mct_oil": {
-    "taken": true,
-    "target": "Daily \u2014 MCT oil"
+    "target": "Sparkle Wellness Bone Mineral Boost — morning"
   },
   "creatine": {
-    "taken": true,
-    "target": "Daily \u2014 creatine"
+    "taken": false,
+    "target": "Daily — creatine"
   },
-  "bone_restore": {
-    "taken": true,
-    "target": "Daily \u2014 Sparkle Wellness Bone Restore"
+  "mct_oil": {
+    "taken": false,
+    "target": "Daily — MCT oil"
+  },
+  "turmeric": {
+    "taken": false,
+    "target": "Incidental via Aldi protein shake (low bioavailability)"
+  },
+  "to_order": {
+    "fish_oil": "Phase 3 critical — EPA/DHA anti-inflammatory",
+    "curcumin": "Meriva Phytosome — upgrade from turmeric shake",
+    "im8_health": "Ordered Feb 12, awaiting delivery"
   }
 }

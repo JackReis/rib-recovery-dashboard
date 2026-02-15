@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-06T22:57:45.496679",
+  "generated_at": "2026-02-15T00:00:00Z",
   "version": "1.0.0",
   "meal_adherence": {
     "source": "localStorage",
@@ -9,15 +9,16 @@
     "checked_items": []
   },
   "recovery_progress": {
-    "source": "breathing_coordinator_localStorage",
-    "note": "Session data stored in localStorage key: ribRecoverySessionsMulti. Use wellness-client.js to access.",
-    "recent_sessions": [],
-    "total_sessions": 0,
-    "milestones": [],
+    "date": "2026-02-15",
+    "days_post_op": 492,
+    "months_post_op": 16.2,
+    "progress_percentage": 67,
+    "current_phase": "Phase 3 — PLLA Management & Collagen Remodeling",
+    "pt_sessions_completed": 2,
     "trends": {
-      "pain_trend": "stable",
-      "mobility_trend": "stable",
-      "engagement_trend": "stable"
+      "pain_trend": "improving",
+      "mobility_trend": "improving",
+      "engagement_trend": "high"
     }
   },
   "appointments": {
@@ -105,31 +106,21 @@
     "overall_health": "degraded"
   },
   "supplement_tracking": {
-    "updated_at": "2026-02-06T22:57:45.495108",
-    "sources": [
-      "rrt_script"
-    ],
+    "updated_at": "2026-02-15T00:00:00Z",
+    "sources": ["manual_update", "daily_note"],
     "rib_recovery": {
-      "date": "2026-01-28",
+      "date": "2026-02-15",
       "water_intake": {
         "glasses": 0,
         "target": 10,
+        "target_oz": 80,
         "percentage": 0.0
       },
-      "supplements": {
-        "collagen": {
-          "morning": false,
-          "evening": false
-        },
-        "vitamin_c": {
-          "morning": false,
-          "evening": false
-        },
-        "magnesium": {
-          "taken": false
-        }
-      },
-      "compliance_score": 0.0
+      "active_supplements": 7,
+      "adherence_rate": 88,
+      "streak_days": 15,
+      "compliance_score": 88.0,
+      "gaps": ["Fish Oil (EPA/DHA)", "Curcumin (Meriva Phytosome)"]
     }
   },
   "shortcuts_compatible": true,

@@ -48,7 +48,7 @@ const PERMA_V = {
   overall: 7.4,
   prevOverall: 7.5,
   status: "Thriving",
-  date: "Feb 12, 2026",
+  date: "Feb 15, 2026",
   prevDate: "Feb 5, 2026",
   history: [
     { date: "Feb 5", overall: 7.5, method: "self-reported" },
@@ -234,7 +234,7 @@ const EnergyRing = ({ segments, size = 180 }) => {
           fontWeight="bold"
           fontFamily="inherit"
         >
-          Feb 12
+          Feb 15
         </text>
         <text
           x={size / 2}
@@ -1351,7 +1351,7 @@ const RecoveryTab = () => {
             color: C.textMuted,
           }}
         >
-          67% through recovery (489 days) • Currently in critical remodeling window
+          67% through recovery (492 days) • Currently in critical remodeling window
         </div>
       </div>
     </Card>
@@ -1412,12 +1412,13 @@ const RecoveryTab = () => {
     <Card title="Supplements & Meds" icon="💊" accent={C.accent4}>
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         {[
-          { name: "CollaGEN + Vitamin C", purpose: "Collagen synthesis" },
-          { name: "Stasis", purpose: "Recovery support" },
-          { name: "Timeline Mitopure", purpose: "Mitochondrial function" },
-          { name: "MCT Oil", purpose: "Energy/cognitive" },
+          { name: "CollaGEN (FORTIGEL) 5g", purpose: "Collagen synthesis" },
+          { name: "Sodium Ascorbate 1000mg", purpose: "Collagen cofactor" },
+          { name: "Magnesium Glycinate 400mg", purpose: "Muscle/bone" },
+          { name: "Bone Mineral Boost", purpose: "Bone density" },
           { name: "Creatine", purpose: "Muscle recovery" },
-          { name: "Bone Restore", purpose: "Bone density" },
+          { name: "MCT Oil", purpose: "Energy/cognitive" },
+          { name: "Turmeric (shake)", purpose: "Anti-inflammatory" },
         ].map((s, i) => (
           <div
             key={i}
@@ -1991,7 +1992,7 @@ const WellbeingTab = () => (
           <div style={{ display: "flex", gap: 16, marginTop: 8, fontSize: 10, color: C.textMuted }}>
             <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
               <div style={{ width: 16, height: 2, background: C.accent5 }} />
-              <span>Feb 12 (current)</span>
+              <span>Feb 15 (current)</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
               <div style={{ width: 16, height: 0, borderTop: "2px dashed " + C.textDim }} />
@@ -2186,7 +2187,7 @@ function LifeDashboard() {
             Life Dashboard
           </h1>
           <span style={{ fontSize: 12, color: C.textDim }}>
-            Feb 12, 2026 • Ardmore, OK
+            Feb 15, 2026 • Ardmore, OK
           </span>
         </div>
         <p

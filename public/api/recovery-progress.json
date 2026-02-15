@@ -1,12 +1,60 @@
 {
-  "source": "breathing_coordinator_localStorage",
-  "note": "Session data stored in localStorage key: ribRecoverySessionsMulti. Use wellness-client.js to access.",
-  "recent_sessions": [],
-  "total_sessions": 0,
-  "milestones": [],
+  "date": "2026-02-15",
+  "days_post_op": 492,
+  "months_post_op": 16.2,
+  "surgery_date": "2024-10-11",
+  "procedure": "Bilateral 9th/10th Costal Margin Reconstruction (Hansen)",
+  "recovery_window_months": 24,
+  "progress_percentage": 67,
+  "current_phase": "Phase 3 — PLLA Management & Collagen Remodeling",
+  "phase_detail": "Months 12-18: soft tissue remodeling, 70-80% pre-injury mobility target",
+  "pt_provider": "Ryan at Physical Therapy Central",
+  "pt_sessions_completed": 2,
+  "pt_focus": "Diaphragm rehab, scapular winging, breathing protocol",
+  "supplements": {
+    "active_count": 7,
+    "adherence_rate": 88,
+    "streak_days": 15,
+    "protocol": [
+      "CollaGEN (FORTIGEL) 5g morning",
+      "Sodium Ascorbate 1000mg (500mg x2)",
+      "Magnesium Glycinate 400mg before bed",
+      "Sparkle Wellness Bone Mineral Boost",
+      "Creatine daily",
+      "MCT Oil daily",
+      "Turmeric (incidental via protein shake)"
+    ],
+    "gaps": ["Fish Oil (EPA/DHA)", "Curcumin (Meriva Phytosome)"]
+  },
+  "water_intake": {
+    "target_oz": 80,
+    "current_oz": 0,
+    "tracking": false,
+    "note": "Not currently tracking consistently. Ryan's protocol requires 80oz+ daily."
+  },
+  "breathing_exercises": {
+    "protocol": "Balloon exhale + reach + ball compression",
+    "started": "2026-02-12",
+    "equipment": "Qualatex 100-pack ordered",
+    "frequency": "daily"
+  },
+  "milestones": {
+    "next": {
+      "target_percentage": 75,
+      "estimated_date": "2026-05-11",
+      "description": "18 months post-op — end of collagen remodeling window"
+    },
+    "final": {
+      "target_percentage": 100,
+      "estimated_date": "2026-10-11",
+      "description": "24 months post-op — recovery complete"
+    }
+  },
   "trends": {
-    "pain_trend": "stable",
-    "mobility_trend": "stable",
-    "engagement_trend": "stable"
-  }
+    "pain_trend": "improving",
+    "mobility_trend": "improving",
+    "engagement_trend": "high"
+  },
+  "source": "manual_update",
+  "note": "Session data also stored in localStorage key: ribRecoverySessionsMulti for breathing coordinator."
 }

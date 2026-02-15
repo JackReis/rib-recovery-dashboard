@@ -11,7 +11,7 @@
     "overall_wellness_status": "thriving",
     "recovery_progress": 67,
     "meal_adherence": 85,
-    "supplement_adherence": 92,
+    "supplement_adherence": 88,
     "mcp_uptime": 91.0,
     "next_appointment_days": 8,
     "last_updated": "2026-02-15T00:00:00Z"
@@ -31,10 +31,12 @@
       "adherence_trend": "stable"
     },
     "supplements": {
-      "adherence_rate": 92,
-      "today_complete": 2,
-      "today_pending": 4,
-      "streak_days": 12
+      "adherence_rate": 88,
+      "today_complete": 0,
+      "today_pending": 7,
+      "streak_days": 15,
+      "active_count": 7,
+      "gaps": ["Fish Oil (EPA/DHA)", "Curcumin (Meriva Phytosome)"]
     },
     "appointments": {
       "next_appointment": {
@@ -58,10 +60,12 @@
     "day_of_week": "Sunday",
     "supplements": {
       "collagen_morning": false,
-      "collagen_evening": false,
       "vitamin_c_morning": false,
       "vitamin_c_evening": false,
       "magnesium_evening": false,
+      "bone_mineral_boost": false,
+      "creatine": false,
+      "mct_oil": false,
       "hydration_oz": 0,
       "hydration_target": 80
     },
@@ -148,7 +152,7 @@
     {
       "type": "supplement",
       "priority": "medium",
-      "message": "Remember evening supplements: Collagen, Vitamin C, Magnesium",
+      "message": "Remember evening supplements: Vitamin C 500mg, Magnesium 400mg. Phase 3 gaps: Fish Oil, Curcumin not yet ordered.",
       "time": "20:00"
     },
     {

@@ -1,28 +1,97 @@
 {
-  "updated_at": "2026-02-06T22:57:45.495108",
+  "updated_at": "2026-02-15T00:00:00Z",
   "sources": [
-    "rrt_script"
+    "manual_update",
+    "daily_note"
   ],
   "rib_recovery": {
-    "date": "2026-01-28",
+    "date": "2026-02-15",
     "water_intake": {
       "glasses": 0,
       "target": 10,
-      "percentage": 0.0
+      "target_oz": 80,
+      "percentage": 0.0,
+      "note": "Not currently tracking — Ryan's protocol says 80oz+ daily. Controls plate degradation rate."
     },
     "supplements": {
-      "collagen": {
-        "morning": false,
-        "evening": false
-      },
-      "vitamin_c": {
-        "morning": false,
-        "evening": false
-      },
-      "magnesium": {
-        "taken": false
-      }
+      "active": [
+        {
+          "name": "CollaGEN (FORTIGEL)",
+          "dose": "5g",
+          "timing": "morning",
+          "status": "active",
+          "purpose": "Collagen synthesis — FORTIGEL targets cartilage/connective tissue"
+        },
+        {
+          "name": "Sodium Ascorbate (Vitamin C)",
+          "dose": "1000mg (500mg x2)",
+          "timing": "morning + evening",
+          "status": "active",
+          "purpose": "Collagen cross-linking cofactor"
+        },
+        {
+          "name": "Magnesium Glycinate",
+          "dose": "400mg",
+          "timing": "before bed",
+          "status": "active",
+          "purpose": "Muscle relaxation, bone health"
+        },
+        {
+          "name": "Sparkle Wellness Bone Mineral Boost",
+          "dose": "per label",
+          "timing": "morning",
+          "status": "active",
+          "purpose": "Bone density support"
+        },
+        {
+          "name": "Creatine",
+          "dose": "per label",
+          "timing": "daily",
+          "status": "active",
+          "purpose": "Muscle recovery"
+        },
+        {
+          "name": "MCT Oil",
+          "dose": "per label",
+          "timing": "daily",
+          "status": "active",
+          "purpose": "Energy/cognitive support"
+        },
+        {
+          "name": "Turmeric (via Aldi protein shake)",
+          "dose": "incidental",
+          "timing": "daily",
+          "status": "active",
+          "purpose": "Anti-inflammatory (low bioavailability — upgrade to curcumin phytosome recommended)"
+        }
+      ],
+      "to_order": [
+        {
+          "name": "Fish Oil (EPA/DHA)",
+          "dose": "2-3g daily",
+          "priority": "high",
+          "note": "Phase 3 critical — anti-inflammatory support"
+        },
+        {
+          "name": "Curcumin (Meriva Phytosome)",
+          "dose": "500mg",
+          "priority": "medium",
+          "note": "Upgrade from incidental turmeric in protein shake"
+        },
+        {
+          "name": "IM8 Health",
+          "dose": "per label",
+          "priority": "low",
+          "note": "Ordered Feb 12 — arrival unknown"
+        }
+      ]
     },
-    "compliance_score": 0.0
+    "adherence": {
+      "rate": 88,
+      "streak_days": 15,
+      "since": "2026-02-01",
+      "note": "Diligent daily use since early February. Estimate ~88% adherence."
+    },
+    "compliance_score": 88.0
   }
 }
