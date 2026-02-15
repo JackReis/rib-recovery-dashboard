@@ -2,7 +2,7 @@
   "meta": {
     "endpoint": "wellness",
     "description": "Unified wellness dashboard - all health metrics in one endpoint",
-    "generated_at": "2026-02-15T00:00:00Z",
+    "generated_at": "2026-02-15T18:56:02Z",
     "version": "1.1",
     "timezone": "America/Chicago"
   },
@@ -14,13 +14,13 @@
     "supplement_adherence": 88,
     "mcp_uptime": 91.0,
     "next_appointment_days": 8,
-    "last_updated": "2026-02-15T00:00:00Z"
+    "last_updated": "2026-02-15T18:56:02Z"
   },
   "quick_stats": {
     "rib_recovery": {
       "progress_percentage": 67,
       "days_post_op": 492,
-      "months_post_op": 16.2,
+      "months_post_op": 16.1,
       "status": "progressing_well",
       "trend": "improving"
     },
