@@ -21,8 +21,9 @@
       "organization": "Good Shepherd",
       "date": "Feb 23, 2026",
       "time": "9:20 AM",
-      "status": "scheduled",
-      "priority": "high"
+      "status": "cancelled",
+      "priority": "low",
+      "notes": "Cancelling — med management handled by Tasha Preston, PMHNP at Oklahoma Integrated Care. Call (580) 223-3411 to cancel + resolve outstanding balance."
     },
     {
       "provider": "Melissa Sherfield",
@@ -60,7 +61,7 @@
       "priority": "medium"
     }
   ],
-  "upcoming_count": 1,
+  "upcoming_count": 0,
   "recurring_count": 1,
   "to_schedule_count": 4,
   "total_count": 7

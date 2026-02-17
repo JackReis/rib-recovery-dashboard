@@ -13,7 +13,7 @@
     "meal_adherence": 85,
     "supplement_adherence": 88,
     "mcp_uptime": 91.0,
-    "next_appointment_days": 6,
+    "next_appointment_days": null,
     "last_updated": "2026-02-17T17:35:54Z"
   },
   "quick_stats": {
@@ -40,11 +40,11 @@
     },
     "appointments": {
       "next_appointment": {
-        "provider": "Jahannah Jamelarin",
-        "date": "2026-02-23",
-        "time": "9:20 AM",
-        "days_until": 6,
-        "specialty": "Psychiatry"
+        "provider": "None scheduled",
+        "date": null,
+        "time": null,
+        "days_until": null,
+        "specialty": null
       },
       "to_schedule_count": 2
     },
@@ -157,8 +157,8 @@
     },
     {
       "type": "appointment",
-      "priority": "low",
-      "message": "Psychiatry with Jahannah Jamelarin Feb 23 (6 days)",
+      "priority": "medium",
+      "message": "Cancel Good Shepherd Feb 23 psychiatry — call (580) 223-3411. Pay outstanding balance. Med mgmt via Tasha Preston at Oklahoma Integrated Care.",
       "date": "2026-02-23"
     },
     {
