@@ -13,7 +13,7 @@
     "meal_adherence": 85,
     "supplement_adherence": 88,
     "mcp_uptime": 91.0,
-    "next_appointment_days": null,
+    "next_appointment_days": 2,
     "last_updated": "2026-02-17T17:35:54Z"
   },
   "quick_stats": {
@@ -40,13 +40,13 @@
     },
     "appointments": {
       "next_appointment": {
-        "provider": "None scheduled",
-        "date": null,
-        "time": null,
-        "days_until": null,
-        "specialty": null
+        "provider": "Tasha Preston, PMHNP",
+        "date": "2026-02-19",
+        "time": "1:25 PM",
+        "days_until": 2,
+        "specialty": "Psychiatry / Med Management"
       },
-      "to_schedule_count": 2
+      "to_schedule_count": 4
     },
     "system_health": {
       "mcp_uptime": 91.0,

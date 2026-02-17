@@ -16,6 +16,18 @@
       "notes": "Session 2 complete. Findings: shoulder blade winging, 6:1 trap ratio, serratus/subscap issues. New exercises prescribed."
     },
     {
+      "provider": "Tasha Preston, PMHNP",
+      "specialty": "Psychiatry / Med Management",
+      "organization": "Oklahoma Integrated Care",
+      "address": "1013 15th Ave NW, Ardmore, OK 73401",
+      "phone": "(580) 238-4277",
+      "date": "Feb 19, 2026",
+      "time": "1:25 PM",
+      "status": "scheduled",
+      "priority": "high",
+      "notes": "Med management: Vyvanse 70mg, Strattera 80mg, Lexapro 10mg. Verify time — GCal timezone is Pacific."
+    },
+    {
       "provider": "Jahannah Jamelarin",
       "specialty": "Psychiatry",
       "organization": "Good Shepherd",
@@ -61,8 +73,8 @@
       "priority": "medium"
     }
   ],
-  "upcoming_count": 0,
+  "upcoming_count": 1,
   "recurring_count": 1,
   "to_schedule_count": 4,
-  "total_count": 7
+  "total_count": 8
 }
