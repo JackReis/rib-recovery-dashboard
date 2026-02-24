@@ -218,11 +218,6 @@ export default function WellnessAnalytics() {
 
   if (appointmentData?.to_schedule_count > 2) concerns.push(`${appointmentData.to_schedule_count} appointments need scheduling`);
 
-  const permaVHistory = (() => {
-    try { return JSON.parse(localStorage.getItem('permaVHistory') || '[]'); }
-    catch { return []; }
-  })();
-
   const tabs = [
     { key: 'trends', label: 'Trends', icon: BarChart2 },
     { key: 'permaV', label: 'PERMA-V', icon: Activity },
