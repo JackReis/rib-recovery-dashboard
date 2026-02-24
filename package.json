@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Interactive recovery dashboard for Hansen procedure rehabilitation (14-15 months post-op)",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://jackreis.github.io/rib-recovery-dashboard",
   "dependencies": {
     "chart.js": "^4.5.1",
     "lucide-react": "^0.263.1",

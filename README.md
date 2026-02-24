@@ -86,6 +86,19 @@ npm run build
 
 This creates an optimized production build in the `build` folder.
 
+## 🌐 Deployment (GitHub Pages migration)
+
+This repo includes `.github/workflows/deploy.yml` for GitHub Pages deploys via Actions.
+
+Current blocker discovered during migration:
+- GitHub API returns `422: Your current plan does not support GitHub Pages for this repository` while this repo is private.
+
+To complete migration from GitLab Pages:
+1. Make `JackReis/rib-recovery-dashboard` public **or** upgrade plan to allow private Pages.
+2. In GitHub repo settings, set Pages source to **GitHub Actions**.
+3. Push to `main` (or run workflow manually) and verify deployment URL.
+4. Update canonical link map in `=notes/atlas/context/live-dashboards-map.md`.
+
 ## 📱 Mobile Responsive
 
 The dashboard is fully responsive and works on:
