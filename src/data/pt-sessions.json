@@ -1,5 +1,42 @@
 [
   {
+    "id": "2026-02-18",
+    "date": "February 18, 2026",
+    "time": "5:00 PM",
+    "status": "completed",
+    "provider": {
+      "name": "Ryan",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
+    },
+    "context": [
+      "Session 3 from atlas/health/pt-sessions-ryan.md (updated Feb 22)",
+      "16 months post-op with persistent compensation patterns",
+      "Primary pattern to retrain: extension default should become low-grade flexion"
+    ],
+    "findings": [
+      "Compensatory thoracic extension remains primary movement default",
+      "Scapular winging appears secondary to weakness and posterior guarding",
+      "Left shoulder muscle mass deficit needs targeted strengthening",
+      "Thoracic segment mobility constrained by surgical history"
+    ],
+    "prescribed": [
+      "Dead hangs (unmodified) for lengthening under tension + stability",
+      "Reverse lawnmower rotational fascial pattern (mid/high level)",
+      "Anterior chain fly with posterior control (dual-component)",
+      "Pull-aparts and backward pulling movements (up to 3 min as tolerated)",
+      "Anti-machine lengthening + posterior rotation",
+      "Hold parameters: 10-30 seconds depending on exercise"
+    ],
+    "plan": {
+      "next_sessions": "Monday + Thursday at 5:00 PM next week",
+      "notes": "Good tolerance to decompressive hanging; continue progression if pain-free"
+    },
+    "notes": "Source: =notes/atlas/health/pt-sessions-ryan.md Session 3 section."
+  },
+  {
     "id": "2026-02-13",
     "date": "February 13, 2026",
     "time": "4:30 PM",
@@ -65,16 +102,56 @@
       "restrictions": "No spinal rotation >45°, no overhead reaching, no heavy lifting"
     },
     "exercises": [
-      { "name": "Serratus activation", "detail": "Prone position, wrists ahead of elbows. Focus on shoulder blade engagement.", "sets": "15 reps or to burn" },
-      { "name": "Core/rotation work", "detail": "Squeeze ball, contract core, rotate toward foot. Ab compression NOT shoulder extension. Exhale on effort.", "sets": "Per Ryan's Rx" },
-      { "name": "Scap strengthening (dead hang)", "detail": "Dead hang position, maintain shoulder blade engagement. Progress to alternating leg marches.", "sets": "Per Ryan's Rx" },
-      { "name": "Scap-ups", "detail": "Continue from home program. Avoid compensation patterns.", "sets": "Daily" },
-      { "name": "Balloon breathing", "detail": "Exhale training + rotational stability. Ball compression while blowing balloon and reaching.", "sets": "Daily" },
-      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super band or thera band. Isometric eccentric control — NOT active twisting.", "sets": "Per Ryan's Rx" },
-      { "name": "Modified dead hangs", "detail": "With scapular and balloon control for shoulder stability.", "sets": "Per Ryan's Rx" },
-      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold 5s", "sets": "10 reps x 3 sets" },
-      { "name": "Modified crocodile breathing", "detail": "Prone, towel under R foot, inhale 4ct into posterior ribs, exhale with R foot dorsiflexion", "sets": "3-5 min daily" },
-      { "name": "Wall angels", "detail": "Back against wall, arms at 90°, slide up/down maintaining contact, stop before compensation", "sets": "8-10 reps x 2 sets" }
+      {
+        "name": "Serratus activation",
+        "detail": "Prone position, wrists ahead of elbows. Focus on shoulder blade engagement.",
+        "sets": "15 reps or to burn"
+      },
+      {
+        "name": "Core/rotation work",
+        "detail": "Squeeze ball, contract core, rotate toward foot. Ab compression NOT shoulder extension. Exhale on effort.",
+        "sets": "Per Ryan's Rx"
+      },
+      {
+        "name": "Scap strengthening (dead hang)",
+        "detail": "Dead hang position, maintain shoulder blade engagement. Progress to alternating leg marches.",
+        "sets": "Per Ryan's Rx"
+      },
+      {
+        "name": "Scap-ups",
+        "detail": "Continue from home program. Avoid compensation patterns.",
+        "sets": "Daily"
+      },
+      {
+        "name": "Balloon breathing",
+        "detail": "Exhale training + rotational stability. Ball compression while blowing balloon and reaching.",
+        "sets": "Daily"
+      },
+      {
+        "name": "Anti-rotation band work",
+        "detail": "Modified walk-outs with super band or thera band. Isometric eccentric control — NOT active twisting.",
+        "sets": "Per Ryan's Rx"
+      },
+      {
+        "name": "Modified dead hangs",
+        "detail": "With scapular and balloon control for shoulder stability.",
+        "sets": "Per Ryan's Rx"
+      },
+      {
+        "name": "Transverse abdominis activation",
+        "detail": "Supine, knees bent, draw belly button to spine, hold 5s",
+        "sets": "10 reps x 3 sets"
+      },
+      {
+        "name": "Modified crocodile breathing",
+        "detail": "Prone, towel under R foot, inhale 4ct into posterior ribs, exhale with R foot dorsiflexion",
+        "sets": "3-5 min daily"
+      },
+      {
+        "name": "Wall angels",
+        "detail": "Back against wall, arms at 90°, slide up/down maintaining contact, stop before compensation",
+        "sets": "8-10 reps x 2 sets"
+      }
     ],
     "questions": [
       "Balloon protocol check-in — Am I doing the exhale + reach + ball compression correctly? Any form corrections?",
@@ -101,18 +178,50 @@
       "Continue scap-ups, avoid compensation patterns"
     ],
     "redFlags": [
-      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP IMMEDIATELY" },
-      { "symptom": "Rib \"slipping out\" sensation", "action": "STOP & Use Decompression Reset" },
-      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP & Rest" },
-      { "symptom": "Numbness/tingling in chest/back", "action": "STOP & Seek Medical Attention" },
-      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP & Document" }
+      {
+        "symptom": "Sharp/electrical/shooting pain",
+        "action": "STOP IMMEDIATELY"
+      },
+      {
+        "symptom": "Rib \"slipping out\" sensation",
+        "action": "STOP & Use Decompression Reset"
+      },
+      {
+        "symptom": "Breathlessness beyond normal exertion",
+        "action": "STOP & Rest"
+      },
+      {
+        "symptom": "Numbness/tingling in chest/back",
+        "action": "STOP & Seek Medical Attention"
+      },
+      {
+        "symptom": "Pain >7/10 lasting >30 min",
+        "action": "STOP & Document"
+      }
     ],
     "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
     "careTeam": [
-      { "role": "PT", "name": "Ryan, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320" },
-      { "role": "Acupuncture", "name": "Established", "note": "Last: Feb 6 — need to schedule next" },
-      { "role": "Counseling", "name": "Melissa Sherfield", "note": "Thursdays at noon" },
-      { "role": "Psychiatry", "name": "Jahannah Jamelarin", "note": "Feb 23, 9:20 AM — Good Shepherd" }
+      {
+        "role": "PT",
+        "name": "Ryan, DPT",
+        "org": "Physical Therapy Central",
+        "phone": "(580) 247-1320"
+      },
+      {
+        "role": "Acupuncture",
+        "name": "Established",
+        "note": "Last: Feb 6 — need to schedule next"
+      },
+      {
+        "role": "Counseling",
+        "name": "Melissa Sherfield",
+        "note": "Thursdays at noon"
+      },
+      {
+        "role": "Psychiatry",
+        "name": "Jahannah Jamelarin",
+        "note": "Feb 23, 9:20 AM — Good Shepherd"
+      }
     ],
     "notes": "Treatment: acupuncture needling for blood flow to shoulder blade region. Key correction: Jack compensates with shoulder extension instead of core flexion — must retrain ab engagement."
   },
@@ -175,11 +284,31 @@
       "restrictions": "No spinal rotation >45°, no overhead reaching, no heavy lifting"
     },
     "exercises": [
-      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold 5s", "sets": "10 reps x 3 sets" },
-      { "name": "Modified crocodile breathing", "detail": "Prone, towel under R foot, inhale 4ct into posterior ribs, exhale with R foot dorsiflexion", "sets": "3-5 min daily" },
-      { "name": "QL release", "detail": "Side-lying, foam roll L hip to ribs, pause at tender spots 30s, add contralateral arm reach", "sets": "2 min/side" },
-      { "name": "Wall angels", "detail": "Back against wall, arms at 90°, slide up/down maintaining contact, stop before compensation", "sets": "8-10 reps x 2 sets" },
-      { "name": "Standing wood chops (light band)", "detail": "3-5 lb, feet wide, R foot forward, chop high-R to low-L, rotation limited to 45°", "sets": "10 reps each direction x 2 sets" }
+      {
+        "name": "Transverse abdominis activation",
+        "detail": "Supine, knees bent, draw belly button to spine, hold 5s",
+        "sets": "10 reps x 3 sets"
+      },
+      {
+        "name": "Modified crocodile breathing",
+        "detail": "Prone, towel under R foot, inhale 4ct into posterior ribs, exhale with R foot dorsiflexion",
+        "sets": "3-5 min daily"
+      },
+      {
+        "name": "QL release",
+        "detail": "Side-lying, foam roll L hip to ribs, pause at tender spots 30s, add contralateral arm reach",
+        "sets": "2 min/side"
+      },
+      {
+        "name": "Wall angels",
+        "detail": "Back against wall, arms at 90°, slide up/down maintaining contact, stop before compensation",
+        "sets": "8-10 reps x 2 sets"
+      },
+      {
+        "name": "Standing wood chops (light band)",
+        "detail": "3-5 lb, feet wide, R foot forward, chop high-R to low-L, rotation limited to 45°",
+        "sets": "10 reps each direction x 2 sets"
+      }
     ],
     "questions": [
       "Pectoral engagement at ~2-3/10 — is this rib guarding, SICK scapula, or both?",
@@ -205,18 +334,50 @@
       "Modified dead hangs with scapular and balloon control for shoulder stability"
     ],
     "redFlags": [
-      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP IMMEDIATELY" },
-      { "symptom": "Rib \"slipping out\" sensation", "action": "STOP & Use Decompression Reset" },
-      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP & Rest" },
-      { "symptom": "Numbness/tingling in chest/back", "action": "STOP & Seek Medical Attention" },
-      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP & Document" }
+      {
+        "symptom": "Sharp/electrical/shooting pain",
+        "action": "STOP IMMEDIATELY"
+      },
+      {
+        "symptom": "Rib \"slipping out\" sensation",
+        "action": "STOP & Use Decompression Reset"
+      },
+      {
+        "symptom": "Breathlessness beyond normal exertion",
+        "action": "STOP & Rest"
+      },
+      {
+        "symptom": "Numbness/tingling in chest/back",
+        "action": "STOP & Seek Medical Attention"
+      },
+      {
+        "symptom": "Pain >7/10 lasting >30 min",
+        "action": "STOP & Document"
+      }
     ],
     "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
     "careTeam": [
-      { "role": "PT", "name": "Ryan, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320" },
-      { "role": "Acupuncture", "name": "Established", "note": "Last: Feb 6 — need to schedule next" },
-      { "role": "Counseling", "name": "Melissa Sherfield", "note": "Thursdays at noon" },
-      { "role": "Psychiatry", "name": "Jahannah Jamelarin", "note": "Feb 23, 9:20 AM — Good Shepherd" }
+      {
+        "role": "PT",
+        "name": "Ryan, DPT",
+        "org": "Physical Therapy Central",
+        "phone": "(580) 247-1320"
+      },
+      {
+        "role": "Acupuncture",
+        "name": "Established",
+        "note": "Last: Feb 6 — need to schedule next"
+      },
+      {
+        "role": "Counseling",
+        "name": "Melissa Sherfield",
+        "note": "Thursdays at noon"
+      },
+      {
+        "role": "Psychiatry",
+        "name": "Jahannah Jamelarin",
+        "note": "Feb 23, 9:20 AM — Good Shepherd"
+      }
     ],
     "notes": ""
   }

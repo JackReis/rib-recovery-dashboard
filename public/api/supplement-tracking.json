@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-02-15T00:00:00Z",
+  "updated_at": "2026-02-24T00:00:00Z",
   "sources": [
     "manual_update",
     "daily_note"
   ],
   "rib_recovery": {
-    "date": "2026-02-15",
+    "date": "2026-02-24",
     "water_intake": {
       "glasses": 0,
       "target": 10,
@@ -63,6 +63,13 @@
           "timing": "daily",
           "status": "active",
           "purpose": "Anti-inflammatory (low bioavailability — upgrade to curcumin phytosome recommended)"
+        },
+        {
+          "name": "Mitopure (Urolithin A)",
+          "dose": "per label",
+          "timing": "daily",
+          "status": "active",
+          "purpose": "Mitochondrial support, recovery and muscle endurance"
         }
       ],
       "to_order": [
