@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-17T17:35:54.000000",
+  "updated_at": "2026-02-24T20:18:26.000000",
   "source": "vault-daily-notes",
   "appointments": [
     {
@@ -23,7 +23,7 @@
       "phone": "(580) 238-4277",
       "date": "Feb 19, 2026",
       "time": "1:25 PM",
-      "status": "scheduled",
+      "status": "completed",
       "priority": "high",
       "notes": "Med management: Vyvanse 70mg, Strattera 80mg, Lexapro 10mg. Verify time — GCal timezone is Pacific."
     },
@@ -73,7 +73,7 @@
       "priority": "medium"
     }
   ],
-  "upcoming_count": 1,
+  "upcoming_count": 0,
   "recurring_count": 1,
   "to_schedule_count": 4,
   "total_count": 8
