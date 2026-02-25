@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-15T00:00:00Z",
+  "generated_at": "2026-02-24T20:45:00Z",
   "version": "1.0.0",
   "meal_adherence": {
     "source": "localStorage",
@@ -22,17 +22,17 @@
     }
   },
   "appointments": {
-    "updated_at": "2026-02-06T22:57:45.494728",
-    "source": "Healthcare-Scheduling-Guide-January-2026.md",
+    "updated_at": "2026-02-24T20:45:00Z",
+    "source": "appointments.json (harmonized)",
     "appointments": [
       {
-        "provider": "Tasha Preston, PMHNP-B",
-        "specialty": "ADHD/Psychiatry",
+        "provider": "Mariah Thomas + Tasha Preston, PMHNP",
+        "specialty": "Psychiatry / Med Management",
         "date": "Jan 22, 2026",
         "time": "2:00 PM CST",
         "location": "Oklahoma Integrated Care",
         "address": "1013 15th Ave NW, Ardmore, OK 73401",
-        "status": "urgent",
+        "status": "completed",
         "priority": "high"
       },
       {
@@ -107,20 +107,26 @@
   },
   "supplement_tracking": {
     "updated_at": "2026-02-15T00:00:00Z",
-    "sources": ["manual_update", "daily_note"],
+    "sources": [
+      "manual_update",
+      "daily_note"
+    ],
     "rib_recovery": {
-      "date": "2026-02-15",
+      "date": "2026-02-24",
       "water_intake": {
         "glasses": 0,
         "target": 10,
         "target_oz": 80,
         "percentage": 0.0
       },
-      "active_supplements": 7,
-      "adherence_rate": 88,
+      "active_supplements": 8,
+      "adherence_rate": 70,
       "streak_days": 15,
       "compliance_score": 88.0,
-      "gaps": ["Fish Oil (EPA/DHA)", "Curcumin (Meriva Phytosome)"]
+      "gaps": [
+        "Fish Oil (EPA/DHA)",
+        "Curcumin (Meriva Phytosome)"
+      ]
     }
   },
   "shortcuts_compatible": true,
