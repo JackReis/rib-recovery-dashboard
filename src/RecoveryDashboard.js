@@ -401,7 +401,7 @@ export default function RecoveryDashboard({ onNavigate }) {
                   </div>
                   {!trackerData && (
                     <p className="text-xs text-slate-400 italic mt-1">
-                      Use <code className="bg-slate-100 px-1 rounded">rib-recovery-tracker.py</code> for supplement &amp; hydration tracking
+                      Supplement &amp; hydration tracking is now sourced from <code className="bg-slate-100 px-1 rounded">/api/tracker-status.json</code> (updated via OpenClaw logs)
                     </p>
                   )}
                 </div>
