@@ -429,8 +429,8 @@ export default function RecoveryDashboard({ onNavigate }) {
                     <Stethoscope size={24} />
                   </div>
                   <div>
-                    <p className="text-blue-200 text-xs font-medium uppercase tracking-wider">Next Appointment</p>
-                    <p className="text-xl font-bold mt-0.5">PT with Ryan, DPT — Wed Feb 25, 5:00 PM</p>
+                    <p className="text-blue-200 text-xs font-medium uppercase tracking-wider">PT Timeline</p>
+                    <p className="text-xl font-bold mt-0.5">Latest: Session 3 completed (Tue Feb 18) • Next: Wed Feb 25, 5:00 PM</p>
                     <p className="text-blue-200 text-sm mt-1">Physical Therapy Central • Continue scapular + guarding-pattern rehab</p>
                   </div>
                 </div>
