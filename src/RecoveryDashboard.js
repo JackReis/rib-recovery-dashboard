@@ -323,18 +323,22 @@ export default function RecoveryDashboard({ onNavigate }) {
                   {/* Supplements — from CLI tracker */}
                   {(() => {
                     const t = trackerData;
-                    const supplementsDone = t ? [
-                      t.collagen?.morning, t.collagen?.evening,
-                      t.vitamin_c?.morning, t.vitamin_c?.evening,
+                    // Canonical checklist from /api/tracker-status.json
+                    const checks = t ? [
+                      t.collagen?.morning,
+                      t.collagen?.evening,
+                      t.vitamin_c?.morning,
+                      t.vitamin_c?.evening,
                       t.magnesium?.taken,
-                      t.stasis?.taken,
-                      t.mitopure?.taken,
-                      t.fish_oil?.taken,
-                      t.mct_oil?.taken,
+                      t.bone_mineral_boost?.taken,
                       t.creatine?.taken,
-                      t.bone_restore?.taken
-                    ].filter(Boolean).length : 0;
-                    const supplementsPct = t ? (supplementsDone / 11) * 100 : 0;
+                      t.mct_oil?.taken,
+                      t.turmeric?.taken,
+                      t.mitopure?.taken
+                    ] : [];
+                    const total = checks.length || 10;
+                    const supplementsDone = checks.filter(Boolean).length;
+                    const supplementsPct = (supplementsDone / total) * 100;
                     return (
                       <div>
                         <div className="flex justify-between text-sm mb-1">
