@@ -1,19 +1,19 @@
 {
-  "date": "2026-02-15",
+  "date": "2026-02-24",
   "water": {
     "glasses": 0,
     "target": 10,
     "target_oz": 80,
     "last_drink": null,
-    "note": "Not tracking consistently. 80oz+ daily required per PT protocol."
+    "note": "Morning supplements logged. Hydration still not fully tracked; target 80oz+ daily per PT protocol."
   },
   "collagen": {
-    "morning": false,
+    "morning": true,
     "evening": false,
     "target": "CollaGEN (FORTIGEL) 5g morning"
   },
   "vitamin_c": {
-    "morning": false,
+    "morning": true,
     "evening": false,
     "target": "Sodium Ascorbate 500mg morning, 500mg evening"
   },
@@ -22,24 +22,28 @@
     "target": "Magnesium Glycinate 400mg before bed"
   },
   "bone_mineral_boost": {
-    "taken": false,
-    "target": "Sparkle Wellness Bone Mineral Boost — morning"
+    "taken": true,
+    "target": "Sparkle Wellness Bone Mineral Boost \u2014 morning"
   },
   "creatine": {
-    "taken": false,
-    "target": "Daily — creatine"
+    "taken": true,
+    "target": "Daily \u2014 creatine"
   },
   "mct_oil": {
-    "taken": false,
-    "target": "Daily — MCT oil"
+    "taken": true,
+    "target": "Daily \u2014 MCT oil"
   },
   "turmeric": {
-    "taken": false,
+    "taken": true,
     "target": "Incidental via Aldi protein shake (low bioavailability)"
   },
   "to_order": {
-    "fish_oil": "Phase 3 critical — EPA/DHA anti-inflammatory",
-    "curcumin": "Meriva Phytosome — upgrade from turmeric shake",
+    "fish_oil": "Phase 3 critical \u2014 EPA/DHA anti-inflammatory",
+    "curcumin": "Meriva Phytosome \u2014 upgrade from turmeric shake",
     "im8_health": "Ordered Feb 12, awaiting delivery"
+  },
+  "mitopure": {
+    "taken": true,
+    "target": "Daily \u2014 Mitopure (Urolithin A)"
   }
 }

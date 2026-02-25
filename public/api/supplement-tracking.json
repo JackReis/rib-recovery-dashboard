@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-24T00:00:00Z",
+  "updated_at": "2026-02-24T15:40:00-06:00",
   "sources": [
     "manual_update",
     "daily_note"
@@ -11,7 +11,7 @@
       "target": 10,
       "target_oz": 80,
       "percentage": 0.0,
-      "note": "Not currently tracking — Ryan's protocol says 80oz+ daily. Controls plate degradation rate."
+      "note": "Not currently tracking \u2014 Ryan's protocol says 80oz+ daily. Controls plate degradation rate."
     },
     "supplements": {
       "active": [
@@ -20,7 +20,7 @@
           "dose": "5g",
           "timing": "morning",
           "status": "active",
-          "purpose": "Collagen synthesis — FORTIGEL targets cartilage/connective tissue"
+          "purpose": "Collagen synthesis \u2014 FORTIGEL targets cartilage/connective tissue"
         },
         {
           "name": "Sodium Ascorbate (Vitamin C)",
@@ -62,7 +62,7 @@
           "dose": "incidental",
           "timing": "daily",
           "status": "active",
-          "purpose": "Anti-inflammatory (low bioavailability — upgrade to curcumin phytosome recommended)"
+          "purpose": "Anti-inflammatory (low bioavailability \u2014 upgrade to curcumin phytosome recommended)"
         },
         {
           "name": "Mitopure (Urolithin A)",
@@ -77,7 +77,7 @@
           "name": "Fish Oil (EPA/DHA)",
           "dose": "2-3g daily",
           "priority": "high",
-          "note": "Phase 3 critical — anti-inflammatory support"
+          "note": "Phase 3 critical \u2014 anti-inflammatory support"
         },
         {
           "name": "Curcumin (Meriva Phytosome)",
@@ -89,7 +89,7 @@
           "name": "IM8 Health",
           "dose": "per label",
           "priority": "low",
-          "note": "Ordered Feb 12 — arrival unknown"
+          "note": "Ordered Feb 12 \u2014 arrival unknown"
         }
       ]
     },
@@ -97,7 +97,7 @@
       "rate": 88,
       "streak_days": 15,
       "since": "2026-02-01",
-      "note": "Diligent daily use since early February. Estimate ~88% adherence."
+      "note": "Morning supplements logged on Feb 24; evening items pending."
     },
     "compliance_score": 88.0
   }
