@@ -175,9 +175,16 @@
         "note": "Thursdays at noon"
       },
       {
-        "role": "Psychiatry",
-        "name": "Jahannah Jamelarin",
-        "note": "Feb 23, 9:20 AM — Good Shepherd"
+        "role": "Psychiatry / Med Management",
+        "name": "Mariah Thomas",
+        "org": "Oklahoma Integrated Care",
+        "note": "Primary psychiatry contact (with Tasha Preston)"
+      },
+      {
+        "role": "Psychiatry / Med Management",
+        "name": "Tasha Preston, PMHNP",
+        "org": "Oklahoma Integrated Care",
+        "note": "Active medication management provider"
       }
     ],
     "sinceLastSession": [
@@ -368,9 +375,16 @@
         "note": "Thursdays at noon"
       },
       {
-        "role": "Psychiatry",
-        "name": "Jahannah Jamelarin",
-        "note": "Feb 23, 9:20 AM — Good Shepherd"
+        "role": "Psychiatry / Med Management",
+        "name": "Mariah Thomas",
+        "org": "Oklahoma Integrated Care",
+        "note": "Primary psychiatry contact (with Tasha Preston)"
+      },
+      {
+        "role": "Psychiatry / Med Management",
+        "name": "Tasha Preston, PMHNP",
+        "org": "Oklahoma Integrated Care",
+        "note": "Active medication management provider"
       }
     ],
     "notes": "Treatment: acupuncture needling for blood flow to shoulder blade region. Key correction: Jack compensates with shoulder extension instead of core flexion — must retrain ab engagement."
@@ -524,9 +538,16 @@
         "note": "Thursdays at noon"
       },
       {
-        "role": "Psychiatry",
-        "name": "Jahannah Jamelarin",
-        "note": "Feb 23, 9:20 AM — Good Shepherd"
+        "role": "Psychiatry / Med Management",
+        "name": "Mariah Thomas",
+        "org": "Oklahoma Integrated Care",
+        "note": "Primary psychiatry contact (with Tasha Preston)"
+      },
+      {
+        "role": "Psychiatry / Med Management",
+        "name": "Tasha Preston, PMHNP",
+        "org": "Oklahoma Integrated Care",
+        "note": "Active medication management provider"
       }
     ],
     "notes": ""

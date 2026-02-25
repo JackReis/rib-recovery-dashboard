@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-24T20:18:26.000000",
+  "updated_at": "2026-02-24T23:00:00.000000",
   "source": "vault-daily-notes",
   "appointments": [
     {
@@ -28,14 +28,14 @@
       "notes": "Med management: Vyvanse 70mg, Strattera 80mg, Lexapro 10mg. Verify time — GCal timezone is Pacific."
     },
     {
-      "provider": "Jahannah Jamelarin",
-      "specialty": "Psychiatry",
-      "organization": "Good Shepherd",
+      "provider": "Mariah Thomas + Tasha Preston, PMHNP",
+      "specialty": "Psychiatry / Med Management",
+      "organization": "Oklahoma Integrated Care",
       "date": "Feb 23, 2026",
       "time": "9:20 AM",
-      "status": "cancelled",
-      "priority": "low",
-      "notes": "Cancelling — med management handled by Tasha Preston, PMHNP at Oklahoma Integrated Care. Call (580) 223-3411 to cancel + resolve outstanding balance."
+      "status": "completed",
+      "priority": "high",
+      "notes": "Care transitioned to Oklahoma Integrated Care team; active med management with Tasha Preston and Mariah Thomas."
     },
     {
       "provider": "Melissa Sherfield",
