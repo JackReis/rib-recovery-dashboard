@@ -18,29 +18,38 @@ ChartJS.register(
   PointElement, ArcElement, Filler, Tooltip, Legend
 );
 
-const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
 export function SupplementAdherenceChart({ supplementData }) {
-  const rib = supplementData?.rib_recovery?.supplements || {};
-  const collagenAM = rib.collagen?.morning ? 1 : 0;
-  const collagenPM = rib.collagen?.evening ? 1 : 0;
-  const vitCAM = rib.vitamin_c?.morning ? 1 : 0;
-  const vitCPM = rib.vitamin_c?.evening ? 1 : 0;
-  const mag = rib.magnesium?.taken ? 1 : 0;
+  const active = supplementData?.rib_recovery?.supplements?.active || [];
+  const adherencePct = supplementData?.rib_recovery?.adherence?.rate ?? 0;
 
-  const todayIndex = new Date().getDay();
-  const dayIndex = todayIndex === 0 ? 6 : todayIndex - 1;
+  const has = (needle) => active.some(s => (s?.name || '').toLowerCase().includes(needle));
 
-  const makeWeek = (todayVal) => DAYS.map((_, i) => i === dayIndex ? todayVal : Math.random() > 0.3 ? 1 : 0);
+  // Deterministic current-state bars (no simulated/random week data)
+  const checks = [
+    { label: 'Collagen', value: has('collagen') ? 1 : 0, color: '#3b82f6' },
+    { label: 'Vitamin C', value: has('vitamin c') || has('ascorbate') ? 1 : 0, color: '#f59e0b' },
+    { label: 'Magnesium', value: has('magnesium') ? 1 : 0, color: '#10b981' },
+    { label: 'Mitopure', value: has('mitopure') || has('urolithin') ? 1 : 0, color: '#8b5cf6' }
+  ];
 
   const data = {
-    labels: DAYS,
+    labels: checks.map(c => c.label),
     datasets: [
-      { label: 'Collagen AM', data: makeWeek(collagenAM), backgroundColor: '#3b82f6', stack: 'stack' },
-      { label: 'Collagen PM', data: makeWeek(collagenPM), backgroundColor: '#60a5fa', stack: 'stack' },
-      { label: 'Vitamin C AM', data: makeWeek(vitCAM), backgroundColor: '#f59e0b', stack: 'stack' },
-      { label: 'Vitamin C PM', data: makeWeek(vitCPM), backgroundColor: '#fbbf24', stack: 'stack' },
-      { label: 'Magnesium', data: makeWeek(mag), backgroundColor: '#10b981', stack: 'stack' }
+      {
+        label: 'In active protocol',
+        data: checks.map(c => c.value),
+        backgroundColor: checks.map(c => c.color),
+        borderRadius: 6
+      },
+      {
+        label: 'Daily adherence %',
+        data: checks.map(() => Number(adherencePct)),
+        type: 'line',
+        borderColor: '#0f172a',
+        borderWidth: 2,
+        pointRadius: 0,
+        yAxisID: 'y1'
+      }
     ]
   };
 
@@ -51,9 +60,19 @@ export function SupplementAdherenceChart({ supplementData }) {
         maintainAspectRatio: false,
         scales: {
           x: { grid: { display: false } },
-          y: { max: 5, ticks: { stepSize: 1 }, title: { display: true, text: 'Supplements' } }
+          y: { min: 0, max: 1, ticks: { stepSize: 1, callback: (v) => v === 1 ? 'Yes' : 'No' }, title: { display: true, text: 'Protocol' } },
+          y1: { min: 0, max: 100, position: 'right', grid: { display: false }, ticks: { callback: (v) => `${v}%` }, title: { display: true, text: 'Adherence' } }
         },
-        plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } } }
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } },
+          tooltip: {
+            callbacks: {
+              afterLabel: (ctx) => ctx.dataset.label === 'In active protocol'
+                ? (ctx.raw ? 'Currently active' : 'Not in current active list')
+                : ''
+            }
+          }
+        }
       }} />
     </div>
   );
