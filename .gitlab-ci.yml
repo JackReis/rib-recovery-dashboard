@@ -1,18 +1,14 @@
-image: node:18-alpine
+# GitLab CI/CD intentionally disabled.
+# We keep GitLab remote as a code backup/mirror only.
+# Canonical CI/CD + deploy lives on GitHub Actions / GitHub Pages.
 
-cache:
-  paths:
-    - node_modules/
+workflow:
+  rules:
+    - when: never
 
-pages:
-  stage: deploy
+# Keeping a no-op job for explicit visibility in case someone inspects CI config.
+noop:
   script:
-    - npm ci || npm install
-    - CI=false npm run build  # CI=false to ignore warnings
-    - rm -rf public
-    - cp -r build public
-  artifacts:
-    paths:
-      - public
-  only:
-    - main
+    - echo "GitLab CI is disabled for this repository. Use GitHub Actions instead."
+  rules:
+    - when: never
