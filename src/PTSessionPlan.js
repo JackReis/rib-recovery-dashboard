@@ -73,7 +73,7 @@ const Section = ({ title, icon: Icon, children, defaultOpen = false, color = "bl
 };
 
 export default function PTSessionPlan() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(-1); // -1 => Current Plan
   const [sessionNotes, setSessionNotes] = useState({});
   const [noteText, setNoteText] = useState('');
   const [noteSaved, setNoteSaved] = useState(false);
@@ -104,7 +104,8 @@ export default function PTSessionPlan() {
     setTimeout(() => setNoteSaved(false), 2000);
   };
 
-  const s = sessionsData[selectedIndex];
+  const latestCompleted = sessionsData.find(x => x.status === 'completed') || sessionsData[0];
+  const s = selectedIndex === -1 ? latestCompleted : sessionsData[selectedIndex];
   if (!s) return <div className="p-8 text-slate-500">No sessions found.</div>;
 
   return (
@@ -113,13 +114,24 @@ export default function PTSessionPlan() {
       {sessionsData.length > 1 && (
         <div className="flex items-center justify-between bg-white rounded-xl border border-slate-200 p-3">
           <button
-            onClick={() => setSelectedIndex(Math.max(0, selectedIndex - 1))}
-            disabled={selectedIndex === 0}
+            onClick={() => setSelectedIndex(Math.max(-1, selectedIndex - 1))}
+            disabled={selectedIndex === -1}
             className="p-2 rounded-lg hover:bg-slate-100 disabled:opacity-30 disabled:cursor-not-allowed"
           >
             <ChevronLeft size={20} />
           </button>
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => setSelectedIndex(-1)}
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                selectedIndex === -1
+                  ? 'bg-indigo-100 text-indigo-700'
+                  : 'text-slate-500 hover:bg-slate-100'
+              }`}
+              title="Synthesis from latest completed session"
+            >
+              Current Plan
+            </button>
             {sessionsData.map((session, i) => (
               <button
                 key={session.id}
@@ -153,7 +165,7 @@ export default function PTSessionPlan() {
               <p className="text-blue-200 text-sm font-medium uppercase tracking-wider">PT Session Plan</p>
               <StatusBadge status={s.status} />
             </div>
-            <h1 className="text-3xl font-black mt-1">Session {selectedIndex + 1} · {s.provider.name}, {s.provider.credentials}</h1>
+            <h1 className="text-3xl font-black mt-1">{selectedIndex === -1 ? 'Current Plan' : `Session ${selectedIndex + 1}`} · {s.provider.name}, {s.provider.credentials}</h1>
             <p className="text-blue-100 mt-2">{s.provider.organization}</p>
           </div>
           <div className="text-right">
