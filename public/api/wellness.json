@@ -36,7 +36,10 @@
       "today_pending": 7,
       "streak_days": 15,
       "active_count": 7,
-      "gaps": ["Fish Oil (EPA/DHA)", "Curcumin (Meriva Phytosome)"]
+      "gaps": [
+        "Fish Oil (EPA/DHA)",
+        "Curcumin (Meriva Phytosome)"
+      ]
     },
     "appointments": {
       "next_appointment": {
@@ -79,8 +82,9 @@
       "pain_scale": "0-10",
       "mobility_score": 7,
       "mobility_scale": "0-10",
-      "energy_level": 7,
-      "mood": "positive"
+      "energy_level": 3,
+      "mood": "positive",
+      "energy_scale": "1-5"
     }
   },
   "this_week": {
@@ -158,13 +162,13 @@
     {
       "type": "appointment",
       "priority": "medium",
-      "message": "Good Shepherd — pay outstanding balance online. Psychiatry cancelled (med mgmt transferred to Tasha Preston at OIC).",
+      "message": "Good Shepherd \u2014 pay outstanding balance online. Psychiatry cancelled (med mgmt transferred to Tasha Preston at OIC).",
       "date": "2026-02-24"
     },
     {
       "type": "recovery",
       "priority": "medium",
-      "message": "PT Session 3 complete (Feb 18) — 15 exercises total. Next: Wed+Fri 5pm with Ryan Fraley, DPT"
+      "message": "PT Session 3 complete (Feb 18) \u2014 15 exercises total. Next: Wed+Fri 5pm with Ryan Fraley, DPT"
     }
   ],
   "shortcuts_quick_actions": [

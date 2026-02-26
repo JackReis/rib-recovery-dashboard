@@ -486,7 +486,7 @@ export default function WellnessAnalytics() {
                   </div>
                   <div className="flex items-center justify-between p-2 bg-slate-50 rounded-lg">
                     <span className="text-sm text-slate-600">Energy</span>
-                    <span className="text-sm font-semibold">{wellnessData.today.wellness_checkin?.energy_level}/10</span>
+                    <span className="text-sm font-semibold">{wellnessData.today.wellness_checkin?.energy_level}/{wellnessData.today.wellness_checkin?.energy_scale || 5}</span>
                   </div>
                   <div className="flex items-center justify-between p-2 bg-slate-50 rounded-lg">
                     <span className="text-sm text-slate-600">Mood</span>
