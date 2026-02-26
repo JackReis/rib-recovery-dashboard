@@ -45,5 +45,9 @@
   "mitopure": {
     "taken": true,
     "target": "Daily \u2014 Mitopure (Urolithin A)"
+  },
+  "rehab": {
+    "done_today": true,
+    "note": "PT session completed today; rehab exercises counted complete."
   }
 }

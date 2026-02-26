@@ -272,7 +272,8 @@ export default function RecoveryDashboard({ onNavigate }) {
 
   // Calculate Progress
   const morningProgress = (Object.keys(morningChecks).filter(k => morningChecks[k]).length / MORNING_ROUTINE.length) * 100;
-  const rehabProgress = (Object.keys(rehabChecks).filter(k => rehabChecks[k]).length / REHAB_PHASE_1.length) * 100;
+  const rehabProgressManual = (Object.keys(rehabChecks).filter(k => rehabChecks[k]).length / REHAB_PHASE_1.length) * 100;
+  const rehabProgress = trackerData?.rehab?.done_today ? 100 : rehabProgressManual;
 
   const handleSaveDay = () => {
     const newEntry = {
