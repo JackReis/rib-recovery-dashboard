@@ -129,8 +129,9 @@ export default function PTSessionPlan() {
                     ? 'bg-blue-100 text-blue-700'
                     : 'text-slate-500 hover:bg-slate-100'
                 }`}
+                title={session.date}
               >
-                {session.date}
+                {`Session ${i + 1}`}
               </button>
             ))}
           </div>
@@ -152,7 +153,7 @@ export default function PTSessionPlan() {
               <p className="text-blue-200 text-sm font-medium uppercase tracking-wider">PT Session Plan</p>
               <StatusBadge status={s.status} />
             </div>
-            <h1 className="text-3xl font-black mt-1">{s.provider.name}, {s.provider.credentials}</h1>
+            <h1 className="text-3xl font-black mt-1">Session {selectedIndex + 1} · {s.provider.name}, {s.provider.credentials}</h1>
             <p className="text-blue-100 mt-2">{s.provider.organization}</p>
           </div>
           <div className="text-right">
