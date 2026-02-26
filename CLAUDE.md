@@ -1,8 +1,16 @@
 # Rib Recovery Dashboard
 
 - Interactive recovery dashboard for tracking rehabilitation from Hansen procedure (bilateral rib reconstruction)
-- Deploys to GitLab Pages: `https://rib-recovery-dashboard-61b9d4.gitlab.io/`
+- Primary remote + CI/CD is GitHub: `git@github.com:JackReis/rib-recovery-dashboard.git`
+- Deploy target is GitHub Pages (not GitLab Pages)
+- Legacy GitLab remote is archival/fallback only: `git@gitlab.com:jackrei/rib-recovery-dashboard.git`
 - Wellness API serves JSON endpoints at `/api/`
+
+## Operational Rules (Important)
+
+- Treat `origin` (GitHub) as the only default push/pull target.
+- Do **not** push to `gitlab` unless explicitly asked by the user.
+- If pipeline/deploy issues appear, inspect GitHub Actions first.
 
 ## Portfolio Context
 
