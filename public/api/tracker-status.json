@@ -5,7 +5,7 @@
     "target": 10,
     "target_oz": 80,
     "last_drink": null,
-    "note": "Morning supplements logged. Hydration still not fully tracked; target 80oz+ daily per PT protocol."
+    "note": "Evening supplements logged: glycine, taurine, NMN, magnesium, sodium ascorbate (2nd), calcium K2."
   },
   "collagen": {
     "morning": true,
@@ -14,11 +14,11 @@
   },
   "vitamin_c": {
     "morning": true,
-    "evening": false,
+    "evening": true,
     "target": "Sodium Ascorbate 500mg morning, 500mg evening"
   },
   "magnesium": {
-    "taken": false,
+    "taken": true,
     "target": "Magnesium Glycinate 400mg before bed"
   },
   "bone_mineral_boost": {
@@ -49,5 +49,21 @@
   "rehab": {
     "done_today": true,
     "note": "PT session completed today; rehab exercises counted complete."
+  },
+  "glycine": {
+    "taken": true,
+    "target": "Evening \u2014 glycine"
+  },
+  "taurine": {
+    "taken": true,
+    "target": "Evening \u2014 taurine"
+  },
+  "nmn": {
+    "taken": true,
+    "target": "Evening \u2014 NMN"
+  },
+  "calcium_k2": {
+    "taken": true,
+    "target": "Evening \u2014 Life Extension Calcium with K2"
   }
 }
