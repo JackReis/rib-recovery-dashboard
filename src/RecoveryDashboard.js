@@ -23,6 +23,7 @@ import {
   Droplets,
   Pill
 } from 'lucide-react';
+import ptSessions from './data/pt-sessions.json';
 
 // --- DATA: EXTRACTED FROM UPLOADED REPORTS ---
 
@@ -258,6 +259,9 @@ export default function RecoveryDashboard({ onNavigate }) {
   // CLI Tracker Data (from rib-recovery-tracker.py)
   const [trackerData, setTrackerData] = useState(null);
 
+  const latestCompletedSession = ptSessions.find((s) => s.status === 'completed') || ptSessions[0];
+  const nextUpcomingSession = ptSessions.find((s) => s.status === 'upcoming');
+
   useEffect(() => {
     const fetchTracker = () => {
       fetch('/api/tracker-status.json')
@@ -435,8 +439,13 @@ export default function RecoveryDashboard({ onNavigate }) {
                   </div>
                   <div>
                     <p className="text-blue-200 text-xs font-medium uppercase tracking-wider">PT Timeline</p>
-                    <p className="text-xl font-bold mt-0.5">Latest: Session 4 completed • Next PT scheduled (see Appointments)</p>
-                    <p className="text-blue-200 text-sm mt-1">Physical Therapy Central • Continue scapular + guarding-pattern rehab</p>
+                    <p className="text-xl font-bold mt-0.5">
+                      Latest: {latestCompletedSession?.date || 'PT session'} completed
+                      {nextUpcomingSession ? ` • Next: ${nextUpcomingSession.date} ${nextUpcomingSession.time}` : ''}
+                    </p>
+                    <p className="text-blue-200 text-sm mt-1">
+                      {latestCompletedSession?.provider?.organization || 'Physical Therapy'} • Continue scapular + guarding-pattern rehab
+                    </p>
                   </div>
                 </div>
                 <ChevronRight size={24} className="text-blue-300 group-hover:translate-x-1 transition-transform" />

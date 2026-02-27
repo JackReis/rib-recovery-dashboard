@@ -78,6 +78,11 @@ export default function PTSessionPlan() {
   const [noteText, setNoteText] = useState('');
   const [noteSaved, setNoteSaved] = useState(false);
 
+  const getSessionLabel = (index) => {
+    // Data is newest -> oldest, while PT session numbering is oldest -> newest.
+    return `Session ${sessionsData.length - index}`;
+  };
+
   // Load saved notes from localStorage
   useEffect(() => {
     const saved = localStorage.getItem('pt-session-notes');
@@ -88,69 +93,74 @@ export default function PTSessionPlan() {
 
   // Set initial note text when session changes
   useEffect(() => {
-    const session = sessionsData[selectedIndex];
+    const latest = sessionsData.find(x => x.status === 'completed') || sessionsData[0];
+    const session = selectedIndex === -1 ? latest : sessionsData[selectedIndex];
     if (session) {
       setNoteText(sessionNotes[session.id] || session.notes || '');
       setNoteSaved(false);
     }
   }, [selectedIndex, sessionNotes]);
 
+  const latestCompleted = sessionsData.find(x => x.status === 'completed') || sessionsData[0];
+  const s = selectedIndex === -1 ? latestCompleted : sessionsData[selectedIndex];
+
   const saveNotes = () => {
-    const session = sessionsData[selectedIndex];
-    const updated = { ...sessionNotes, [session.id]: noteText };
+    if (!s?.id) return;
+    const updated = { ...sessionNotes, [s.id]: noteText };
     setSessionNotes(updated);
     localStorage.setItem('pt-session-notes', JSON.stringify(updated));
     setNoteSaved(true);
     setTimeout(() => setNoteSaved(false), 2000);
   };
-
-  const latestCompleted = sessionsData.find(x => x.status === 'completed') || sessionsData[0];
-  const s = selectedIndex === -1 ? latestCompleted : sessionsData[selectedIndex];
   if (!s) return <div className="p-8 text-slate-500">No sessions found.</div>;
 
   return (
     <div className="max-w-4xl mx-auto p-4 lg:p-8 space-y-6">
       {/* Session Selector (only show if multiple sessions) */}
       {sessionsData.length > 1 && (
-        <div className="flex items-center justify-between bg-white rounded-xl border border-slate-200 p-3">
+        <div className="flex items-center gap-2 bg-white rounded-xl border border-slate-200 p-3">
           <button
             onClick={() => setSelectedIndex(Math.max(-1, selectedIndex - 1))}
             disabled={selectedIndex === -1}
             className="p-2 rounded-lg hover:bg-slate-100 disabled:opacity-30 disabled:cursor-not-allowed"
+            aria-label="Previous session"
           >
             <ChevronLeft size={20} />
           </button>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setSelectedIndex(-1)}
-              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                selectedIndex === -1
-                  ? 'bg-indigo-100 text-indigo-700'
-                  : 'text-slate-500 hover:bg-slate-100'
-              }`}
-              title="Synthesis from latest completed session"
-            >
-              Current Plan
-            </button>
-            {sessionsData.map((session, i) => (
+          <div className="flex-1 overflow-x-auto">
+            <div className="flex items-center gap-2 min-w-max pr-1">
               <button
-                key={session.id}
-                onClick={() => setSelectedIndex(i)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                  i === selectedIndex
-                    ? 'bg-blue-100 text-blue-700'
+                onClick={() => setSelectedIndex(-1)}
+                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
+                  selectedIndex === -1
+                    ? 'bg-indigo-100 text-indigo-700'
                     : 'text-slate-500 hover:bg-slate-100'
                 }`}
-                title={session.date}
+                title="Synthesis from latest completed session"
               >
-                {`Session ${i + 1}`}
+                Current Plan
               </button>
-            ))}
+              {sessionsData.map((session, i) => (
+                <button
+                  key={session.id}
+                  onClick={() => setSelectedIndex(i)}
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
+                    i === selectedIndex
+                      ? 'bg-blue-100 text-blue-700'
+                      : 'text-slate-500 hover:bg-slate-100'
+                  }`}
+                  title={session.date}
+                >
+                  {getSessionLabel(i)}
+                </button>
+              ))}
+            </div>
           </div>
           <button
             onClick={() => setSelectedIndex(Math.min(sessionsData.length - 1, selectedIndex + 1))}
             disabled={selectedIndex === sessionsData.length - 1}
             className="p-2 rounded-lg hover:bg-slate-100 disabled:opacity-30 disabled:cursor-not-allowed"
+            aria-label="Next session"
           >
             <ChevronRight size={20} />
           </button>
@@ -165,7 +175,7 @@ export default function PTSessionPlan() {
               <p className="text-blue-200 text-sm font-medium uppercase tracking-wider">PT Session Plan</p>
               <StatusBadge status={s.status} />
             </div>
-            <h1 className="text-3xl font-black mt-1">{selectedIndex === -1 ? 'Current Plan' : `Session ${selectedIndex + 1}`} · {s.provider.name}, {s.provider.credentials}</h1>
+            <h1 className="text-3xl font-black mt-1">{selectedIndex === -1 ? `Current Plan (from ${getSessionLabel(sessionsData.findIndex(x => x.id === s.id))})` : getSessionLabel(selectedIndex)} · {s.provider.name}, {s.provider.credentials}</h1>
             <p className="text-blue-100 mt-2">{s.provider.organization}</p>
           </div>
           <div className="text-right">
