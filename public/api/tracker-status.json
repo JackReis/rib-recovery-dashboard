@@ -1,11 +1,11 @@
 {
-  "date": "2026-02-24",
+  "date": "2026-02-27",
   "water": {
     "glasses": 0,
     "target": 10,
     "target_oz": 80,
     "last_drink": null,
-    "note": "Evening supplements logged: glycine, taurine, NMN, magnesium, sodium ascorbate (2nd), calcium K2."
+    "note": "Yesterday evening stack logged for 2026-02-26. Tonight's evening stack pending."
   },
   "collagen": {
     "morning": true,
@@ -14,11 +14,11 @@
   },
   "vitamin_c": {
     "morning": true,
-    "evening": true,
+    "evening": false,
     "target": "Sodium Ascorbate 500mg morning, 500mg evening"
   },
   "magnesium": {
-    "taken": true,
+    "taken": false,
     "target": "Magnesium Glycinate 400mg before bed"
   },
   "bone_mineral_boost": {
@@ -51,19 +51,31 @@
     "note": "PT session completed today; rehab exercises counted complete."
   },
   "glycine": {
-    "taken": true,
+    "taken": false,
     "target": "Evening \u2014 glycine"
   },
   "taurine": {
-    "taken": true,
+    "taken": false,
     "target": "Evening \u2014 taurine"
   },
   "nmn": {
-    "taken": true,
+    "taken": false,
     "target": "Evening \u2014 NMN"
   },
   "calcium_k2": {
-    "taken": true,
+    "taken": false,
     "target": "Evening \u2014 Life Extension Calcium with K2"
+  },
+  "yesterday_evening_stack": {
+    "date": "2026-02-26",
+    "logged": true,
+    "items": [
+      "glycine",
+      "taurine",
+      "NMN",
+      "magnesium",
+      "sodium ascorbate (2nd)",
+      "life extension calcium with K2"
+    ]
   }
 }
