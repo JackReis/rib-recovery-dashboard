@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-02-27T22:27:00-06:00",
+  "updated_at": "2026-02-28T11:58:00-06:00",
   "sources": [
     "manual_update",
     "daily_note"
   ],
   "rib_recovery": {
-    "date": "2026-02-27",
+    "date": "2026-02-28",
     "water_intake": {
       "glasses": 0,
       "target": 10,
@@ -94,14 +94,14 @@
       ]
     },
     "adherence": {
-      "rate": 70,
+      "rate": 50,
       "streak_days": 15,
       "since": "2026-02-01",
-      "note": "Corrected attribution: Feb 26 evening stack logged; Feb 27 evening stack pending.",
+      "note": "Morning stack mostly done; pending Mitopure gummies + finish collagen. Evening items pending.",
       "daily_checklist_total": 10,
-      "daily_checklist_completed": 7,
-      "last_recalc_at": "2026-02-27T22:27:30-06:00"
+      "daily_checklist_completed": 5,
+      "last_recalc_at": "2026-02-28T11:58:00-06:00"
     },
-    "compliance_score": 70.0
+    "compliance_score": 50.0
   }
 }

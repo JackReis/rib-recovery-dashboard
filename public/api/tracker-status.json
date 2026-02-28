@@ -1,14 +1,14 @@
 {
-  "date": "2026-02-27",
+  "date": "2026-02-28",
   "water": {
     "glasses": 0,
     "target": 10,
     "target_oz": 80,
     "last_drink": null,
-    "note": "Yesterday evening stack logged for 2026-02-26. Tonight's evening stack pending."
+    "note": "New day (Feb 28): morning stack mostly done. Pending: Mitopure gummies + finish collagen. Evening stack pending."
   },
   "collagen": {
-    "morning": true,
+    "morning": false,
     "evening": false,
     "target": "CollaGEN (FORTIGEL) 5g morning"
   },
@@ -43,11 +43,11 @@
     "im8_health": "Ordered Feb 12, awaiting delivery"
   },
   "mitopure": {
-    "taken": true,
+    "taken": false,
     "target": "Daily \u2014 Mitopure (Urolithin A)"
   },
   "rehab": {
-    "done_today": true,
+    "done_today": false,
     "note": "PT session completed today; rehab exercises counted complete."
   },
   "glycine": {
