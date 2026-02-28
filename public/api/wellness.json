@@ -2,7 +2,7 @@
   "meta": {
     "endpoint": "wellness",
     "description": "Unified wellness dashboard - all health metrics in one endpoint",
-    "generated_at": "2026-02-24T20:18:26Z",
+    "generated_at": "2026-02-28T19:00:00Z",
     "version": "1.1",
     "timezone": "America/Chicago"
   },
@@ -13,14 +13,14 @@
     "meal_adherence": 85,
     "supplement_adherence": 88,
     "mcp_uptime": 91.0,
-    "next_appointment_days": 1,
-    "last_updated": "2026-02-24T20:18:26Z"
+    "next_appointment_days": null,
+    "last_updated": "2026-02-28T19:00:00Z"
   },
   "quick_stats": {
     "rib_recovery": {
       "progress_percentage": 67,
-      "days_post_op": 501,
-      "months_post_op": 16.4,
+      "days_post_op": 506,
+      "months_post_op": 16.6,
       "status": "progressing_well",
       "trend": "improving"
     },
@@ -44,9 +44,9 @@
     "appointments": {
       "next_appointment": {
         "provider": "Ryan Fraley, DPT",
-        "date": "2026-02-25",
-        "time": "5:00 PM",
-        "days_until": 1,
+        "date": "none_scheduled",
+        "time": "TBD",
+        "days_until": null,
         "specialty": "Physical Therapy"
       },
       "to_schedule_count": 4
@@ -59,8 +59,8 @@
     }
   },
   "today": {
-    "date": "2026-02-24",
-    "day_of_week": "Tuesday",
+    "date": "2026-02-28",
+    "day_of_week": "Saturday",
     "supplements": {
       "collagen_morning": false,
       "vitamin_c_morning": false,
@@ -163,7 +163,7 @@
       "type": "appointment",
       "priority": "medium",
       "message": "Good Shepherd \u2014 pay outstanding balance online. Psychiatry cancelled (med mgmt transferred to Tasha Preston at OIC).",
-      "date": "2026-02-24"
+      "date": "2026-02-28"
     },
     {
       "type": "recovery",
