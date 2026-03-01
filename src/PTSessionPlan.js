@@ -120,6 +120,15 @@ export default function PTSessionPlan() {
   };
   if (!s) return <div className="p-8 text-slate-500">No sessions found.</div>;
 
+  const headerLabel = (() => {
+    if (selectedIndex === -1) {
+      const lbl = getSessionLabel(sessionsData.findIndex(x => x.id === s.id));
+      return `Current Plan (from #${lbl.num} · ${lbl.shortDate})`;
+    }
+    const lbl = getSessionLabel(selectedIndex);
+    return `Session #${lbl.num} · ${lbl.shortDate}`;
+  })();
+
   return (
     <div className="max-w-4xl mx-auto p-4 lg:p-8 space-y-6">
       {/* Session Selector (only show if multiple sessions) */}
@@ -193,7 +202,7 @@ export default function PTSessionPlan() {
               <p className="text-blue-200 text-sm font-medium uppercase tracking-wider">PT Session Plan</p>
               <StatusBadge status={s.status} />
             </div>
-            <h1 className="text-3xl font-black mt-1">{selectedIndex === -1 ? (() => { const lbl = getSessionLabel(sessionsData.findIndex(x => x.id === s.id)); return `Current Plan (from #${lbl.num} · ${lbl.shortDate})`; })() : (() => { const lbl = getSessionLabel(selectedIndex); return `Session #${lbl.num} · ${lbl.shortDate}`; })()} · {s.provider.name}, {s.provider.credentials}</h1>
+            <h1 className="text-3xl font-black mt-1">{headerLabel} · {s.provider.name}, {s.provider.credentials}</h1>
             <p className="text-blue-100 mt-2">{s.provider.organization}</p>
           </div>
           <div className="text-right">

@@ -27,7 +27,7 @@ function App() {
               )}
             </button>
             <h1 className="text-xl font-semibold text-slate-900">
-              Healthcare Management System
+              Recovery Command Center
             </h1>
           </div>
 
