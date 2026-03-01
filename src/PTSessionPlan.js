@@ -80,7 +80,13 @@ export default function PTSessionPlan() {
 
   const getSessionLabel = (index) => {
     // Data is newest -> oldest, while PT session numbering is oldest -> newest.
-    return `Session ${sessionsData.length - index}`;
+    const session = sessionsData[index];
+    const num = sessionsData.length - index;
+    // Parse date for short label (e.g., "Feb 18")
+    const shortDate = session?.date
+      ? new Date(session.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+      : '';
+    return { num, shortDate, status: session?.status };
   };
 
   // Load saved notes from localStorage
@@ -140,20 +146,32 @@ export default function PTSessionPlan() {
               >
                 Current Plan
               </button>
-              {sessionsData.map((session, i) => (
-                <button
-                  key={session.id}
-                  onClick={() => setSelectedIndex(i)}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
-                    i === selectedIndex
-                      ? 'bg-blue-100 text-blue-700'
-                      : 'text-slate-500 hover:bg-slate-100'
-                  }`}
-                  title={session.date}
-                >
-                  {getSessionLabel(i)}
-                </button>
-              ))}
+              {sessionsData.map((session, i) => {
+                const label = getSessionLabel(i);
+                return (
+                  <button
+                    key={session.id}
+                    onClick={() => setSelectedIndex(i)}
+                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+                      i === selectedIndex
+                        ? 'bg-blue-100 text-blue-700'
+                        : 'text-slate-500 hover:bg-slate-100'
+                    }`}
+                    title={`${session.date} — ${session.status}`}
+                  >
+                    {label.status === 'completed' && (
+                      <CheckCircle size={14} className={i === selectedIndex ? 'text-blue-600' : 'text-green-500'} />
+                    )}
+                    {label.status === 'upcoming' && (
+                      <Clock size={14} className={i === selectedIndex ? 'text-blue-600' : 'text-amber-500'} />
+                    )}
+                    <span>#{label.num}</span>
+                    <span className={`text-xs ${i === selectedIndex ? 'text-blue-500' : 'text-slate-400'}`}>
+                      {label.shortDate}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
           <button
@@ -175,7 +193,7 @@ export default function PTSessionPlan() {
               <p className="text-blue-200 text-sm font-medium uppercase tracking-wider">PT Session Plan</p>
               <StatusBadge status={s.status} />
             </div>
-            <h1 className="text-3xl font-black mt-1">{selectedIndex === -1 ? `Current Plan (from ${getSessionLabel(sessionsData.findIndex(x => x.id === s.id))})` : getSessionLabel(selectedIndex)} · {s.provider.name}, {s.provider.credentials}</h1>
+            <h1 className="text-3xl font-black mt-1">{selectedIndex === -1 ? (() => { const lbl = getSessionLabel(sessionsData.findIndex(x => x.id === s.id)); return `Current Plan (from #${lbl.num} · ${lbl.shortDate})`; })() : (() => { const lbl = getSessionLabel(selectedIndex); return `Session #${lbl.num} · ${lbl.shortDate}`; })()} · {s.provider.name}, {s.provider.credentials}</h1>
             <p className="text-blue-100 mt-2">{s.provider.organization}</p>
           </div>
           <div className="text-right">
