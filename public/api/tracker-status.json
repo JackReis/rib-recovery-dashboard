@@ -5,7 +5,7 @@
     "target": 10,
     "target_oz": 80,
     "last_drink": null,
-    "note": "New day (Feb 28): morning stack mostly done. Pending: Mitopure gummies + finish collagen. Evening stack pending."
+    "note": "Feb 27 evening stack completed. Feb 28 morning mostly done; pending Mitopure gummies and finish collagen."
   },
   "collagen": {
     "morning": false,
@@ -67,7 +67,7 @@
     "target": "Evening \u2014 Life Extension Calcium with K2"
   },
   "yesterday_evening_stack": {
-    "date": "2026-02-26",
+    "date": "2026-02-27",
     "logged": true,
     "items": [
       "glycine",
