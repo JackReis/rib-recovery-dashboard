@@ -13,7 +13,9 @@ import {
   Clock,
   CheckCircle,
   ClipboardList,
-  TrendingUp
+  TrendingUp,
+  FileText,
+  Copy
 } from 'lucide-react';
 import sessionsData from './data/pt-sessions.json';
 
@@ -77,6 +79,8 @@ export default function PTSessionPlan() {
   const [sessionNotes, setSessionNotes] = useState({});
   const [noteText, setNoteText] = useState('');
   const [noteSaved, setNoteSaved] = useState(false);
+  const [ptSubtab, setPtSubtab] = useState('dashboard');
+  const [copied, setCopied] = useState(false);
 
   const getSessionLabel = (index) => {
     // Data is newest -> oldest, while PT session numbering is oldest -> newest.
@@ -128,6 +132,58 @@ export default function PTSessionPlan() {
     const lbl = getSessionLabel(selectedIndex);
     return `Session #${lbl.num} · ${lbl.shortDate}`;
   })();
+
+  const vaultFilePath = `/Users/jack.reis/Documents/=notes/atlas/health/pt-session-${s.id}-notes-with-ryan.md`;
+
+  const vaultTemplate = `---
+created: ${s.id}
+updated: ${s.id}
+tags:
+  - health
+  - pt
+  - recovery
+  - appointment
+provider: ${s.provider.name}, ${s.provider.credentials}
+organization: ${s.provider.organization}
+status: ${s.status}
+source: rib-recovery-dashboard
+---
+
+# Physical Therapy with ${s.provider.name} — ${headerLabel}
+
+${s.date} at ${s.time}
+
+## Pre-Session Snapshot
+- Pain (0-10):
+- Energy (0-10):
+- Sleep quality:
+- Breathing quality:
+
+## Top Priorities
+${s.concerns.map((c, i) => `${i + 1}. ${c.title}`).join('\n')}
+
+## Questions for ${s.provider.name}
+${s.questions.map((q, i) => `${i + 1}. ${q}`).join('\n')}
+
+## Session Notes
+- 
+
+## Prescribed Exercises
+${s.prescribed.map((p) => `- ${p}`).join('\n')}
+
+## Plan & Next Steps
+- 
+`;
+
+  const copyVaultTemplate = async () => {
+    try {
+      await navigator.clipboard.writeText(vaultTemplate);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch (e) {
+      setCopied(false);
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto p-4 lg:p-8 space-y-6">
@@ -216,6 +272,53 @@ export default function PTSessionPlan() {
         </div>
       </div>
 
+      {/* PT Session Subtabs */}
+      <div className="bg-white rounded-xl border border-slate-200 p-2 inline-flex gap-2">
+        <button
+          onClick={() => setPtSubtab('dashboard')}
+          className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
+            ptSubtab === 'dashboard' ? 'bg-blue-100 text-blue-700' : 'text-slate-600 hover:bg-slate-100'
+          }`}
+        >
+          Dashboard View
+        </button>
+        <button
+          onClick={() => setPtSubtab('vault')}
+          className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
+            ptSubtab === 'vault' ? 'bg-indigo-100 text-indigo-700' : 'text-slate-600 hover:bg-slate-100'
+          }`}
+        >
+          Vault-First Note
+        </button>
+      </div>
+
+      {ptSubtab === 'vault' && (
+        <Section title="Obsidian PT Session Template" icon={FileText} defaultOpen={true} color="purple">
+          <div className="space-y-3">
+            <p className="text-sm text-slate-700"><strong>Suggested path:</strong> {vaultFilePath}</p>
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-slate-500">Copy this template into your vault PT note.</p>
+              <button
+                onClick={copyVaultTemplate}
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium ${
+                  copied ? 'bg-green-100 text-green-700' : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                }`}
+              >
+                <Copy size={14} /> {copied ? 'Copied' : 'Copy Template'}
+              </button>
+            </div>
+            <textarea
+              readOnly
+              value={vaultTemplate}
+              className="w-full h-72 p-3 rounded-lg border border-slate-200 text-xs text-slate-700 bg-slate-50"
+            />
+            <p className="text-xs text-slate-500">n8n can write this markdown directly to the vault path above for each session date.</p>
+          </div>
+        </Section>
+      )}
+
+      {ptSubtab === 'dashboard' && (
+      <>
       {/* Quick Context */}
       <Section title="Quick Context for Ryan" icon={Stethoscope} defaultOpen={true} color="blue">
         <ul className="space-y-2">
@@ -407,6 +510,9 @@ export default function PTSessionPlan() {
           ))}
         </div>
       </Section>
+
+      </>
+      )}
 
       {/* Print footer */}
       <div className="text-center text-xs text-slate-400 pt-4 border-t border-slate-100 print:block">
