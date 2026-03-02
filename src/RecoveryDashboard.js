@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ClinicalProtocols from './components/ClinicalProtocols';
+import BreathingTracker from './components/BreathingTracker';
 import {
   BookOpen,
   Activity,
@@ -11,17 +12,15 @@ import {
   Info,
   Shield,
   Coffee,
-  Moon,
-  Footprints,
   Baby,
-  Dog,
   Menu,
   X,
   Save,
   BarChart2,
   Stethoscope,
   Droplets,
-  Pill
+  Pill,
+  Wind
 } from 'lucide-react';
 import ptSessions from './data/pt-sessions.json';
 
@@ -689,6 +688,9 @@ export default function RecoveryDashboard({ onNavigate }) {
           </div>
         );
 
+      case "breathing":
+        return <BreathingTracker />;
+
       default: return null;
     }
   };
@@ -710,6 +712,7 @@ export default function RecoveryDashboard({ onNavigate }) {
           <TabButton active={activeTab === "plan"} label="Rehab Plan" icon={Calendar} onClick={() => setActiveTab("plan")} />
           <TabButton active={activeTab === "clinical"} label="Clinical Protocols" icon={Stethoscope} onClick={() => setActiveTab("clinical")} />
           <TabButton active={activeTab === "index"} label="The Index" icon={BookOpen} onClick={() => setActiveTab("index")} />
+          <TabButton active={activeTab === "breathing"} label="Breathing Tracker" icon={Wind} onClick={() => setActiveTab("breathing")} />
         </nav>
         <div className="p-4 border-t border-slate-100">
           <div className="bg-slate-50 rounded-lg p-3 text-xs text-slate-500">
@@ -736,6 +739,7 @@ export default function RecoveryDashboard({ onNavigate }) {
           <TabButton active={activeTab === "plan"} label="Rehab Plan" icon={Calendar} onClick={() => { setActiveTab("plan"); setMobileMenuOpen(false); }} />
           <TabButton active={activeTab === "clinical"} label="Clinical Protocols" icon={Stethoscope} onClick={() => { setActiveTab("clinical"); setMobileMenuOpen(false); }} />
           <TabButton active={activeTab === "index"} label="The Index" icon={BookOpen} onClick={() => { setActiveTab("index"); setMobileMenuOpen(false); }} />
+          <TabButton active={activeTab === "breathing"} label="Breathing Tracker" icon={Wind} onClick={() => { setActiveTab("breathing"); setMobileMenuOpen(false); }} />
         </div>
       )}
 
