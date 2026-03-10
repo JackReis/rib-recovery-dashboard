@@ -10,7 +10,7 @@ from datetime import datetime
 from urllib.request import urlopen, Request
 from urllib.error import URLError
 
-API_URL = "https://rib-recovery-dashboard-61b9d4.gitlab.io/api/cpap-sleep.json"
+API_URL = "https://jackreis.github.io/rib-recovery-dashboard/api/cpap-sleep.json"
 # Note: Night counts and dates will vary as data is updated
 MIN_EXPECTED_NIGHTS = 400  # Flexible minimum instead of exact count
 

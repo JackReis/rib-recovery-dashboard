@@ -3,7 +3,7 @@
     "api_name": "Wellness Analytics API",
     "version": "1.0",
     "description": "Unified wellness analytics API for native mobile app integration and Shortcuts.app automation",
-    "base_url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/api",
+    "base_url": "https://jackreis.github.io/rib-recovery-dashboard/api",
     "generated_at": "2026-02-05T00:00:00Z",
     "maintained_by": "Jack Reis"
   },
@@ -104,7 +104,7 @@
       "example_shortcuts": [
         {
           "name": "Morning Wellness Check",
-          "url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/api/wellness.json",
+          "url": "https://jackreis.github.io/rib-recovery-dashboard/api/wellness.json",
           "actions": [
             "Get contents of URL",
             "Get dictionary value for 'summary'",
@@ -118,7 +118,7 @@
         },
         {
           "name": "Next Appointment Alert",
-          "url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/api/appointments.json",
+          "url": "https://jackreis.github.io/rib-recovery-dashboard/api/appointments.json",
           "actions": [
             "Get contents of URL",
             "Get dictionary value for 'upcoming_appointments'",
@@ -139,9 +139,9 @@
       "recommended_update_strategy": "Poll endpoints every 30-60 minutes for fresh data"
     },
     "curl_examples": {
-      "get_wellness_summary": "curl https://rib-recovery-dashboard-61b9d4.gitlab.io/api/wellness.json",
-      "get_next_appointment": "curl https://rib-recovery-dashboard-61b9d4.gitlab.io/api/appointments.json | jq '.upcoming_appointments[0]'",
-      "get_mcp_status": "curl https://rib-recovery-dashboard-61b9d4.gitlab.io/api/mcp-health.json | jq '.system_status'"
+      "get_wellness_summary": "curl https://jackreis.github.io/rib-recovery-dashboard/api/wellness.json",
+      "get_next_appointment": "curl https://jackreis.github.io/rib-recovery-dashboard/api/appointments.json | jq '.upcoming_appointments[0]'",
+      "get_mcp_status": "curl https://jackreis.github.io/rib-recovery-dashboard/api/mcp-health.json | jq '.system_status'"
     }
   },
   "access": {
@@ -149,7 +149,7 @@
     "rate_limiting": "none",
     "cors": "enabled",
     "https": true,
-    "availability": "24/7 via GitLab Pages"
+    "availability": "24/7 via GitHub Pages"
   },
   "roadmap": {
     "future_endpoints": [
@@ -184,17 +184,17 @@
     "dashboards": [
       {
         "name": "Health Metrics Dashboard",
-        "url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/health-dashboard/",
+        "url": "https://jackreis.github.io/rib-recovery-dashboard/health-dashboard/",
         "description": "Interactive Chart.js visualizations of health metrics"
       },
       {
         "name": "Meal Planner",
-        "url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/meal-planner/",
+        "url": "https://jackreis.github.io/rib-recovery-dashboard/meal-planner/",
         "description": "Ardmore meal planning with Sweetgreen recreations"
       },
       {
         "name": "Wellness Reports",
-        "url": "https://rib-recovery-dashboard-61b9d4.gitlab.io/wellness-reports/",
+        "url": "https://jackreis.github.io/rib-recovery-dashboard/wellness-reports/",
         "description": "Generated wellness reports and analytics"
       }
     ]
