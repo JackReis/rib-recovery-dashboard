@@ -1,391 +1,1036 @@
 [
   {
-    "session_id": "pt-2026-02-09",
-    "session_date": "2026-02-09",
-    "session_number": 1,
+    "id": "2026-03-10",
+    "session_number": 8,
+    "date": "March 10, 2026",
+    "time": "11:00 AM",
+    "status": "completed",
     "provider": {
-      "name": "Ryan Fraley, DPT",
-      "clinic": "Physical Therapy Central",
-      "business_card_visible": null
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
     },
     "transcript_sources": [
-      "atlas/health/pt-session-2026-02-09-ryan.md"
+      "atlas/health/pt-session-8-look-again-multimodel.md",
+      "atlas/health/pt-session-8-deep-clinical-analysis.md"
     ],
-    "photo_sources": [],
-    "symptoms": {
-      "pec_engagement": 2.5
-    },
-    "findings": {
-      "thoracic_extension_compensation": true,
-      "scapular_winging_left": true,
-      "thoracic_ring_instability": null
-    },
-    "assignments": [
+    "context": [
+      "Month 17 of 24 post-Hansen bilateral rib reconstruction (Day ~515)",
+      "Critical collagen remodeling window (months 12-18) — we're IN IT",
+      "Extended recovery timeline discovered: 29-41 months total (Hansen Sep 2025 phone consult)",
+      "Bioabsorbable PLLA/PLGA plates degrading — biological fusion still forming",
+      "Independent clinical review: A- grade (ChatGPT GPT-5.4 analysis)",
+      "Left-chain compensation cascade validated: labral tear → rib instability → self-reorg → thumb MCP"
+    ],
+    "concerns": [
       {
-        "exercise": "Balloon work",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "medium"
+        "priority": 1,
+        "title": "Breathing dysfunction",
+        "detail": "Persistent thoracic extension compensation during breathing — diaphragm pulls down but unsecured ribs trigger elevation through low back extension. Foundational issue affecting all exercises.",
+        "severity": "critical"
       },
       {
-        "exercise": "Anti-rotation exercises",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "medium"
+        "priority": 2,
+        "title": "Scapulothoracic interface dysfunction",
+        "detail": "Left scapula elevated, 'bunch of fluff' tissue posterior preventing proper seating. Position-dependent clicking eliminated by forward lean.",
+        "severity": "high"
       },
       {
-        "exercise": "Modified dead hangs",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "medium"
+        "priority": 3,
+        "title": "Pectoral engagement severely limited (~2-3/10)",
+        "detail": "Key recovery indicator; muscles guarding/spasming to protect unstable ribs. Compensatory patterns from 17 months post-surgery.",
+        "severity": "high"
+      },
+      {
+        "priority": 4,
+        "title": "Left-chain compensation cascade",
+        "detail": "Labral tear → rib instability → manual self-reorg → thumb MCP overload. Elite compensations from yoga teacher training deeply baked in.",
+        "severity": "moderate"
       }
     ],
-    "open_questions": [
-      "Realistic pectoral engagement targets by month 18",
-      "Objective baseline measurements"
+    "sinceLastSession": [
+      "Reviewed Dr. Hansen's surgical notes with Claude — extracted spacer graft details, confirmed rib 7 NOT involved",
+      "Discovered extended recovery timeline (29-41 months vs previously thought ~24)",
+      "Continued mirror-based diaphragmatic breathing work (shirt off)",
+      "Ongoing self-repositioning behavior — pushing ribs forward, bracing at coracoid/clavicle area"
     ],
-    "updated_at": "2026-02-27"
+    "findings": [
+      "Left scapular clicking during arm bike is strongly position-dependent — eliminated entirely by forward lean. Most reproducible symptom modifier in 8 sessions.",
+      "Left scapula remains elevated compared to right — persistent SICK scapula presentation",
+      "'Bunch of fluff' tissue posterior to scapula preventing scapulothoracic contact — fibrotic adhesion or altered muscle tone",
+      "Rib cage hypothesis: ribs backing into scapular space — pushing ribs forward manually gives shoulder blade space",
+      "AC joint involvement hypothesized (pec minor → coracoid → AC shear from self-repositioning) — NOT tested, no provocation tests performed",
+      "Ryan genuinely confused by Hansen's 3-year recovery timeline — volunteered to call Dr. Hansen",
+      "Breath-holding during exercises caught — mental engagement displacing respiratory awareness",
+      "Rotational hip exercise produced immediate postural improvement ('half inch taller' sensation)"
+    ],
+    "prescribed": [
+      "Rotational hip exercise with wall contact — push hip to front door, coordinate head positioning",
+      "Core crunches with scapular initiation — start between shoulder blades, pull hands toward knees"
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45 degrees, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Rotational hip exercise with wall contact", "detail": "Push hip toward front door while rotating, coordinate with head positioning, heel against back wall", "sets": "Multiple reps" },
+      { "name": "Core crunches with scapular initiation", "detail": "Start crunch between shoulder blades, pull hands toward knees — initiate from upper back not abdomen", "sets": "10-15 reps" },
+      { "name": "Outside pinky wall push", "detail": "Push outside pinky finger up wall surface maintaining shoulder positioning — activates posterior chain", "sets": "10-15 reps" },
+      { "name": "Mirror-based breathing observation", "detail": "Diaphragmatic breathing shirtless — visualize rib cage movement, expand ribs while keeping them down, prevent thoracic extension", "sets": "5-10 min daily" },
+      { "name": "Dead hangs with scapular focus", "detail": "Maintain shoulder blade engagement, avoid rib cage flaring, progress from supported to full hang", "sets": "10s x 10 reps" },
+      { "name": "Wall-based rotational band work", "detail": "Orange band, inside arm stabilized against wall, outside arm rotating against resistance", "sets": "8 reps x 2 circuits" },
+      { "name": "Cross-body diagonal band pulls", "detail": "Discus/spiral pattern, mid-to-high level (NOT low), spiral fascial line activation", "sets": "8-10 reps" },
+      { "name": "Backward pulling movements", "detail": "Posterior chain activation, maintain form", "sets": "3-4 minutes" },
+      { "name": "Balloon breathing", "detail": "Inflate using belly expansion NOT chest rise, eliminate lip pursing, complete exhale with abdominal contraction — 'quick exit' sound", "sets": "Daily, 5-10 min" },
+      { "name": "Rotational marching", "detail": "Alternating leg marches maintaining abdominal tension, coordinate with breathing, prevent thoracic extension", "sets": "10-15 reps/leg" },
+      { "name": "Facing band same side march", "detail": "Band high and behind, march with straight arm extension — maintain fascial tension throughout ROM", "sets": "ON HOLD — need bands" },
+      { "name": "Thread the needle", "detail": "To be demonstrated by Ryan", "sets": "TBD — 4x deferred" },
+      { "name": "Spiral/rotational fascial work", "detail": "'Reverse lawnmower' movement, mid-to-high level NOT low", "sets": "8-10 reps" },
+      { "name": "Anterior chain fly + posterior control", "detail": "Dual-component, front and back simultaneously", "sets": "8-10 reps" },
+      { "name": "Pull-apart exercises", "detail": "Maintain form and control", "sets": "10-15 reps" },
+      { "name": "Anti-machine lengthening + posterior rotation", "detail": "Session 3 prescription", "sets": "As tolerated" },
+      { "name": "Serratus activation", "detail": "Prone position, wrists ahead of elbows", "sets": "15 reps or to burn" },
+      { "name": "Core/rotation work", "detail": "Squeeze ball, contract core, rotate toward foot — ab compression NOT shoulder extension", "sets": "10-15 reps" },
+      { "name": "Scap strengthening", "detail": "Dead hang position, maintain blade engagement — progress to alternating marches", "sets": "To fatigue" },
+      { "name": "Scap-ups", "detail": "Continue, avoid compensation patterns", "sets": "10-15 reps" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super/thera band — isometric eccentric control, NOT active twisting", "sets": "10-15 reps" },
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold", "sets": "5s hold x 10 reps x 3 sets" }
+    ],
+    "questions": [
+      "Ryan to call Dr. Hansen — autologous approach + 3-year timeline rationale",
+      "AC joint formal testing needed — cross-body adduction, O'Brien's, Paxinos, bilateral palpation",
+      "Should self-repositioning behavior be stopped? (potential AC shear)",
+      "Amy Thompson IASTM timing — coordinate with 8-session reassessment",
+      "Lower abdominal concern — snap, sneezing pain, palpable lump at inferior rectus attachment",
+      "Thread the needle — 4th deferral, priority for Session 9",
+      "Resistance bands — 5th deferral, non-negotiable for Session 9"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP immediately" },
+      { "symptom": "Rib 'slipping out' sensation", "action": "STOP + decompression reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP + rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP + contact Ryan" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
+    ],
+    "careTeam": [
+      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
+      { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
+    "symptoms": {
+      "shoulder_clicking": "position-dependent, eliminated by forward lean",
+      "breathing_dysfunction": "breath-holding during exercises",
+      "postural_response": "half inch taller from hip rotation"
+    },
+    "assignments": [
+      { "exercise": "Rotational hip exercise with wall contact", "status": "updated", "source": "transcript", "confidence": "high" },
+      { "exercise": "Core crunches with scapular initiation", "status": "updated", "source": "transcript", "confidence": "high" }
+    ],
+    "notes": "8-session milestone. Ryan volunteered to call Dr. Hansen about 3-year recovery timeline. AC joint hypothesis needs formal testing. ~30-40% of session consumed by non-clinical conversation."
   },
   {
-    "session_id": "pt-2026-02-13",
-    "session_date": "2026-02-13",
-    "session_number": 2,
+    "id": "2026-03-07",
+    "session_number": 7,
+    "date": "March 7, 2026",
+    "time": "4:30 PM",
+    "status": "completed",
     "provider": {
-      "name": "Ryan Fraley, DPT",
-      "clinic": "Physical Therapy Central",
-      "business_card_visible": null
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
     },
     "transcript_sources": [],
-    "photo_sources": [],
-    "symptoms": {
-      "pec_engagement": 2.5,
-      "joint_quality": "trashy"
-    },
-    "findings": {
-      "scapular_winging_left": true,
-      "upper_trap_dominance_ratio": "6:1",
-      "serratus_subscap_dysfunction": true,
-      "pec_minor_aggravated": true,
-      "sleep_apnea_rib_tightness": true
-    },
-    "assignments": [
+    "context": [
+      "Month 17 of 24 post-Hansen bilateral rib reconstruction",
+      "4-week treatment milestone with Ryan",
+      "Schedule change: now Tue 11:00 AM + Fri 4:30 PM"
+    ],
+    "concerns": [
       {
-        "exercise": "Serratus activation (prone, wrists ahead of elbows)",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "medium"
+        "priority": 1,
+        "title": "Breathing dysfunction",
+        "detail": "Persistent thoracic extension compensation during breathing — diaphragm pulls down but unsecured ribs trigger elevation through low back extension. Foundational issue affecting all exercises.",
+        "severity": "critical"
       },
       {
-        "exercise": "Core/rotation work (ball squeeze, rotate toward foot)",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "medium"
+        "priority": 2,
+        "title": "Scapulothoracic interface dysfunction",
+        "detail": "Left scapula elevated, 'bunch of fluff' tissue posterior preventing proper seating. Position-dependent clicking eliminated by forward lean.",
+        "severity": "high"
       },
       {
-        "exercise": "Scap strengthening (dead hang position)",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "medium"
+        "priority": 3,
+        "title": "Pectoral engagement severely limited (~2-3/10)",
+        "detail": "Key recovery indicator; muscles guarding/spasming to protect unstable ribs. Compensatory patterns from 17 months post-surgery.",
+        "severity": "high"
       },
       {
-        "exercise": "Scap-ups (continued)",
-        "status": "continued",
-        "source": "transcript",
-        "confidence": "medium"
+        "priority": 4,
+        "title": "Left-chain compensation cascade",
+        "detail": "Labral tear → rib instability → manual self-reorg → thumb MCP overload. Elite compensations from yoga teacher training deeply baked in.",
+        "severity": "moderate"
       }
     ],
-    "plan": {
-      "next_session": {
-        "days": [
-          "Monday",
-          "Thursday"
-        ],
-        "time": [
-          "17:00"
-        ]
-      }
-    },
-    "open_questions": [
-      "Thoracic default posture under load — thorax driving shoulder compensation?",
-      "Breathing pattern and thoracic ring stability relationship",
-      "Quantitative baselines needed (goniometry, functional scores)",
-      "CPAP mechanical load on ribcage during remodeling window"
+    "sinceLastSession": [
+      "Continued prescribed exercises",
+      "Mirror breathing daily"
     ],
-    "updated_at": "2026-03-06"
+    "findings": [
+      "4-week milestone review with Ryan",
+      "Schedule updated from Tue/Thu to Tue/Fri",
+      "Session notes not yet processed — transcript available in Granola"
+    ],
+    "prescribed": [
+      "Continue current protocol"
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45 degrees, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Outside pinky wall push", "detail": "Push outside pinky finger up wall surface maintaining shoulder positioning — activates posterior chain", "sets": "10-15 reps" },
+      { "name": "Mirror-based breathing observation", "detail": "Diaphragmatic breathing shirtless — visualize rib cage movement, expand ribs while keeping them down, prevent thoracic extension", "sets": "5-10 min daily" },
+      { "name": "Dead hangs with scapular focus", "detail": "Maintain shoulder blade engagement, avoid rib cage flaring, progress from supported to full hang", "sets": "10s x 10 reps" },
+      { "name": "Wall-based rotational band work", "detail": "Orange band, inside arm stabilized against wall, outside arm rotating against resistance", "sets": "8 reps x 2 circuits" },
+      { "name": "Cross-body diagonal band pulls", "detail": "Discus/spiral pattern, mid-to-high level (NOT low), spiral fascial line activation", "sets": "8-10 reps" },
+      { "name": "Backward pulling movements", "detail": "Posterior chain activation, maintain form", "sets": "3-4 minutes" },
+      { "name": "Balloon breathing", "detail": "Inflate using belly expansion NOT chest rise, eliminate lip pursing, complete exhale with abdominal contraction — 'quick exit' sound", "sets": "Daily, 5-10 min" },
+      { "name": "Rotational marching", "detail": "Alternating leg marches maintaining abdominal tension, coordinate with breathing, prevent thoracic extension", "sets": "10-15 reps/leg" },
+      { "name": "Facing band same side march", "detail": "Band high and behind, march with straight arm extension — maintain fascial tension throughout ROM", "sets": "ON HOLD — need bands" },
+      { "name": "Thread the needle", "detail": "To be demonstrated by Ryan", "sets": "TBD — 3x deferred" },
+      { "name": "Spiral/rotational fascial work", "detail": "'Reverse lawnmower' movement, mid-to-high level NOT low", "sets": "8-10 reps" },
+      { "name": "Anterior chain fly + posterior control", "detail": "Dual-component, front and back simultaneously", "sets": "8-10 reps" },
+      { "name": "Pull-apart exercises", "detail": "Maintain form and control", "sets": "10-15 reps" },
+      { "name": "Anti-machine lengthening + posterior rotation", "detail": "Session 3 prescription", "sets": "As tolerated" },
+      { "name": "Serratus activation", "detail": "Prone position, wrists ahead of elbows", "sets": "15 reps or to burn" },
+      { "name": "Core/rotation work", "detail": "Squeeze ball, contract core, rotate toward foot — ab compression NOT shoulder extension", "sets": "10-15 reps" },
+      { "name": "Scap strengthening", "detail": "Dead hang position, maintain blade engagement — progress to alternating marches", "sets": "To fatigue" },
+      { "name": "Scap-ups", "detail": "Continue, avoid compensation patterns", "sets": "10-15 reps" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super/thera band — isometric eccentric control, NOT active twisting", "sets": "10-15 reps" },
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold", "sets": "5s hold x 10 reps x 3 sets" }
+    ],
+    "questions": [
+      "Treatment duration and long-term planning",
+      "Exercise triage — which are highest yield?"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP immediately" },
+      { "symptom": "Rib 'slipping out' sensation", "action": "STOP + decompression reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP + rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP + contact Ryan" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
+    ],
+    "careTeam": [
+      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
+      { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
+    "symptoms": {},
+    "assignments": [],
+    "notes": "Minimal entry — session notes not yet processed from Granola transcript. 4-week milestone session."
   },
   {
-    "session_id": "pt-2026-02-18",
-    "session_date": "2026-02-18",
-    "session_number": 3,
-    "provider": {
-      "name": "Ryan Fraley, DPT",
-      "clinic": "Physical Therapy Central",
-      "business_card_visible": null
-    },
-    "transcript_sources": [
-      "atlas/health/pt-session-2026-02-18-notes-with-ryan.md"
-    ],
-    "photo_sources": [],
-    "findings": {
-      "thoracic_extension_compensation": true,
-      "scapular_winging_left": true,
-      "left_lat_activation_status": "challenged"
-    },
-    "assignments": [
-      {
-        "exercise": "Dead hangs",
-        "status": "continued",
-        "source": "transcript",
-        "confidence": "medium"
-      },
-      {
-        "exercise": "Spiral/rotational fascial work",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "medium"
-      },
-      {
-        "exercise": "Backward pulling (3 min)",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "medium"
-      }
-    ],
-    "plan": {
-      "next_session": {
-        "time": "17:00",
-        "days": [
-          "Monday",
-          "Thursday"
-        ]
-      }
-    },
-    "updated_at": "2026-02-27"
-  },
-  {
-    "session_id": "pt-2026-02-25",
-    "session_date": "2026-02-25",
-    "session_number": 4,
-    "provider": {
-      "name": "Ryan Fraley, DPT",
-      "clinic": "Physical Therapy Central",
-      "business_card_visible": null
-    },
-    "transcript_sources": [
-      "atlas/health/pt-session-2026-02-25-notes-with-ryan.md"
-    ],
-    "photo_sources": [],
-    "symptoms": {
-      "pain_trend": "stable",
-      "energy": 4,
-      "cpap_compliance_flag": "erratic"
-    },
-    "findings": {
-      "thoracic_ring_instability": true,
-      "left_lat_activation_status": "no one here by that name",
-      "thoracic_extension_compensation": true
-    },
-    "assignments": [
-      {
-        "exercise": "Facing band same side march",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Thread the needle",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Balloon breathing with all exercises",
-        "status": "updated",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Dead hangs (no flare cue)",
-        "status": "updated",
-        "source": "transcript",
-        "confidence": "high"
-      }
-    ],
-    "plan": {
-      "next_session": {
-        "days": [
-          "Tuesday",
-          "Thursday"
-        ],
-        "time": [
-          "11:30",
-          "17:00"
-        ]
-      }
-    },
-    "open_questions": [
-      "Map exact thoracic ring levels",
-      "Is left lat inhibition neurological",
-      "Targeted oblique exercises"
-    ],
-    "updated_at": "2026-02-27"
-  },
-  {
-    "session_id": "pt-2026-03-03",
-    "session_date": "2026-03-03",
-    "session_number": 5,
-    "provider": {
-      "name": "Ryan Fraley, DPT",
-      "clinic": "Physical Therapy Central",
-      "business_card_visible": null
-    },
-    "transcript_sources": [
-      "inbox/20260303-Scratchpad.md"
-    ],
-    "photo_sources": [],
-    "symptoms": {
-      "breathing_dysfunction": "chest breathing with rib elevation and lip pursing",
-      "energy": 4
-    },
-    "findings": {
-      "diaphragmatic_breathing_dysfunction": true,
-      "thoracic_extension_compensation": true,
-      "balloon_technique_incorrect": true,
-      "wall_exercises_progressing": true,
-      "firm_sleeping_surface_beneficial": true,
-      "resistance_bands_still_missing": true
-    },
-    "assignments": [
-      {
-        "exercise": "Balloon breathing with strict diaphragmatic focus",
-        "status": "updated",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Mirror-based breathing observation",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Wall-based posterior chain activation (25 reps bilateral)",
-        "status": "updated",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Rotational marching with respiratory integration",
-        "status": "updated",
-        "source": "transcript",
-        "confidence": "high"
-      }
-    ],
-    "plan": {
-      "next_session": {
-        "days": [
-          "Tuesday",
-          "Thursday"
-        ],
-        "time": [
-          "11:30",
-          "17:00"
-        ]
-      }
-    },
-    "open_questions": [
-      "Breathing dysfunction origin — pre-surgical or post-surgical compensation?",
-      "Thread the needle — 2nd session deferred, priority for Session 6",
-      "Resistance bands — 3 sessions deferred, what's the actual barrier?",
-      "17-exercise protocol sustainability with breathing as foundational priority"
-    ],
-    "updated_at": "2026-03-06"
-  },
-  {
-    "session_id": "pt-2026-03-05",
-    "session_date": "2026-03-05",
+    "id": "2026-03-05",
     "session_number": 6,
+    "date": "March 5, 2026",
+    "time": "5:00 PM",
+    "status": "completed",
     "provider": {
-      "name": "Ryan Fraley, DPT",
-      "clinic": "Physical Therapy Central",
-      "business_card_visible": null
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
     },
     "transcript_sources": [
-      "inbox/20260305-PT-Scratchpad.md"
+      "atlas/health/pt-session-2026-03-05-ryan.md"
     ],
-    "photo_sources": [],
+    "context": [
+      "Month 17 of 24 post-Hansen bilateral rib reconstruction (Day 510)",
+      "Critical collagen remodeling window — months 12-18",
+      "Persistent breathing dysfunction pattern from Session 5 continues",
+      "4 previous sessions establishing baseline exercise tolerance"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "Breathing dysfunction",
+        "detail": "Persistent thoracic extension compensation during breathing — diaphragm pulls down but unsecured ribs trigger elevation through low back extension. Foundational issue affecting all exercises.",
+        "severity": "critical"
+      },
+      {
+        "priority": 2,
+        "title": "Scapulothoracic interface dysfunction",
+        "detail": "Left scapula elevated, 'bunch of fluff' tissue posterior preventing proper seating. Position-dependent clicking eliminated by forward lean.",
+        "severity": "high"
+      },
+      {
+        "priority": 3,
+        "title": "Pectoral engagement severely limited (~2-3/10)",
+        "detail": "Key recovery indicator; muscles guarding/spasming to protect unstable ribs. Compensatory patterns from 17 months post-surgery.",
+        "severity": "high"
+      },
+      {
+        "priority": 4,
+        "title": "Left-chain compensation cascade",
+        "detail": "Labral tear → rib instability → manual self-reorg → thumb MCP overload. Elite compensations from yoga teacher training deeply baked in.",
+        "severity": "moderate"
+      }
+    ],
+    "sinceLastSession": [
+      "Balloon breathing practice continues daily — persistent difficulty with hands-free inflation",
+      "Wall exercise compliance maintained — bilateral 25-rep sequences",
+      "Resistance bands still not acquired — 4th session deferred",
+      "Sleep surface experimentation — preference for firmer surfaces",
+      "Left shoulder/clavicle pulling sensation persistent",
+      "Overall positive mood, improved relationships, increased parenting confidence"
+    ],
+    "findings": [
+      "Left shoulder grinding — 'mortar and pestle' quality, consistent with labral tear + degenerative changes",
+      "Clavicle instability confirmed — 16 clunks during shoulder elevation, rotational dysfunction",
+      "Complex attachment point dysfunction — serratus anterior (ribs 3-8) and pec minor (ribs 3-5) affected",
+      "Persistent breathing dysfunction — thoracic extension compensation, multi-factorial origin",
+      "Diaphragmatic disconnection — diaphragm lacks leverage due to 'give' in surgical structures",
+      "Scapular elevation remains primary compensation trigger"
+    ],
+    "prescribed": [
+      "Outside pinky wall push — activates posterior chain without compensatory patterns (NEW)",
+      "Mirror-based breathing observation (shirt off) — 5-10 min daily (UPDATED)",
+      "Dead hangs with scapular focus — 10s x 10 reps (UPDATED)",
+      "Wall-based rotational band work — orange band, 8 reps bilateral, 2 circuits (CONTINUED)",
+      "Cross-body diagonal band pulls — discus pattern, mid-to-high level (CONTINUED)",
+      "Backward pulling movements — 3-4 min (CONTINUED)"
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45 degrees, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Outside pinky wall push", "detail": "Push outside pinky finger up wall surface maintaining shoulder positioning — activates posterior chain", "sets": "10-15 reps" },
+      { "name": "Mirror-based breathing observation", "detail": "Diaphragmatic breathing shirtless — visualize rib cage movement, expand ribs while keeping them down, prevent thoracic extension", "sets": "5-10 min daily" },
+      { "name": "Dead hangs with scapular focus", "detail": "Maintain shoulder blade engagement, avoid rib cage flaring, progress from supported to full hang", "sets": "10s x 10 reps" },
+      { "name": "Wall-based rotational band work", "detail": "Orange band, inside arm stabilized against wall, outside arm rotating against resistance", "sets": "8 reps x 2 circuits" },
+      { "name": "Cross-body diagonal band pulls", "detail": "Discus/spiral pattern, mid-to-high level (NOT low), spiral fascial line activation", "sets": "8-10 reps" },
+      { "name": "Backward pulling movements", "detail": "Posterior chain activation, maintain form", "sets": "3-4 minutes" },
+      { "name": "Balloon breathing", "detail": "Inflate using belly expansion NOT chest rise, eliminate lip pursing, complete exhale with abdominal contraction — 'quick exit' sound", "sets": "Daily, 5-10 min" },
+      { "name": "Rotational marching", "detail": "Alternating leg marches maintaining abdominal tension, coordinate with breathing, prevent thoracic extension", "sets": "10-15 reps/leg" },
+      { "name": "Facing band same side march", "detail": "Band high and behind, march with straight arm extension — maintain fascial tension throughout ROM", "sets": "ON HOLD — need bands" },
+      { "name": "Thread the needle", "detail": "To be demonstrated by Ryan", "sets": "TBD — 2x deferred" },
+      { "name": "Spiral/rotational fascial work", "detail": "'Reverse lawnmower' movement, mid-to-high level NOT low", "sets": "8-10 reps" },
+      { "name": "Anterior chain fly + posterior control", "detail": "Dual-component, front and back simultaneously", "sets": "8-10 reps" },
+      { "name": "Pull-apart exercises", "detail": "Maintain form and control", "sets": "10-15 reps" },
+      { "name": "Anti-machine lengthening + posterior rotation", "detail": "Session 3 prescription", "sets": "As tolerated" },
+      { "name": "Serratus activation", "detail": "Prone position, wrists ahead of elbows", "sets": "15 reps or to burn" },
+      { "name": "Core/rotation work", "detail": "Squeeze ball, contract core, rotate toward foot — ab compression NOT shoulder extension", "sets": "10-15 reps" },
+      { "name": "Scap strengthening", "detail": "Dead hang position, maintain blade engagement — progress to alternating marches", "sets": "To fatigue" },
+      { "name": "Scap-ups", "detail": "Continue, avoid compensation patterns", "sets": "10-15 reps" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super/thera band — isometric eccentric control, NOT active twisting", "sets": "10-15 reps" },
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold", "sets": "5s hold x 10 reps x 3 sets" }
+    ],
+    "questions": [
+      "Is shoulder grinding causing progressive damage or mechanically annoying but stable?",
+      "What CT/X-ray findings would change treatment approach?",
+      "Was thoracic extension breathing pre-existing or post-surgical compensation?",
+      "Clavicle clicking: causing instability or caused BY instability?",
+      "Piano observation session — which movements compromise the shoulder?",
+      "Exercise dosage specifics — frequency, intensity, what's 'too much'?"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP immediately" },
+      { "symptom": "Rib 'slipping out' sensation", "action": "STOP + decompression reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP + rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP + contact Ryan" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
+    ],
+    "careTeam": [
+      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
+      { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
     "symptoms": {
       "shoulder_grinding": "mortar and pestle quality",
       "clavicle_clunking": "16 clunks during elevation",
       "breathing_dysfunction": "persistent thoracic extension compensation"
     },
-    "findings": {
-      "shoulder_cartilage_involvement": true,
-      "clavicle_rotational_dysfunction": true,
-      "complex_attachment_point_dysfunction": true,
-      "thoracic_extension_compensation": true,
-      "diaphragmatic_disconnection": true,
-      "scapular_elevation_compensation": true,
-      "breathing_dysfunction_multifactorial": true
+    "assignments": [
+      { "exercise": "Outside pinky wall push", "status": "new", "source": "transcript", "confidence": "high" },
+      { "exercise": "Mirror-based breathing observation (shirt off)", "status": "updated", "source": "transcript", "confidence": "high" },
+      { "exercise": "Dead hangs with scapular focus", "status": "updated", "source": "transcript", "confidence": "high" },
+      { "exercise": "Wall-based rotational band work", "status": "continued", "source": "transcript", "confidence": "high" },
+      { "exercise": "Cross-body diagonal band pulls", "status": "continued", "source": "transcript", "confidence": "high" },
+      { "exercise": "Backward pulling movements", "status": "continued", "source": "transcript", "confidence": "high" }
+    ],
+    "notes": ""
+  },
+  {
+    "id": "2026-03-03",
+    "session_number": 5,
+    "date": "March 3, 2026",
+    "time": "11:30 AM",
+    "status": "completed",
+    "provider": {
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
+    },
+    "transcript_sources": [
+      "atlas/health/pt-session-2026-03-03-ryan.md"
+    ],
+    "context": [
+      "Month 17 of 24 post-Hansen bilateral rib reconstruction (Day 508)",
+      "Breathing dysfunction identified as foundational issue",
+      "Wall exercises progressing well — 25 rep bilateral sequences"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "Breathing dysfunction",
+        "detail": "Persistent thoracic extension compensation during breathing — diaphragm pulls down but unsecured ribs trigger elevation through low back extension. Foundational issue affecting all exercises.",
+        "severity": "critical"
+      },
+      {
+        "priority": 2,
+        "title": "Scapulothoracic interface dysfunction",
+        "detail": "Left scapula elevated, 'bunch of fluff' tissue posterior preventing proper seating. Position-dependent clicking eliminated by forward lean.",
+        "severity": "high"
+      },
+      {
+        "priority": 3,
+        "title": "Pectoral engagement severely limited (~2-3/10)",
+        "detail": "Key recovery indicator; muscles guarding/spasming to protect unstable ribs. Compensatory patterns from 17 months post-surgery.",
+        "severity": "high"
+      },
+      {
+        "priority": 4,
+        "title": "Left-chain compensation cascade",
+        "detail": "Labral tear → rib instability → manual self-reorg → thumb MCP overload. Elite compensations from yoga teacher training deeply baked in.",
+        "severity": "moderate"
+      }
+    ],
+    "sinceLastSession": [
+      "Experimented with outdoor deck sleeping — improved positioning control",
+      "Continued balloon breathing but persistent chest breathing pattern",
+      "Persistent left shoulder/clavicle tension (1 week)",
+      "Resistance bands still not purchased",
+      "Maintained exercise compliance with available exercises"
+    ],
+    "findings": [
+      "Fundamental breathing mechanics dysfunction — chest breathing with rib elevation and lip pursing instead of diaphragmatic expansion",
+      "'Belly rise versus rib rise' identified as primary correction target",
+      "'Garter compression' analogy — maintain abdominal engagement while breathing diaphragmatically",
+      "Wall-based exercises with spiral line activation progressing well",
+      "Firmer sleeping surface experimentation yielding positive results",
+      "Resistance bands still not acquired — 3rd session deferred"
+    ],
+    "prescribed": [
+      "Balloon breathing with strict diaphragmatic focus — belly expansion NOT chest rise (UPDATED)",
+      "Mirror-based breathing observation — 5-10 min daily with garter compression (NEW)",
+      "Wall-based posterior chain activation — 25 reps bilateral (UPDATED)",
+      "Rotational marching with respiratory integration — 10-15 reps each leg (UPDATED)"
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45 degrees, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Balloon breathing", "detail": "Inflate using belly expansion NOT chest rise, eliminate lip pursing, complete exhale with abdominal contraction — 'quick exit' sound", "sets": "Daily, 5-10 min" },
+      { "name": "Mirror-based breathing observation", "detail": "Diaphragmatic breathing with garter compression — visualize rib cage movement, prevent thoracic extension", "sets": "5-10 min daily" },
+      { "name": "Wall-based posterior chain activation", "detail": "Bilateral 25-rep sequences against wall", "sets": "25 reps bilateral" },
+      { "name": "Rotational marching", "detail": "Alternating leg marches maintaining abdominal tension, coordinate with breathing, prevent thoracic extension", "sets": "10-15 reps/leg" },
+      { "name": "Facing band same side march", "detail": "Band high and behind, march with straight arm extension — maintain fascial tension throughout ROM", "sets": "ON HOLD — need bands" },
+      { "name": "Thread the needle", "detail": "To be demonstrated by Ryan", "sets": "TBD — 2nd deferral" },
+      { "name": "Dead hangs with scapular focus", "detail": "Full hang with squeeze, no rib cage flare", "sets": "As tolerated" },
+      { "name": "Spiral/rotational fascial work", "detail": "'Reverse lawnmower' movement, mid-to-high level NOT low", "sets": "8-10 reps" },
+      { "name": "Anterior chain fly + posterior control", "detail": "Dual-component, front and back simultaneously", "sets": "8-10 reps" },
+      { "name": "Pull-apart exercises", "detail": "Maintain form and control", "sets": "10-15 reps" },
+      { "name": "Anti-machine lengthening + posterior rotation", "detail": "Session 3 prescription", "sets": "As tolerated" },
+      { "name": "Backward pulling movements", "detail": "Posterior chain activation, maintain form", "sets": "3 minutes" },
+      { "name": "Serratus activation", "detail": "Prone position, wrists ahead of elbows", "sets": "15 reps or to burn" },
+      { "name": "Core/rotation work", "detail": "Squeeze ball, contract core, rotate toward foot — ab compression NOT shoulder extension", "sets": "10-15 reps" },
+      { "name": "Scap strengthening", "detail": "Dead hang position, maintain blade engagement — progress to alternating marches", "sets": "To fatigue" },
+      { "name": "Scap-ups", "detail": "Continue, avoid compensation patterns", "sets": "10-15 reps" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super/thera band — isometric eccentric control, NOT active twisting", "sets": "10-15 reps" },
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold", "sets": "5s hold x 10 reps x 3 sets" }
+    ],
+    "questions": [
+      "Breathing dysfunction origin — pre-surgical or post-surgical compensation?",
+      "Thread the needle — 2nd session deferred, priority for Session 6",
+      "Resistance bands — 3 sessions deferred, what's the actual barrier?",
+      "17-exercise protocol sustainability with breathing as foundational priority"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP immediately" },
+      { "symptom": "Rib 'slipping out' sensation", "action": "STOP + decompression reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP + rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP + contact Ryan" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
+    ],
+    "careTeam": [
+      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
+      { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
+    "symptoms": {
+      "breathing_dysfunction": "chest breathing with rib elevation and lip pursing",
+      "energy": 4
     },
     "assignments": [
-      {
-        "exercise": "Outside pinky wall push",
-        "status": "new",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Mirror-based breathing observation (shirt off)",
-        "status": "updated",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Dead hangs with scapular focus (10s x 10 reps)",
-        "status": "updated",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Wall-based rotational band work (orange band, 8 reps x 2 circuits)",
-        "status": "continued",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Cross-body diagonal band pulls (discus pattern)",
-        "status": "continued",
-        "source": "transcript",
-        "confidence": "high"
-      },
-      {
-        "exercise": "Backward pulling movements (3-4 min)",
-        "status": "continued",
-        "source": "transcript",
-        "confidence": "high"
-      }
+      { "exercise": "Balloon breathing with strict diaphragmatic focus", "status": "updated", "source": "transcript", "confidence": "high" },
+      { "exercise": "Mirror-based breathing observation", "status": "new", "source": "transcript", "confidence": "high" },
+      { "exercise": "Wall-based posterior chain activation", "status": "updated", "source": "transcript", "confidence": "high" },
+      { "exercise": "Rotational marching with respiratory integration", "status": "updated", "source": "transcript", "confidence": "high" }
     ],
-    "plan": {
-      "next_session": {
-        "days": [
-          "Tuesday",
-          "Friday"
-        ],
-        "time": [
-          "11:30",
-          "16:30"
-        ]
-      }
+    "notes": ""
+  },
+  {
+    "id": "2026-02-25",
+    "session_number": 4,
+    "date": "February 25, 2026",
+    "time": "5:00 PM",
+    "status": "completed",
+    "provider": {
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
     },
-    "open_questions": [
-      "Rib numbering discrepancy — ribs 8-10 to rib 7 vs ribs 9-10 to rib 8 (operative report needed)",
-      "Shoulder grinding — progressive damage or mechanically annoying but stable?",
-      "CT/X-ray findings that would change treatment approach",
-      "Was thoracic extension breathing pattern pre-existing or post-surgical?",
-      "Piano playing observation session for functional assessment",
-      "Exercise dosage specifics — frequency, intensity, what's 'too much'?"
+    "transcript_sources": [
+      "atlas/health/pt-session-2026-02-25-ryan.md"
     ],
-    "updated_at": "2026-03-06"
+    "context": [
+      "Month 16 of 24 post-Hansen bilateral rib reconstruction",
+      "Respiratory muscle compensation as primary barrier",
+      "Left lat activation issues emerging — 'no one here by that name'"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "Pectoral engagement severely limited (~2-3/10)",
+        "detail": "Key recovery indicator; muscles guarding/spasming to protect unstable ribs",
+        "severity": "critical"
+      },
+      {
+        "priority": 2,
+        "title": "SICK scapula (left)",
+        "detail": "Scapular malposition, inferior medial border prominence, coracoid pain, dyskinesis; documented labral tear + rotator cuff impingement",
+        "severity": "high"
+      },
+      {
+        "priority": 3,
+        "title": "Compensatory guarding patterns",
+        "detail": "16 months of protection locking up movement; risk of becoming permanent",
+        "severity": "high"
+      },
+      {
+        "priority": 4,
+        "title": "Kinetic chain",
+        "detail": "Right foot Jones fracture (5th met with screw) -> Spiral Line fascial pathway -> left ribs",
+        "severity": "moderate"
+      }
+    ],
+    "sinceLastSession": [
+      "Continued rotational restrictions and thoracic ring stability work",
+      "Twitching/instability in lower thoracic region during breathing",
+      "Maintaining exercise compliance with dead hangs and prescribed program",
+      "Some improvement in exercise tolerance and ROM",
+      "Generally more empowered — shoulder improving, able to work on ribs more"
+    ],
+    "findings": [
+      "Respiratory muscle compensation persists — automatic chest breathing during stabilization exercises",
+      "Thoracic ring instability during breathing confirmed — segments sliding past each other on inhalation",
+      "Left latissimus dorsi engagement issues — lat not responding ('no one here by that name')",
+      "Hip positioning asymmetry — left hip needs to come forward",
+      "Improved awareness of compensatory patterns",
+      "Fascial tension requirement understood — fascia needs tension to stretch"
+    ],
+    "prescribed": [
+      "Facing band same side march — band high and behind, march with straight arm extension (NEW)",
+      "Thread the needle — to be researched/demonstrated next session (NEW)",
+      "Balloon breathing with all exercises — add inflation/deflation to entire protocol (UPDATED)",
+      "Dead hangs — full hang with squeeze, no rib cage flare (UPDATED)"
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45 degrees, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Facing band same side march", "detail": "Band high and behind, march with straight arm extension — maintain fascial tension throughout ROM", "sets": "ON HOLD — need bands" },
+      { "name": "Thread the needle", "detail": "To be researched and demonstrated by Ryan", "sets": "TBD" },
+      { "name": "Balloon breathing", "detail": "Add inflation/deflation to entire exercise protocol — exhale training + rotational stability", "sets": "With all exercises" },
+      { "name": "Dead hangs with scapular focus", "detail": "Full hang with squeeze, no rib cage flare", "sets": "As tolerated" },
+      { "name": "Spiral/rotational fascial work", "detail": "'Reverse lawnmower' movement, mid-to-high level NOT low", "sets": "8-10 reps" },
+      { "name": "Anterior chain fly + posterior control", "detail": "Dual-component, front and back simultaneously", "sets": "8-10 reps" },
+      { "name": "Pull-apart exercises", "detail": "Maintain form and control", "sets": "10-15 reps" },
+      { "name": "Anti-machine lengthening + posterior rotation", "detail": "Session 3 prescription", "sets": "As tolerated" },
+      { "name": "Backward pulling movements", "detail": "Posterior chain activation, maintain form", "sets": "3 minutes" },
+      { "name": "Serratus activation", "detail": "Prone position, wrists ahead of elbows", "sets": "15 reps or to burn" },
+      { "name": "Core/rotation work", "detail": "Squeeze ball, contract core, rotate toward foot — ab compression NOT shoulder extension", "sets": "10-15 reps" },
+      { "name": "Scap strengthening", "detail": "Dead hang position, maintain blade engagement — progress to alternating marches", "sets": "To fatigue" },
+      { "name": "Scap-ups", "detail": "Continue, avoid compensation patterns", "sets": "10-15 reps" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super/thera band — isometric eccentric control, NOT active twisting", "sets": "10-15 reps" },
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold", "sets": "5s hold x 10 reps x 3 sets" }
+    ],
+    "questions": [
+      "Map exact thoracic ring levels — which segments are sliding?",
+      "Is left lat inhibition neurological? (thoracodorsal nerve vs weakness)",
+      "Targeted oblique exercises — obliques control inhalation but no specific work prescribed",
+      "CPAP pressure + unstable thoracic rings during sleep?",
+      "Objective measurements — no goniometric baselines, no outcome scores after 4 sessions",
+      "CT scan criteria — what would Dr. Hansen need? What triggers revision?"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP immediately" },
+      { "symptom": "Rib 'slipping out' sensation", "action": "STOP + decompression reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP + rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP + contact Ryan" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
+    ],
+    "careTeam": [
+      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
+      { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
+    "symptoms": {
+      "pain_trend": "stable",
+      "energy": 4,
+      "cpap_compliance_flag": "erratic"
+    },
+    "assignments": [
+      { "exercise": "Facing band same side march", "status": "new", "source": "transcript", "confidence": "high" },
+      { "exercise": "Thread the needle", "status": "new", "source": "transcript", "confidence": "high" },
+      { "exercise": "Balloon breathing with all exercises", "status": "updated", "source": "transcript", "confidence": "high" },
+      { "exercise": "Dead hangs (no flare cue)", "status": "updated", "source": "transcript", "confidence": "high" }
+    ],
+    "notes": ""
+  },
+  {
+    "id": "2026-02-18",
+    "session_number": 3,
+    "date": "February 18, 2026",
+    "time": "5:00 PM",
+    "status": "completed",
+    "provider": {
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
+    },
+    "transcript_sources": [
+      "atlas/health/pt-session-2026-02-18-ryan.md"
+    ],
+    "context": [
+      "Month 16 of 24 post-Hansen bilateral rib reconstruction",
+      "Compensatory thoracic extension established as primary movement default",
+      "Left shoulder muscle mass significantly deficient"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "Pectoral engagement severely limited (~2-3/10)",
+        "detail": "Key recovery indicator; muscles guarding/spasming to protect unstable ribs",
+        "severity": "critical"
+      },
+      {
+        "priority": 2,
+        "title": "SICK scapula (left)",
+        "detail": "Scapular malposition, inferior medial border prominence, coracoid pain, dyskinesis; documented labral tear + rotator cuff impingement",
+        "severity": "high"
+      },
+      {
+        "priority": 3,
+        "title": "Compensatory guarding patterns",
+        "detail": "16 months of protection locking up movement; risk of becoming permanent",
+        "severity": "high"
+      },
+      {
+        "priority": 4,
+        "title": "Kinetic chain",
+        "detail": "Right foot Jones fracture (5th met with screw) -> Spiral Line fascial pathway -> left ribs",
+        "severity": "moderate"
+      }
+    ],
+    "sinceLastSession": [
+      "Continued Session 2 exercises",
+      "Improved understanding of dual-component exercises"
+    ],
+    "findings": [
+      "Compensatory thoracic extension remains primary movement default — extends up instead of flexing",
+      "Scapular winging secondary to weakness — posterior muscles 'trying to hang on'",
+      "Left shoulder muscle mass significantly deficient — needs targeted building",
+      "Structural issues suspected but neuromuscular compensation may be primary driver",
+      "Thoracic spine relatively locked from surgical history"
+    ],
+    "prescribed": [
+      "Dead hangs — actual unmodified hang, fascia needs tension to stretch (UPDATED)",
+      "Spiral/rotational fascial work — 'reverse lawnmower', mid-to-high level (NEW)",
+      "Anterior chain fly with posterior control — dual-component (NEW)",
+      "Pull-apart exercises (NEW)",
+      "Backward pulling movements — 3 min (NEW)",
+      "Anti-machine lengthening + posterior rotation (NEW)"
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45 degrees, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Dead hangs with scapular focus", "detail": "Actual unmodified hang — fascia needs tension to stretch", "sets": "As tolerated" },
+      { "name": "Spiral/rotational fascial work", "detail": "'Reverse lawnmower' movement, mid-to-high level NOT low", "sets": "8-10 reps" },
+      { "name": "Anterior chain fly + posterior control", "detail": "Dual-component, front and back simultaneously", "sets": "8-10 reps" },
+      { "name": "Pull-apart exercises", "detail": "Maintain form and control", "sets": "10-15 reps" },
+      { "name": "Backward pulling movements", "detail": "Posterior chain activation, maintain form", "sets": "3 minutes" },
+      { "name": "Anti-machine lengthening + posterior rotation", "detail": "Session 3 prescription", "sets": "As tolerated" },
+      { "name": "Serratus activation", "detail": "Prone position, wrists ahead of elbows", "sets": "15 reps or to burn" },
+      { "name": "Core/rotation work", "detail": "Squeeze ball, contract core, rotate toward foot — ab compression NOT shoulder extension", "sets": "10-15 reps" },
+      { "name": "Scap strengthening", "detail": "Dead hang position, maintain blade engagement — progress to alternating marches", "sets": "To fatigue" },
+      { "name": "Scap-ups", "detail": "Continue, avoid compensation patterns", "sets": "10-15 reps" },
+      { "name": "Balloon breathing", "detail": "Exhale training + rotational stability (ball compression + balloon + reaching)", "sets": "Daily" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super/thera band — isometric eccentric control, NOT active twisting", "sets": "10-15 reps" },
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold", "sets": "5s hold x 10 reps x 3 sets" }
+    ],
+    "questions": [
+      "Realistic timeline to retrain 16 months of compensation?",
+      "Scapular winging root cause — nerve, inhibition, or weakness?",
+      "How does left thumb relate to rib/thoracic issue?",
+      "Metrics for tracking progress?",
+      "Pain tracking baseline",
+      "Meta: are we making meaningful progress or adjusting to manage symptoms?"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP immediately" },
+      { "symptom": "Rib 'slipping out' sensation", "action": "STOP + decompression reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP + rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP + contact Ryan" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
+    ],
+    "careTeam": [
+      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
+      { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
+    "symptoms": {},
+    "assignments": [
+      { "exercise": "Dead hangs", "status": "continued", "source": "transcript", "confidence": "medium" },
+      { "exercise": "Spiral/rotational fascial work", "status": "new", "source": "transcript", "confidence": "medium" },
+      { "exercise": "Backward pulling", "status": "new", "source": "transcript", "confidence": "medium" }
+    ],
+    "notes": ""
+  },
+  {
+    "id": "2026-02-13",
+    "session_number": 2,
+    "date": "February 13, 2026",
+    "time": "4:30 PM",
+    "status": "completed",
+    "provider": {
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
+    },
+    "transcript_sources": [
+      "atlas/health/pt-session-2026-02-13-ryan.md"
+    ],
+    "context": [
+      "Month 16 of 24 post-Hansen bilateral rib reconstruction",
+      "Shoulder blade winging as primary focus",
+      "Upper trap dominance: 6:1 ratio (should be 2:1)"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "Pectoral engagement severely limited (~2-3/10)",
+        "detail": "Key recovery indicator; muscles guarding/spasming to protect unstable ribs",
+        "severity": "critical"
+      },
+      {
+        "priority": 2,
+        "title": "SICK scapula (left)",
+        "detail": "Scapular malposition, inferior medial border prominence, coracoid pain, dyskinesis; documented labral tear + rotator cuff impingement",
+        "severity": "high"
+      },
+      {
+        "priority": 3,
+        "title": "Compensatory guarding patterns",
+        "detail": "16 months of protection locking up movement; risk of becoming permanent",
+        "severity": "high"
+      },
+      {
+        "priority": 4,
+        "title": "Kinetic chain",
+        "detail": "Right foot Jones fracture (5th met with screw) -> Spiral Line fascial pathway -> left ribs",
+        "severity": "moderate"
+      }
+    ],
+    "sinceLastSession": [
+      "Started balloon breathing exercises (PRI 12\" latex)",
+      "Counseling session surfaced honest physical assessment",
+      "CPAP usage ongoing — sleep quality improving",
+      "PERMA-V Vitality dropped from 7.2 to 6.5 (honest reckoning)",
+      "Ordered NordBench Pro"
+    ],
+    "findings": [
+      "Shoulder blade winging — primary treatment focus",
+      "Joint quality 'trashy' — grindy, clunky patterns abnormal for age",
+      "Upper trap dominance: 6:1 ratio vs lower trap (should be 2:1)",
+      "Serratus and subscap connection issues — affecting blade positioning",
+      "Pec minor aggravated from extension/reaching compensation",
+      "Previous labral tear contributed to compensatory shoulder patterns",
+      "Sleep apnea causing rib tightness, affecting treatment area"
+    ],
+    "prescribed": [
+      "Serratus activation — prone, wrists ahead of elbows, 15 reps or to burn",
+      "Core/rotation work — squeeze ball, contract core, rotate toward foot (NOT shoulder extension)",
+      "Scap strengthening — dead hang position, progress to alternating marches",
+      "Scap-ups — continue, avoid compensation"
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45 degrees, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Serratus activation", "detail": "Prone position, wrists ahead of elbows", "sets": "15 reps or to burn" },
+      { "name": "Core/rotation work", "detail": "Squeeze ball, contract core, rotate toward foot — ab compression NOT shoulder extension", "sets": "10-15 reps" },
+      { "name": "Scap strengthening", "detail": "Dead hang position, maintain blade engagement — progress to alternating marches", "sets": "To fatigue" },
+      { "name": "Scap-ups", "detail": "Continue, avoid compensation patterns", "sets": "10-15 reps" },
+      { "name": "Balloon breathing", "detail": "Exhale training + rotational stability (ball compression + balloon + reaching)", "sets": "Daily" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super/thera band — isometric eccentric control, NOT active twisting", "sets": "10-15 reps" },
+      { "name": "Modified dead hangs", "detail": "With scapular and balloon control", "sets": "As tolerated" },
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold", "sets": "5s hold x 10 reps x 3 sets" }
+    ],
+    "questions": [
+      "Thoracic default posture under load — thorax driving shoulder compensation?",
+      "Breathing pattern and thoracic ring stability relationship",
+      "Quantitative baselines needed (goniometry, functional scores)",
+      "CPAP mechanical load on ribcage during remodeling window"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP immediately" },
+      { "symptom": "Rib 'slipping out' sensation", "action": "STOP + decompression reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP + rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP + contact Ryan" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
+    ],
+    "careTeam": [
+      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
+      { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
+    "symptoms": {
+      "pec_engagement": 2.5,
+      "joint_quality": "trashy"
+    },
+    "assignments": [
+      { "exercise": "Serratus activation", "status": "new", "source": "transcript", "confidence": "medium" },
+      { "exercise": "Core/rotation work", "status": "new", "source": "transcript", "confidence": "medium" },
+      { "exercise": "Scap strengthening", "status": "new", "source": "transcript", "confidence": "medium" },
+      { "exercise": "Scap-ups", "status": "continued", "source": "transcript", "confidence": "medium" }
+    ],
+    "notes": ""
+  },
+  {
+    "id": "2026-02-09",
+    "session_number": 1,
+    "date": "February 9, 2026",
+    "time": "5:00 PM",
+    "status": "completed",
+    "provider": {
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
+    },
+    "transcript_sources": [
+      "atlas/health/pt-session-2026-02-09-ryan.md"
+    ],
+    "context": [
+      "Month 16 of 24 post-Hansen bilateral rib reconstruction",
+      "First PT session — establishing baseline",
+      "Dr. Hansen Jan 2025 CT: 'Repair sites look good'",
+      "Critical collagen remodeling window: months 12-18"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "Pectoral engagement severely limited (~2-3/10)",
+        "detail": "Key recovery indicator; muscles guarding/spasming to protect unstable ribs",
+        "severity": "critical"
+      },
+      {
+        "priority": 2,
+        "title": "SICK scapula (left)",
+        "detail": "Scapular malposition, inferior medial border prominence, coracoid pain, dyskinesis; documented labral tear + rotator cuff impingement",
+        "severity": "high"
+      },
+      {
+        "priority": 3,
+        "title": "Compensatory guarding patterns",
+        "detail": "16 months of protection locking up movement; risk of becoming permanent",
+        "severity": "high"
+      },
+      {
+        "priority": 4,
+        "title": "Kinetic chain",
+        "detail": "Right foot Jones fracture (5th met with screw) -> Spiral Line fascial pathway -> left ribs",
+        "severity": "moderate"
+      }
+    ],
+    "sinceLastSession": [],
+    "findings": [
+      "Diaphragmatic breathing dysfunction from long-term compensation patterns",
+      "Muscles trained into abnormal patterns during recovery period",
+      "3D bracing compromised — muscles need proper positioning for diaphragm expansion",
+      "Shoulder blade winging due to lengthened serratus anterior",
+      "Rib cage misalignment affecting shoulder control",
+      "Fascial connections between shoulder blade, pec, and ribs contributing to dysfunction"
+    ],
+    "prescribed": [
+      "Balloon work — exhale training + rotational stability (ball compression + balloon + reaching)",
+      "Anti-rotation exercises — resistance bands, modified walk-outs, isometric eccentric control",
+      "Modified dead hangs — with scapular and balloon control"
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45 degrees, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Balloon breathing", "detail": "Exhale training + rotational stability (ball compression + balloon + reaching)", "sets": "Daily" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super/thera band — isometric eccentric control, NOT active twisting", "sets": "10-15 reps" },
+      { "name": "Modified dead hangs", "detail": "With scapular and balloon control", "sets": "As tolerated" },
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold", "sets": "5s hold x 10 reps x 3 sets" }
+    ],
+    "questions": [
+      "Pectoral engagement at ~2-3/10 — rib guarding, SICK scapula, or both?",
+      "Prioritize rib stabilization before aggressive shoulder PT, or parallel?",
+      "IASTM/ART helpful?",
+      "Spiral Line: right foot → left rib connection?",
+      "Realistic pectoral engagement targets by month 18?"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP immediately" },
+      { "symptom": "Rib 'slipping out' sensation", "action": "STOP + decompression reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP + rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP + contact Ryan" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
+    ],
+    "careTeam": [
+      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
+      { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
+    "symptoms": {
+      "pec_engagement": 2.5
+    },
+    "assignments": [
+      { "exercise": "Balloon work", "status": "new", "source": "transcript", "confidence": "medium" },
+      { "exercise": "Anti-rotation exercises", "status": "new", "source": "transcript", "confidence": "medium" },
+      { "exercise": "Modified dead hangs", "status": "new", "source": "transcript", "confidence": "medium" }
+    ],
+    "notes": "First PT session — establishing baseline and initial exercise protocol."
   }
 ]
