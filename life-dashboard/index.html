@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard - Feb 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" data-type="module">
+    const { useState } = React;
+
+const TABS = ["Overview", "This Week", "Energy", "Systems", "Recovery", "Sleep", "Wellbeing"];
+
+const C = {
+  bg: "#1a1a2e",
+  card: "#16213e",
+  cardHover: "#1a2744",
+  accent1: "#e2b714",
+  accent2: "#0f9b8e",
+  accent3: "#e76f51",
+  accent4: "#7b68ee",
+  accent5: "#48bfe3",
+  text: "#e8e8e8",
+  textMuted: "#8a8fa8",
+  textDim: "#5a5f78",
+  done: "#4ade80",
+  border: "#2a2f4a",
+  surface: "#0f1529",
+};
+
+const PERMA_V = {
+  dimensions: [
+    { key: "positive_emotion", label: "Positive Emotion", short: "P", color: "#f59e0b", score: 7.0, prev: 7.5, annotation: "Down 0.5 -- honest reckoning with pain/frustration, but actively reframing. Counselor homework: 'Where are the blessings in the ashes?'" },
+    { key: "engagement", label: "Engagement", short: "E", color: "#8b5cf6", score: 8.0, prev: 8.0, annotation: "Stable -- deep tech engagement continues. Therapy itself is engaging. Session count normalizing to sustainable 3/day." },
+    { key: "relationships", label: "Relationships", short: "R", color: "#ef4444", score: 8.5, prev: 8.5, annotation: "Stable at 8.5 -- Robin motivating recovery. Katherine supported. Counselor connection. Community outreach starting." },
+    { key: "meaning", label: "Meaning", short: "M", color: "#3b82f6", score: 8.0, prev: 7.0, annotation: "Up 1.0 -- biggest shift. Purpose in helping others with similar injuries. Spiritual growth through adversity. God's refinement process." },
+    { key: "accomplishment", label: "Accomplishment", short: "A", color: "#10b981", score: 6.5, prev: 6.5, annotation: "Stable -- 'only thing done is therapy' but NotebookLM SSOT closed, feedback doc written, calendar integrated." },
+    { key: "vitality", label: "Vitality", short: "V", color: "#06b6d4", score: 6.5, prev: 7.2, annotation: "Down 0.7 -- therapy surfaced honest picture: diaphragm damage, driving/shopping difficulty, pain/positioning issues." },
+  ],
+  overall: 7.4,
+  prevOverall: 7.5,
+  status: "Thriving",
+  date: "Feb 15, 2026",
+  prevDate: "Feb 5, 2026",
+  history: [
+    { date: "Feb 5", overall: 7.5, method: "self-reported" },
+    { date: "Feb 12", overall: 7.4, method: "therapy-informed" },
+  ],
+  therapyThemes: [
+    "Spiritual growth through adversity",
+    "Finding purpose helping others with similar injuries",
+    "Honest reckoning with physical limitations",
+    "Self-reliance to help-seeking shift",
+    "Positive reframing: calm vs. sympathetic overdrive",
+  ],
+  homework: "Where are the blessings in the ashes?",
+};
+
+const StatusBadge = ({ status, children }) => {
+  const colors = {
+    done: { bg: "#0a3d1f", text: "#4ade80", border: "#166534" },
+    active: { bg: "#1e2a4a", text: "#48bfe3", border: "#1e4a6e" },
+    upcoming: { bg: "#2a1f3e", text: "#a78bfa", border: "#4c1d95" },
+    blocked: { bg: "#3d1a1a", text: "#f87171", border: "#7f1d1d" },
+    asap: { bg: "#3d2e0a", text: "#fbbf24", border: "#92400e" },
+  };
+  const c = colors[status] || colors.active;
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        padding: "3px 10px",
+        borderRadius: 12,
+        fontSize: 11,
+        fontWeight: 600,
+        letterSpacing: "0.05em",
+        textTransform: "uppercase",
+        background: c.bg,
+        color: c.text,
+        border: `1px solid ${c.border}`,
+      }}
+    >
+      <span
+        style={{
+          width: 6,
+          height: 6,
+          borderRadius: "50%",
+          background: c.text,
+          display: "inline-block",
+        }}
+      />
+      {children}
+    </span>
+  );
+};
+
+const ProgressBar = ({ value, max, color, label }) => (
+  <div style={{ marginBottom: 8 }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        fontSize: 12,
+        color: C.textMuted,
+        marginBottom: 4,
+      }}
+    >
+      <span>{label}</span>
+      <span>
+        {value}/{max}
+      </span>
+    </div>
+    <div
+      style={{
+        height: 6,
+        background: C.surface,
+        borderRadius: 3,
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          height: "100%",
+          width: `${(value / max) * 100}%`,
+          background: `linear-gradient(90deg, ${color}, ${color}88)`,
+          borderRadius: 3,
+          transition: "width 0.6s ease",
+        }}
+      />
+    </div>
+  </div>
+);
+
+const Card = ({ title, icon, children, accent, span }) => (
+  <div
+    style={{
+      background: C.card,
+      borderRadius: 16,
+      padding: "20px 22px",
+      border: `1px solid ${C.border}`,
+      gridColumn: span ? `span ${span}` : undefined,
+      position: "relative",
+      overflow: "visible",
+    }}
+  >
+    {accent && (
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 3,
+          background: `linear-gradient(90deg, ${accent}, transparent)`,
+        }}
+      />
+    )}
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        marginBottom: 14,
+        fontSize: 14,
+        fontWeight: 700,
+        color: C.text,
+        letterSpacing: "0.02em",
+      }}
+    >
+      <span style={{ fontSize: 18 }}>{icon}</span>
+      {title}
+    </div>
+    {children}
+  </div>
+);
+
+const EnergyRing = ({ segments, size = 180 }) => {
+  const total = segments.reduce((s, seg) => s + seg.value, 0);
+  let cumulative = 0;
+  const gap = 2;
+  const strokeWidth = 22;
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          fill="none"
+          stroke={C.surface}
+          strokeWidth={strokeWidth}
+        />
+        {segments.map((seg, i) => {
+          const pct = seg.value / total;
+          const dashLength = pct * circumference - gap;
+          const offset = -(cumulative / total) * circumference;
+          cumulative += seg.value;
+          return (
+            <circle
+              key={i}
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
+              fill="none"
+              stroke={seg.color}
+              strokeWidth={strokeWidth}
+              strokeDasharray={`${Math.max(0, dashLength)} ${circumference}`}
+              strokeDashoffset={offset}
+              strokeLinecap="round"
+              transform={`rotate(-90 ${size / 2} ${size / 2})`}
+              style={{ transition: "all 0.8s ease" }}
+            />
+          );
+        })}
+        <text
+          x={size / 2}
+          y={size / 2 - 6}
+          textAnchor="middle"
+          fill={C.text}
+          fontSize={22}
+          fontWeight="bold"
+          fontFamily="inherit"
+        >
+          Feb 15
+        </text>
+        <text
+          x={size / 2}
+          y={size / 2 + 14}
+          textAnchor="middle"
+          fill={C.textMuted}
+          fontSize={11}
+          fontFamily="inherit"
+        >
+          energy map
+        </text>
+      </svg>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "6px 14px",
+          marginTop: 12,
+          justifyContent: "center",
+        }}
+      >
+        {segments.map((seg, i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 5,
+              fontSize: 11,
+              color: C.textMuted,
+            }}
+          >
+            <div
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: 2,
+                background: seg.color,
+              }}
+            />
+            {seg.label} ({seg.value}%)
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const MiniTimeline = ({ items }) => (
+  <div style={{ position: "relative", paddingLeft: 20 }}>
+    <div
+      style={{
+        position: "absolute",
+        left: 5,
+        top: 4,
+        bottom: 4,
+        width: 2,
+        background: C.border,
+        borderRadius: 1,
+      }}
+    />
+    {items.map((item, i) => (
+      <div
+        key={i}
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          gap: 10,
+          marginBottom: 12,
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            left: -18,
+            top: 4,
+            width: 10,
+            height: 10,
+            borderRadius: "50%",
+            background: item.done ? C.done : item.current ? C.accent5 : C.textDim,
+            border: `2px solid ${C.bg}`,
+            zIndex: 1,
+          }}
+        />
+        <div>
+          <div
+            style={{
+              fontSize: 13,
+              color: item.done ? C.done : item.current ? C.text : C.textMuted,
+              fontWeight: item.current ? 600 : 400,
+              textDecoration: item.done ? "line-through" : "none",
+              opacity: item.done ? 0.7 : 1,
+            }}
+          >
+            {item.label}
+          </div>
+          {item.note && (
+            <div style={{ fontSize: 11, color: C.textDim, marginTop: 2 }}>
+              {item.note}
+            </div>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
+const SystemNode = ({ label, role, color, x, y }) => (
+  <div
+    style={{
+      position: "absolute",
+      left: x,
+      top: y,
+      background: `${color}15`,
+      border: `1.5px solid ${color}55`,
+      borderRadius: 12,
+      padding: "10px 14px",
+      minWidth: 110,
+      textAlign: "center",
+    }}
+  >
+    <div style={{ fontSize: 13, fontWeight: 700, color }}>{label}</div>
+    <div style={{ fontSize: 10, color: C.textMuted, marginTop: 2 }}>{role}</div>
+  </div>
+);
+
+const Sparkline = ({ data, width = 80, height = 24 }) => {
+  if (!data || data.length === 0) return null;
+  
+  const max = Math.max(...data);
+  const min = Math.min(...data);
+  const range = max - min || 1;
+  
+  const points = data.map((value, i) => {
+    const x = data.length > 1 ? (i / (data.length - 1)) * width : width / 2;
+    const y = height - ((value - min) / range) * height;
+    return `${x},${y}`;
+  }).join(' ');
+  
+  return (
+    <svg width={width} height={height} style={{ display: 'block' }}>
+      <polyline
+        points={points}
+        fill="none"
+        stroke={C.accent5}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+const SleepQualityCard = ({ cpapData, loading, error }) => {
+  if (loading || !cpapData) {
+    return (
+      <Card title="Sleep Quality" icon="😴" accent={C.accent5}>
+        <div style={{ fontSize: 12, color: C.textMuted }}>Loading sleep data...</div>
+      </Card>
+    );
+  }
+  
+  if (error || !cpapData.nights || cpapData.nights.length === 0) {
+    return (
+      <Card title="Sleep Quality" icon="😴" accent={C.accent5}>
+        <div style={{ fontSize: 12, color: C.textMuted }}>Loading sleep data...</div>
+      </Card>
+    );
+  }
+
+  const lastNight = cpapData.nights[0];
+  const last7Nights = cpapData.nights.slice(0, 7);
+  const last30Nights = cpapData.nights.slice(0, 30);
+  
+  const usageHours = lastNight?.usage_hours ?? 0;
+  const ahi = lastNight?.ahi ?? 0;
+  
+  const getUsageColor = (hours) => {
+    if (hours >= 6) return C.done;
+    if (hours >= 4) return C.accent1;
+    return C.accent3;
+  };
+  
+  const getAHIColor = (value) => {
+    if (value < 5) return C.done;
+    if (value < 15) return C.accent1;
+    return C.accent3;
+  };
+  
+  const complianceNights = last30Nights.filter(n => n?.usage_hours >= 4).length;
+  const compliancePercentage = last30Nights.length > 0 
+    ? Math.round((complianceNights / last30Nights.length) * 100)
+    : 0;
+  
+  const usageSparklineData = last7Nights
+    .map(n => n?.usage_hours ?? 0)
+    .reverse();
+  
+  return (
+    <Card title="Sleep Quality" icon="😴" accent={C.accent5}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <div>
+            <div style={{ fontSize: 11, color: C.textMuted, marginBottom: 4 }}>
+              Last Night Usage
+            </div>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+              <span style={{ 
+                fontSize: 24, 
+                fontWeight: 800, 
+                color: getUsageColor(usageHours)
+              }}>
+                {usageHours.toFixed(1)}
+              </span>
+              <span style={{ fontSize: 12, color: C.textMuted }}>hours</span>
+            </div>
+          </div>
+          
+          <div>
+            <div style={{ fontSize: 11, color: C.textMuted, marginBottom: 4 }}>
+              Last Night AHI
+            </div>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+              <span style={{ 
+                fontSize: 24, 
+                fontWeight: 800, 
+                color: getAHIColor(ahi)
+              }}>
+                {ahi.toFixed(1)}
+              </span>
+              <span style={{ fontSize: 12, color: C.textMuted }}>events/hr</span>
+            </div>
+          </div>
+        </div>
+        
+        <div style={{
+          padding: "10px 12px",
+          background: C.surface,
+          borderRadius: 8,
+        }}>
+          <div style={{ 
+            display: "flex", 
+            justifyContent: "space-between", 
+            alignItems: "center",
+            marginBottom: 6
+          }}>
+            <span style={{ fontSize: 12, color: C.text }}>
+              30-Day Compliance
+            </span>
+            <span style={{ 
+              fontSize: 14, 
+              fontWeight: 700, 
+              color: compliancePercentage >= 70 ? C.done : C.accent1
+            }}>
+              {compliancePercentage}%
+            </span>
+          </div>
+          <div style={{
+            height: 4,
+            background: C.bg,
+            borderRadius: 2,
+            overflow: "hidden",
+          }}>
+            <div style={{
+              height: "100%",
+              width: `${compliancePercentage}%`,
+              background: compliancePercentage >= 70 ? C.done : C.accent1,
+              borderRadius: 2,
+              transition: "width 0.6s ease",
+            }} />
+          </div>
+          <div style={{ fontSize: 10, color: C.textDim, marginTop: 4 }}>
+            {complianceNights} of {last30Nights.length} nights ≥4 hours
+          </div>
+        </div>
+        
+        <div style={{
+          padding: "10px 12px",
+          background: C.surface,
+          borderRadius: 8,
+        }}>
+          <div style={{ 
+            display: "flex", 
+            justifyContent: "space-between", 
+            alignItems: "center",
+            marginBottom: 6
+          }}>
+            <span style={{ fontSize: 12, color: C.text }}>
+              7-Day Usage Trend
+            </span>
+          </div>
+          <Sparkline data={usageSparklineData} width={100} height={24} />
+          <div style={{ 
+            fontSize: 10, 
+            color: C.textDim, 
+            marginTop: 4,
+            display: "flex",
+            justifyContent: "space-between"
+          }}>
+            <span>7 days ago</span>
+            <span>Last night</span>
+          </div>
+        </div>
+        
+        <div style={{
+          fontSize: 10,
+          color: C.textMuted,
+          padding: "6px 8px",
+          background: `${C.accent5}10`,
+          borderRadius: 6,
+          borderLeft: `2px solid ${C.accent5}`,
+        }}>
+          <strong>Thresholds:</strong> Usage: <span style={{color: C.done}}>≥6h</span>{' '}
+          <span style={{color: C.accent1}}>4-6h</span>{' '}
+          <span style={{color: C.accent3}}>&lt;4h</span> • AHI: <span style={{color: C.done}}>&lt;5</span>{' '}
+          <span style={{color: C.accent1}}>5-15</span>{' '}
+          <span style={{color: C.accent3}}>≥15</span>
+        </div>
+      </div>
+    </Card>
+  );
+};
+
+const OverviewTab = () => (
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 14,
+    }}
+  >
+    <Card title="Life Domains" icon="&#x1f5fa;&#xfe0f;" accent={C.accent1} span={2}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          gap: 10,
+        }}
+      >
+        {[
+          {
+            name: "Health & Recovery",
+            emoji: "🫁",
+            status: "Month 16/24",
+            color: C.accent3,
+            detail: "Collagen remodeling window • PT started",
+          },
+          {
+            name: "Job Search",
+            emoji: "🎯",
+            status: "Active",
+            color: C.accent1,
+            detail: "5 apps this week • Portfolio building",
+          },
+          {
+            name: "Family & Home",
+            emoji: "🏡",
+            status: "Settled",
+            color: C.accent2,
+            detail: "Ardmore guest house • Robin 8mo • Sandy",
+          },
+          {
+            name: "Vault Systems",
+            emoji: "⚙️",
+            status: "Optimizing",
+            color: C.accent4,
+            detail: "SSOT protocols • 23 plugins • Khoj",
+          },
+          {
+            name: "Contractor Work",
+            emoji: "💼",
+            status: "CMP Website",
+            color: C.accent5,
+            detail: "Frances Claude • 1-day task",
+          },
+          {
+            name: "Admin & Transition",
+            emoji: "📋",
+            status: "Wrapping Up",
+            color: C.done,
+            detail: "Car reg DONE • PT comparison pending",
+          },
+        ].map((d, i) => (
+          <div
+            key={i}
+            style={{
+              background: C.surface,
+              borderRadius: 12,
+              padding: "14px 16px",
+              borderLeft: `3px solid ${d.color}`,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                marginBottom: 6,
+              }}
+            >
+              <span style={{ fontSize: 16 }}>{d.emoji}</span>
+              <span
+                style={{ fontSize: 13, fontWeight: 700, color: C.text }}
+              >
+                {d.name}
+              </span>
+            </div>
+            <div
+              style={{
+                fontSize: 11,
+                color: d.color,
+                fontWeight: 600,
+                marginBottom: 4,
+              }}
+            >
+              {d.status}
+            </div>
+            <div style={{ fontSize: 11, color: C.textMuted, lineHeight: 1.4 }}>
+              {d.detail}
+            </div>
+          </div>
+        ))}
+      </div>
+    </Card>
+
+    <Card title="Big Picture" icon="📐" accent={C.accent2}>
+      <div style={{ fontSize: 12, color: C.textMuted, lineHeight: 1.7 }}>
+        <p style={{ margin: "0 0 10px" }}>
+          You moved to Ardmore Nov 30. Decluttering: success. You're now in{" "}
+          <span style={{ color: C.accent1, fontWeight: 600 }}>
+            build mode
+          </span>{" "}
+          — recovering, job searching, and optimizing the systems that run your
+          life.
+        </p>
+        <p style={{ margin: "0 0 10px" }}>
+          The vault SSOT work isn't procrastination — it's infrastructure that
+          makes everything else possible. The "One Vault, Many Views" philosophy
+          is working: Obsidian → Khoj → NotebookLM → GitLab Pages.
+        </p>
+        <p style={{ margin: 0 }}>
+          Panasonic Well wrapped gracefully. The next chapter is being written
+          right now.
+        </p>
+      </div>
+    </Card>
+
+    <Card title="Where Nov → Feb Went" icon="⏳" accent={C.accent3}>
+      <MiniTimeline
+        items={[
+          { label: "CA → OK move", done: true, note: "Nov 30" },
+          { label: "28-day declutter", done: true, note: "Completed" },
+          { label: "Healthcare transition", done: true, note: "Providers found" },
+          { label: "Vault consolidation", done: true, note: "637 tests passing" },
+          {
+            label: "PT with Ryan ongoing",
+            current: true,
+            note: "Session 4 completed — protocol advancing",
+          },
+          { label: "Car registration", done: true, note: "Feb 10 — DONE today" },
+          { label: "Job search ramp-up", current: true, note: "5 apps this week" },
+          {
+            label: "Panasonic case study",
+            note: "Due Mar 1",
+          },
+        ]}
+      />
+    </Card>
+  </div>
+);
+
+const ThisWeekTab = () => (
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 14,
+    }}
+  >
+    <Card title="This Week — Ranked" icon="🏆" accent={C.accent1} span={2}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {[
+          {
+            rank: 1,
+            task: "CA → OK car registration",
+            status: "done",
+            note: "Title received, Tag Agency visited",
+          },
+          {
+            rank: 2,
+            task: "Valentine's Day — gift + card for Katherine",
+            status: "asap",
+            note: "Order gift Wed, flowers Fri — $50-100 budget",
+          },
+          {
+            rank: 3,
+            task: "Thank-you notes — parents & Janet Fonner",
+            status: "asap",
+            note: "Moved to 3 PM today",
+          },
+          {
+            rank: 4,
+            task: "Buy balloons + try exercises",
+            status: "asap",
+            note: "PT breathing — Ryan's Rx. Qualatex 100-pack ordered.",
+          },
+          {
+            rank: 5,
+            task: "CMP website for Frances Claude",
+            status: "active",
+            note: "Contractor income, 1-day task",
+          },
+          {
+            rank: 6,
+            task: "Job applications — 5 companies",
+            status: "active",
+            note: "Target 5 this week",
+          },
+          {
+            rank: 7,
+            task: "Mom's birthday planning (Mar 10)",
+            status: "active",
+            note: "Surprise visit? Decision by Feb 18",
+          },
+          {
+            rank: 8,
+            task: "Panasonic Well case study",
+            status: "upcoming",
+            note: "Portfolio piece — due Mar 1",
+          },
+          {
+            rank: 9,
+            task: "PT with Ryan (Fri Feb 13)",
+            status: "upcoming",
+            note: "Bring breathing trainer question",
+          },
+          {
+            rank: 10,
+            task: "Psychiatry — Jahannah Jamelarin",
+            status: "upcoming",
+            note: "Good Shepherd, 9:20 AM — Feb 23",
+          },
+        ].map((item) => (
+          <div
+            key={item.rank}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              padding: "10px 14px",
+              background: C.surface,
+              borderRadius: 10,
+              opacity: item.status === "done" ? 0.6 : 1,
+            }}
+          >
+            <div
+              style={{
+                width: 28,
+                height: 28,
+                borderRadius: 8,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 13,
+                fontWeight: 800,
+                background:
+                  item.status === "done"
+                    ? `${C.done}20`
+                    : `${C.accent1}20`,
+                color: item.status === "done" ? C.done : C.accent1,
+                flexShrink: 0,
+              }}
+            >
+              {item.status === "done" ? "✓" : item.rank}
+            </div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div
+                style={{
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: C.text,
+                  textDecoration:
+                    item.status === "done" ? "line-through" : "none",
+                }}
+              >
+                {item.task}
+              </div>
+              <div style={{ fontSize: 11, color: C.textMuted, marginTop: 2 }}>
+                {item.note}
+              </div>
+            </div>
+            <StatusBadge status={item.status}>{item.status}</StatusBadge>
+          </div>
+        ))}
+      </div>
+    </Card>
+
+    <Card title="Quick Wins Available" icon="⚡" accent={C.accent2}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {[
+          { task: "Thank-you notes (parents + Janet)", time: "20 min", energy: "Low" },
+          { task: "Buy balloons at store", time: "15 min", energy: "Low" },
+          { task: "CMP website draft", time: "2-4 hrs", energy: "Medium" },
+          {
+            task: "1 job application",
+            time: "30-45 min",
+            energy: "Medium",
+          },
+          {
+            task: "PT cost comparison spreadsheet",
+            time: "20 min",
+            energy: "Low",
+          },
+        ].map((w, i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "8px 12px",
+              background: C.surface,
+              borderRadius: 8,
+              fontSize: 12,
+            }}
+          >
+            <span style={{ color: C.text }}>{w.task}</span>
+            <div
+              style={{
+                display: "flex",
+                gap: 8,
+                flexShrink: 0,
+              }}
+            >
+              <span style={{ color: C.accent5 }}>{w.time}</span>
+              <span style={{ color: C.textDim }}>•</span>
+              <span style={{ color: C.textMuted }}>{w.energy}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Card>
+
+    <Card title="Upcoming Dates" icon="📅" accent={C.accent4}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        {[
+          { date: "Feb 25", event: "PT with Ryan — 5:00 PM", color: C.accent4 },
+          { date: "Mar 1", event: "Case study deadline", color: C.accent3 },
+          { date: "Mar 8", event: "Sandy NexGard dose", color: C.accent2 },
+          {
+            date: "Apr 2026",
+            event: "Month 18 — end collagen window",
+            color: C.accent3,
+          },
+          {
+            date: "Oct 2026",
+            event: "Month 24 — recovery complete",
+            color: C.done,
+          },
+        ].map((d, i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              fontSize: 12,
+            }}
+          >
+            <div
+              style={{
+                width: 60,
+                fontSize: 11,
+                fontWeight: 700,
+                color: d.color,
+                flexShrink: 0,
+              }}
+            >
+              {d.date}
+            </div>
+            <div style={{ color: C.textMuted }}>{d.event}</div>
+          </div>
+        ))}
+      </div>
+    </Card>
+  </div>
+);
+
+const EnergyTab = () => {
+  const segments = [
+    { label: "Health & Recovery", value: 20, color: C.accent3 },
+    { label: "Job Search & Portfolio", value: 20, color: C.accent1 },
+    { label: "Vault & Systems", value: 18, color: C.accent4 },
+    { label: "Family & Robin", value: 22, color: C.accent2 },
+    { label: "Admin & Transition", value: 10, color: C.accent5 },
+    { label: "Contractor Work", value: 5, color: "#a78bfa" },
+    { label: "Rest & Recharge", value: 5, color: C.textDim },
+  ];
+
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 14,
+      }}
+    >
+      <Card title="Energy Allocation — This Week" icon="🔋" accent={C.accent1} span={2}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 40,
+            flexWrap: "wrap",
+            padding: "10px 0",
+          }}
+        >
+          <EnergyRing segments={segments} size={200} />
+          <div style={{ display: "flex", flexDirection: "column", gap: 6, minWidth: 250 }}>
+            {segments.map((seg, i) => (
+              <div key={i}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    fontSize: 12,
+                    marginBottom: 3,
+                  }}
+                >
+                  <span style={{ color: C.text }}>{seg.label}</span>
+                  <span style={{ color: seg.color, fontWeight: 600 }}>
+                    {seg.value}%
+                  </span>
+                </div>
+                <div
+                  style={{
+                    height: 4,
+                    background: C.surface,
+                    borderRadius: 2,
+                    overflow: "hidden",
+                  }}
+                >
+                  <div
+                    style={{
+                      height: "100%",
+                      width: `${seg.value}%`,
+                      background: seg.color,
+                      borderRadius: 2,
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Card>
+
+      <Card title="Nov vs Feb — Shift" icon="📊" accent={C.accent2}>
+        <div style={{ fontSize: 12, color: C.textMuted, lineHeight: 1.6 }}>
+          <div style={{ marginBottom: 10 }}>
+            {[
+              { label: "Move logistics", before: "25%", after: "0%", delta: "→ freed" },
+              { label: "Decluttering", before: "15%", after: "0%", delta: "→ freed" },
+              { label: "Job search", before: "5%", after: "20%", delta: "→ ramping" },
+              { label: "Health/PT", before: "10%", after: "20%", delta: "→ critical window" },
+              { label: "Systems", before: "20%", after: "18%", delta: "→ stabilizing" },
+            ].map((row, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  padding: "4px 0",
+                  borderBottom: `1px solid ${C.border}`,
+                }}
+              >
+                <span style={{ color: C.text }}>{row.label}</span>
+                <span>
+                  <span style={{ color: C.textDim }}>{row.before}</span>
+                  <span style={{ color: C.accent5, margin: "0 6px" }}>→</span>
+                  <span style={{ color: C.accent1 }}>{row.after}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+          <p style={{ margin: 0, fontStyle: "italic", color: C.accent2 }}>
+            Move energy is now fully freed up. Health and job search are absorbing it — exactly right for this phase.
+          </p>
+        </div>
+      </Card>
+
+      <Card title="Energy Insight" icon="💡" accent={C.accent3}>
+        <div style={{ fontSize: 12, color: C.textMuted, lineHeight: 1.7 }}>
+          <p style={{ margin: "0 0 10px" }}>
+            <strong style={{ color: C.text }}>
+              Systems work is ~18% of your energy.
+            </strong>{" "}
+            That's down from the Nov peak when you were building the vault
+            infrastructure. The 637-test suite, SSOT protocols, and plugin
+            cleanup all paid dividends — it's now maintenance, not construction.
+          </p>
+          <p style={{ margin: "0 0 10px" }}>
+            <strong style={{ color: C.text }}>
+              Rest is only 5%.
+            </strong>{" "}
+            Month 16 of rib recovery + collagen remodeling window + new baby +
+            ADHD = you need to protect that slice. Ryan's PT exercises and the
+            breathing work are investments, not overhead.
+          </p>
+          <p style={{ margin: 0 }}>
+            <strong style={{ color: C.accent2 }}>
+              The freed-up 40% from move/declutter is the unlock.
+            </strong>{" "}
+            You're redirecting it to the right places.
+          </p>
+        </div>
+      </Card>
+    </div>
+  );
+};
+
+const SystemsTab = () => (
+  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+    <Card title="One Vault, Many Views" icon="🏗️" accent={C.accent4} span={2}>
+      <div
+        style={{
+          position: "relative",
+          height: 280,
+          background: C.surface,
+          borderRadius: 12,
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            background: `${C.accent1}20`,
+            border: `2px solid ${C.accent1}`,
+            borderRadius: 16,
+            padding: "16px 24px",
+            textAlign: "center",
+            zIndex: 2,
+          }}
+        >
+          <div style={{ fontSize: 15, fontWeight: 800, color: C.accent1 }}>
+            Obsidian Vault
+          </div>
+          <div style={{ fontSize: 10, color: C.textMuted }}>
+            SSOT • 1,650+ notes
+          </div>
+        </div>
+
+        {[
+          { label: "Khoj", role: "Librarian", color: C.accent2, x: "8%", y: "15%" },
+          { label: "NotebookLM", role: "Analyst", color: C.accent4, x: "68%", y: "10%" },
+          { label: "GitLab Pages", role: "Publisher", color: C.accent3, x: "72%", y: "70%" },
+          { label: "Claude Code", role: "Builder", color: C.accent5, x: "5%", y: "68%" },
+          { label: "Apple Notes", role: "Air-Gap", color: C.textDim, x: "38%", y: "2%" },
+        ].map((n, i) => (
+          <SystemNode key={i} {...n} />
+        ))}
+
+        <svg
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 1,
+          }}
+        >
+          {[
+            { x1: "18%", y1: "30%", x2: "42%", y2: "45%" },
+            { x1: "75%", y1: "28%", x2: "58%", y2: "45%" },
+            { x1: "78%", y1: "72%", x2: "58%", y2: "55%" },
+            { x1: "18%", y1: "75%", x2: "42%", y2: "55%" },
+            { x1: "48%", y1: "18%", x2: "48%", y2: "42%" },
+          ].map((line, i) => (
+            <line
+              key={i}
+              x1={line.x1}
+              y1={line.y1}
+              x2={line.x2}
+              y2={line.y2}
+              stroke={C.border}
+              strokeWidth={1.5}
+              strokeDasharray="6 4"
+            />
+          ))}
+        </svg>
+      </div>
+    </Card>
+
+    <Card title="Recent System Work" icon="🔧" accent={C.accent5}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        {[
+          { item: "637 tests passing", status: "done" },
+          { item: "Plugin cleanup 30→23", status: "done" },
+          { item: "SSOT protocols added", status: "done" },
+          { item: "Khoj context mirror", status: "done" },
+          { item: "Template syntax update", status: "done" },
+          { item: "NotebookLM loop integration", status: "active" },
+          { item: "Vault SSOT integration plan", status: "active" },
+        ].map((s, i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "6px 10px",
+              background: C.surface,
+              borderRadius: 6,
+              fontSize: 12,
+            }}
+          >
+            <span
+              style={{
+                color: s.status === "done" ? C.textMuted : C.text,
+                textDecoration: s.status === "done" ? "line-through" : "none",
+              }}
+            >
+              {s.item}
+            </span>
+            <StatusBadge status={s.status}>{s.status}</StatusBadge>
+          </div>
+        ))}
+      </div>
+    </Card>
+
+    <Card title="Three Memory Systems" icon="🧠" accent={C.accent4}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        {[
+          {
+            name: "project_memory.json",
+            desc: "Claude Code auto-loaded context",
+            icon: "1️⃣",
+          },
+          {
+            name: "memory-bank MCP",
+            desc: "Cross-session structured memory",
+            icon: "2️⃣",
+          },
+          {
+            name: "MEMORY.md",
+            desc: "Human-readable auto-loaded doc",
+            icon: "3️⃣",
+          },
+        ].map((m, i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              padding: "10px 12px",
+              background: C.surface,
+              borderRadius: 8,
+            }}
+          >
+            <span style={{ fontSize: 18 }}>{m.icon}</span>
+            <div>
+              <div
+                style={{
+                  fontSize: 12,
+                  fontWeight: 600,
+                  color: C.text,
+                  fontFamily: "monospace",
+                }}
+              >
+                {m.name}
+              </div>
+              <div style={{ fontSize: 11, color: C.textMuted }}>{m.desc}</div>
+            </div>
+          </div>
+        ))}
+        <div
+          style={{
+            fontSize: 11,
+            color: C.accent2,
+            fontStyle: "italic",
+            padding: "0 4px",
+          }}
+        >
+          + claude-session-context.md mirrors system 1 for Khoj indexing
+        </div>
+      </div>
+    </Card>
+  </div>
+);
+
+const RecoveryTab = () => {
+  const [cpapData, setCpapData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
+  
+  React.useEffect(() => {
+    setLoading(true);
+    setError(false);
+    fetch('/api/cpap-sleep.json')
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => {
+        setCpapData(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load CPAP data:', err);
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
+  
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+      <Card title="Rib Recovery Timeline" icon="🫁" accent={C.accent3} span={2}>
+      <div style={{ padding: "10px 0" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            marginBottom: 14,
+          }}
+        >
+          <span style={{ fontSize: 11, color: C.textMuted }}>Oct 2024</span>
+          <div style={{ flex: 1, position: "relative", height: 24 }}>
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: C.surface,
+                borderRadius: 12,
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                bottom: 0,
+                width: `${(16 / 24) * 100}%`,
+                background: `linear-gradient(90deg, ${C.accent2}, ${C.accent1})`,
+                borderRadius: 12,
+                transition: "width 1s ease",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: `${(12 / 24) * 100}%`,
+                width: `${(6 / 24) * 100}%`,
+                top: -4,
+                bottom: -4,
+                border: `2px dashed ${C.accent3}`,
+                borderRadius: 8,
+                pointerEvents: "none",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: `${(16 / 24) * 100}%`,
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+                width: 14,
+                height: 14,
+                borderRadius: "50%",
+                background: C.accent1,
+                border: `3px solid ${C.bg}`,
+                zIndex: 2,
+              }}
+            />
+          </div>
+          <span style={{ fontSize: 11, color: C.textMuted }}>Oct 2026</span>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            fontSize: 11,
+          }}
+        >
+          <span style={{ color: C.accent2 }}>Surgery</span>
+          <span style={{ color: C.accent3, fontWeight: 600 }}>
+            ← Collagen remodeling window (mo 12–18) →
+          </span>
+          <span style={{ color: C.done }}>Complete</span>
+        </div>
+        <div
+          style={{
+            textAlign: "center",
+            fontSize: 22,
+            fontWeight: 800,
+            color: C.accent1,
+            marginTop: 14,
+          }}
+        >
+          Month 16 of 24
+        </div>
+        <div
+          style={{
+            textAlign: "center",
+            fontSize: 12,
+            color: C.textMuted,
+          }}
+        >
+          67% through recovery (492 days) • Currently in critical remodeling window
+        </div>
+      </div>
+    </Card>
+
+    <Card title="PT Protocol — Ryan (Current)" icon="🏋️" accent={C.accent2}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {[
+          {
+            exercise: "Diaphragmatic breathing",
+            detail: "Exhale training with balloons",
+          },
+          {
+            exercise: "Rotational stability",
+            detail: "Anti-rotation band work",
+          },
+          {
+            exercise: "Modified dead hangs",
+            detail: "Shoulder/scapula positioning",
+          },
+          {
+            exercise: "SICK scapula work",
+            detail: "Left side — lengthened serratus",
+          },
+        ].map((ex, i) => (
+          <div
+            key={i}
+            style={{
+              padding: "8px 12px",
+              background: C.surface,
+              borderRadius: 8,
+              fontSize: 12,
+            }}
+          >
+            <div style={{ color: C.text, fontWeight: 600 }}>
+              {ex.exercise}
+            </div>
+            <div style={{ color: C.textMuted, marginTop: 2 }}>
+              {ex.detail}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div
+        style={{
+          marginTop: 12,
+          padding: "8px 12px",
+          background: `${C.accent3}15`,
+          borderRadius: 8,
+          fontSize: 11,
+          color: C.accent3,
+          borderLeft: `3px solid ${C.accent3}`,
+        }}
+      >
+        💰 Current: $115/session — comparing $95 self-pay alternative
+      </div>
+    </Card>
+
+    <Card title="Supplements & Meds" icon="💊" accent={C.accent4}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        {[
+          { name: "CollaGEN (FORTIGEL) 5g", purpose: "Collagen synthesis" },
+          { name: "Sodium Ascorbate 1000mg", purpose: "Collagen cofactor" },
+          { name: "Magnesium Glycinate 400mg", purpose: "Muscle/bone" },
+          { name: "Bone Mineral Boost", purpose: "Bone density" },
+          { name: "Creatine", purpose: "Muscle recovery" },
+          { name: "MCT Oil", purpose: "Energy/cognitive" },
+          { name: "Turmeric (shake)", purpose: "Anti-inflammatory" },
+        ].map((s, i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              padding: "5px 10px",
+              fontSize: 12,
+              borderBottom: `1px solid ${C.border}`,
+            }}
+          >
+            <span style={{ color: C.text }}>{s.name}</span>
+            <span style={{ color: C.textDim }}>{s.purpose}</span>
+          </div>
+        ))}
+      </div>
+      <div
+        style={{
+          marginTop: 12,
+          fontSize: 11,
+          color: C.textMuted,
+          fontStyle: "italic",
+        }}
+      >
+        Psychiatry: Tasha Preston completed Feb 19 • next med-management follow-up TBD
+      </div>
+    </Card>
+
+    <SleepQualityCard cpapData={cpapData} loading={loading} error={error} />
+  </div>
+  );
+};
+
+const SleepTab = () => {
+  const [cpapData, setCpapData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
+  
+  React.useEffect(() => {
+    setLoading(true);
+    setError(false);
+    fetch('/api/cpap-sleep.json')
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => {
+        setCpapData(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load CPAP data:', err);
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
+  
+  if (loading || !cpapData || error || !cpapData.nights || cpapData.nights.length === 0) {
+    return (
+      <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 14 }}>
+        <Card title="Sleep Data" icon="😴" accent={C.accent5}>
+          <div style={{ fontSize: 12, color: C.textMuted, textAlign: 'center', padding: '20px' }}>
+            Loading sleep data...
+          </div>
+        </Card>
+      </div>
+    );
+  }
+  
+  const last30Nights = cpapData.nights.slice(0, 30);
+  
+  const avgUsage = last30Nights.reduce((sum, n) => sum + n.usage_hours, 0) / last30Nights.length;
+  const avgAHI = last30Nights.reduce((sum, n) => sum + n.ahi, 0) / last30Nights.length;
+  const avgLeak = last30Nights.reduce((sum, n) => sum + n.avg_leak, 0) / last30Nights.length;
+  const complianceNights = last30Nights.filter(n => n.usage_hours >= 4).length;
+  const compliancePercentage = Math.round((complianceNights / last30Nights.length) * 100);
+  
+  const getUsageColor = (hours) => {
+    if (hours >= 6) return C.done;
+    if (hours >= 4) return C.accent1;
+    return C.accent3;
+  };
+  
+  const getAHIColor = (value) => {
+    if (value < 5) return C.done;
+    if (value < 15) return C.accent1;
+    return C.accent3;
+  };
+  
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }}>
+        <Card title="Avg Usage" icon="⏱️" accent={C.accent5}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+            <span style={{ 
+              fontSize: 32, 
+              fontWeight: 800, 
+              color: getUsageColor(avgUsage)
+            }}>
+              {avgUsage.toFixed(1)}
+            </span>
+            <span style={{ fontSize: 13, color: C.textMuted }}>hours/night</span>
+          </div>
+          <div style={{ fontSize: 10, color: C.textDim, marginTop: 6 }}>
+            Last 30 nights
+          </div>
+        </Card>
+        
+        <Card title="Avg AHI" icon="📊" accent={C.accent5}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+            <span style={{ 
+              fontSize: 32, 
+              fontWeight: 800, 
+              color: getAHIColor(avgAHI)
+            }}>
+              {avgAHI.toFixed(1)}
+            </span>
+            <span style={{ fontSize: 13, color: C.textMuted }}>events/hr</span>
+          </div>
+          <div style={{ fontSize: 10, color: C.textDim, marginTop: 6 }}>
+            Last 30 nights
+          </div>
+        </Card>
+        
+        <Card title="Compliance" icon="✓" accent={C.accent5}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+            <span style={{ 
+              fontSize: 32, 
+              fontWeight: 800, 
+              color: compliancePercentage >= 70 ? C.done : C.accent1
+            }}>
+              {compliancePercentage}%
+            </span>
+            <span style={{ fontSize: 13, color: C.textMuted }}>≥4h nights</span>
+          </div>
+          <div style={{ fontSize: 10, color: C.textDim, marginTop: 6 }}>
+            {complianceNights} of {last30Nights.length} nights
+          </div>
+        </Card>
+        
+        <Card title="Avg Leak" icon="💨" accent={C.accent5}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+            <span style={{ 
+              fontSize: 32, 
+              fontWeight: 800, 
+              color: avgLeak < 0.4 ? C.done : C.accent1
+            }}>
+              {avgLeak.toFixed(1)}
+            </span>
+            <span style={{ fontSize: 13, color: C.textMuted }}>L/min</span>
+          </div>
+          <div style={{ fontSize: 10, color: C.textDim, marginTop: 6 }}>
+            Last 30 nights
+          </div>
+        </Card>
+      </div>
+      
+      <Card title="30-Day Usage Hours" icon="📈" accent={C.accent5} span={2}>
+        <div style={{ position: 'relative', height: 200, padding: '10px 0' }}>
+          <svg width="100%" height="200" viewBox="0 0 760 200">
+            {last30Nights.slice().reverse().map((night, i) => {
+              const barHeight = (night.usage_hours / 12) * 150;
+              const x = i * 25 + 10;
+              const y = 170 - barHeight;
+              const color = getUsageColor(night.usage_hours);
+              
+              return (
+                <g key={i}>
+                  <rect
+                    x={x}
+                    y={y}
+                    width={20}
+                    height={barHeight}
+                    fill={color}
+                    rx={2}
+                  />
+                  {i % 5 === 0 && (
+                    <text
+                      x={x + 10}
+                      y={190}
+                      textAnchor="middle"
+                      fill={C.textDim}
+                      fontSize="9"
+                      fontFamily="inherit"
+                    >
+                      {new Date(night.date).getDate()}
+                    </text>
+                  )}
+                </g>
+              );
+            })}
+            <line x1="0" y1="170" x2="760" y2="170" stroke={C.border} strokeWidth="1" />
+            <line x1="0" y1="95" x2="760" y2="95" stroke={C.border} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+            <text x="0" y="100" fill={C.textDim} fontSize="10" fontFamily="inherit">6h</text>
+            <line x1="0" y1="120" x2="760" y2="120" stroke={C.border} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+            <text x="0" y="125" fill={C.textDim} fontSize="10" fontFamily="inherit">4h</text>
+          </svg>
+        </div>
+        <div style={{ 
+          display: 'flex', 
+          gap: 16, 
+          marginTop: 10, 
+          justifyContent: 'center',
+          fontSize: 11
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 12, height: 12, background: C.done, borderRadius: 2 }} />
+            <span style={{ color: C.textMuted }}>≥6 hours</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 12, height: 12, background: C.accent1, borderRadius: 2 }} />
+            <span style={{ color: C.textMuted }}>4-6 hours</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 12, height: 12, background: C.accent3, borderRadius: 2 }} />
+            <span style={{ color: C.textMuted }}>&lt;4 hours</span>
+          </div>
+        </div>
+      </Card>
+      
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+        <Card title="30-Day AHI Trend" icon="📉" accent={C.accent2}>
+          <div style={{ position: 'relative', height: 160, padding: '10px 0' }}>
+            <svg width="100%" height="160" viewBox="0 0 360 160">
+              {last30Nights.slice().reverse().map((night, i) => {
+                if (i === 0) return null;
+                const prevNight = last30Nights.slice().reverse()[i - 1];
+                const x1 = (i - 1) * 12 + 5;
+                const y1 = 140 - (prevNight.ahi / 20) * 120;
+                const x2 = i * 12 + 5;
+                const y2 = 140 - (night.ahi / 20) * 120;
+                
+                return (
+                  <line
+                    key={i}
+                    x1={x1}
+                    y1={y1}
+                    x2={x2}
+                    y2={y2}
+                    stroke={C.accent2}
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                );
+              })}
+              {last30Nights.slice().reverse().map((night, i) => {
+                const x = i * 12 + 5;
+                const y = 140 - (night.ahi / 20) * 120;
+                const color = getAHIColor(night.ahi);
+                
+                return (
+                  <circle
+                    key={i}
+                    cx={x}
+                    cy={y}
+                    r={3}
+                    fill={color}
+                  />
+                );
+              })}
+              <line x1="0" y1="140" x2="360" y2="140" stroke={C.border} strokeWidth="1" />
+              <line x1="0" y1="110" x2="360" y2="110" stroke={C.border} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+              <text x="0" y="115" fill={C.textDim} fontSize="10" fontFamily="inherit">5</text>
+              <line x1="0" y1="20" x2="360" y2="20" stroke={C.border} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+              <text x="0" y="25" fill={C.textDim} fontSize="10" fontFamily="inherit">15</text>
+            </svg>
+          </div>
+          <div style={{ fontSize: 10, color: C.textMuted, textAlign: 'center', marginTop: 4 }}>
+            Lower is better • Target: &lt;5 events/hr
+          </div>
+        </Card>
+        
+        <Card title="30-Day Leak Rate" icon="💨" accent={C.accent4}>
+          <div style={{ position: 'relative', height: 160, padding: '10px 0' }}>
+            <svg width="100%" height="160" viewBox="0 0 360 160">
+              {last30Nights.slice().reverse().map((night, i) => {
+                if (i === 0) return null;
+                const prevNight = last30Nights.slice().reverse()[i - 1];
+                const x1 = (i - 1) * 12 + 5;
+                const y1 = 140 - (prevNight.avg_leak / 1.0) * 120;
+                const x2 = i * 12 + 5;
+                const y2 = 140 - (night.avg_leak / 1.0) * 120;
+                
+                return (
+                  <line
+                    key={i}
+                    x1={x1}
+                    y1={y1}
+                    x2={x2}
+                    y2={y2}
+                    stroke={C.accent4}
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                );
+              })}
+              {last30Nights.slice().reverse().map((night, i) => {
+                const x = i * 12 + 5;
+                const y = 140 - (night.avg_leak / 1.0) * 120;
+                const color = night.avg_leak < 0.4 ? C.done : C.accent1;
+                
+                return (
+                  <circle
+                    key={i}
+                    cx={x}
+                    cy={y}
+                    r={3}
+                    fill={color}
+                  />
+                );
+              })}
+              <line x1="0" y1="140" x2="360" y2="140" stroke={C.border} strokeWidth="1" />
+              <line x1="0" y1="92" x2="360" y2="92" stroke={C.border} strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+              <text x="0" y="97" fill={C.textDim} fontSize="10" fontFamily="inherit">0.4</text>
+            </svg>
+          </div>
+          <div style={{ fontSize: 10, color: C.textMuted, textAlign: 'center', marginTop: 4 }}>
+            Target: &lt;0.4 L/min (24 L/min)
+          </div>
+        </Card>
+      </div>
+      
+      <Card title="Recent Nights" icon="🌙" accent={C.accent5} span={2}>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ 
+            width: '100%', 
+            fontSize: 11, 
+            borderCollapse: 'collapse'
+          }}>
+            <thead>
+              <tr style={{ 
+                borderBottom: `2px solid ${C.border}`,
+                color: C.textMuted,
+                fontWeight: 600
+              }}>
+                <th style={{ padding: '8px 10px', textAlign: 'left' }}>Date</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Usage</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>AHI</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Leak</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Pressure</th>
+                <th style={{ padding: '8px 10px', textAlign: 'right' }}>Mask Events</th>
+              </tr>
+            </thead>
+            <tbody>
+              {last30Nights.slice(0, 10).map((night, i) => {
+                const date = new Date(night.date);
+                const formattedDate = `${date.getMonth() + 1}/${date.getDate()}`;
+                
+                return (
+                  <tr 
+                    key={i}
+                    style={{ 
+                      borderBottom: `1px solid ${C.border}`,
+                      opacity: i === 0 ? 1 : 0.8
+                    }}
+                  >
+                    <td style={{ 
+                      padding: '10px', 
+                      color: C.text,
+                      fontWeight: i === 0 ? 600 : 400
+                    }}>
+                      {formattedDate}
+                      {i === 0 && <span style={{ 
+                        marginLeft: 6, 
+                        fontSize: 10, 
+                        color: C.accent5 
+                      }}>Latest</span>}
+                    </td>
+                    <td style={{ 
+                      padding: '10px', 
+                      textAlign: 'right',
+                      color: getUsageColor(night.usage_hours),
+                      fontWeight: 600
+                    }}>
+                      {night.usage_hours.toFixed(1)}h
+                    </td>
+                    <td style={{ 
+                      padding: '10px', 
+                      textAlign: 'right',
+                      color: getAHIColor(night.ahi),
+                      fontWeight: 600
+                    }}>
+                      {night.ahi.toFixed(1)}
+                    </td>
+                    <td style={{ 
+                      padding: '10px', 
+                      textAlign: 'right',
+                      color: night.avg_leak < 0.4 ? C.done : C.accent1
+                    }}>
+                      {night.avg_leak.toFixed(1)}
+                    </td>
+                    <td style={{ 
+                      padding: '10px', 
+                      textAlign: 'right',
+                      color: C.textMuted
+                    }}>
+                      {night.avg_pressure.toFixed(1)}
+                    </td>
+                    <td style={{ 
+                      padding: '10px', 
+                      textAlign: 'right',
+                      color: night.mask_events > 6 ? C.accent3 : C.textMuted
+                    }}>
+                      {night.mask_events}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div style={{
+          marginTop: 12,
+          fontSize: 10,
+          color: C.textMuted,
+          padding: "8px 10px",
+          background: `${C.accent5}10`,
+          borderRadius: 6,
+          borderLeft: `2px solid ${C.accent5}`,
+        }}>
+          <strong>Device:</strong> {cpapData.device} • <strong>Data Updated:</strong> {cpapData.last_updated} • <strong>Total Nights:</strong> {cpapData.data_range.total_nights}
+        </div>
+      </Card>
+    </div>
+  );
+};
+
+const PermaVRadar = ({ dimensions, size = 260 }) => {
+  const pad = 36;
+  const inner = size;
+  const full = size + pad * 2;
+  const cx = pad + inner / 2;
+  const cy = pad + inner / 2;
+  const maxR = inner * 0.34;
+  const n = dimensions.length;
+  const angleStep = (2 * Math.PI) / n;
+  const startAngle = -Math.PI / 2;
+
+  const pointAt = (i, value) => {
+    const angle = startAngle + i * angleStep;
+    const r = (value / 10) * maxR;
+    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
+  };
+
+  const gridLevels = [2, 4, 6, 8, 10];
+
+  return (
+    <svg width={full} height={full} viewBox={"0 0 " + full + " " + full}>
+      {gridLevels.map((level) => {
+        const pts = Array.from({ length: n }, (_, i) => {
+          const p = pointAt(i, level);
+          return p.x + "," + p.y;
+        }).join(" ");
+        return (
+          <polygon
+            key={level}
+            points={pts}
+            fill="none"
+            stroke={C.border}
+            strokeWidth={level === 10 ? 1.5 : 0.5}
+            opacity={level === 10 ? 0.6 : 0.3}
+          />
+        );
+      })}
+      {dimensions.map((_, i) => {
+        const p = pointAt(i, 10);
+        return (
+          <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke={C.border} strokeWidth={0.5} opacity={0.3} />
+        );
+      })}
+      <polygon
+        points={dimensions.map((d, i) => { const p = pointAt(i, d.prev); return p.x + "," + p.y; }).join(" ")}
+        fill="none"
+        stroke={C.textDim}
+        strokeWidth={1.5}
+        strokeDasharray="4 3"
+        opacity={0.5}
+      />
+      <polygon
+        points={dimensions.map((d, i) => { const p = pointAt(i, d.score); return p.x + "," + p.y; }).join(" ")}
+        fill={"rgba(72, 191, 227, 0.12)"}
+        stroke={C.accent5}
+        strokeWidth={2}
+      />
+      {dimensions.map((d, i) => {
+        const p = pointAt(i, d.score);
+        return (
+          <circle key={"dot-" + i} cx={p.x} cy={p.y} r={4} fill={d.color} stroke={C.bg} strokeWidth={2} />
+        );
+      })}
+      {dimensions.map((d, i) => {
+        const labelR = maxR + 22;
+        const angle = startAngle + i * angleStep;
+        const lx = cx + labelR * Math.cos(angle);
+        const ly = cy + labelR * Math.sin(angle);
+        const delta = d.score - d.prev;
+        const arrow = delta > 0 ? " +" + delta.toFixed(1) : delta < 0 ? " " + delta.toFixed(1) : "";
+        return (
+          <g key={"label-" + i}>
+            <text x={lx} y={ly - 6} textAnchor="middle" fill={d.color} fontSize={13} fontWeight={700} fontFamily="inherit">
+              {d.short}
+            </text>
+            <text x={lx} y={ly + 8} textAnchor="middle" fill={C.text} fontSize={12} fontWeight={600} fontFamily="inherit">
+              {d.score}
+            </text>
+            {arrow && (
+              <text x={lx} y={ly + 20} textAnchor="middle" fill={delta > 0 ? C.done : C.accent3} fontSize={10} fontFamily="inherit">
+                {arrow}
+              </text>
+            )}
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+const Tooltip = ({ text, children }) => {
+  const [show, setShow] = React.useState(false);
+  return (
+    <div
+      style={{ position: "relative", display: "inline-block", cursor: "help" }}
+      onMouseEnter={() => setShow(true)}
+      onMouseLeave={() => setShow(false)}
+    >
+      {children}
+      {show && (
+        <div style={{
+          position: "absolute",
+          bottom: "calc(100% + 8px)",
+          left: "50%",
+          transform: "translateX(-50%)",
+          background: "#0f1529",
+          border: "1px solid " + C.border,
+          borderRadius: 10,
+          padding: "10px 14px",
+          fontSize: 11,
+          color: C.textMuted,
+          lineHeight: 1.5,
+          width: 240,
+          zIndex: 100,
+          boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
+          pointerEvents: "none",
+        }}>
+          {text}
+          <div style={{
+            position: "absolute",
+            bottom: -6,
+            left: "50%",
+            transform: "translateX(-50%) rotate(45deg)",
+            width: 10,
+            height: 10,
+            background: "#0f1529",
+            borderRight: "1px solid " + C.border,
+            borderBottom: "1px solid " + C.border,
+          }} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+const WellbeingTab = () => (
+  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+    <Card title="PERMA-V Wellness" icon="&#x2728;" accent={C.accent5} span={2}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 30, flexWrap: "wrap", padding: "10px 0" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <PermaVRadar dimensions={PERMA_V.dimensions} size={280} />
+          <div style={{ display: "flex", gap: 16, marginTop: 8, fontSize: 10, color: C.textMuted }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              <div style={{ width: 16, height: 2, background: C.accent5 }} />
+              <span>Feb 15 (current)</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              <div style={{ width: 16, height: 0, borderTop: "2px dashed " + C.textDim }} />
+              <span>Feb 5 (previous)</span>
+            </div>
+          </div>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+          <div style={{ fontSize: 11, color: C.textMuted, textTransform: "uppercase", letterSpacing: "0.1em" }}>Overall Score</div>
+          <div style={{ fontSize: 52, fontWeight: 800, color: C.accent5, lineHeight: 1 }}>{PERMA_V.overall}</div>
+          <StatusBadge status="active">{PERMA_V.status}</StatusBadge>
+          <div style={{ fontSize: 12, color: PERMA_V.overall < PERMA_V.prevOverall ? C.accent3 : C.done, marginTop: 4 }}>
+            {PERMA_V.overall < PERMA_V.prevOverall ? "" : "+"}{(PERMA_V.overall - PERMA_V.prevOverall).toFixed(1)} vs. {PERMA_V.prevDate}
+          </div>
+          <div style={{ width: 100, marginTop: 8 }}>
+            <Sparkline data={PERMA_V.history.map(h => h.overall)} width={100} height={30} />
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: C.textDim, marginTop: 2 }}>
+              <span>Feb 5</span>
+              <span>Feb 12</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Card>
+
+    <Card title="Dimension Details" icon="&#x1f4ca;" accent={C.accent4} span={2}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+        {PERMA_V.dimensions.map((d) => {
+          const delta = d.score - d.prev;
+          return (
+            <Tooltip key={d.key} text={d.annotation}>
+              <div style={{
+                padding: "14px 16px",
+                background: C.surface,
+                borderRadius: 12,
+                borderLeft: "3px solid " + d.color,
+                transition: "background 0.2s",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <span style={{ fontSize: 16, fontWeight: 800, color: d.color }}>{d.short}</span>
+                    <span style={{ fontSize: 12, color: C.textMuted }}>{d.label}</span>
+                  </div>
+                </div>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+                  <span style={{ fontSize: 24, fontWeight: 800, color: C.text }}>{d.score}</span>
+                  <span style={{ fontSize: 11, color: C.textDim }}>/10</span>
+                  {delta !== 0 && (
+                    <span style={{ fontSize: 12, fontWeight: 600, color: delta > 0 ? C.done : C.accent3 }}>
+                      {delta > 0 ? "+" : ""}{delta.toFixed(1)}
+                    </span>
+                  )}
+                </div>
+                <div style={{
+                  height: 4,
+                  background: C.bg,
+                  borderRadius: 2,
+                  marginTop: 8,
+                  overflow: "hidden",
+                }}>
+                  <div style={{
+                    height: "100%",
+                    width: (d.score / 10 * 100) + "%",
+                    background: "linear-gradient(90deg, " + d.color + ", " + d.color + "88)",
+                    borderRadius: 2,
+                    transition: "width 0.6s ease",
+                  }} />
+                </div>
+                <div style={{ fontSize: 10, color: C.textDim, marginTop: 6, fontStyle: "italic" }}>
+                  Hover for context
+                </div>
+              </div>
+            </Tooltip>
+          );
+        })}
+      </div>
+    </Card>
+
+    <Card title="Therapy Session Context" icon="&#x1f4dd;" accent={C.accent2}>
+      <div style={{ fontSize: 12, color: C.textMuted, lineHeight: 1.7 }}>
+        <div style={{ marginBottom: 10 }}>
+          <span style={{ fontSize: 11, color: C.textDim, textTransform: "uppercase", letterSpacing: "0.05em" }}>Key Themes</span>
+        </div>
+        {PERMA_V.therapyThemes.map((theme, i) => (
+          <div key={i} style={{
+            padding: "6px 10px",
+            background: C.surface,
+            borderRadius: 6,
+            marginBottom: 6,
+            borderLeft: "2px solid " + C.accent2,
+          }}>
+            {theme}
+          </div>
+        ))}
+      </div>
+    </Card>
+
+    <Card title="Counselor Homework" icon="&#x1f3af;" accent={C.accent1}>
+      <div style={{
+        padding: "20px",
+        background: "linear-gradient(135deg, " + C.accent1 + "15, " + C.accent2 + "10)",
+        borderRadius: 12,
+        textAlign: "center",
+      }}>
+        <div style={{ fontSize: 14, color: C.accent1, fontWeight: 700, fontStyle: "italic", lineHeight: 1.6 }}>
+          "{PERMA_V.homework}"
+        </div>
+        <div style={{ fontSize: 11, color: C.textMuted, marginTop: 8 }}>
+          Focusing on optimistic vs. pessimistic perspective
+        </div>
+      </div>
+      <div style={{ marginTop: 16 }}>
+        <div style={{ fontSize: 11, color: C.textDim, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>Assessment History</div>
+        {PERMA_V.history.map((h, i) => (
+          <div key={i} style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "6px 10px",
+            borderBottom: "1px solid " + C.border,
+            fontSize: 12,
+          }}>
+            <span style={{ color: C.text }}>{h.date}</span>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ color: h.overall >= 7 ? C.done : C.accent1, fontWeight: 600 }}>{h.overall}</span>
+              <span style={{
+                fontSize: 9,
+                padding: "2px 6px",
+                borderRadius: 4,
+                background: h.method === "therapy-informed" ? C.accent2 + "20" : h.method === "self-reported" ? C.accent4 + "20" : C.textDim + "20",
+                color: h.method === "therapy-informed" ? C.accent2 : h.method === "self-reported" ? C.accent4 : C.textMuted,
+              }}>
+                {h.method}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Card>
+  </div>
+);
+
+function LifeDashboard() {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const tabContent = [
+    <OverviewTab />,
+    <ThisWeekTab />,
+    <EnergyTab />,
+    <SystemsTab />,
+    <RecoveryTab />,
+    <SleepTab />,
+    <WellbeingTab />,
+  ];
+
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        background: C.bg,
+        fontFamily:
+          "'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+        color: C.text,
+        padding: "20px 16px",
+      }}
+    >
+      <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+
+      <div style={{ maxWidth: 820, margin: "0 auto 20px" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "baseline",
+            gap: 12,
+            marginBottom: 4,
+          }}
+        >
+          <h1
+            style={{
+              fontSize: 24,
+              fontWeight: 800,
+              margin: 0,
+              letterSpacing: "-0.02em",
+              background: `linear-gradient(135deg, ${C.accent1}, ${C.accent2})`,
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Life Dashboard
+          </h1>
+          <span style={{ fontSize: 12, color: C.textDim }}>
+            Feb 24, 2026 • Ardmore, OK
+          </span>
+        </div>
+        <p
+          style={{
+            fontSize: 13,
+            color: C.textMuted,
+            margin: 0,
+            lineHeight: 1.5,
+          }}
+        >
+          Where your time and energy are going — and where they've been.
+          You're doing a lot, and it's all moving forward.
+        </p>
+      </div>
+
+      <div
+        style={{
+          maxWidth: 820,
+          margin: "0 auto 16px",
+          display: "flex",
+          gap: 4,
+          background: C.surface,
+          borderRadius: 12,
+          padding: 4,
+        }}
+      >
+        {TABS.map((tab, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveTab(i)}
+            style={{
+              flex: 1,
+              padding: "10px 0",
+              borderRadius: 10,
+              border: "none",
+              cursor: "pointer",
+              fontSize: 13,
+              fontWeight: activeTab === i ? 700 : 500,
+              fontFamily: "inherit",
+              color: activeTab === i ? C.text : C.textMuted,
+              background: activeTab === i ? C.card : "transparent",
+              transition: "all 0.2s",
+            }}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      <div style={{ maxWidth: 820, margin: "0 auto" }}>
+        {tabContent[activeTab]}
+      </div>
+
+      <div
+        style={{
+          maxWidth: 820,
+          margin: "20px auto 0",
+          textAlign: "center",
+          fontSize: 11,
+          color: C.textDim,
+          lineHeight: 1.5,
+        }}
+      >
+        Built from your vault session context, SSOT architecture doc, and
+        conversation history.
+        <br />
+        The systems work IS the work. The freed-up move energy is flowing to
+        the right places.
+      </div>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<LifeDashboard />);
+  </script>
+</body>
+</html>

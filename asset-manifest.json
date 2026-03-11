@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rib-recovery-dashboard/static/css/main.7fc6c58f.css",
+    "main.js": "/rib-recovery-dashboard/static/js/main.51e9ae0b.js",
+    "index.html": "/rib-recovery-dashboard/index.html",
+    "main.7fc6c58f.css.map": "/rib-recovery-dashboard/static/css/main.7fc6c58f.css.map",
+    "main.51e9ae0b.js.map": "/rib-recovery-dashboard/static/js/main.51e9ae0b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7fc6c58f.css",
+    "static/js/main.51e9ae0b.js"
+  ]
+}

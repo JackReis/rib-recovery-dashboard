@@ -1,0 +1,39 @@
+{
+  "shortcut_name": "Daily Wellness Check",
+  "description": "Checks supplement compliance and shows reminder if needed",
+  "actions": [
+    {
+      "action": "Get Contents of URL",
+      "url": "http://localhost:8080/?endpoint=rib-recovery",
+      "method": "GET",
+      "headers": {}
+    },
+    {
+      "action": "Get Dictionary Value",
+      "key": "data.compliance_score",
+      "dictionary": "Previous Action"
+    },
+    {
+      "action": "If",
+      "condition": "is less than",
+      "value": 80
+    },
+    {
+      "action": "Show Notification",
+      "title": "Supplement Reminder",
+      "body": "Your compliance score is below 80%. Don't forget your supplements!"
+    },
+    {
+      "action": "Otherwise"
+    },
+    {
+      "action": "Show Notification",
+      "title": "Great Job!",
+      "body": "You're on track with your supplements today!"
+    },
+    {
+      "action": "End If"
+    }
+  ],
+  "notes": "Run this shortcut every morning as an automation. Replace localhost:8080 with your deployed URL for remote access."
+}

@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "endpoint": "perma-v-history",
+    "description": "Historical PERMA-V wellness assessments — tracks wellbeing across 6 dimensions over time",
+    "version": "1.1",
+    "framework": "PERMA-V (Seligman + Vitality)",
+    "scale": "1-10 per dimension",
+    "scoring_bands": {
+      "flourishing": "9-10",
+      "thriving": "7-8",
+      "developing": "4-6",
+      "struggling": "1-3"
+    },
+    "removed_estimates": "Three AI-generated data-driven estimates (Jan 26, Feb 1, Feb 6) were removed on 2026-02-12. They overweighted negative signals from session logs while missing the user's subjective reality — e.g., Feb 6 estimate (overall 6.1) was dramatically worse than the Feb 5 self-report (7.5) taken one day prior. Only confirmed self-reported and therapy-informed assessments are retained. The /perma-v skill will generate properly calibrated assessments going forward."
+  },
+  "assessments": [
+    {
+      "date": "2026-02-05",
+      "method": "self-reported",
+      "confidence": "high",
+      "context": "Baseline self-assessment. First full week in Ardmore. Systems established. MCP recovery work. Heavy infrastructure day.",
+      "scores": {
+        "positive_emotion": 7.5,
+        "engagement": 8.0,
+        "relationships": 8.5,
+        "meaning": 7.0,
+        "accomplishment": 6.5,
+        "vitality": 7.2
+      },
+      "overall": 7.5,
+      "status": "flourishing",
+      "annotations": {
+        "positive_emotion": "Self-reported baseline — confirmed by user as accurate reflection of subjective experience",
+        "engagement": "Consistent with data signals — deep technical engagement confirmed",
+        "relationships": "Self-rated highest dimension — family move to Oklahoma strengthening connections",
+        "meaning": "Moderate — purpose emerging but not yet crystallized through counseling",
+        "accomplishment": "Self-rated lowest — honest about physical limitations restricting output",
+        "vitality": "Self-rated 7.2 — genuine good day, not optimism bias"
+      }
+    },
+    {
+      "date": "2026-02-12",
+      "method": "therapy-informed",
+      "confidence": "high",
+      "context": "Post-counseling assessment. Therapy addressed: spiritual growth through adversity, finding purpose helping others, honest reckoning with physical limitations, self-reliance to help-seeking shift.",
+      "scores": {
+        "positive_emotion": 7.0,
+        "engagement": 8.0,
+        "relationships": 8.5,
+        "meaning": 8.0,
+        "accomplishment": 6.5,
+        "vitality": 6.5
+      },
+      "overall": 7.4,
+      "status": "thriving",
+      "annotations": {
+        "positive_emotion": "Down 0.5 — honest reckoning with pain/frustration, but actively reframing ('blessings in the ashes' homework)",
+        "engagement": "Stable — deep tech engagement continues; therapy itself is engaging; session count normalizing to sustainable 3/day",
+        "relationships": "Stable at 8.5 — Robin motivating recovery; Katherine supported; counselor connection; community outreach starting",
+        "meaning": "Up 1.0 — biggest shift. Purpose in helping others with similar injuries; spiritual growth; God's refinement; Little James testimony",
+        "accomplishment": "Stable — 'only thing done is therapy' but NotebookLM SSOT closed, feedback doc written, calendar integrated",
+        "vitality": "Down 0.7 — therapy surfaced honest picture: diaphragm damage, driving/shopping difficulty, pain/positioning issues"
+      },
+      "therapy_notes": {
+        "session_type": "counseling",
+        "key_themes": [
+          "Spiritual growth through adversity — God's refinement process",
+          "Finding purpose in helping others with similar injuries",
+          "Honest reckoning with physical limitations (driving, shopping, pain)",
+          "Self-reliance to help-seeking shift",
+          "Positive reframing: sympathetic overdrive vs. calm perspective",
+          "The Chosen — Little James with limp as testimony of faith"
+        ],
+        "homework": "Where are the blessings in the ashes?"
+      }
+    }
+  ]
+}

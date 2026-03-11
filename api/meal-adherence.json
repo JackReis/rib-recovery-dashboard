@@ -1,0 +1,7 @@
+{
+  "source": "localStorage",
+  "note": "Meal adherence tracked client-side in meal-planner. Use wellness-client.js to access localStorage data.",
+  "last_sync": null,
+  "checked_items_count": 0,
+  "checked_items": []
+}

@@ -1,0 +1,134 @@
+{
+  "generated_at": "2026-02-24T20:45:00Z",
+  "version": "1.0.0",
+  "meal_adherence": {
+    "source": "localStorage",
+    "note": "Meal adherence tracked client-side in meal-planner. Use wellness-client.js to access localStorage data.",
+    "last_sync": null,
+    "checked_items_count": 0,
+    "checked_items": []
+  },
+  "recovery_progress": {
+    "date": "2026-02-15",
+    "days_post_op": 492,
+    "months_post_op": 16.2,
+    "progress_percentage": 67,
+    "current_phase": "Phase 3 — PLLA Management & Collagen Remodeling",
+    "pt_sessions_completed": 2,
+    "trends": {
+      "pain_trend": "improving",
+      "mobility_trend": "improving",
+      "engagement_trend": "high"
+    }
+  },
+  "appointments": {
+    "updated_at": "2026-02-24T20:45:00Z",
+    "source": "appointments.json (harmonized)",
+    "appointments": [
+      {
+        "provider": "Mariah Thomas + Tasha Preston, PMHNP",
+        "specialty": "Psychiatry / Med Management",
+        "date": "Jan 22, 2026",
+        "time": "2:00 PM CST",
+        "location": "Oklahoma Integrated Care",
+        "address": "1013 15th Ave NW, Ardmore, OK 73401",
+        "status": "completed",
+        "priority": "high"
+      },
+      {
+        "specialty": "Eye Care",
+        "provider": "Ardmore Premier Eyecare",
+        "phone": "(580) 223-8585",
+        "status": "to_schedule",
+        "priority": "high"
+      },
+      {
+        "specialty": "Sleep Medicine / CPAP Management",
+        "provider": "Mercy Sleep Center",
+        "phone": "(580) 223-5400",
+        "status": "to_schedule",
+        "priority": "high"
+      },
+      {
+        "specialty": "Physical Therapy",
+        "provider": "Physical Therapy Central",
+        "phone": "(580) 247-1320",
+        "status": "to_schedule",
+        "priority": "high"
+      },
+      {
+        "specialty": "Primary Care",
+        "provider": "Dr. Lauren Southward",
+        "phone": "(580) 226-0543",
+        "status": "to_schedule",
+        "priority": "medium"
+      }
+    ],
+    "urgent_count": 1,
+    "to_schedule_count": 4,
+    "total_count": 5
+  },
+  "mcp_health": {
+    "timestamp": "2026-01-31T23:00:31.779564",
+    "source": "coordination_monitor.py",
+    "services": {
+      "up": 2,
+      "down": 1,
+      "total": 3,
+      "percentage": 66.7,
+      "details": {
+        "coordination": {
+          "status": "up",
+          "pid": "19088",
+          "checked": "2026-01-31T23:00:31.634050"
+        },
+        "tonkotsu": {
+          "status": "up",
+          "pid": "19091",
+          "checked": "2026-01-31T23:00:31.666182"
+        },
+        "vault_organizer": {
+          "status": "down",
+          "pid": null,
+          "checked": "2026-01-31T23:00:31.691572"
+        }
+      }
+    },
+    "git_status": {
+      "clean": false,
+      "branch": "main",
+      "uncommitted_changes": true
+    },
+    "zombies": {
+      "count": 0,
+      "list": []
+    },
+    "overall_health": "degraded"
+  },
+  "supplement_tracking": {
+    "updated_at": "2026-02-15T00:00:00Z",
+    "sources": [
+      "manual_update",
+      "daily_note"
+    ],
+    "rib_recovery": {
+      "date": "2026-02-24",
+      "water_intake": {
+        "glasses": 0,
+        "target": 10,
+        "target_oz": 80,
+        "percentage": 0.0
+      },
+      "active_supplements": 8,
+      "adherence_rate": 70,
+      "streak_days": 15,
+      "compliance_score": 88.0,
+      "gaps": [
+        "Fish Oil (EPA/DHA)",
+        "Curcumin (Meriva Phytosome)"
+      ]
+    }
+  },
+  "shortcuts_compatible": true,
+  "mobile_app_ready": true
+}

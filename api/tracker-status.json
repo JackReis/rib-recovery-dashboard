@@ -1,0 +1,81 @@
+{
+  "date": "2026-02-28",
+  "water": {
+    "glasses": 0,
+    "target": 10,
+    "target_oz": 80,
+    "last_drink": null,
+    "note": "Feb 27 evening stack completed. Feb 28 morning mostly done; pending Mitopure gummies and finish collagen."
+  },
+  "collagen": {
+    "morning": false,
+    "evening": false,
+    "target": "CollaGEN (FORTIGEL) 5g morning"
+  },
+  "vitamin_c": {
+    "morning": true,
+    "evening": false,
+    "target": "Sodium Ascorbate 500mg morning, 500mg evening"
+  },
+  "magnesium": {
+    "taken": false,
+    "target": "Magnesium Glycinate 400mg before bed"
+  },
+  "bone_mineral_boost": {
+    "taken": true,
+    "target": "Sparkle Wellness Bone Mineral Boost \u2014 morning"
+  },
+  "creatine": {
+    "taken": true,
+    "target": "Daily \u2014 creatine"
+  },
+  "mct_oil": {
+    "taken": true,
+    "target": "Daily \u2014 MCT oil"
+  },
+  "turmeric": {
+    "taken": true,
+    "target": "Incidental via Aldi protein shake (low bioavailability)"
+  },
+  "to_order": {
+    "fish_oil": "Phase 3 critical \u2014 EPA/DHA anti-inflammatory",
+    "curcumin": "Meriva Phytosome \u2014 upgrade from turmeric shake",
+    "im8_health": "Ordered Feb 12, awaiting delivery"
+  },
+  "mitopure": {
+    "taken": false,
+    "target": "Daily \u2014 Mitopure (Urolithin A)"
+  },
+  "rehab": {
+    "done_today": false,
+    "note": "PT session completed today; rehab exercises counted complete."
+  },
+  "glycine": {
+    "taken": false,
+    "target": "Evening \u2014 glycine"
+  },
+  "taurine": {
+    "taken": false,
+    "target": "Evening \u2014 taurine"
+  },
+  "nmn": {
+    "taken": false,
+    "target": "Evening \u2014 NMN"
+  },
+  "calcium_k2": {
+    "taken": false,
+    "target": "Evening \u2014 Life Extension Calcium with K2"
+  },
+  "yesterday_evening_stack": {
+    "date": "2026-02-27",
+    "logged": true,
+    "items": [
+      "glycine",
+      "taurine",
+      "NMN",
+      "magnesium",
+      "sodium ascorbate (2nd)",
+      "life extension calcium with K2"
+    ]
+  }
+}

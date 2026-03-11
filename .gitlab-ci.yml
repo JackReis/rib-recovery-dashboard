@@ -1,0 +1,14 @@
+# GitLab CI/CD intentionally disabled.
+# We keep GitLab remote as a code backup/mirror only.
+# Canonical CI/CD + deploy lives on GitHub Actions / GitHub Pages.
+
+workflow:
+  rules:
+    - when: never
+
+# Keeping a no-op job for explicit visibility in case someone inspects CI config.
+noop:
+  script:
+    - echo "GitLab CI is disabled for this repository. Use GitHub Actions instead."
+  rules:
+    - when: never

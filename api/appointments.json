@@ -1,0 +1,80 @@
+{
+  "updated_at": "2026-03-02T02:57:15.000000",
+  "source": "vault-daily-notes",
+  "appointments": [
+    {
+      "provider": "Ryan, DPT",
+      "specialty": "Physical Therapy",
+      "organization": "Physical Therapy Central",
+      "date": "Feb 13, 2026",
+      "time": "4:30 PM",
+      "location": "Physical Therapy Central",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401",
+      "phone": "(580) 247-1320",
+      "status": "completed",
+      "priority": "high",
+      "notes": "Session 2 complete. Findings: shoulder blade winging, 6:1 trap ratio, serratus/subscap issues. New exercises prescribed."
+    },
+    {
+      "provider": "Tasha Preston, PMHNP",
+      "specialty": "Psychiatry / Med Management",
+      "organization": "Oklahoma Integrated Care",
+      "address": "1013 15th Ave NW, Ardmore, OK 73401",
+      "phone": "(580) 238-4277",
+      "date": "Feb 19, 2026",
+      "time": "1:25 PM",
+      "status": "completed",
+      "priority": "high",
+      "notes": "Med management: Vyvanse 70mg, Strattera 80mg, Lexapro 10mg. Verify time — GCal timezone is Pacific."
+    },
+    {
+      "provider": "Mariah Thomas + Tasha Preston, PMHNP",
+      "specialty": "Psychiatry / Med Management",
+      "organization": "Oklahoma Integrated Care",
+      "date": "Feb 23, 2026",
+      "time": "9:20 AM",
+      "status": "completed",
+      "priority": "high",
+      "notes": "Care transitioned to Oklahoma Integrated Care team; active med management with Tasha Preston and Mariah Thomas."
+    },
+    {
+      "provider": "Melissa Sherfield",
+      "specialty": "Counseling",
+      "date": "Weekly (Thursdays at noon)",
+      "status": "recurring",
+      "priority": "medium"
+    },
+    {
+      "specialty": "Acupuncture",
+      "provider": "Established provider",
+      "status": "to_schedule",
+      "priority": "medium",
+      "notes": "Last session: Feb 6. Need to schedule next."
+    },
+    {
+      "specialty": "Dentist",
+      "provider": "TBD — find in Ardmore",
+      "status": "to_schedule",
+      "priority": "medium",
+      "notes": "Cleaning/checkup. Need to find a provider."
+    },
+    {
+      "specialty": "Eye Care",
+      "provider": "Ardmore Premier Eyecare",
+      "phone": "(580) 223-8585",
+      "status": "to_schedule",
+      "priority": "medium"
+    },
+    {
+      "specialty": "Sleep Medicine / CPAP Management",
+      "provider": "Mercy Sleep Center",
+      "phone": "(580) 223-5400",
+      "status": "to_schedule",
+      "priority": "medium"
+    }
+  ],
+  "upcoming_count": 0,
+  "recurring_count": 1,
+  "to_schedule_count": 4,
+  "total_count": 8
+}

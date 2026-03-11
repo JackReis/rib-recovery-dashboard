@@ -1,0 +1,107 @@
+{
+  "updated_at": "2026-02-28T12:00:00-06:00",
+  "sources": [
+    "manual_update",
+    "daily_note"
+  ],
+  "rib_recovery": {
+    "date": "2026-02-28",
+    "water_intake": {
+      "glasses": 0,
+      "target": 10,
+      "target_oz": 80,
+      "percentage": 0.0,
+      "note": "Not currently tracking \u2014 Ryan's protocol says 80oz+ daily. Controls plate degradation rate."
+    },
+    "supplements": {
+      "active": [
+        {
+          "name": "CollaGEN (FORTIGEL)",
+          "dose": "5g",
+          "timing": "morning",
+          "status": "active",
+          "purpose": "Collagen synthesis \u2014 FORTIGEL targets cartilage/connective tissue"
+        },
+        {
+          "name": "Sodium Ascorbate (Vitamin C)",
+          "dose": "1000mg (500mg x2)",
+          "timing": "morning + evening",
+          "status": "active",
+          "purpose": "Collagen cross-linking cofactor"
+        },
+        {
+          "name": "Magnesium Glycinate",
+          "dose": "400mg",
+          "timing": "before bed",
+          "status": "active",
+          "purpose": "Muscle relaxation, bone health"
+        },
+        {
+          "name": "Sparkle Wellness Bone Mineral Boost",
+          "dose": "per label",
+          "timing": "morning",
+          "status": "active",
+          "purpose": "Bone density support"
+        },
+        {
+          "name": "Creatine",
+          "dose": "per label",
+          "timing": "daily",
+          "status": "active",
+          "purpose": "Muscle recovery"
+        },
+        {
+          "name": "MCT Oil",
+          "dose": "per label",
+          "timing": "daily",
+          "status": "active",
+          "purpose": "Energy/cognitive support"
+        },
+        {
+          "name": "Turmeric (via Aldi protein shake)",
+          "dose": "incidental",
+          "timing": "daily",
+          "status": "active",
+          "purpose": "Anti-inflammatory (low bioavailability \u2014 upgrade to curcumin phytosome recommended)"
+        },
+        {
+          "name": "Mitopure (Urolithin A)",
+          "dose": "per label",
+          "timing": "daily",
+          "status": "active",
+          "purpose": "Mitochondrial support, recovery and muscle endurance"
+        }
+      ],
+      "to_order": [
+        {
+          "name": "Fish Oil (EPA/DHA)",
+          "dose": "2-3g daily",
+          "priority": "high",
+          "note": "Phase 3 critical \u2014 anti-inflammatory support"
+        },
+        {
+          "name": "Curcumin (Meriva Phytosome)",
+          "dose": "500mg",
+          "priority": "medium",
+          "note": "Upgrade from incidental turmeric in protein shake"
+        },
+        {
+          "name": "IM8 Health",
+          "dose": "per label",
+          "priority": "low",
+          "note": "Ordered Feb 12 \u2014 arrival unknown"
+        }
+      ]
+    },
+    "adherence": {
+      "rate": 50,
+      "streak_days": 15,
+      "since": "2026-02-01",
+      "note": "Feb 27 evening completed. Feb 28 morning mostly done; pending Mitopure gummies + finish collagen.",
+      "daily_checklist_total": 10,
+      "daily_checklist_completed": 5,
+      "last_recalc_at": "2026-02-28T12:00:00-06:00"
+    },
+    "compliance_score": 50.0
+  }
+}
