@@ -47,3 +47,10 @@ This repo is part of an 18-repo portfolio coordinated from the `=notes` vault.
 - Validate before merge: build + lint + smoke checks for deploy targets.
 - Keep deployment adapters documented (GitHub Pages / Cloudflare / Vercel) without hard vendor lock-in.
 - Preserve content/data contract boundaries with upstream source docs.
+
+## Local Overrides — Command Truth
+- Install deps: `npm ci` (fallback `npm install`)
+- Dev: `npm start`
+- Build: `npm run build`
+- Test: `npm test -- --watchAll=false`
+- Deploy path: GitHub Pages via GitHub Actions (`origin` is source of truth).
