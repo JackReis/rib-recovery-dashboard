@@ -1,0 +1,67 @@
+{
+  "memories": [],
+  "manual_memories": [
+    {
+      "type": "project_fact",
+      "content": "Repo migration complete: use GitHub as primary remote and CI. origin=git@github.com:JackReis/rib-recovery-dashboard.git. GitLab remote is legacy only; do not push there unless explicitly requested.",
+      "added_at": "2026-02-26T11:00:00-06:00",
+      "source": "manual_update"
+    }
+  ],
+  "realtime_memories": [
+    {
+      "type": "claude_response",
+      "content": "Reverted — CI config is back to original, `gl-pages` branch cleaned up. Working tree is clean.\n\nThe site at `https://rib-recovery-dashboard-61b9d4.gitlab.io/` is on the Feb 12 deploy. It'll auto-deplo",
+      "session_id": "80918077-9257-419b-8840-c8ea551073c4",
+      "added_at": "2026-02-24T16:35:23.914356",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "message",
+      "content": "what do you think, should we switch to GitHub pages at least for now?",
+      "session_id": "80918077-9257-419b-8840-c8ea551073c4",
+      "added_at": "2026-02-24T16:35:23.914366",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "claude_response",
+      "content": "Yeah, I think so. The repo already has a `github` remote and we just pushed all 26 commits there. And there's already a `.github/workflows/deploy.yml` in the repo. Quick tradeoffs:\n\n**For GitHub Pages",
+      "session_id": "80918077-9257-419b-8840-c8ea551073c4",
+      "added_at": "2026-02-24T16:36:57.452944",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "message",
+      "content": "OpenClaw is on it but perhaps you could use multi-session coordination",
+      "session_id": "80918077-9257-419b-8840-c8ea551073c4",
+      "added_at": "2026-02-24T16:36:57.452958",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "claude_response",
+      "content": "Session 58-GH is fully wrapped up. Both repos are in good shape:\n\n**=notes vault**: Clean except for Obsidian plugin data (expected) and 3 untracked review docs from another session (likely Session 60",
+      "session_id": "0fff00b1-6f87-4c59-8fe0-43d5549ee149",
+      "added_at": "2026-02-28T20:44:38.573204",
+      "source": "realtime_capture"
+    },
+    {
+      "type": "message",
+      "content": "this is from openclaw pilot is live and queued. ### I created - Pilot plan - docs/plans/2026-02-28-agent-team-orchestration-pilot.md - Claude execution packet - prompts/claude-agent-team-orchestration",
+      "session_id": "0fff00b1-6f87-4c59-8fe0-43d5549ee149",
+      "added_at": "2026-02-28T20:44:38.573238",
+      "source": "realtime_capture"
+    }
+  ],
+  "sessions": {
+    "80918077-9257-419b-8840-c8ea551073c4": {
+      "started_at": "2026-02-24T16:35:23.906198",
+      "entry_count": 4
+    },
+    "0fff00b1-6f87-4c59-8fe0-43d5549ee149": {
+      "started_at": "2026-02-28T20:44:38.565952",
+      "entry_count": 2
+    }
+  },
+  "created_at": "2026-02-24T16:35:23.906191",
+  "updated_at": "2026-02-28T20:44:38.573242"
+}
