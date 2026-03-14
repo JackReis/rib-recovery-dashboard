@@ -54,3 +54,11 @@ This repo is part of an 18-repo portfolio coordinated from the `=notes` vault.
 - Build: `npm run build`
 - Test: `npm test -- --watchAll=false`
 - Deploy path: GitHub Pages via GitHub Actions (`origin` is source of truth).
+
+## DATA LINEAGE — VAULT IS SSOT
+- Health data originates in `=notes` vault (`atlas/health/`, `pt/sessions/`)
+- Dashboard API JSON (`public/api/`) is generated/refreshed by vault scripts
+- Downstream consumers: GitHub Pages (live dashboard), Google Drive (rclone sync), NotebookLM (queryable AI), TypingMind (5-bot fleet)
+- Refresh: `/dashboard-refresh` skill in =notes updates stale API JSON
+- Drive sync: `/gdrive-sync` skill pushes JSON to `gdrive:NotebookLM-Dashboard-Data/`
+- **Do not manually edit API JSON** — fix source data in vault, then regenerate
