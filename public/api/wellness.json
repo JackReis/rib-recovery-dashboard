@@ -2,7 +2,7 @@
   "meta": {
     "endpoint": "wellness",
     "description": "Unified wellness dashboard - all health metrics in one endpoint",
-    "generated_at": "2026-03-13T19:49:35Z",
+    "generated_at": "2026-03-14T16:10:00Z",
     "version": "1.1",
     "timezone": "America/Chicago"
   },
@@ -11,10 +11,10 @@
     "overall_wellness_status": "thriving",
     "recovery_progress": 67,
     "meal_adherence": 85,
-    "supplement_adherence": 88,
+    "supplement_adherence": 100,
     "mcp_uptime": 91.0,
     "next_appointment_days": null,
-    "last_updated": "2026-03-13T19:49:35Z"
+    "last_updated": "2026-03-14T16:10:00Z"
   },
   "quick_stats": {
     "rib_recovery": {
@@ -31,10 +31,10 @@
       "adherence_trend": "stable"
     },
     "supplements": {
-      "adherence_rate": 88,
+      "adherence_rate": 100,
       "today_complete": 0,
       "today_pending": 7,
-      "streak_days": 15,
+      "streak_days": 14,
       "active_count": 7,
       "gaps": [
         "Fish Oil (EPA/DHA)",
@@ -62,13 +62,13 @@
     "date": "2026-03-01",
     "day_of_week": "Sunday",
     "supplements": {
-      "collagen_morning": false,
-      "vitamin_c_morning": false,
-      "vitamin_c_evening": false,
-      "magnesium_evening": false,
-      "bone_mineral_boost": false,
-      "creatine": false,
-      "mct_oil": false,
+      "collagen_morning": true,
+      "vitamin_c_morning": true,
+      "vitamin_c_evening": true,
+      "magnesium_evening": true,
+      "bone_mineral_boost": true,
+      "creatine": true,
+      "mct_oil": true,
       "hydration_oz": 0,
       "hydration_target": 80
     },
@@ -156,19 +156,19 @@
     {
       "type": "supplement",
       "priority": "medium",
-      "message": "Remember evening supplements: Vitamin C 500mg, Magnesium 400mg. Phase 3 gaps: Fish Oil, Curcumin not yet ordered.",
+      "message": "Supplements on a 14-day perfect streak (100%). Keep evening stack and hydration cadence consistent.",
       "time": "20:00"
     },
     {
       "type": "appointment",
       "priority": "medium",
-      "message": "Good Shepherd — pay outstanding balance online. Psychiatry cancelled (med mgmt transferred to Tasha Preston at OIC).",
+      "message": "Good Shepherd \u2014 pay outstanding balance online. Psychiatry cancelled (med mgmt transferred to Tasha Preston at OIC).",
       "date": "2026-03-01"
     },
     {
       "type": "recovery",
       "priority": "medium",
-      "message": "PT Session 3 complete (Feb 18) — 15 exercises total. Next: Wed+Fri 5pm with Ryan Fraley, DPT"
+      "message": "PT Session 3 complete (Feb 18) \u2014 15 exercises total. Next: Wed+Fri 5pm with Ryan Fraley, DPT"
     }
   ],
   "shortcuts_quick_actions": [

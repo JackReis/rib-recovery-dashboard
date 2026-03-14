@@ -1,24 +1,24 @@
 {
-  "date": "2026-02-28",
+  "date": "2026-03-14",
   "water": {
     "glasses": 0,
     "target": 10,
     "target_oz": 80,
     "last_drink": null,
-    "note": "Feb 27 evening stack completed. Feb 28 morning mostly done; pending Mitopure gummies and finish collagen."
+    "note": "Supplement adherence has been 100% for the last 14 days. Hydration tracking still separate."
   },
   "collagen": {
-    "morning": false,
-    "evening": false,
+    "morning": true,
+    "evening": true,
     "target": "CollaGEN (FORTIGEL) 5g morning"
   },
   "vitamin_c": {
     "morning": true,
-    "evening": false,
+    "evening": true,
     "target": "Sodium Ascorbate 500mg morning, 500mg evening"
   },
   "magnesium": {
-    "taken": false,
+    "taken": true,
     "target": "Magnesium Glycinate 400mg before bed"
   },
   "bone_mineral_boost": {
@@ -43,31 +43,31 @@
     "im8_health": "Ordered Feb 12, awaiting delivery"
   },
   "mitopure": {
-    "taken": false,
+    "taken": true,
     "target": "Daily \u2014 Mitopure (Urolithin A)"
   },
   "rehab": {
     "done_today": false,
-    "note": "PT session completed today; rehab exercises counted complete."
+    "note": "Supplement adherence update only; rehab completion tracked separately."
   },
   "glycine": {
-    "taken": false,
+    "taken": true,
     "target": "Evening \u2014 glycine"
   },
   "taurine": {
-    "taken": false,
+    "taken": true,
     "target": "Evening \u2014 taurine"
   },
   "nmn": {
-    "taken": false,
+    "taken": true,
     "target": "Evening \u2014 NMN"
   },
   "calcium_k2": {
-    "taken": false,
+    "taken": true,
     "target": "Evening \u2014 Life Extension Calcium with K2"
   },
   "yesterday_evening_stack": {
-    "date": "2026-02-27",
+    "date": "2026-03-13",
     "logged": true,
     "items": [
       "glycine",

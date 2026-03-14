@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-02-28T12:00:00-06:00",
+  "updated_at": "2026-03-14T11:10:00-05:00",
   "sources": [
     "manual_update",
     "daily_note"
   ],
   "rib_recovery": {
-    "date": "2026-02-28",
+    "date": "2026-03-14",
     "water_intake": {
       "glasses": 0,
       "target": 10,
@@ -94,14 +94,14 @@
       ]
     },
     "adherence": {
-      "rate": 50,
-      "streak_days": 15,
-      "since": "2026-02-01",
-      "note": "Feb 27 evening completed. Feb 28 morning mostly done; pending Mitopure gummies + finish collagen.",
+      "rate": 100,
+      "streak_days": 14,
+      "since": "2026-03-01",
+      "note": "User-reported 100% supplement adherence for the past 2 weeks.",
       "daily_checklist_total": 10,
-      "daily_checklist_completed": 5,
-      "last_recalc_at": "2026-02-28T12:00:00-06:00"
+      "daily_checklist_completed": 10,
+      "last_recalc_at": "2026-03-14T11:10:00-05:00"
     },
-    "compliance_score": 50.0
+    "compliance_score": 100.0
   }
 }

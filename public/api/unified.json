@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-24T20:45:00Z",
+  "generated_at": "2026-03-14T16:10:00Z",
   "version": "1.0.0",
   "meal_adherence": {
     "source": "localStorage",
@@ -13,7 +13,7 @@
     "days_post_op": 492,
     "months_post_op": 16.2,
     "progress_percentage": 67,
-    "current_phase": "Phase 3 — PLLA Management & Collagen Remodeling",
+    "current_phase": "Phase 3 \u2014 PLLA Management & Collagen Remodeling",
     "pt_sessions_completed": 2,
     "trends": {
       "pain_trend": "improving",
@@ -112,7 +112,7 @@
       "daily_note"
     ],
     "rib_recovery": {
-      "date": "2026-02-24",
+      "date": "2026-03-14",
       "water_intake": {
         "glasses": 0,
         "target": 10,
@@ -120,9 +120,9 @@
         "percentage": 0.0
       },
       "active_supplements": 8,
-      "adherence_rate": 70,
-      "streak_days": 15,
-      "compliance_score": 88.0,
+      "adherence_rate": 100,
+      "streak_days": 14,
+      "compliance_score": 100.0,
       "gaps": [
         "Fish Oil (EPA/DHA)",
         "Curcumin (Meriva Phytosome)"

@@ -1,20 +1,20 @@
 {
-  "date": "2026-03-13",
+  "date": "2026-03-14",
   "days_post_op": 518,
   "months_post_op": 17.0,
   "surgery_date": "2024-10-11",
   "procedure": "Bilateral 9th/10th Costal Margin Reconstruction (Hansen)",
   "recovery_window_months": 24,
   "progress_percentage": 71,
-  "current_phase": "Phase 3 — Month 17, Critical Collagen Remodeling Window",
+  "current_phase": "Phase 3 \u2014 Month 17, Critical Collagen Remodeling Window",
   "phase_detail": "Month 17 of 24: mid-recovery, active remodeling phase, 70-80% pre-injury mobility target",
   "pt_provider": "Ryan at Physical Therapy Central",
   "pt_sessions_completed": 8,
   "pt_focus": "Diaphragm rehab, scapular winging, breathing protocol",
   "supplements": {
     "active_count": 7,
-    "adherence_rate": 88,
-    "streak_days": 15,
+    "adherence_rate": 100,
+    "streak_days": 14,
     "protocol": [
       "CollaGEN (FORTIGEL) 5g morning",
       "Sodium Ascorbate 1000mg (500mg x2)",
@@ -24,7 +24,10 @@
       "MCT Oil daily",
       "Turmeric (incidental via protein shake)"
     ],
-    "gaps": ["Fish Oil (EPA/DHA)", "Curcumin (Meriva Phytosome)"]
+    "gaps": [
+      "Fish Oil (EPA/DHA)",
+      "Curcumin (Meriva Phytosome)"
+    ]
   },
   "water_intake": {
     "target_oz": 80,
@@ -42,12 +45,12 @@
     "next": {
       "target_percentage": 75,
       "estimated_date": "2026-05-11",
-      "description": "18 months post-op — end of collagen remodeling window"
+      "description": "18 months post-op \u2014 end of collagen remodeling window"
     },
     "final": {
       "target_percentage": 100,
       "estimated_date": "2026-10-11",
-      "description": "24 months post-op — recovery complete"
+      "description": "24 months post-op \u2014 recovery complete"
     }
   },
   "trends": {
