@@ -1,5 +1,166 @@
 [
   {
+    "id": "2026-03-13",
+    "session_number": 9,
+    "date": "March 13, 2026",
+    "time": "4:30 PM",
+    "status": "completed",
+    "provider": {
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
+    },
+    "transcript_sources": [
+      "atlas/health/pt-session-9-notes-2026-03-13.md"
+    ],
+    "context": [
+      "Month 17 of 24 post-Hansen bilateral rib reconstruction (Day ~521)",
+      "Critical collagen remodeling window (months 12-18) — we're IN IT",
+      "Extended recovery timeline: 29-41 months total (Hansen Sep 2025 phone consult)",
+      "Bioabsorbable plates at gravel-like stage — sutures intact, biological fusion forming",
+      "First objective ROM measurement in 9 sessions — 67% external rotation deficit",
+      "Strategic/academic session — Ryan believed farewell visit, oriented toward self-reliance"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "External rotation deficit (67%)",
+        "detail": "~60 degrees available vs 180 normal. Ryan attributes primarily to habitual internal rotation from piano playing, potentially predating rib surgery. First objective measurement in 9 sessions ($1,955 cumulative).",
+        "severity": "critical"
+      },
+      {
+        "priority": 2,
+        "title": "Internal rotation dominance — system-level avoidance",
+        "detail": "Serratus anterior weakness reframed: not isolated strength deficit but whole-system avoidance pattern. Body learned to 'cheat' around serratus for 8+ years. First response to external rotation is thoracic extension ('lift up').",
+        "severity": "critical"
+      },
+      {
+        "priority": 3,
+        "title": "Upper rib compensation (ribs 2-5) — NEW FINDING",
+        "detail": "Compensatory tension migrated upward from surgical site (ribs 9-10). Pectoralis minor driving rib compression as 'prepare for the flood' bracing response to lower rib instability.",
+        "severity": "high"
+      },
+      {
+        "priority": 4,
+        "title": "Left-chain compensation cascade — expanded",
+        "detail": "Full cascade articulated: labral tear (2018) → hip repair (2020) → bilateral rib instability → trunk/scapular collapse → thumb MCP. Jack's hypothesis: rib stability may make labral tear asymptomatic without surgery.",
+        "severity": "moderate"
+      }
+    ],
+    "sinceLastSession": [
+      "Gained access to overhead bar at father-in-law's garage gym — first pull-up/hang infrastructure since moving to Ardmore",
+      "Completed multi-model clinical analysis of all 8 sessions (Opus 4.6, o3, GPT-5.4, GPT-5.4 Pro) — validated left-chain model, graded Ryan A-",
+      "Understanding of tensegrity model deepened through research and synthesis of operative report",
+      "Showed Ryan the AI-generated clinical analysis and operative report diagrams — Ryan: 'It's pretty legit, right?'",
+      "Resistance bands STILL not acquired — 5th session deferral at that point"
+    ],
+    "findings": [
+      "First objective ROM measurement: external rotation ~60 degrees vs 180 normal (67% deficit). Loss begins around 110 degrees with significant restriction.",
+      "Piano playing identified as primary driver of internal rotation compensation and serratus weakness — potentially predating rib injury entirely",
+      "Serratus weakness is system-level avoidance, not isolated strength deficit — 'much bigger than just strengthening the serratus'",
+      "Upper rib (2-5) compensation pattern NEW: pec minor driving compression as bracing response despite surgery on lower ribs (9-10)",
+      "Tensegrity model synthesized with Ryan — breathing IS the long-term load Hansen's model depends on. Ryan's loading philosophy aligns with Hansen's approach.",
+      "Nerve regeneration confirmed at 16 months — ablated nerves regrown, remaining symptoms motor not sensory",
+      "Ryan was preparing Jack for independence (farewell confusion) — didn't charge for session. Confusion resolved mid-session; treatment resumes Tuesday.",
+      "Bioabsorbable plates at gravel-like stage — sutures intact per Hansen Sep 2025 assessment. Jack hypothesizes ADHD medication oxidative stress may have accelerated degradation."
+    ],
+    "prescribed": [
+      "Pull-ups and dead hangs — 10s holds, 10 reps, scapular engagement, no rib flare",
+      "Single-arm RDL — heavy weight left arm, 8-10 reps x 2-3 sets, hip hinge only",
+      "Landmine rotations — if equipment available, core bracing throughout",
+      "Resisted external rotation work — any 'resisted opening' movements",
+      "Limber Health app protocol (access code ZAS-EWV-IFQ) — rotational stability"
+    ],
+    "protocol": {
+      "morning": [
+        "15g collagen + 500mg Vitamin C + 20oz water before moving",
+        "Diaphragmatic reset: 10 min posterior rib breathing (crocodile position, 4-4-4 pattern)",
+        "Log roll exit from bed (no trunk rotation)",
+        "Peroneal release (R foot) — tennis ball under lateral foot, 2-3 min",
+        "Hip extension stretch — standing, 30sec x3 (releases psoas, stops anterior rib flare)",
+        "Pectoral engagement check (daily 0-10 metric)"
+      ],
+      "supplements": "Collagen 15g AM, Vitamin C 1000mg/day (500 x2), Magnesium 400mg PM, 80oz+ water",
+      "restrictions": "No spinal rotation >45 degrees, no overhead reaching, no heavy lifting"
+    },
+    "exercises": [
+      { "name": "Pull-ups and dead hangs", "detail": "10-second holds, 10 reps. Scapular engagement, avoid rib flare. Progress +2-3 seconds weekly. Stop if clicking increases or sharp pain.", "sets": "10s x 10 reps" },
+      { "name": "Single-arm Romanian deadlifts (RDL)", "detail": "Heavy weight left arm. Hip hinge 'windmill without rotation.' Handheld support OK initially. Ryan: 'Number two exercise for the glutes.'", "sets": "8-10 reps x 2-3 sets" },
+      { "name": "Landmine rotations", "detail": "Fascial line activation with controlled rotation. Core bracing throughout. Contingent on equipment at father-in-law's gym.", "sets": "TBD" },
+      { "name": "Resisted external rotation work", "detail": "Any movements 'resisted opening.' Breaking habitual internal rotation from piano playing. Multiple angles, end-range emphasis.", "sets": "Multiple angles" },
+      { "name": "Limber Health app — Side plank rotations", "detail": "Resisted Modified Side Plank Rotation — bilateral. Access code ZAS-EWV-IFQ.", "sets": "3 x 10 reps" },
+      { "name": "Limber Health app — Standing row rotations", "detail": "Resisted Standing Row Rotation — bilateral.", "sets": "3 x 10 reps" },
+      { "name": "Limber Health app — Brace extended reverse march", "detail": "Supported Brace Extended Reverse March.", "sets": "3 x 10 reps" },
+      { "name": "Limber Health app — Foam roller thoracic extension", "detail": "Foam Roller Thoracic Extension.", "sets": "3 x 10 reps" },
+      { "name": "Limber Health app — Kettlebell Turkish windmill", "detail": "Kettlebell Turkish Windmill — bilateral.", "sets": "3 x 10 reps" },
+      { "name": "Rotational hip exercise with wall contact", "detail": "Push hip toward front door while rotating, coordinate with head positioning, heel against back wall", "sets": "Multiple reps" },
+      { "name": "Core crunches with scapular initiation", "detail": "Start crunch between shoulder blades, pull hands toward knees — initiate from upper back not abdomen", "sets": "10-15 reps" },
+      { "name": "Outside pinky wall push", "detail": "Push outside pinky finger up wall surface maintaining shoulder positioning — activates posterior chain", "sets": "10-15 reps" },
+      { "name": "Mirror-based breathing observation", "detail": "Diaphragmatic breathing shirtless — visualize rib cage movement, expand ribs while keeping them down, prevent thoracic extension", "sets": "5-10 min daily" },
+      { "name": "Dead hangs with scapular focus", "detail": "Maintain shoulder blade engagement, avoid rib cage flaring, progress from supported to full hang", "sets": "10s x 10 reps" },
+      { "name": "Wall-based rotational band work", "detail": "Orange band, inside arm stabilized against wall, outside arm rotating against resistance", "sets": "8 reps x 2 circuits" },
+      { "name": "Cross-body diagonal band pulls", "detail": "Discus/spiral pattern, mid-to-high level (NOT low), spiral fascial line activation", "sets": "8-10 reps" },
+      { "name": "Backward pulling movements", "detail": "Posterior chain activation, maintain form", "sets": "3-4 minutes" },
+      { "name": "Balloon breathing", "detail": "Inflate using belly expansion NOT chest rise, eliminate lip pursing, complete exhale with abdominal contraction — 'quick exit' sound", "sets": "Daily, 5-10 min" },
+      { "name": "Rotational marching", "detail": "Alternating leg marches maintaining abdominal tension, coordinate with breathing, prevent thoracic extension", "sets": "10-15 reps/leg" },
+      { "name": "Facing band same side march", "detail": "Band high and behind, march with straight arm extension — maintain fascial tension throughout ROM", "sets": "ON HOLD — need bands (6th deferral)" },
+      { "name": "Thread the needle", "detail": "To be demonstrated by Ryan", "sets": "TBD — 5x deferred" },
+      { "name": "Spiral/rotational fascial work", "detail": "'Reverse lawnmower' movement, mid-to-high level NOT low", "sets": "8-10 reps" },
+      { "name": "Anterior chain fly + posterior control", "detail": "Dual-component, front and back simultaneously", "sets": "8-10 reps" },
+      { "name": "Pull-apart exercises", "detail": "Maintain form and control", "sets": "10-15 reps" },
+      { "name": "Anti-machine lengthening + posterior rotation", "detail": "Session 3 prescription", "sets": "As tolerated" },
+      { "name": "Serratus activation", "detail": "Prone position, wrists ahead of elbows", "sets": "15 reps or to burn" },
+      { "name": "Core/rotation work", "detail": "Squeeze ball, contract core, rotate toward foot — ab compression NOT shoulder extension", "sets": "10-15 reps" },
+      { "name": "Scap strengthening", "detail": "Dead hang position, maintain blade engagement — progress to alternating marches", "sets": "To fatigue" },
+      { "name": "Scap-ups", "detail": "Continue, avoid compensation patterns", "sets": "10-15 reps" },
+      { "name": "Anti-rotation band work", "detail": "Modified walk-outs with super/thera band — isometric eccentric control, NOT active twisting", "sets": "10-15 reps" },
+      { "name": "Transverse abdominis activation", "detail": "Supine, knees bent, draw belly button to spine, hold", "sets": "5s hold x 10 reps x 3 sets" }
+    ],
+    "questions": [
+      "Confirm: 'I'm continuing with you AND exploring Amy as a complement' — prevent future scheduling confusion",
+      "Resistance bands — 6th deferral, non-negotiable for Session 10",
+      "Thread the needle demonstration — 5th deferral, must happen Session 10",
+      "Share shoulder MRI with Ryan — offered Session 9, not yet provided",
+      "Did Ryan call Dr. Hansen? (Still unanswered from Session 8)",
+      "Formal reassessment: differential click exam, QuickDASH/NPRS baseline, pectoral engagement re-measurement",
+      "Exercise triage: Ryan's 'more is better' vs multi-model 'trim to 5-7' — what's clinically optimal?",
+      "CPAP + unstable thoracic rings during sleep — 9 sessions, never addressed",
+      "Is PT curative for the labral tear or preparatory for eventual surgical repair?"
+    ],
+    "redFlags": [
+      { "symptom": "Sharp/electrical/shooting pain", "action": "STOP immediately" },
+      { "symptom": "Rib 'slipping out' sensation", "action": "STOP + decompression reset" },
+      { "symptom": "Breathlessness beyond normal exertion", "action": "STOP + rest" },
+      { "symptom": "Numbness/tingling in chest/back", "action": "STOP + contact Ryan" },
+      { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
+    ],
+    "careTeam": [
+      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 226-9235", "note": "TO CONTACT — ask about integrated movement approach" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
+      { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
+      { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
+    ],
+    "decompressionReset": "Do NOT push rib back. Lie on R side → reach L arm overhead → deep breath into L flank → let gravity + breath reset → hold 2-3 min.",
+    "symptoms": {
+      "external_rotation_deficit": "67% — ~60 degrees vs 180 normal",
+      "internal_rotation_dominance": "chronic piano-playing compensation",
+      "upper_rib_compensation": "ribs 2-5 pec minor bracing — NEW",
+      "plate_fragmentation": "gravel-like, sutures intact"
+    },
+    "assignments": [
+      { "exercise": "Pull-ups and dead hangs", "status": "new", "source": "transcript", "confidence": "high" },
+      { "exercise": "Single-arm RDL (heavy, left arm)", "status": "new", "source": "transcript", "confidence": "high" },
+      { "exercise": "Landmine rotations", "status": "new", "source": "transcript", "confidence": "medium" },
+      { "exercise": "Resisted external rotation work", "status": "new", "source": "transcript", "confidence": "high" },
+      { "exercise": "Limber Health app exercises", "status": "new", "source": "transcript", "confidence": "high" }
+    ],
+    "notes": "Session 9 was uniquely strategic/academic — Ryan believed farewell visit and oriented toward self-reliance. Didn't charge. Format produced clinical reasoning depth unavailable in hands-on sessions: tensegrity synthesis, loading philosophy alignment, upper rib compensation discovery. First ROM measurement in 9 sessions: 67% external rotation deficit, attributed primarily to piano playing. Farewell confusion resolved — Jack is continuing care. Multi-model analysis (Opus 4.6 + Sonnet 4.6) converged on central question: is PT curative or preparatory for the labral tear?"
+  },
+  {
     "id": "2026-03-10",
     "session_number": 8,
     "date": "March 10, 2026",
