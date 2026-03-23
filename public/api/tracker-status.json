@@ -1,81 +1,46 @@
 {
-  "date": "2026-03-14",
+  "date": "2026-03-15",
   "water": {
     "glasses": 0,
     "target": 10,
-    "target_oz": 80,
-    "last_drink": null,
-    "note": "Supplement adherence has been 100% for the last 14 days. Hydration tracking still separate."
+    "last_drink": null
   },
   "collagen": {
-    "morning": true,
-    "evening": true,
-    "target": "CollaGEN (FORTIGEL) 5g morning"
+    "morning": false,
+    "evening": false,
+    "target": "15g morning (+ optional 10g evening)"
   },
   "vitamin_c": {
-    "morning": true,
-    "evening": true,
-    "target": "Sodium Ascorbate 500mg morning, 500mg evening"
+    "morning": false,
+    "evening": false,
+    "target": "500mg morning, 500mg evening"
   },
   "magnesium": {
-    "taken": true,
-    "target": "Magnesium Glycinate 400mg before bed"
+    "taken": false,
+    "target": "400mg before bed"
   },
-  "bone_mineral_boost": {
-    "taken": true,
-    "target": "Sparkle Wellness Bone Mineral Boost \u2014 morning"
-  },
-  "creatine": {
-    "taken": true,
-    "target": "Daily \u2014 creatine"
-  },
-  "mct_oil": {
-    "taken": true,
-    "target": "Daily \u2014 MCT oil"
-  },
-  "turmeric": {
-    "taken": true,
-    "target": "Incidental via Aldi protein shake (low bioavailability)"
-  },
-  "to_order": {
-    "fish_oil": "Phase 3 critical \u2014 EPA/DHA anti-inflammatory",
-    "curcumin": "Meriva Phytosome \u2014 upgrade from turmeric shake",
-    "im8_health": "Ordered Feb 12, awaiting delivery"
+  "stasis": {
+    "taken": false,
+    "target": "Daily \u2014 stimulant complement (contains turmeric/curcumin)"
   },
   "mitopure": {
-    "taken": true,
-    "target": "Daily \u2014 Mitopure (Urolithin A)"
+    "taken": false,
+    "target": "Daily \u2014 Timeline Mitopure gummies"
   },
-  "rehab": {
-    "done_today": false,
-    "note": "Supplement adherence update only; rehab completion tracked separately."
+  "fish_oil": {
+    "taken": false,
+    "target": "Daily \u2014 omega-3 anti-inflammatory"
   },
-  "glycine": {
-    "taken": true,
-    "target": "Evening \u2014 glycine"
+  "mct_oil": {
+    "taken": false,
+    "target": "Daily \u2014 MCT oil"
   },
-  "taurine": {
-    "taken": true,
-    "target": "Evening \u2014 taurine"
+  "creatine": {
+    "taken": false,
+    "target": "Daily \u2014 creatine"
   },
-  "nmn": {
-    "taken": true,
-    "target": "Evening \u2014 NMN"
-  },
-  "calcium_k2": {
-    "taken": true,
-    "target": "Evening \u2014 Life Extension Calcium with K2"
-  },
-  "yesterday_evening_stack": {
-    "date": "2026-03-13",
-    "logged": true,
-    "items": [
-      "glycine",
-      "taurine",
-      "NMN",
-      "magnesium",
-      "sodium ascorbate (2nd)",
-      "life extension calcium with K2"
-    ]
+  "bone_restore": {
+    "taken": false,
+    "target": "Daily \u2014 Sparkle Wellness Bone Restore"
   }
 }
