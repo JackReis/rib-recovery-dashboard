@@ -62,3 +62,6 @@ This repo is part of an 18-repo portfolio coordinated from the `=notes` vault.
 - Refresh: `/dashboard-refresh` skill in =notes updates stale API JSON
 - Drive sync: `/gdrive-sync` skill pushes JSON to `gdrive:NotebookLM-Dashboard-Data/`
 - **Do not manually edit API JSON** — fix source data in vault, then regenerate
+
+## SESSION LOGGING
+Mandatory Requirement: Maintain immaculate session logs across ALL repositories in the ecosystem. Every session must result in a detailed log in 'logs/sessions/YYYY-MM/' (or the repository's designated log directory), capturing objectives, achievements, changes committed, and next actions. This is a core responsibility of both Neo (Orchestrator) and PT (Lead Engineer) to preserve context and ensure seamless multi-session coordination.
