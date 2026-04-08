@@ -2,7 +2,7 @@
   "meta": {
     "endpoint": "wellness",
     "description": "Unified wellness dashboard - all health metrics in one endpoint",
-    "generated_at": "2026-03-14T16:10:00Z",
+    "generated_at": "2026-04-08T15:11:50Z",
     "version": "1.1",
     "timezone": "America/Chicago"
   },
@@ -14,13 +14,13 @@
     "supplement_adherence": 100,
     "mcp_uptime": 91.0,
     "next_appointment_days": null,
-    "last_updated": "2026-03-14T16:10:00Z"
+    "last_updated": "2026-04-08T15:11:50Z"
   },
   "quick_stats": {
     "rib_recovery": {
       "progress_percentage": 67,
-      "days_post_op": 506,
-      "months_post_op": 16.6,
+      "days_post_op": 544,
+      "months_post_op": 17.8,
       "status": "progressing_well",
       "trend": "improving"
     },
@@ -59,8 +59,8 @@
     }
   },
   "today": {
-    "date": "2026-03-01",
-    "day_of_week": "Sunday",
+    "date": "2026-04-08",
+    "day_of_week": "Wednesday",
     "supplements": {
       "collagen_morning": true,
       "vitamin_c_morning": true,
@@ -88,7 +88,7 @@
     }
   },
   "this_week": {
-    "week_number": 9,
+    "week_number": 15,
     "year": 2026,
     "focus": "Harvest Bowls & Sheet Pans",
     "meal_plan_theme": "Paleo & Vegan Hybrid",
