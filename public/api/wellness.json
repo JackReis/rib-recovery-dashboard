@@ -2,7 +2,7 @@
   "meta": {
     "endpoint": "wellness",
     "description": "Unified wellness dashboard - all health metrics in one endpoint",
-    "generated_at": "2026-04-08T15:11:50Z",
+    "generated_at": "2026-04-13T20:14:23Z",
     "version": "1.1",
     "timezone": "America/Chicago"
   },
@@ -14,13 +14,13 @@
     "supplement_adherence": 100,
     "mcp_uptime": 91.0,
     "next_appointment_days": null,
-    "last_updated": "2026-04-08T15:11:50Z"
+    "last_updated": "2026-04-13T20:14:23Z"
   },
   "quick_stats": {
     "rib_recovery": {
       "progress_percentage": 67,
-      "days_post_op": 544,
-      "months_post_op": 17.8,
+      "days_post_op": 549,
+      "months_post_op": 18.0,
       "status": "progressing_well",
       "trend": "improving"
     },
@@ -59,16 +59,16 @@
     }
   },
   "today": {
-    "date": "2026-04-08",
-    "day_of_week": "Wednesday",
+    "date": "2026-04-13",
+    "day_of_week": "Monday",
     "supplements": {
-      "collagen_morning": true,
-      "vitamin_c_morning": true,
-      "vitamin_c_evening": true,
-      "magnesium_evening": true,
-      "bone_mineral_boost": true,
-      "creatine": true,
-      "mct_oil": true,
+      "collagen_morning": false,
+      "vitamin_c_morning": false,
+      "vitamin_c_evening": false,
+      "magnesium_evening": false,
+      "bone_mineral_boost": false,
+      "creatine": false,
+      "mct_oil": false,
       "hydration_oz": 0,
       "hydration_target": 80
     },
@@ -88,7 +88,7 @@
     }
   },
   "this_week": {
-    "week_number": 15,
+    "week_number": 16,
     "year": 2026,
     "focus": "Harvest Bowls & Sheet Pans",
     "meal_plan_theme": "Paleo & Vegan Hybrid",
