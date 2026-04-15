@@ -2,7 +2,7 @@
   "meta": {
     "endpoint": "wellness",
     "description": "Unified wellness dashboard - all health metrics in one endpoint",
-    "generated_at": "2026-04-14T19:32:32Z",
+    "generated_at": "2026-04-15T17:28:06Z",
     "version": "1.1",
     "timezone": "America/Chicago"
   },
@@ -14,13 +14,13 @@
     "supplement_adherence": 100,
     "mcp_uptime": 91.0,
     "next_appointment_days": null,
-    "last_updated": "2026-04-14T19:32:32Z"
+    "last_updated": "2026-04-15T17:28:06Z"
   },
   "quick_stats": {
     "rib_recovery": {
       "progress_percentage": 67,
-      "days_post_op": 550,
-      "months_post_op": 18.0,
+      "days_post_op": 551,
+      "months_post_op": 18.1,
       "status": "progressing_well",
       "trend": "improving"
     },
@@ -59,8 +59,8 @@
     }
   },
   "today": {
-    "date": "2026-04-14",
-    "day_of_week": "Tuesday",
+    "date": "2026-04-15",
+    "day_of_week": "Wednesday",
     "supplements": {
       "collagen_morning": false,
       "vitamin_c_morning": false,
