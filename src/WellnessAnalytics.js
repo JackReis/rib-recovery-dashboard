@@ -176,7 +176,13 @@ export default function WellnessAnalytics() {
       appointments: appointmentData,
       permaV: permaVScores
     };
-    const history = JSON.parse(localStorage.getItem(REPORT_STORAGE_KEY) || '[]');
+    let history;
+    try {
+      history = JSON.parse(localStorage.getItem(REPORT_STORAGE_KEY) || '[]');
+    } catch {
+      // Corrupted localStorage data — reset
+      history = [];
+    }
     history.push(report);
     localStorage.setItem(REPORT_STORAGE_KEY, JSON.stringify(history));
 
