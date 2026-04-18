@@ -215,7 +215,7 @@ const THUMB_MCP_PROTOCOL = {
     primary: {
       clinic: "Odyssey Health Care",
       address: "1 South Washington St, Ardmore",
-      provider: "Ted Phalen, OT",
+      provider: "Ted Phelan, OT",
       experience: "30+ years, orthopedic specialization",
       capability: "Splint management, intrinsic isolation expertise"
     },
@@ -257,7 +257,7 @@ const ARDMORE_PROVIDERS = [
         address: "1 South Washington St",
         phone: "(580) 223-7201",
         specialties: ["Hand therapy", "OT expertise", "Splint management", "Fine motor rehabilitation"],
-        providers: ["Ted Phalen, OT (30+ years experience)"],
+        providers: ["Ted Phelan, OT (30+ years experience)"],
         best_for: "Thumb MCP protocol, intrinsic muscle isolation, Protected Mobilization weaning schedule",
         capabilities: "Occupational therapy mindset for fine motor and ADLs, custom splinting if Push brace fails",
         insurance: "Medicare/Medicaid certified, most commercial plans"
@@ -315,7 +315,7 @@ const OKLAHOMA_DIRECT_ACCESS = {
     "Most commercial insurance honors direct access",
     "Medicare/Medicaid/Tricare may still require referral for payment"
   ],
-  strategic_advantage: "Immediate access to Amy Thompson (Excel) or Ted Phalen (Odyssey) for acute injuries"
+  strategic_advantage: "Immediate access to Amy Thompson (Excel) or Ted Phelan (Odyssey) for acute injuries"
 };
 
 // --- COMPONENT ---
