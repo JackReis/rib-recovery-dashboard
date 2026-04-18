@@ -551,7 +551,7 @@ When hands work hard, core activates automatically
 
 ## 📊 Combined Progress Milestones
 
-### Month 14-15 (Current)
+### Month 14-15
 - [ ] Scapular setting without pain
 - [ ] Basic hand exercises tolerated
 - [ ] Functional hand use maintained
@@ -563,7 +563,7 @@ When hands work hard, core activates automatically
 - [ ] Overhead reaching to 120°
 - [ ] Fine motor normalizing
 
-### Month 18-19
+### Month 18-19 (Current)
 - [ ] Full shoulder ROM
 - [ ] Hand strength 80% normal
 - [ ] Return to most activities
@@ -581,4 +581,6 @@ When hands work hard, core activates automatically
 
 **Protocol Version:** 1.0
 **Created:** January 2026
+**Last Updated:** April 2026
+**Next Review:** Month 21 (July 2026)
 **For:** Jack - Comprehensive Upper Extremity Rehabilitation
