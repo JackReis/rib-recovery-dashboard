@@ -10,7 +10,7 @@
     "overall_wellness_score": 7.4,
     "overall_wellness_status": "thriving",
     "recovery_progress": 67,
-    "meal_adherence": 85,
+    "meal_adherence": 0,
     "supplement_adherence": 100,
     "mcp_uptime": 91.0,
     "next_appointment_days": null,
@@ -25,16 +25,16 @@
       "trend": "improving"
     },
     "nutrition": {
-      "meal_adherence": 85,
-      "meals_this_week": 16,
-      "meals_planned": 20,
-      "adherence_trend": "stable"
+      "meal_adherence": 0,
+      "meals_this_week": 0,
+      "meals_planned": 0,
+      "adherence_trend": "no_active_plan"
     },
     "supplements": {
       "adherence_rate": 100,
       "today_complete": 0,
       "today_pending": 7,
-      "streak_days": 14,
+      "streak_days": 0,
       "active_count": 7,
       "gaps": [
         "Fish Oil (EPA/DHA)",
@@ -90,16 +90,16 @@
   "this_week": {
     "week_number": 16,
     "year": 2026,
-    "focus": "Harvest Bowls & Sheet Pans",
-    "meal_plan_theme": "Paleo & Vegan Hybrid",
-    "meals_completed": 16,
-    "meals_planned": 20,
-    "adherence": 80,
+    "focus": null,
+    "meal_plan_theme": null,
+    "meals_completed": 0,
+    "meals_planned": 0,
+    "adherence": 0,
     "shopping_trip": {
-      "completed": true,
-      "date": "2026-02-02",
-      "cost": 68.45,
-      "store": "Aldi Ardmore"
+      "completed": false,
+      "date": null,
+      "cost": null,
+      "store": null
     }
   },
   "perma_v_wellness": {
@@ -123,9 +123,9 @@
     "procedure": "Bilateral 9th/10th Costal Margin Reconstruction",
     "current_progress": 67,
     "next_milestone": {
-      "target": 75,
-      "estimated_date": "2026-05-11",
-      "description": "18 months post-op"
+      "target": 80,
+      "estimated_date": "2026-10-11",
+      "description": "24 months post-op (end of Hansen extended 29-41 month window)"
     }
   },
   "medications": {
@@ -155,20 +155,20 @@
   "alerts": [
     {
       "type": "supplement",
-      "priority": "medium",
-      "message": "Supplements on a 14-day perfect streak (100%). Keep evening stack and hydration cadence consistent.",
+      "priority": "low",
+      "message": "Supplement tracker resets daily. Keep evening stack and hydration cadence consistent.",
       "time": "20:00"
     },
     {
       "type": "appointment",
       "priority": "medium",
       "message": "Good Shepherd \u2014 pay outstanding balance online. Psychiatry cancelled (med mgmt transferred to Tasha Preston at OIC).",
-      "date": "2026-03-01"
+      "date": "2026-04-17"
     },
     {
       "type": "recovery",
       "priority": "medium",
-      "message": "PT Session 3 complete (Feb 18) \u2014 15 exercises total. Next: Wed+Fri 5pm with Ryan Fraley, DPT"
+      "message": "PT with Ryan Fraley discharged 2026-03-20 after Session 11. Independent gym protocol continues. Next: schedule consults with Amy Thompson (ASTYM/Excel Therapy), Ted Phelan (thumb MCP/Odyssey), Eric Windom (laser/Ideal Chiropractic)."
     }
   ],
   "shortcuts_quick_actions": [
