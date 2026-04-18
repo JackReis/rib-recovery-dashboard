@@ -418,7 +418,7 @@ export default function RecoveryDashboard({ onNavigate }) {
               <Card className="p-6 border-blue-100 bg-blue-50/50">
                 <div className="flex items-center space-x-2 text-blue-700 mb-2">
                   <Info size={18} />
-                  <span className="font-bold">Month 16 / 24 — Remodeling Phase</span>
+                  <span className="font-bold">Month 18 / 24 — Remodeling Phase</span>
                 </div>
                 <p className="text-sm text-slate-700 leading-relaxed">
                   Critical <strong>collagen remodeling window</strong> (months 12-18). Plates degrading as expected — biological fusion forming. Focus: <strong>release guarding patterns</strong> before they become permanent.
@@ -717,7 +717,7 @@ export default function RecoveryDashboard({ onNavigate }) {
         <div className="p-4 border-t border-slate-100">
           <div className="bg-slate-50 rounded-lg p-3 text-xs text-slate-500">
             <p className="font-bold text-slate-700 mb-1">Status Check</p>
-            Month 16 / 24 Post-Op<br/>
+            Month 18 / 24 Post-Op<br/>
             Phase 1: Remodeling
           </div>
         </div>
