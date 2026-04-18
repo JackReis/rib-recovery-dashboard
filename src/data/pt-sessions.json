@@ -1,5 +1,135 @@
 [
   {
+    "id": "2026-03-20",
+    "session_number": 11,
+    "date": "March 20, 2026",
+    "time": "4:30 PM",
+    "status": "completed",
+    "is_discharge": true,
+    "provider": {
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
+    },
+    "transcript_sources": [
+      "atlas/health/pt-session-2026-03-20-notes-with-ryan.md"
+    ],
+    "context": [
+      "Month 18 of 24 post-Hansen bilateral rib reconstruction (Day ~525)",
+      "DISCHARGE / TRANSITION SESSION — final formal PT visit with Ryan Fraley",
+      "Transitioning to independent gym-based rehab + Amy Thompson (Excel Therapy) ASTYM/IASTM consultation",
+      "Ryan available PRN via Malcolm at Physical Therapy Central (580) 247-1320",
+      "Session compressed by scheduling conflict; RDL 'Jack protocol' and exercise triage not completed"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "Left scapular winging under bilateral load",
+        "detail": "Present and acknowledged during suspension/cable row — 'It's winging. It cheats because it's weaker.' Weight reduced to preserve form. Consistent with established SICK scapula pattern. See vault notes.",
+        "severity": "moderate"
+      },
+      {
+        "priority": 2,
+        "title": "Hip strength vs balance strategy",
+        "detail": "New coaching theme: hip sway as compensatory balance strategy rather than intrinsic hip stabilization. Sets up next phase of independent work. See vault notes.",
+        "severity": "moderate"
+      },
+      {
+        "priority": 3,
+        "title": "FiberTape suture / cheese-wire concern",
+        "detail": "Ryan raised theoretical concern about FiberTape cutting through cartilage over time. Not an acute finding; flagged for next Dr. Hansen consult.",
+        "severity": "low"
+      }
+    ],
+    "sinceLastSession": [
+      "Session 10 on Mar 17 — rectus abdominis symmetry breakthrough reported; IASTM philosophy discussion consumed ~15 minutes",
+      "Resistance bands still not purchased (unresolved across all 11 sessions)"
+    ],
+    "findings": [
+      "Rib visual assessment positive: 'Your ribs look good. Like them. They're not flaring. They're not extending.' — most explicit rib status confirmation in 11 sessions (visual, not formal exam).",
+      "Session 1 rotational/squeeze exercise revisited and clearly improved — objective evidence of trajectory over 11 sessions.",
+      "Left scapular winging present under bilateral load; load reduction preserved form.",
+      "Hip sway compensatory strategy identified as next-phase focus.",
+      "Thread the needle deferred for 6th consecutive session; may never be formally demonstrated given discharge."
+    ],
+    "prescribed": [
+      "No new exercises — existing Session 9-10 protocol continues",
+      "Limber Health program (code ZAS-EWV-IFQ) — 5 exercises",
+      "Mirror-based form monitoring at gym",
+      "Balloon/diaphragmatic breathing daily"
+    ],
+    "protocol": {},
+    "assignments": [],
+    "notes": "DISCHARGE session — independent gym protocol handoff. Amy Thompson (Excel Therapy, (580) 226-9235) consult queued for ASTYM/IASTM. Ryan available PRN via Malcolm. No formal discharge documentation; informal self-directed transition. See canonical vault note for full clinical detail: atlas/health/pt-session-2026-03-20-notes-with-ryan.md."
+  },
+  {
+    "id": "2026-03-17",
+    "session_number": 10,
+    "date": "March 17, 2026",
+    "time": "11:30 AM",
+    "status": "completed",
+    "provider": {
+      "name": "Ryan Fraley",
+      "credentials": "DPT",
+      "organization": "Physical Therapy Central",
+      "phone": "(580) 247-1320",
+      "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
+    },
+    "transcript_sources": [
+      "atlas/health/pt-session-2026-03-17-notes-with-ryan.md"
+    ],
+    "context": [
+      "Month 17 of 24 post-Hansen bilateral rib reconstruction (Day ~522)",
+      "Ryan's clinical reframing: ribs are no longer the limiting factor — rehab challenge has shifted to neuromotor retraining of compensations",
+      "Patient-reported rectus abdominis symmetry breakthrough — most significant core recovery milestone since surgery",
+      "IASTM philosophy discussion consumed ~15 minutes of session time"
+    ],
+    "concerns": [
+      {
+        "priority": 1,
+        "title": "Persistent thoracic extension compensation",
+        "detail": "Dominant movement fault across all exercises — required three distinct corrections during session (heel push, lunge, single-leg RDL). See vault notes.",
+        "severity": "moderate"
+      },
+      {
+        "priority": 2,
+        "title": "Plate debris sensory experience during hip flexion",
+        "detail": "Patient characterization: 'as soon as I flex my hip joint, all the trash in the bottom of the garbage can is floating up.' Expected but distressing during month 17 of PLLA/PLGA degradation.",
+        "severity": "moderate"
+      },
+      {
+        "priority": 3,
+        "title": "IASTM philosophy divergence",
+        "detail": "Ryan does not believe tool-based scar tissue separation works mechanically; views as neurophysiological only. Resolution: self-apply at home, not billable. See vault notes.",
+        "severity": "low"
+      }
+    ],
+    "sinceLastSession": [
+      "Cervical stiffness from sleeping outdoors during OK temperature swing (40s to near 90F in 48h)",
+      "Rectus abdominis symmetry breakthrough reported — first symmetric core engagement since surgery",
+      "Improved proprioceptive literacy: patient independently detected core cheating during arm bike rotation"
+    ],
+    "findings": [
+      "Rectus abdominis symmetry breakthrough — 'top to bottom... I could feel the two center columns.' Suggests neural recovery progressing despite ongoing plate degradation.",
+      "Ryan's reframing: 'I think the ribs are in a good spot... your body doesn't know how to move without the compensations now.' Rehab shifted from structural protection to neuromotor retraining.",
+      "Thoracic extension compensation persists as dominant movement fault but proprioceptive awareness improving.",
+      "Isometric (yoga) vs full-ROM tendon conditioning distinction clarified — tendon strength requires eccentric loading through full range."
+    ],
+    "prescribed": [
+      "Wall rotational hip exercise with ball — 8 reps bilateral daily",
+      "Side-lying hip external rotation — 8 reps each side, 3-5x/week",
+      "Lunge with anterior weight distribution (glute focus) — 3-5x/week",
+      "Single-leg RDL with thoracic rotation — 3-5 reps/leg, 3-5x/week",
+      "Supine retention with ball — 8-10 reps, 3-5x/week",
+      "Continue Limber Health program (code ZAS-EWV-IFQ)"
+    ],
+    "protocol": {},
+    "assignments": [],
+    "notes": "Ryan's clearest statement yet that rehab has shifted from rib-protection to neuromotor retraining. Rectus abdominis symmetry breakthrough is clinically significant — first symmetric core engagement in 17 months. Thread the needle deferred for 5th time. Resistance bands still not acquired. See canonical vault note for full clinical detail: atlas/health/pt-session-2026-03-17-notes-with-ryan.md."
+  },
+  {
     "id": "2026-03-13",
     "session_number": 9,
     "date": "March 13, 2026",
@@ -139,7 +269,7 @@
     "careTeam": [
       { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 226-9235", "note": "TO CONTACT — ask about integrated movement approach" },
-      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
       { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
       { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
@@ -286,7 +416,7 @@
     "careTeam": [
       { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
-      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
       { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
       { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
@@ -408,7 +538,7 @@
     "careTeam": [
       { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
-      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
       { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
       { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
@@ -542,7 +672,7 @@
     "careTeam": [
       { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
-      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
       { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
       { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
@@ -679,7 +809,7 @@
     "careTeam": [
       { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
-      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
       { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
       { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
@@ -812,7 +942,7 @@
     "careTeam": [
       { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
-      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
       { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
       { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
@@ -942,7 +1072,7 @@
     "careTeam": [
       { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
-      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
       { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
       { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
@@ -1063,7 +1193,7 @@
     "careTeam": [
       { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
-      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
       { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
       { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
@@ -1178,7 +1308,7 @@
     "careTeam": [
       { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
-      { "role": "OT (Hand/Thumb)", "name": "Ted Phalen, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
+      { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
       { "role": "Counseling", "name": "Melissa Sherfield", "org": "LFS Counseling", "phone": "", "note": "Thursdays at noon, $113/session" },
       { "role": "Med Management", "name": "Tasha Preston, PMHNP", "org": "Oklahoma Integrated Care", "phone": "(580) 238-4277", "note": "" }
