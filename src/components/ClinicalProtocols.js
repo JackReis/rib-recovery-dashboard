@@ -82,7 +82,7 @@ const SICK_SCAPULA_PROTOCOL = {
           integration: "Patient actively flexes/abducts during stroke"
         }
       ],
-      provider_rec: "Physical Therapy Central - Ryan Fraley, DPT",
+      provider_rec: "Physical Therapy Central - Amy Thompson, PT",
       benefit: "Restores posterior tilt capacity"
     },
     {
@@ -247,7 +247,7 @@ const ARDMORE_PROVIDERS = [
         address: "2015 W Broadway St, Unit 3A",
         phone: "(580) 453-4455",
         specialties: ["Sports Certified Specialist", "Move2Perform screening", "Dry needling", "Manual therapy"],
-        providers: ["Ryan Fraley, PT, DPT, SCS (Sports Certified Specialist)"],
+        providers: ["Amy Thompson, PT, PT, SCS (Sports Certified Specialist)"],
         best_for: "High-level strengthening (Phase 2/3), Return-to-throw programs, ART protocols",
         capabilities: "Functional movement screening, dry needling for trigger points, integrated rehabilitation for serratus punches and plyometrics",
         insurance: "Most commercial plans, verify with office"

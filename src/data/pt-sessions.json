@@ -7,8 +7,8 @@
     "status": "completed",
     "is_discharge": true,
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -18,7 +18,7 @@
     ],
     "context": [
       "Month 18 of 24 post-Hansen bilateral rib reconstruction (Day ~525)",
-      "DISCHARGE / TRANSITION SESSION — final formal PT visit with Ryan Fraley",
+      "DISCHARGE / TRANSITION SESSION — final formal PT visit with Amy Thompson",
       "Transitioning to independent gym-based rehab + Amy Thompson (Excel Therapy) ASTYM/IASTM consultation",
       "Ryan available PRN via Malcolm at Physical Therapy Central (580) 247-1320",
       "Session compressed by scheduling conflict; RDL 'Jack protocol' and exercise triage not completed"
@@ -71,8 +71,8 @@
     "time": "11:30 AM",
     "status": "completed",
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -136,8 +136,8 @@
     "time": "4:30 PM",
     "status": "completed",
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -267,7 +267,7 @@
       { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
     ],
     "careTeam": [
-      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (Shoulder/Ribs)", "name": "Amy Thompson, PT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 226-9235", "note": "TO CONTACT — ask about integrated movement approach" },
       { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
@@ -297,8 +297,8 @@
     "time": "11:00 AM",
     "status": "completed",
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -414,7 +414,7 @@
       { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
     ],
     "careTeam": [
-      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (Shoulder/Ribs)", "name": "Amy Thompson, PT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
       { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
@@ -440,8 +440,8 @@
     "time": "4:30 PM",
     "status": "completed",
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -536,7 +536,7 @@
       { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
     ],
     "careTeam": [
-      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (Shoulder/Ribs)", "name": "Amy Thompson, PT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
       { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
@@ -555,8 +555,8 @@
     "time": "5:00 PM",
     "status": "completed",
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -670,7 +670,7 @@
       { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
     ],
     "careTeam": [
-      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (Shoulder/Ribs)", "name": "Amy Thompson, PT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
       { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
@@ -700,8 +700,8 @@
     "time": "11:30 AM",
     "status": "completed",
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -807,7 +807,7 @@
       { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
     ],
     "careTeam": [
-      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (Shoulder/Ribs)", "name": "Amy Thompson, PT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
       { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
@@ -834,8 +834,8 @@
     "time": "5:00 PM",
     "status": "completed",
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -940,7 +940,7 @@
       { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
     ],
     "careTeam": [
-      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (Shoulder/Ribs)", "name": "Amy Thompson, PT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
       { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
@@ -968,8 +968,8 @@
     "time": "5:00 PM",
     "status": "completed",
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -1070,7 +1070,7 @@
       { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
     ],
     "careTeam": [
-      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (Shoulder/Ribs)", "name": "Amy Thompson, PT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
       { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
@@ -1093,8 +1093,8 @@
     "time": "4:30 PM",
     "status": "completed",
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -1191,7 +1191,7 @@
       { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
     ],
     "careTeam": [
-      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (Shoulder/Ribs)", "name": "Amy Thompson, PT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
       { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },
@@ -1218,8 +1218,8 @@
     "time": "5:00 PM",
     "status": "completed",
     "provider": {
-      "name": "Ryan Fraley",
-      "credentials": "DPT",
+      "name": "Amy Thompson",
+      "credentials": "PT",
       "organization": "Physical Therapy Central",
       "phone": "(580) 247-1320",
       "address": "2015 W Broadway St, Unit 3A, Ardmore, OK 73401"
@@ -1306,7 +1306,7 @@
       { "symptom": "Pain >7/10 lasting >30 min", "action": "STOP + ice/rest" }
     ],
     "careTeam": [
-      { "role": "PT (Shoulder/Ribs)", "name": "Ryan Fraley, DPT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
+      { "role": "PT (Shoulder/Ribs)", "name": "Amy Thompson, PT", "org": "Physical Therapy Central", "phone": "(580) 247-1320", "note": "Tue 11:00 AM + Fri 4:30 PM" },
       { "role": "PT (IASTM/ASTYM)", "name": "Amy Thompson, PT", "org": "Excel Therapy", "phone": "(580) 319-2630", "note": "TO CONTACT — call script ready" },
       { "role": "OT (Hand/Thumb)", "name": "Ted Phelan, OT", "org": "Odyssey Health Care", "phone": "(580) 223-7201", "note": "TO CONTACT" },
       { "role": "Laser Therapy (Thumb)", "name": "Eric Windom", "org": "Ideal Chiropractic", "phone": "", "note": "Tasha's referral — TO CONTACT" },

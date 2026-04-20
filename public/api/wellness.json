@@ -43,7 +43,7 @@
     },
     "appointments": {
       "next_appointment": {
-        "provider": "Ryan Fraley, DPT",
+        "provider": "Amy Thompson, PT",
         "date": "none_scheduled",
         "time": "TBD",
         "days_until": null,
@@ -168,7 +168,7 @@
     {
       "type": "recovery",
       "priority": "medium",
-      "message": "PT with Ryan Fraley discharged 2026-03-20 after Session 11. Independent gym protocol continues. Next: schedule consults with Amy Thompson (ASTYM/Excel Therapy), Ted Phelan (thumb MCP/Odyssey), Eric Windom (laser/Ideal Chiropractic)."
+      "message": "PT with Amy Thompson discharged 2026-03-20 after Session 11. Independent gym protocol continues. Next: schedule consults with Amy Thompson (ASTYM/Excel Therapy), Ted Phelan (thumb MCP/Odyssey), Eric Windom (laser/Ideal Chiropractic)."
     }
   ],
   "shortcuts_quick_actions": [

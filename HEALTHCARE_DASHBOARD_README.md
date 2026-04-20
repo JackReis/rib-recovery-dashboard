@@ -167,7 +167,7 @@ The dashboard expects data in the format defined in `/src/data/providers.json`:
 {
   "id": "unique-id",
   "name": "Provider Name",
-  "credentials": "MD, DPT, etc.",
+  "credentials": "MD, PT, etc.",
   "specialty": "Specialty description",
   "system": "system-id",
   "contact": {
