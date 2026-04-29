@@ -95,9 +95,14 @@ export default function PTSessionPlan() {
 
   // Load saved notes from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('pt-session-notes');
-    if (saved) {
-      setSessionNotes(JSON.parse(saved));
+    try {
+      const saved = localStorage.getItem('pt-session-notes');
+      if (saved) {
+        setSessionNotes(JSON.parse(saved));
+      }
+    } catch {
+      // Corrupted localStorage data — reset to empty
+      localStorage.removeItem('pt-session-notes');
     }
   }, []);
 
